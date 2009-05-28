@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Turtle.h"
+#import "turtle.h"
 
 @interface MoveInstruction : NSObject {
 	NSNumber*			amount;

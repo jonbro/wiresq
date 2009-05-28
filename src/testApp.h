@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxAccelerometer.h"
 #include "ofxMultiTouch.h"
+#import	 "turtle.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 
@@ -24,6 +25,6 @@ public:
 	void touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	void touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	void touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
-		
+	Turtle* main_t;
 };
 

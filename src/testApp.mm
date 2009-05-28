@@ -10,17 +10,18 @@ void testApp::setup(){
 	glEnableClientState( GL_VERTEX_ARRAY );  // this should be in OF somewhere.  
 	glPointSize(60);
 	glEnable(GL_POINT_SMOOTH);
+	main_t = [[Turtle alloc]init];
 }
 
 
 //--------------------------------------------------------------
 void testApp::update(){
-	
+	[main_t update];	
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-
+	[main_t render];
 }
 
 void testApp::exit() {

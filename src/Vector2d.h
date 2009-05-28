@@ -17,4 +17,6 @@
 @property float x;
 @property float y;
 
+-(float)getHeading;
+
 @end

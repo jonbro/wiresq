@@ -13,10 +13,12 @@
 @interface Turtle : NSObject {
 	InstructionSet* iset;
 	NSNumber* currentInstruction;
-	Vector2d* pos;
+	Vector2d* pos, dir;
 }
 
 @property (retain) InstructionSet* iset;
+@property (retain) Vector2d* pos;
+@property (retain) Vector2d* dir;
 
 -(void)update;
 -(void)render;

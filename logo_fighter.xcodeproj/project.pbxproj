@@ -11,7 +11,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92800FCCCD6000F31704 /* turtle.mm */; };
-		5EEA92840FCCCDA200F31704 /* InstructionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.m */; };
+		5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.mm */; };
 		5EEA92960FCCD17700F31704 /* MoveInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.m */; };
 		5EEA92EF0FCCD8D000F31704 /* vmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92ED0FCCD8D000F31704 /* vmath.cpp */; };
 		5EEA93580FCE106F00F31704 /* Vector2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA93570FCE106F00F31704 /* Vector2d.m */; };
@@ -52,10 +52,10 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
-		5EEA927F0FCCCD6000F31704 /* Turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
+		5EEA927F0FCCCD6000F31704 /* turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92800FCCCD6000F31704 /* turtle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = turtle.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92820FCCCDA200F31704 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionSet.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.h; sourceTree = DEVELOPER_DIR; };
-		5EEA92830FCCCDA200F31704 /* InstructionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionSet.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.m; sourceTree = DEVELOPER_DIR; };
+		5EEA92830FCCCDA200F31704 /* InstructionSet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = InstructionSet.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92940FCCD17700F31704 /* MoveInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92950FCCD17700F31704 /* MoveInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoveInstruction.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveInstruction.m; sourceTree = DEVELOPER_DIR; };
 		5EEA92ED0FCCD8D000F31704 /* vmath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vmath.cpp; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/vmath.cpp; sourceTree = DEVELOPER_DIR; };
@@ -298,7 +298,7 @@
 		5EEA927D0FCCCD0700F31704 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5EEA927F0FCCCD6000F31704 /* Turtle.h */,
+				5EEA927F0FCCCD6000F31704 /* turtle.h */,
 				5EEA92800FCCCD6000F31704 /* turtle.mm */,
 			);
 			name = controllers;
@@ -308,7 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				5EEA92820FCCCDA200F31704 /* InstructionSet.h */,
-				5EEA92830FCCCDA200F31704 /* InstructionSet.m */,
+				5EEA92830FCCCDA200F31704 /* InstructionSet.mm */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -838,7 +838,7 @@
 				BB4B3E580F7AFE100030C0C6 /* ofxMultiTouch.cpp in Sources */,
 				BB4B3E5B0F7AFE100030C0C6 /* ofxAccelerometer.cpp in Sources */,
 				5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */,
-				5EEA92840FCCCDA200F31704 /* InstructionSet.m in Sources */,
+				5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */,
 				5EEA92960FCCD17700F31704 /* MoveInstruction.m in Sources */,
 				5EEA92EF0FCCD8D000F31704 /* vmath.cpp in Sources */,
 				5EEA93580FCE106F00F31704 /* Vector2d.m in Sources */,

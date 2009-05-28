@@ -7,9 +7,10 @@
 //
 
 #import "turtle.h"
-
+#import "ofGraphics.h"
 
 @implementation Turtle
+@synthesize iset;
 -(id)init
 {
 	self = [super init];
@@ -26,7 +27,8 @@
 }
 -(void)render
 {
-	
+	ofSetColor(255, 255, 255);
+	ofCircle(pos.x,pos.y, 10);
 }
 
 @end
