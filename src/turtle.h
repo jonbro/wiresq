@@ -13,7 +13,8 @@
 @interface Turtle : NSObject {
 	InstructionSet* iset;
 	NSNumber* currentInstruction;
-	Vector2d* pos, dir;
+	Vector2d* pos;
+	Vector2d* dir;
 }
 
 @property (retain) InstructionSet* iset;
