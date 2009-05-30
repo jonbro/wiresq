@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Vector2d.h"
 #import "InstructionSet.h"
+#import "MoveInstruction.h"
 
 @interface Turtle : NSObject {
-	NSNumber *currentInstruction;
+	int currentInstruction;
 	InstructionSet *in_set;
 	Vector2d *pos;
 	Vector2d *dir;
