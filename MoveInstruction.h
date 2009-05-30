@@ -17,6 +17,6 @@
 @property (copy) NSNumber*			amount;
 @property (copy) NSMutableString*	direction;
 
--(void)processTurtle:(Turtle *)_turtle;
+-(void)processTurtle:(Turtle*)_turtle;
 
 @end

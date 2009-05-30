@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "InstructionSet.h"
 #import "Vector2d.h"
+#import "InstructionSet.h"
 
 @interface Turtle : NSObject {
-	InstructionSet* iset;
-	NSNumber* currentInstruction;
-	Vector2d* pos;
-	Vector2d* dir;
+	NSNumber *currentInstruction;
+	InstructionSet *in_set;
+	Vector2d *pos;
+	Vector2d *dir;
 }
 
-@property (retain) InstructionSet* iset;
 @property (retain) Vector2d* pos;
 @property (retain) Vector2d* dir;
 

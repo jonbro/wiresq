@@ -4,6 +4,7 @@
 #include "ofxAccelerometer.h"
 #include "ofxMultiTouch.h"
 #import	 "turtle.h"
+#import "InstructionSet.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 

@@ -11,6 +11,8 @@
 
 @implementation MoveInstruction
 
+@synthesize amount, direction;
+
 -(void)processTurtle:(Turtle *)_turtle
 {
 	if([direction isEqual:@"forward"]){

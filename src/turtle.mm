@@ -8,22 +8,30 @@
 
 #import "turtle.h"
 #import "ofGraphics.h"
+#import "InstructionSet.h"
 
 @implementation Turtle
-@synthesize iset;
+
+@synthesize pos, dir;
+
 -(id)init
 {
 	self = [super init];
-	iset = [[InstructionSet alloc] init];
+	in_set = [[InstructionSet alloc] init];
 	currentInstruction = [NSNumber numberWithInt:0];
 	pos = [[Vector2d alloc] init];
 	pos.x = 160.0;
 	pos.y = 240.0;
+	
+	// add some new instructions to teh turtlezzzz :D
+	
+	
 	return self;
 }
 -(void)update
 {
-	
+	[iset processInstruction:[currentInstruction intValue] withTurtle:self];
+	currentInstruction++;
 }
 -(void)render
 {
