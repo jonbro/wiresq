@@ -13,7 +13,7 @@
 
 @synthesize amount, direction;
 
--(void)processTurtle:(Turtle *)_turtle
+-(void)processTurtle:(Turtle*)_turtle
 {
 	if([direction isEqual:@"forward"]){
 		[_turtle.pos add:[Vector2d mult:_turtle.dir amount:[amount floatValue]]];
