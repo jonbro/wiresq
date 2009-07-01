@@ -1,5 +1,5 @@
 //
-//  editor_screen.h
+//  glHelper.h
 //  logo_fighter
 //
 //  Created by jonbroFERrealz on 5/30/09.
@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface editor_screen : NSObject {
-	
-}
+@interface glHelper : NSObject {
 
+}
++(void)setupLighting;
 @end

@@ -10,10 +10,20 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		5E0C6A050FD19F8E00801469 /* editor_screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6A040FD19F8E00801469 /* editor_screen.m */; };
+		5E02E9210FD753690042B1B9 /* ProFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E02E9200FD753690042B1B9 /* ProFont.ttf */; };
+		5E0C6A080FD19FEF00801469 /* EditorScreen.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6A070FD19FEF00801469 /* EditorScreen.mm */; };
+		5E0C6ADC0FD1DBF300801469 /* InterBla in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C6ADA0FD1DBF300801469 /* InterBla */; };
+		5E0C6ADD0FD1DBF300801469 /* Interstate in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C6ADB0FD1DBF300801469 /* Interstate */; };
+		5E0C6B0B0FD1DDC500801469 /* Avenir_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C6B0A0FD1DDC500801469 /* Avenir_Medium.ttf */; };
+		5E0C6B140FD1DF6700801469 /* colorScheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6B130FD1DF6700801469 /* colorScheme.mm */; };
+		5E0C6BB40FD1F1C600801469 /* glHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6BB30FD1F1C600801469 /* glHelper.mm */; };
+		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
+		5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E0720FFAD878004DFFE3 /* Events.mm */; };
+		5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */; };
+		5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */; };
 		5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92800FCCCD6000F31704 /* turtle.mm */; };
 		5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.mm */; };
-		5EEA92960FCCD17700F31704 /* MoveInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.m */; };
+		5EEA92960FCCD17700F31704 /* MoveInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.mm */; };
 		5EEA92EF0FCCD8D000F31704 /* vmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92ED0FCCD8D000F31704 /* vmath.cpp */; };
 		5EEA93580FCE106F00F31704 /* Vector2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA93570FCE106F00F31704 /* Vector2d.m */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
@@ -53,14 +63,30 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
-		5E0C6A030FD19F8E00801469 /* editor_screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = editor_screen.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/editor_screen.h; sourceTree = DEVELOPER_DIR; };
-		5E0C6A040FD19F8E00801469 /* editor_screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = editor_screen.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/editor_screen.m; sourceTree = DEVELOPER_DIR; };
+		5E02E9200FD753690042B1B9 /* ProFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProFont.ttf; path = of_preRelease_v0.06_iphone/apps/my_apps/rotator/data/ProFont.ttf; sourceTree = DEVELOPER_DIR; };
+		5E0C6A060FD19FEF00801469 /* EditorScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorScreen.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/EditorScreen.h; sourceTree = DEVELOPER_DIR; };
+		5E0C6A070FD19FEF00801469 /* EditorScreen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EditorScreen.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/EditorScreen.mm; sourceTree = DEVELOPER_DIR; };
+		5E0C6ADA0FD1DBF300801469 /* InterBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterBla; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/fonts/InterBla; sourceTree = DEVELOPER_DIR; };
+		5E0C6ADB0FD1DBF300801469 /* Interstate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Interstate; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/fonts/Interstate; sourceTree = DEVELOPER_DIR; };
+		5E0C6B0A0FD1DDC500801469 /* Avenir_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Avenir_Medium.ttf; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/fonts/Avenir_Medium.ttf; sourceTree = DEVELOPER_DIR; };
+		5E0C6B120FD1DF6700801469 /* colorScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = colorScheme.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/colorScheme.h; sourceTree = DEVELOPER_DIR; };
+		5E0C6B130FD1DF6700801469 /* colorScheme.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = colorScheme.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/colorScheme.mm; sourceTree = DEVELOPER_DIR; };
+		5E0C6BB20FD1F1C600801469 /* glHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glHelper.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/glHelper.h; sourceTree = DEVELOPER_DIR; };
+		5E0C6BB30FD1F1C600801469 /* glHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = glHelper.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/glHelper.mm; sourceTree = DEVELOPER_DIR; };
+		5E1E69460FD49E2900B5BA1F /* GLPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLPickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.h; sourceTree = DEVELOPER_DIR; };
+		5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.mm; sourceTree = DEVELOPER_DIR; };
+		5E83E0710FFAD878004DFFE3 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.h; sourceTree = DEVELOPER_DIR; };
+		5E83E0720FFAD878004DFFE3 /* Events.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Events.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.mm; sourceTree = DEVELOPER_DIR; };
+		5E83E10F0FFAE7EA004DFFE3 /* CustomEventResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomEventResponder.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CustomEventResponder.h; sourceTree = DEVELOPER_DIR; };
+		5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomEventResponder.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CustomEventResponder.mm; sourceTree = DEVELOPER_DIR; };
+		5E8A87EE0FD749D2003E0B6B /* TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchEvent.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/TouchEvent.h; sourceTree = DEVELOPER_DIR; };
+		5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TouchEvent.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/TouchEvent.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA927F0FCCCD6000F31704 /* turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92800FCCCD6000F31704 /* turtle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = turtle.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92820FCCCDA200F31704 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionSet.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92830FCCCDA200F31704 /* InstructionSet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = InstructionSet.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.mm; sourceTree = DEVELOPER_DIR; };
-		5EEA92940FCCD17700F31704 /* MoveInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveInstruction.h; sourceTree = DEVELOPER_DIR; };
-		5EEA92950FCCD17700F31704 /* MoveInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoveInstruction.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveInstruction.m; sourceTree = DEVELOPER_DIR; };
+		5EEA92940FCCD17700F31704 /* MoveInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/MoveInstruction.h; sourceTree = DEVELOPER_DIR; };
+		5EEA92950FCCD17700F31704 /* MoveInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoveInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/MoveInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92ED0FCCD8D000F31704 /* vmath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vmath.cpp; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/vmath.cpp; sourceTree = DEVELOPER_DIR; };
 		5EEA92EE0FCCD8D000F31704 /* vmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vmath.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/vmath.h; sourceTree = DEVELOPER_DIR; };
 		5EEA93560FCE106F00F31704 /* Vector2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2d.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Vector2d.h; sourceTree = DEVELOPER_DIR; };
@@ -298,13 +324,34 @@
 			name = "core frameworks";
 			sourceTree = "<group>";
 		};
+		5E0C6AD90FD1DBF300801469 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5E02E9200FD753690042B1B9 /* ProFont.ttf */,
+				5E0C6B0A0FD1DDC500801469 /* Avenir_Medium.ttf */,
+				5E0C6ADA0FD1DBF300801469 /* InterBla */,
+				5E0C6ADB0FD1DBF300801469 /* Interstate */,
+			);
+			name = fonts;
+			path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/fonts;
+			sourceTree = DEVELOPER_DIR;
+		};
+		5E1E69450FD49E0400B5BA1F /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5E1E69460FD49E2900B5BA1F /* GLPickerView.h */,
+				5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		5EEA927D0FCCCD0700F31704 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
 				5EEA927F0FCCCD6000F31704 /* turtle.h */,
 				5EEA92800FCCCD6000F31704 /* turtle.mm */,
-				5E0C6A030FD19F8E00801469 /* editor_screen.h */,
-				5E0C6A040FD19F8E00801469 /* editor_screen.m */,
+				5E0C6A060FD19FEF00801469 /* EditorScreen.h */,
+				5E0C6A070FD19FEF00801469 /* EditorScreen.mm */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -314,6 +361,8 @@
 			children = (
 				5EEA92820FCCCDA200F31704 /* InstructionSet.h */,
 				5EEA92830FCCCDA200F31704 /* InstructionSet.mm */,
+				5E8A87EE0FD749D2003E0B6B /* TouchEvent.h */,
+				5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -322,7 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				5EEA92940FCCD17700F31704 /* MoveInstruction.h */,
-				5EEA92950FCCD17700F31704 /* MoveInstruction.m */,
+				5EEA92950FCCD17700F31704 /* MoveInstruction.mm */,
 			);
 			name = instructions;
 			path = ..;
@@ -335,6 +384,14 @@
 				5EEA92EE0FCCD8D000F31704 /* vmath.h */,
 				5EEA93560FCE106F00F31704 /* Vector2d.h */,
 				5EEA93570FCE106F00F31704 /* Vector2d.m */,
+				5E0C6B120FD1DF6700801469 /* colorScheme.h */,
+				5E0C6B130FD1DF6700801469 /* colorScheme.mm */,
+				5E0C6BB20FD1F1C600801469 /* glHelper.h */,
+				5E0C6BB30FD1F1C600801469 /* glHelper.mm */,
+				5E83E0710FFAD878004DFFE3 /* Events.h */,
+				5E83E0720FFAD878004DFFE3 /* Events.mm */,
+				5E83E10F0FFAE7EA004DFFE3 /* CustomEventResponder.h */,
+				5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */,
 			);
 			name = utilities;
 			sourceTree = "<group>";
@@ -468,6 +525,7 @@
 		BB16F3A50F2B73B000518274 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5E1E69450FD49E0400B5BA1F /* views */,
 				5EEA92BC0FCCD8B800F31704 /* utilities */,
 				5EEA92850FCCCFD900F31704 /* instructions */,
 				5EEA927E0FCCCD1000F31704 /* models */,
@@ -567,6 +625,7 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5E0C6AD90FD1DBF300801469 /* fonts */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				BBD1C2770F39143F007FCFB3 /* Icon.png */,
 				BBD1C2760F39143F007FCFB3 /* Default.png */,
@@ -812,6 +871,10 @@
 			files = (
 				BBD1C2780F39143F007FCFB3 /* Default.png in Resources */,
 				BBD1C2790F39143F007FCFB3 /* Icon.png in Resources */,
+				5E0C6ADC0FD1DBF300801469 /* InterBla in Resources */,
+				5E0C6ADD0FD1DBF300801469 /* Interstate in Resources */,
+				5E0C6B0B0FD1DDC500801469 /* Avenir_Medium.ttf in Resources */,
+				5E02E9210FD753690042B1B9 /* ProFont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,10 +907,16 @@
 				BB4B3E5B0F7AFE100030C0C6 /* ofxAccelerometer.cpp in Sources */,
 				5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */,
 				5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */,
-				5EEA92960FCCD17700F31704 /* MoveInstruction.m in Sources */,
+				5EEA92960FCCD17700F31704 /* MoveInstruction.mm in Sources */,
 				5EEA92EF0FCCD8D000F31704 /* vmath.cpp in Sources */,
 				5EEA93580FCE106F00F31704 /* Vector2d.m in Sources */,
-				5E0C6A050FD19F8E00801469 /* editor_screen.m in Sources */,
+				5E0C6A080FD19FEF00801469 /* EditorScreen.mm in Sources */,
+				5E0C6B140FD1DF6700801469 /* colorScheme.mm in Sources */,
+				5E0C6BB40FD1F1C600801469 /* glHelper.mm in Sources */,
+				5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */,
+				5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */,
+				5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */,
+				5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

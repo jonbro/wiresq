@@ -5,6 +5,8 @@
 #include "ofxMultiTouch.h"
 #import	 "turtle.h"
 #import "InstructionSet.h"
+#import "EditorScreen.h"
+#import "Events.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 
@@ -27,5 +29,6 @@ public:
 	void touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	void touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	Turtle* main_t;
+	EditorScreen* main_screen;
 };
 
