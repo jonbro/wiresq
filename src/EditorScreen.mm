@@ -21,6 +21,7 @@
 	fingerPos = [[Vector2d alloc] initWithX:0 Y:0];
 	fingerDownPos = [[Vector2d alloc] initWithX:0 Y:0];
 	fingerCounter = 0;
+	frame = CGRectMake(0, 0, 320, 480);
 	interstate.loadFont("Avenir_Medium.ttf", 14);
 	instructions = [[NSMutableArray alloc]init];
 	return self;
@@ -53,30 +54,29 @@
 		displayMenu = true;
 	}
 }
--(void)touchDownX:(float)x Y:(float)y ID:(float)touchID
+
+-(void)touchDown:(TouchEvent*)_tEvent
 {
-	if(touchingInstruction && y>400){
-		[currentInstruction touchDownX:x Y:y ID:touchID];
-	}else{
-		fingerCounter++;
-		//if this is the first finger down, check to see if we are over any onscreen instructions
-		if(fingerCounter==1){
-			touchingInstruction = false;
-			for(int i=0;i<[instructions count];i++){
-				Vector2d* pos = [[[instructions objectAtIndex:i]pos]retain];
-				if(pos.x < x && pos.y < y && pos.x+40 > x && pos.y+40 > y){
-					[currentInstruction release];
-					currentInstruction = [[instructions objectAtIndex:i]retain];
-					[currentInstruction activateEditor];
-					touchingInstruction = true;
-				}
-			}
-		}
-		fingerTimer = ofGetElapsedTimeMillis();
-		[fingerDownPos dealloc];
-		fingerDownPos	= [[Vector2d alloc] initWithX:x	Y:y];
+	fingerCounter++;
+	fingerDownPos	= [[Vector2d alloc] initWithX:_tEvent.x_pos	Y:_tEvent.y_pos];
+	fingerTimer = ofGetElapsedTimeMillis();
+}
+-(void)touchUp:(TouchEvent*)_tEvent
+{
+	NSLog(@"here");
+	float y_max = fingerDownPos.y+interstate.stringHeight("MOVEMENT")+20;
+	float x_max = fingerDownPos.x+interstate.stringWidth("MOVEMENT")+20;
+	if(_tEvent.x_pos > fingerDownPos.x && _tEvent.y_pos > fingerDownPos.y && _tEvent.x_pos < x_max && _tEvent.y_pos < y_max){
+		MoveInstruction *instruction = [[MoveInstruction alloc]initWithFrame:CGRectMake(_tEvent.x_pos, _tEvent.x_pos, 40, 40)];
+		instruction.amount = [NSNumber numberWithInt:20];
+		instruction.direction = [NSMutableString stringWithString:@"forward"];
+		instruction.pos = [[Vector2d alloc]initWithX:_tEvent.x_pos	Y:_tEvent.y_pos];
+		[instructions addObject:instruction];
+		[Events addButton:instruction];
 	}
 }
+-(void)touchMoved:(TouchEvent*)_tEvent
+{}
 -(void)touchMoveX:(float)x Y:(float)y ID:(float)touchID
 {
 	if(touchingInstruction){
@@ -94,15 +94,6 @@
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID
 {
 	// check to see if we are over a menu item, lol haha, this is just for one tho.
-	float y_max = fingerDownPos.y+interstate.stringHeight("MOVEMENT")+20;
-	float x_max = fingerDownPos.x+interstate.stringWidth("MOVEMENT")+20;
-	if(x > fingerDownPos.x && y > fingerDownPos.y && x < x_max && y < y_max){
-		MoveInstruction *instruction = [[MoveInstruction alloc]init];
-		instruction.amount = [NSNumber numberWithInt:20];
-		instruction.direction = [NSMutableString stringWithString:@"forward"];
-		instruction.pos = [[Vector2d alloc]initWithX:x Y:y];
-		[instructions addObject:instruction];
-	}
 //	touchingInstruction = false;
 	displayMenu = false;
 	fingerCounter--;

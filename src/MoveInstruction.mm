@@ -27,6 +27,12 @@
 	directionPicker._dataSource = self;
 	return self;
 }
+-(id)initWithFrame:(CGRect)_frame
+{
+	self = [self init];
+	frame = _frame;
+	return self;
+}
 -(void)processTurtle:(Turtle*)_turtle
 {
 	if([direction isEqual:@"forward"]){
@@ -58,6 +64,7 @@
 }
 -(void)touchDownX:(float)x Y:(float)y ID:(float)touchID
 {
+	[self activateEditor];
 }
 -(void)touchMoveX:(float)x Y:(float)y ID:(float)touchID
 {

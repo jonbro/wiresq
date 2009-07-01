@@ -27,17 +27,18 @@ static NSMutableDictionary *currentButtonForTouch;
 +(void)touchDown:(TouchEvent*)_tEvent
 {
 	if(ceResponders && [ceResponders count]>0){
-	for (CustomEventResponder *button in ceResponders) {
-		if([button insideX:_tEvent.x_pos Y:_tEvent.y_pos] && [button respondsToSelector:@selector(touchDown:)] == YES) {
-			[currentButtonForTouch setObject:button forKey:[NSNumber numberWithInt:_tEvent.touchId]];
-			[button touchDown:_tEvent];
+		for (CustomEventResponder *button in ceResponders) {
+			if([button insideX:_tEvent.x_pos Y:_tEvent.y_pos] && [button respondsToSelector:@selector(touchDown:)] == YES) {
+				[currentButtonForTouch setObject:button forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+			}
+			[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchDown:_tEvent];
 		}
-	}
 	}
 }
 +(void)touchUp:(TouchEvent*)_tEvent
 {
 	if([currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] != nil){
+		[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchUp:_tEvent];
 		[currentButtonForTouch removeObjectForKey:[NSNumber numberWithInt:_tEvent.touchId]];
 	}
 }

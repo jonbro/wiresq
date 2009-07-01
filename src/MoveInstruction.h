@@ -12,7 +12,7 @@
 #import "ofMain.h"
 #import "GLPickerView.h"
 
-@interface MoveInstruction : NSObject <GLPickerViewDelegate, GLPickerViewDataSource> {
+@interface MoveInstruction : CustomEventResponder <GLPickerViewDelegate, GLPickerViewDataSource> {
 	NSNumber*			amount;
 	NSMutableString*	direction;
 	float				currentRotation;

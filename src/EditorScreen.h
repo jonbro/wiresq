@@ -12,7 +12,7 @@
 #import "ofMain.h"
 #import "MoveInstruction.h"
 
-@interface EditorScreen : NSObject {
+@interface EditorScreen : CustomEventResponder {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
 	id				currentInstruction;

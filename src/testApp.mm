@@ -15,6 +15,7 @@ void testApp::setup(){
 	[glHelper setupLighting];
 	main_t = [[Turtle alloc]init];
 	main_screen = [[EditorScreen alloc]init];
+	[Events addButton:main_screen];
 }
 
 
@@ -62,7 +63,6 @@ void testApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[main_screen touchDownX:x Y:y ID:touchId];
 	TouchEvent* t_event = [[TouchEvent alloc]init];
 	t_event.x_pos = x;
 	t_event.y_pos = y;
