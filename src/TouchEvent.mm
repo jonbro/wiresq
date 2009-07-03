@@ -10,5 +10,5 @@
 
 
 @implementation TouchEvent
-@synthesize x_pos, y_pos, touchId;
+@synthesize x_pos, y_pos, touchId, prevTouch;
 @end

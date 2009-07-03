@@ -22,9 +22,10 @@
 	currentRotation = 0;
 	interstate.loadFont("Avenir_Medium.ttf", 14);
 	directionOptions = [[NSMutableArray alloc] initWithObjects:@"FORWARD", @"BACKWARD", @"LEFT", @"RIGHT", nil];
-	directionPicker = [[GLPickerView alloc] init];
+	directionPicker = [[GLPickerView alloc] initWithFrame:CGRectMake(0, 380, 320, 100)];
 	directionPicker._delegate = self;
 	directionPicker._dataSource = self;
+	showingEditor = false;
 	return self;
 }
 -(id)initWithFrame:(CGRect)_frame
@@ -48,11 +49,16 @@
 }
 -(void)activateEditor
 {
-	[Events addButton:directionPicker];
+	showingEditor = true;
+	[self addSubview:directionPicker];
 }
 -(void)render
 {
-
+	[colorScheme drawColor2];
+	ofRect(frame.origin.x , frame.origin.y, frame.size.height, frame.size.width);
+	if(showingEditor){
+		[self renderEditor];
+	}
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
 {
@@ -62,12 +68,14 @@
 {
 	return [directionOptions count];
 }
--(void)touchDownX:(float)x Y:(float)y ID:(float)touchID
+-(void)touchDown:(TouchEvent*)_tEvent
 {
 	[self activateEditor];
 }
--(void)touchMoveX:(float)x Y:(float)y ID:(float)touchID
+-(void)touchMoved:(TouchEvent*)_tEvent
 {
+	frame.origin.x += _tEvent.x_pos - _tEvent.prevTouch.x_pos;
+	frame.origin.y += _tEvent.y_pos - _tEvent.prevTouch.y_pos;
 }
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID
 {

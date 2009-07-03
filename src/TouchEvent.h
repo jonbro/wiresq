@@ -13,10 +13,12 @@
 	float	x_pos;
 	float	y_pos;
 	int		touchId;
+	TouchEvent *prevTouch;
 }
 
 @property float x_pos;
 @property float y_pos;
 @property int touchId;
+@property (retain) TouchEvent* prevTouch;
 
 @end

@@ -8,32 +8,46 @@
 
 #import "Events.h"
 
-static NSMutableArray *ceResponders;
+static CustomEventResponder *firstResponder;
 static NSMutableDictionary *currentButtonForTouch;
+static NSMutableDictionary *startTouch;
 
 @implementation Events
-+(void)addButton:(CustomEventResponder*)button
++(void)setFirstResponder:(CustomEventResponder*)button
 {
-	if(!ceResponders){
-		ceResponders = [[NSMutableArray arrayWithCapacity:1]retain];
+	if(!currentButtonForTouch){
 		currentButtonForTouch = [[[NSMutableDictionary alloc] init]retain];
+		startTouch = [[[NSMutableDictionary alloc] init] retain];
+	}else{
+		[firstResponder release];
 	}
-	[ceResponders addObject:[button retain]];
-}
-+(void)removeButton:(CustomEventResponder*)button
-{
-	[ceResponders removeObjectIdenticalTo:button];
+	firstResponder = [button retain];
 }
 +(void)touchDown:(TouchEvent*)_tEvent
 {
-	if(ceResponders && [ceResponders count]>0){
-		for (CustomEventResponder *button in ceResponders) {
-			if([button insideX:_tEvent.x_pos Y:_tEvent.y_pos] && [button respondsToSelector:@selector(touchDown:)] == YES) {
-				[currentButtonForTouch setObject:button forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+	if(firstResponder){
+		[self manageTouchDown:_tEvent forButton:firstResponder];
+	}
+}
++(bool)manageTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_repsonder
+{
+	bool subViewHits = NO;
+	if([[_repsonder subviews]count]>0){
+		for (CustomEventResponder *button in [_repsonder subviews]) {
+			if([self manageTouchDown:_tEvent forButton:button]){
+				subViewHits = YES;
 			}
-			[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchDown:_tEvent];
 		}
 	}
+	if(!subViewHits){
+		if([_repsonder insideX:_tEvent.x_pos Y:_tEvent.y_pos] && [_repsonder respondsToSelector:@selector(touchDown:)] == YES) {
+			[currentButtonForTouch setObject:_repsonder forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+			[startTouch setObject:_tEvent forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+			[_repsonder touchDown:_tEvent];
+			return true;
+		}
+	}
+	return subViewHits;
 }
 +(void)touchUp:(TouchEvent*)_tEvent
 {
@@ -46,6 +60,9 @@ static NSMutableDictionary *currentButtonForTouch;
 {
 	if([currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]]!=nil
 	   && [[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]]respondsToSelector:@selector(touchMoved:)] == YES){
+		[_tEvent.prevTouch release];
+		_tEvent.prevTouch = [[startTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]]retain];
+		[startTouch setObject:_tEvent forKey:[NSNumber numberWithInt:_tEvent.touchId]];
 		[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchMoved:_tEvent];
 	}
 }

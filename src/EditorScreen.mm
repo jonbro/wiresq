@@ -28,11 +28,15 @@
 }
 -(void)render
 {
-	for(int i=0;i<[instructions count];i++){
-		Vector2d* pos = [[instructions objectAtIndex:i]pos];
-		[colorScheme drawColor2];
-		ofRect(pos.x , pos.y, 40, 40);
+	for(CustomEventResponder* subview in subviews)
+	{
+		[subview render];
 	}
+//	for(int i=0;i<[instructions count];i++){
+//		Vector2d* pos = [[instructions objectAtIndex:i]pos];
+//		[colorScheme drawColor2];
+//		ofRect(pos.x , pos.y, 40, 40);
+//	}
 	if(displayMenu){
 		// should replace this with a full menu view at some point.
 		
@@ -72,7 +76,7 @@
 		instruction.direction = [NSMutableString stringWithString:@"forward"];
 		instruction.pos = [[Vector2d alloc]initWithX:_tEvent.x_pos	Y:_tEvent.y_pos];
 		[instructions addObject:instruction];
-		[Events addButton:instruction];
+		[self addSubview:instruction];
 	}
 }
 -(void)touchMoved:(TouchEvent*)_tEvent

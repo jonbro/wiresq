@@ -15,9 +15,9 @@
 @interface Events : NSObject {
 
 }
-+(void)addButton:(CustomEventResponder*)button;
-+(void)removeButton:(CustomEventResponder*)button;
++(void)setFirstResponder:(CustomEventResponder*)button;
 +(void)touchDown:(TouchEvent*)_tEvent;
++(bool)manageTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_repsonder;
 +(void)touchUp:(TouchEvent*)_tEvent;
 +(void)touchMoved:(TouchEvent*)_tEvent;
 +(void)touchDoubleTap:(TouchEvent*)_tEvent;

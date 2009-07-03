@@ -15,7 +15,7 @@ void testApp::setup(){
 	[glHelper setupLighting];
 	main_t = [[Turtle alloc]init];
 	main_screen = [[EditorScreen alloc]init];
-	[Events addButton:main_screen];
+	[Events setFirstResponder:main_screen];
 }
 
 

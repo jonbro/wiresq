@@ -20,6 +20,7 @@
 	Vector2d*			pos;
 	GLPickerView		*directionPicker;
 	NSMutableArray		*directionOptions;
+	bool				showingEditor;
 }
 
 @property (copy) NSNumber*			amount;
@@ -30,8 +31,7 @@
 -(void)render;
 -(void)renderEditor;
 -(void)activateEditor;
--(void)touchDownX:(float)x Y:(float)y ID:(float)touchID;
--(void)touchMoveX:(float)x Y:(float)y ID:(float)touchID;
+-(void)touchDown:(TouchEvent*)_tEvent;
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID;
 
 @end

@@ -21,6 +21,12 @@
 	interstate.loadFont("ProFont.ttf", 14);
 	return self;
 }
+-(id)initWithFrame:(CGRect)_frame
+{
+	self = [self init];
+	frame = _frame;
+	return self;	
+}
 -(void)update
 {
 	if(!fingerDown){
@@ -40,12 +46,13 @@
 	
 	int startingObject = selected - slices/2;
 	
-	float radius = 80;
+	float radius = frame.size.height/2;
 	float theta = (PI / 180) * (360.0/(slices*2.0));
 	
 	glPushMatrix();
-	//translate back to the center of the circle
-	glTranslatef(0, 0, -radius);
+	// translate back to the center of the circle
+	// and the proper position to start drawing
+	glTranslatef(frame.origin.x, frame.origin.y+radius, -radius);
 	//rotate to the back
 	glRotatef(180+(360/slices)*(floatSelected-(float)selected), 1.0, 0, 0);
 	
@@ -74,10 +81,6 @@
 		glPopMatrix();
 	}
 	glPopMatrix();	
-}
--(bool)insideX:(float)x Y:(float)y
-{
-	return true;
 }
 -(void)touchUp:(NSNotification *)notification
 {
