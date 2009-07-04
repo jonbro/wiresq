@@ -68,30 +68,22 @@ void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *
 	t_event.y_pos = y;
 	t_event.touchId = touchId;
 	[Events touchDown:t_event];
-	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:@"touchDown" object:[t_event retain]];
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[main_screen touchMoveX:x Y:y ID:touchId];
 	TouchEvent* t_event = [[TouchEvent alloc]init];
 	t_event.x_pos = x;
 	t_event.y_pos = y;
 	t_event.touchId = touchId;
 	[Events touchMoved:t_event];
-	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:@"touchMove" object:[t_event retain]];	
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[main_screen touchUpX:x Y:y ID:touchId];
 	TouchEvent* t_event = [[TouchEvent alloc]init];
 	t_event.x_pos = x;
 	t_event.y_pos = y;
 	t_event.touchId = touchId;
 	[Events touchUp:t_event];
-	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:@"touchUp" object:[t_event retain]];	
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){

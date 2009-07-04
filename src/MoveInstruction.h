@@ -12,8 +12,9 @@
 #import "ofMain.h"
 #import "GLPickerView.h"
 #import "GLValuePickerView.h"
+#import "BaseInstruction.h"
 
-@interface MoveInstruction : CustomEventResponder <GLPickerViewDelegate, GLPickerViewDataSource> {
+@interface MoveInstruction : BaseInstruction <GLPickerViewDelegate, GLPickerViewDataSource> {
 	NSNumber*			amount;
 	NSMutableString*	direction;
 	float				currentRotation;
@@ -32,7 +33,5 @@
 -(void)processTurtle:(id)_turtle;
 -(void)render;
 -(void)activateEditor;
--(void)touchDown:(TouchEvent*)_tEvent;
--(void)touchUpX:(float)x Y:(float)y ID:(float)touchID;
 
 @end

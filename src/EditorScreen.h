@@ -11,10 +11,12 @@
 #import "Vector2d.h"
 #import "ofMain.h"
 #import "MoveInstruction.h"
+#import "GLButton.h"
 
 @interface EditorScreen : CustomEventResponder {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
+	GLButton		*newNodeButton, *newMovementButton, *newControlButton;
 	id				currentInstruction;
 	int				fingerTimer;
 	bool			displayMenu;
@@ -22,11 +24,8 @@
 	Vector2d*		fingerPos;
 	Vector2d*		fingerDownPos;
 	int				fingerCounter;
-	ofTrueTypeFont	interstate;
+	ofTrueTypeFont	proFont;
 }
 -(void)render;
 -(void)update;
--(void)touchDownX:(float)x Y:(float)y ID:(float)touchID;
--(void)touchMoveX:(float)x Y:(float)y ID:(float)touchID;
--(void)touchUpX:(float)x Y:(float)y ID:(float)touchID;
 @end

@@ -19,6 +19,9 @@
 		5E0C6BB40FD1F1C600801469 /* glHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6BB30FD1F1C600801469 /* glHelper.mm */; };
 		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
 		5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */; };
+		5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */; };
+		5E30E2820FFFCC370002CEAC /* BaseInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E2810FFFCC370002CEAC /* BaseInstruction.m */; };
+		5E30E2C00FFFD4310002CEAC /* GLButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E2BF0FFFD4310002CEAC /* GLButton.mm */; };
 		5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E0720FFAD878004DFFE3 /* Events.mm */; };
 		5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */; };
 		5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */; };
@@ -78,6 +81,12 @@
 		5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.mm; sourceTree = DEVELOPER_DIR; };
 		5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLValuePickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.h; sourceTree = DEVELOPER_DIR; };
 		5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLValuePickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.mm; sourceTree = DEVELOPER_DIR; };
+		5E30E27D0FFFCBEB0002CEAC /* ForeverLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForeverLoop.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ForeverLoop.h; sourceTree = DEVELOPER_DIR; };
+		5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ForeverLoop.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ForeverLoop.mm; sourceTree = DEVELOPER_DIR; };
+		5E30E2800FFFCC370002CEAC /* BaseInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/BaseInstruction.h; sourceTree = DEVELOPER_DIR; };
+		5E30E2810FFFCC370002CEAC /* BaseInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseInstruction.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/BaseInstruction.m; sourceTree = DEVELOPER_DIR; };
+		5E30E2BE0FFFD4310002CEAC /* GLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLButton.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLButton.h; sourceTree = DEVELOPER_DIR; };
+		5E30E2BF0FFFD4310002CEAC /* GLButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLButton.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLButton.mm; sourceTree = DEVELOPER_DIR; };
 		5E83E0710FFAD878004DFFE3 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.h; sourceTree = DEVELOPER_DIR; };
 		5E83E0720FFAD878004DFFE3 /* Events.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Events.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.mm; sourceTree = DEVELOPER_DIR; };
 		5E83E10F0FFAE7EA004DFFE3 /* CustomEventResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomEventResponder.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CustomEventResponder.h; sourceTree = DEVELOPER_DIR; };
@@ -346,6 +355,8 @@
 				5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */,
 				5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */,
 				5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */,
+				5E30E2BE0FFFD4310002CEAC /* GLButton.h */,
+				5E30E2BF0FFFD4310002CEAC /* GLButton.mm */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -410,6 +421,10 @@
 			children = (
 				5EEA92940FCCD17700F31704 /* MoveInstruction.h */,
 				5EEA92950FCCD17700F31704 /* MoveInstruction.mm */,
+				5E30E27D0FFFCBEB0002CEAC /* ForeverLoop.h */,
+				5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */,
+				5E30E2800FFFCC370002CEAC /* BaseInstruction.h */,
+				5E30E2810FFFCC370002CEAC /* BaseInstruction.m */,
 			);
 			name = instructions;
 			path = ..;
@@ -947,6 +962,9 @@
 				5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */,
 				5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */,
 				5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */,
+				5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */,
+				5E30E2820FFFCC370002CEAC /* BaseInstruction.m in Sources */,
+				5E30E2C00FFFD4310002CEAC /* GLButton.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

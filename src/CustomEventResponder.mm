@@ -55,9 +55,17 @@
 	[subviews addObject:_view];
 	[_view setSuperview:self];
 }
+-(void)removeSubview:(CustomEventResponder *)_view
+{
+	[subviews removeObject:_view];
+}
 -(void)setSuperview:(CustomEventResponder *)_superview
 {
 	[superview release];
 	superview = [_superview retain];
+}
+-(void)removeSuperview
+{
+	[superview release];
 }
 @end

@@ -28,5 +28,7 @@
 -(bool)insideX:(float)x Y:(float)y;
 
 -(void)addSubview:(CustomEventResponder *)_view;
+-(void)removeSubview:(CustomEventResponder *)_view;
 -(void)setSuperview:(CustomEventResponder *)_superview;
+-(void)removeSuperview;
 @end

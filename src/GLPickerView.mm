@@ -74,7 +74,7 @@
 		}
 		glPopMatrix();
 	}
-	glPopMatrix();	
+	glPopMatrix();
 }
 -(void)touchUp:(TouchEvent*)_tEvent
 {

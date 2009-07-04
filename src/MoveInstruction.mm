@@ -20,7 +20,6 @@
 {
 	self = [super init];
 	currentRotation = 0;
-	interstate.loadFont("Avenir_Medium.ttf", 14);
 	directionOptions = [[NSMutableArray alloc] initWithObjects:@"FRWRD", @"BCKWRD", @"LFT", @"RGHT", nil];
 	
 	directionPicker = [[GLPickerView alloc] initWithFrame:CGRectMake(0, 380, 100, 100)];
@@ -30,12 +29,6 @@
 	magnitudePicker = [[GLValuePickerView alloc] initWithFrame:CGRectMake(100, 380, 220, 100)];
 	
 	showingEditor = false;
-	return self;
-}
--(id)initWithFrame:(CGRect)_frame
-{
-	self = [self init];
-	frame = _frame;
 	return self;
 }
 -(void)processTurtle:(Turtle*)_turtle
@@ -69,11 +62,6 @@
 -(void)touchDown:(TouchEvent*)_tEvent
 {
 	[self activateEditor];
-}
--(void)touchMoved:(TouchEvent*)_tEvent
-{
-	frame.origin.x += _tEvent.x_pos - _tEvent.prevTouch.x_pos;
-	frame.origin.y += _tEvent.y_pos - _tEvent.prevTouch.y_pos;
 }
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID
 {
