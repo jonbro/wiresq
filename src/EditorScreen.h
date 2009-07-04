@@ -13,17 +13,12 @@
 #import "MoveInstruction.h"
 #import "GLButton.h"
 
-@interface EditorScreen : CustomEventResponder {
+@interface EditorScreen : CustomEventResponder <GLButtonDelegate> {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
 	GLButton		*newNodeButton, *newMovementButton, *newControlButton;
 	id				currentInstruction;
-	int				fingerTimer;
 	bool			displayMenu;
-	bool			touchingInstruction;
-	Vector2d*		fingerPos;
-	Vector2d*		fingerDownPos;
-	int				fingerCounter;
 	ofTrueTypeFont	proFont;
 }
 -(void)render;

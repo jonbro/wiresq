@@ -46,4 +46,8 @@
 	font.drawString([title UTF8String], 10, frame.size.height/2+font.getLineHeight()/2);
 	glPopMatrix();
 }
+-(void)touchDown:(TouchEvent *)_tEvent
+{
+	[_delegate buttonDidPress:self];
+}
 @end

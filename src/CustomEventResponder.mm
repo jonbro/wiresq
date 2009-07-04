@@ -11,13 +11,14 @@
 
 @implementation CustomEventResponder
 
-@synthesize subviews;
+@synthesize subviews, toBeRemoved;
 
 -(id)init
 {
 	self = [super init];
 	frame = CGRectMake(0, 0, 0, 0);
 	subviews = [[NSMutableArray alloc] initWithCapacity:0];
+	toBeRemoved = false;
 	return self;
 }
 -(id)initWithFrame:(CGRect)_frame
@@ -34,8 +35,20 @@
 }
 -(void)render
 {
+	toBeRemovedLoop = [[NSMutableArray alloc] initWithCapacity:0];
+	int i = 0;
 	for(CustomEventResponder *subview in subviews){
 		[subview render];
+		if(subview.toBeRemoved){
+			subview.toBeRemoved = false;
+			[toBeRemovedLoop addObject:[NSNumber numberWithInt:i]];
+		}
+		i++;
+	}
+	if([toBeRemovedLoop count]>0){
+		for(int i=0;i<[toBeRemovedLoop count];i++){
+			[subviews removeObjectAtIndex:[[toBeRemovedLoop objectAtIndex:i]intValue]-i];
+		}
 	}
 }
 -(void)touchDown:(TouchEvent*)_tEvent
@@ -57,7 +70,9 @@
 }
 -(void)removeSubview:(CustomEventResponder *)_view
 {
-	[subviews removeObject:_view];
+	// mark as toBeRemoved
+	// remove on the superview next update loop
+	_view.toBeRemoved = true;
 }
 -(void)setSuperview:(CustomEventResponder *)_superview
 {
