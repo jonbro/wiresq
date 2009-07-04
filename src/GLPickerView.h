@@ -36,7 +36,10 @@
 
 @protocol GLPickerViewDelegate
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row;
+@optional
+-(void)pickerView:(GLPickerView *)pickerView didSelectRow:(NSInteger)row;
 @end
+
 @protocol GLPickerViewDataSource
 -(NSInteger)numberOfRowsInPickerView:(GLPickerView*)pickerView;
 @end

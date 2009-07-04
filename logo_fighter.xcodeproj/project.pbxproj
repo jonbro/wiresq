@@ -18,6 +18,7 @@
 		5E0C6B140FD1DF6700801469 /* colorScheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6B130FD1DF6700801469 /* colorScheme.mm */; };
 		5E0C6BB40FD1F1C600801469 /* glHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6BB30FD1F1C600801469 /* glHelper.mm */; };
 		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
+		5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */; };
 		5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E0720FFAD878004DFFE3 /* Events.mm */; };
 		5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */; };
 		5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */; };
@@ -75,6 +76,8 @@
 		5E0C6BB30FD1F1C600801469 /* glHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = glHelper.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/glHelper.mm; sourceTree = DEVELOPER_DIR; };
 		5E1E69460FD49E2900B5BA1F /* GLPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLPickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.h; sourceTree = DEVELOPER_DIR; };
 		5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.mm; sourceTree = DEVELOPER_DIR; };
+		5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLValuePickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.h; sourceTree = DEVELOPER_DIR; };
+		5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLValuePickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.mm; sourceTree = DEVELOPER_DIR; };
 		5E83E0710FFAD878004DFFE3 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.h; sourceTree = DEVELOPER_DIR; };
 		5E83E0720FFAD878004DFFE3 /* Events.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Events.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.mm; sourceTree = DEVELOPER_DIR; };
 		5E83E10F0FFAE7EA004DFFE3 /* CustomEventResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomEventResponder.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CustomEventResponder.h; sourceTree = DEVELOPER_DIR; };
@@ -341,8 +344,43 @@
 			children = (
 				5E1E69460FD49E2900B5BA1F /* GLPickerView.h */,
 				5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */,
+				5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */,
+				5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		5E30E1A90FFEAB8A0002CEAC /* events */ = {
+			isa = PBXGroup;
+			children = (
+				5E83E0710FFAD878004DFFE3 /* Events.h */,
+				5E83E0720FFAD878004DFFE3 /* Events.mm */,
+				5E83E10F0FFAE7EA004DFFE3 /* CustomEventResponder.h */,
+				5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */,
+			);
+			name = events;
+			sourceTree = "<group>";
+		};
+		5E30E1AA0FFEAB980002CEAC /* math */ = {
+			isa = PBXGroup;
+			children = (
+				5EEA92ED0FCCD8D000F31704 /* vmath.cpp */,
+				5EEA92EE0FCCD8D000F31704 /* vmath.h */,
+				5EEA93560FCE106F00F31704 /* Vector2d.h */,
+				5EEA93570FCE106F00F31704 /* Vector2d.m */,
+			);
+			name = math;
+			sourceTree = "<group>";
+		};
+		5E30E1AB0FFEABA10002CEAC /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				5E0C6B120FD1DF6700801469 /* colorScheme.h */,
+				5E0C6B130FD1DF6700801469 /* colorScheme.mm */,
+				5E0C6BB20FD1F1C600801469 /* glHelper.h */,
+				5E0C6BB30FD1F1C600801469 /* glHelper.mm */,
+			);
+			name = graphics;
 			sourceTree = "<group>";
 		};
 		5EEA927D0FCCCD0700F31704 /* controllers */ = {
@@ -380,18 +418,9 @@
 		5EEA92BC0FCCD8B800F31704 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5EEA92ED0FCCD8D000F31704 /* vmath.cpp */,
-				5EEA92EE0FCCD8D000F31704 /* vmath.h */,
-				5EEA93560FCE106F00F31704 /* Vector2d.h */,
-				5EEA93570FCE106F00F31704 /* Vector2d.m */,
-				5E0C6B120FD1DF6700801469 /* colorScheme.h */,
-				5E0C6B130FD1DF6700801469 /* colorScheme.mm */,
-				5E0C6BB20FD1F1C600801469 /* glHelper.h */,
-				5E0C6BB30FD1F1C600801469 /* glHelper.mm */,
-				5E83E0710FFAD878004DFFE3 /* Events.h */,
-				5E83E0720FFAD878004DFFE3 /* Events.mm */,
-				5E83E10F0FFAE7EA004DFFE3 /* CustomEventResponder.h */,
-				5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */,
+				5E30E1AA0FFEAB980002CEAC /* math */,
+				5E30E1AB0FFEABA10002CEAC /* graphics */,
+				5E30E1A90FFEAB8A0002CEAC /* events */,
 			);
 			name = utilities;
 			sourceTree = "<group>";
@@ -917,6 +946,7 @@
 				5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */,
 				5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */,
 				5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */,
+				5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

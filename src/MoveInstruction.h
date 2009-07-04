@@ -11,6 +11,7 @@
 #import "Vector2d.h"
 #import "ofMain.h"
 #import "GLPickerView.h"
+#import "GLValuePickerView.h"
 
 @interface MoveInstruction : CustomEventResponder <GLPickerViewDelegate, GLPickerViewDataSource> {
 	NSNumber*			amount;
@@ -19,6 +20,7 @@
 	ofTrueTypeFont		interstate;
 	Vector2d*			pos;
 	GLPickerView		*directionPicker;
+	GLValuePickerView	*magnitudePicker;
 	NSMutableArray		*directionOptions;
 	bool				showingEditor;
 }
@@ -29,7 +31,6 @@
 
 -(void)processTurtle:(id)_turtle;
 -(void)render;
--(void)renderEditor;
 -(void)activateEditor;
 -(void)touchDown:(TouchEvent*)_tEvent;
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID;

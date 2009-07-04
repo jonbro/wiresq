@@ -21,10 +21,14 @@
 	self = [super init];
 	currentRotation = 0;
 	interstate.loadFont("Avenir_Medium.ttf", 14);
-	directionOptions = [[NSMutableArray alloc] initWithObjects:@"FORWARD", @"BACKWARD", @"LEFT", @"RIGHT", nil];
-	directionPicker = [[GLPickerView alloc] initWithFrame:CGRectMake(0, 380, 320, 100)];
+	directionOptions = [[NSMutableArray alloc] initWithObjects:@"FRWRD", @"BCKWRD", @"LFT", @"RGHT", nil];
+	
+	directionPicker = [[GLPickerView alloc] initWithFrame:CGRectMake(0, 380, 100, 100)];
 	directionPicker._delegate = self;
 	directionPicker._dataSource = self;
+	
+	magnitudePicker = [[GLValuePickerView alloc] initWithFrame:CGRectMake(100, 380, 220, 100)];
+	
 	showingEditor = false;
 	return self;
 }
@@ -42,23 +46,17 @@
 		[_turtle.dir rotate:[amount floatValue]];
 	}
 }
--(void)renderEditor
-{
-	[directionPicker update];
-	[directionPicker render];
-}
 -(void)activateEditor
 {
 	showingEditor = true;
 	[self addSubview:directionPicker];
+	[self addSubview:magnitudePicker];
 }
 -(void)render
 {
 	[colorScheme drawColor2];
 	ofRect(frame.origin.x , frame.origin.y, frame.size.height, frame.size.width);
-	if(showingEditor){
-		[self renderEditor];
-	}
+	[super render];
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
 {

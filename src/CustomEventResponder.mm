@@ -20,6 +20,24 @@
 	subviews = [[NSMutableArray alloc] initWithCapacity:0];
 	return self;
 }
+-(id)initWithFrame:(CGRect)_frame
+{
+	self = [self init];
+	frame = _frame;
+	return self;	
+}
+-(void)update
+{
+	for(CustomEventResponder *subview in subviews){
+		[subview update];
+	}
+}
+-(void)render
+{
+	for(CustomEventResponder *subview in subviews){
+		[subview render];
+	}
+}
 -(void)touchDown:(TouchEvent*)_tEvent
 {}
 -(void)touchUp:(TouchEvent*)_tEvent

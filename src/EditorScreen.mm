@@ -39,7 +39,6 @@
 //	}
 	if(displayMenu){
 		// should replace this with a full menu view at some point.
-		
 		[colorScheme drawColor1];
 		ofRect(fingerDownPos.x , fingerDownPos.y, interstate.stringWidth("MOVEMENT")+20, interstate.stringHeight("MOVEMENT")+20);
 		ofSetColor(0, 0, 0);
@@ -57,6 +56,7 @@
 	if(ofGetElapsedTimeMillis()-fingerTimer>200 && fingerCounter==1 && !touchingInstruction){
 		displayMenu = true;
 	}
+	[super update];
 }
 
 -(void)touchDown:(TouchEvent*)_tEvent

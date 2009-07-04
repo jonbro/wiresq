@@ -21,18 +21,12 @@
 	interstate.loadFont("ProFont.ttf", 14);
 	return self;
 }
--(id)initWithFrame:(CGRect)_frame
-{
-	self = [self init];
-	frame = _frame;
-	return self;	
-}
 -(void)update
 {
 	if(!fingerDown){
 		selected = min(max(0, (int)round(floatSelected)), (int)[_dataSource numberOfRowsInPickerView:self]-1);
 		floatSelected += (selected-floatSelected)/2; 
-	}	
+	}
 }
 -(void)render
 {
@@ -60,7 +54,7 @@
 	for(int i=0; i<slices; i++) {
 		int currentObject = startingObject+i;
 		glPushMatrix();
-		glTranslatef(0, sin(theta)*radius, -radius);	
+		glTranslatef(0, sin(theta)*radius, -radius);
 		glRotatef((360.0/slices)*-i, 1.0, 0, 0);
 		glTranslatef(0, -sin(theta)*radius, radius);
 		if(currentObject == selected){
@@ -68,7 +62,7 @@
 		}else{
 			ofSetColor(200, 200, 210);
 		}
-		ofRect(0, 0, 160, sin(theta)*radius*2);
+		ofRect(0, 0, frame.size.width, sin(theta)*radius*2);
 		if(currentObject == selected){
 			ofSetColor(200, 200, 230);
 		}else{
@@ -82,7 +76,7 @@
 	}
 	glPopMatrix();	
 }
--(void)touchUp:(NSNotification *)notification
+-(void)touchUp:(TouchEvent*)_tEvent
 {
 	fingerDown = false;
 }

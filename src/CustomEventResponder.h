@@ -15,11 +15,18 @@
 	CustomEventResponder *superview;
 }
 @property (readonly) NSMutableArray* subviews;
+-(id)initWithFrame:(CGRect)_frame;
+
+-(void)update;
+-(void)render;
+
 -(void)touchDown:(TouchEvent*)_tEvent;
 -(void)touchUp:(TouchEvent*)_tEvent;
 -(void)touchMoved:(TouchEvent*)_tEvent;
 -(void)touchDoubleTap:(TouchEvent*)_tEvent;
+
 -(bool)insideX:(float)x Y:(float)y;
+
 -(void)addSubview:(CustomEventResponder *)_view;
 -(void)setSuperview:(CustomEventResponder *)_superview;
 @end
