@@ -42,14 +42,15 @@
 -(void)updateNodePositions
 {
 	for(NSString *nodeName in instructionNodes){
-		ConnectionNode *node = [instructionNodes objectForKey:nodeName];
-		node.frame.origin.x = frame.origin.x;
-//		if([nodeName isEqualToString:@"topNode"]){
-//			[instructionNodes objectForKey:nodeName].frame.y = self.frame.y-4;
-//		}
-//		if([nodeName isEqualToString:@"bottomNode"]){
-//			[instructionNodes objectForKey:nodeName].frame.y = self.frame.y+frame.size.height;
-//		}
+		CGRect subframe = [[instructionNodes objectForKey:nodeName] frame];
+		subframe.origin.x = frame.origin.x;
+		if([nodeName isEqualToString:@"topNode"]){
+			subframe.origin.y = frame.origin.y-4;
+		}
+		if([nodeName isEqualToString:@"bottomNode"]){
+			subframe.origin.y = frame.origin.y+frame.size.height;
+		}
+		[[instructionNodes objectForKey:nodeName] setFrame:subframe];
 	}	
 }
 -(void)processTurtle:(Turtle*)_turtle
