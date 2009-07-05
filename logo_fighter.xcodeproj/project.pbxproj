@@ -20,11 +20,13 @@
 		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
 		5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */; };
 		5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */; };
-		5E30E2820FFFCC370002CEAC /* BaseInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E2810FFFCC370002CEAC /* BaseInstruction.m */; };
+		5E30E2820FFFCC370002CEAC /* BaseInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E2810FFFCC370002CEAC /* BaseInstruction.mm */; };
 		5E30E2C00FFFD4310002CEAC /* GLButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E2BF0FFFD4310002CEAC /* GLButton.mm */; };
 		5E83E0730FFAD878004DFFE3 /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E0720FFAD878004DFFE3 /* Events.mm */; };
 		5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */; };
 		5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */; };
+		5ECAD36C100026A400F6187F /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD36B100026A400F6187F /* CGPointUtils.m */; };
+		5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD4FD100114D200F6187F /* ConnectionNode.mm */; };
 		5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92800FCCCD6000F31704 /* turtle.mm */; };
 		5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.mm */; };
 		5EEA92960FCCD17700F31704 /* MoveInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.mm */; };
@@ -84,7 +86,7 @@
 		5E30E27D0FFFCBEB0002CEAC /* ForeverLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForeverLoop.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ForeverLoop.h; sourceTree = DEVELOPER_DIR; };
 		5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ForeverLoop.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ForeverLoop.mm; sourceTree = DEVELOPER_DIR; };
 		5E30E2800FFFCC370002CEAC /* BaseInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/BaseInstruction.h; sourceTree = DEVELOPER_DIR; };
-		5E30E2810FFFCC370002CEAC /* BaseInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseInstruction.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/BaseInstruction.m; sourceTree = DEVELOPER_DIR; };
+		5E30E2810FFFCC370002CEAC /* BaseInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BaseInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/BaseInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5E30E2BE0FFFD4310002CEAC /* GLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLButton.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLButton.h; sourceTree = DEVELOPER_DIR; };
 		5E30E2BF0FFFD4310002CEAC /* GLButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLButton.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLButton.mm; sourceTree = DEVELOPER_DIR; };
 		5E83E0710FFAD878004DFFE3 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Events.h; sourceTree = DEVELOPER_DIR; };
@@ -93,6 +95,10 @@
 		5E83E1100FFAE7EA004DFFE3 /* CustomEventResponder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomEventResponder.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CustomEventResponder.mm; sourceTree = DEVELOPER_DIR; };
 		5E8A87EE0FD749D2003E0B6B /* TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchEvent.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/TouchEvent.h; sourceTree = DEVELOPER_DIR; };
 		5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TouchEvent.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/TouchEvent.mm; sourceTree = DEVELOPER_DIR; };
+		5ECAD36A100026A400F6187F /* CGPointUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGPointUtils.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CGPointUtils.h; sourceTree = DEVELOPER_DIR; };
+		5ECAD36B100026A400F6187F /* CGPointUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGPointUtils.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CGPointUtils.m; sourceTree = DEVELOPER_DIR; };
+		5ECAD4FC100114D200F6187F /* ConnectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionNode.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.h; sourceTree = DEVELOPER_DIR; };
+		5ECAD4FD100114D200F6187F /* ConnectionNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConnectionNode.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA927F0FCCCD6000F31704 /* turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92800FCCCD6000F31704 /* turtle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = turtle.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92820FCCCDA200F31704 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionSet.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.h; sourceTree = DEVELOPER_DIR; };
@@ -375,6 +381,8 @@
 		5E30E1AA0FFEAB980002CEAC /* math */ = {
 			isa = PBXGroup;
 			children = (
+				5ECAD36A100026A400F6187F /* CGPointUtils.h */,
+				5ECAD36B100026A400F6187F /* CGPointUtils.m */,
 				5EEA92ED0FCCD8D000F31704 /* vmath.cpp */,
 				5EEA92EE0FCCD8D000F31704 /* vmath.h */,
 				5EEA93560FCE106F00F31704 /* Vector2d.h */,
@@ -419,12 +427,14 @@
 		5EEA92850FCCCFD900F31704 /* instructions */ = {
 			isa = PBXGroup;
 			children = (
+				5ECAD4FC100114D200F6187F /* ConnectionNode.h */,
+				5ECAD4FD100114D200F6187F /* ConnectionNode.mm */,
 				5EEA92940FCCD17700F31704 /* MoveInstruction.h */,
 				5EEA92950FCCD17700F31704 /* MoveInstruction.mm */,
 				5E30E27D0FFFCBEB0002CEAC /* ForeverLoop.h */,
 				5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */,
 				5E30E2800FFFCC370002CEAC /* BaseInstruction.h */,
-				5E30E2810FFFCC370002CEAC /* BaseInstruction.m */,
+				5E30E2810FFFCC370002CEAC /* BaseInstruction.mm */,
 			);
 			name = instructions;
 			path = ..;
@@ -963,8 +973,10 @@
 				5E83E1110FFAE7EA004DFFE3 /* CustomEventResponder.mm in Sources */,
 				5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */,
 				5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */,
-				5E30E2820FFFCC370002CEAC /* BaseInstruction.m in Sources */,
+				5E30E2820FFFCC370002CEAC /* BaseInstruction.mm in Sources */,
 				5E30E2C00FFFD4310002CEAC /* GLButton.mm in Sources */,
+				5ECAD36C100026A400F6187F /* CGPointUtils.m in Sources */,
+				5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

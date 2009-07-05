@@ -27,9 +27,30 @@
 	directionPicker._dataSource = self;
 	
 	magnitudePicker = [[GLValuePickerView alloc] initWithFrame:CGRectMake(100, 380, 220, 100)];
-	
+		
 	showingEditor = false;
 	return self;
+}
+-(id)initWithFrame:(CGRect)_frame
+{
+	self = [self init];
+	frame = _frame;
+	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y-4, frame.size.width, 4)] forKey:@"topNode"];
+	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
+	return self;
+}
+-(void)updateNodePositions
+{
+	for(NSString *nodeName in instructionNodes){
+		ConnectionNode *node = [instructionNodes objectForKey:nodeName];
+		node.frame.origin.x = frame.origin.x;
+//		if([nodeName isEqualToString:@"topNode"]){
+//			[instructionNodes objectForKey:nodeName].frame.y = self.frame.y-4;
+//		}
+//		if([nodeName isEqualToString:@"bottomNode"]){
+//			[instructionNodes objectForKey:nodeName].frame.y = self.frame.y+frame.size.height;
+//		}
+	}	
 }
 -(void)processTurtle:(Turtle*)_turtle
 {
@@ -49,6 +70,9 @@
 {
 	[colorScheme drawColor2];
 	ofRect(frame.origin.x , frame.origin.y, frame.size.height, frame.size.width);
+	for(NSString *nodeName in instructionNodes){
+		[[instructionNodes objectForKey:nodeName] render];
+	}
 	[super render];
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
@@ -61,7 +85,7 @@
 }
 -(void)touchDown:(TouchEvent*)_tEvent
 {
-	[self activateEditor];
+//	[self activateEditor];
 }
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID
 {

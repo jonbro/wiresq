@@ -75,6 +75,7 @@
 		glPopMatrix();
 	}
 	glPopMatrix();
+	glDisable(GL_DEPTH_TEST);
 }
 -(void)touchUp:(TouchEvent*)_tEvent
 {

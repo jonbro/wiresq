@@ -29,6 +29,32 @@ static NSMutableDictionary *startTouch;
 		[self manageTouchDown:_tEvent forButton:firstResponder];
 	}
 }
++(void)touchDoubleTap:(TouchEvent*)_tEvent
+{
+	if(firstResponder){
+		[self manageDoubleTouchDown:_tEvent forButton:firstResponder];
+	}	
+}
++(bool)manageDoubleTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_repsonder
+{
+	bool subViewHits = NO;
+	if([[_repsonder subviews]count]>0){
+		for (CustomEventResponder *button in [_repsonder subviews]) {
+			if([self manageDoubleTouchDown:_tEvent forButton:button]){
+				subViewHits = YES;
+			}
+		}
+	}
+	if(!subViewHits){
+		if([_repsonder insideX:_tEvent.x_pos Y:_tEvent.y_pos] && [_repsonder respondsToSelector:@selector(touchDoubleTap:)] == YES) {
+			[currentButtonForTouch setObject:_repsonder forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+			[startTouch setObject:_tEvent forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+			[_repsonder touchDoubleTap:_tEvent];
+			return true;
+		}
+	}
+	return subViewHits;
+}
 +(bool)manageTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_repsonder
 {
 	bool subViewHits = NO;
@@ -66,6 +92,4 @@ static NSMutableDictionary *startTouch;
 		[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchMoved:_tEvent];
 	}
 }
-+(void)touchDoubleTap:(TouchEvent*)_tEvent
-{}
 @end

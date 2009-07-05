@@ -13,6 +13,7 @@
 #import "GLPickerView.h"
 #import "GLValuePickerView.h"
 #import "BaseInstruction.h"
+#import "connectionNode.h"
 
 @interface MoveInstruction : BaseInstruction <GLPickerViewDelegate, GLPickerViewDataSource> {
 	NSNumber*			amount;

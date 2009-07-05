@@ -12,11 +12,13 @@
 #import "ofMain.h"
 #import "MoveInstruction.h"
 #import "GLButton.h"
+#import "CGPointUtils.h"
 
 @interface EditorScreen : CustomEventResponder <GLButtonDelegate> {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
 	GLButton		*newNodeButton, *newMovementButton, *newControlButton;
+	CGPoint			newNodePoint;
 	id				currentInstruction;
 	bool			displayMenu;
 	ofTrueTypeFont	proFont;

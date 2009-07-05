@@ -11,13 +11,14 @@
 
 @implementation CustomEventResponder
 
-@synthesize subviews, toBeRemoved;
+@synthesize subviews, toBeRemoved, frame;
 
 -(id)init
 {
 	self = [super init];
 	frame = CGRectMake(0, 0, 0, 0);
 	subviews = [[NSMutableArray alloc] initWithCapacity:0];
+	subviewsToBeAdded = [[NSMutableArray alloc] initWithCapacity:0];
 	toBeRemoved = false;
 	return self;
 }
@@ -47,7 +48,14 @@
 	}
 	if([toBeRemovedLoop count]>0){
 		for(int i=0;i<[toBeRemovedLoop count];i++){
+			NSLog(@"inside remove loop");
 			[subviews removeObjectAtIndex:[[toBeRemovedLoop objectAtIndex:i]intValue]-i];
+		}
+	}
+	if([subviewsToBeAdded count]>0){
+		for(int i=0;i<[subviewsToBeAdded count];i++){
+			[subviews addObject:[subviewsToBeAdded objectAtIndex:0]];
+			[subviewsToBeAdded removeObjectAtIndex:0];
 		}
 	}
 }
@@ -65,7 +73,7 @@
 }
 -(void)addSubview:(CustomEventResponder *)_view
 {
-	[subviews addObject:_view];
+	[subviewsToBeAdded addObject:_view];
 	[_view setSuperview:self];
 }
 -(void)removeSubview:(CustomEventResponder *)_view

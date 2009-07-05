@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "CustomEventResponder.h"
+#import "CGPointUtils.h"
 
 @interface BaseInstruction : CustomEventResponder {
-
+	NSMutableDictionary	*instructionNodes;
+	NSMutableArray		*allInstructions;
 }
 
+@property(retain) NSMutableArray* allInstructions;
+@property(readonly) NSMutableDictionary* instructionNodes;
+
+-(void)findNearestInstructionNode;
+-(void)updateNodePositions;
 @end

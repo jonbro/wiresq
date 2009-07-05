@@ -12,11 +12,13 @@
 @interface CustomEventResponder : NSObject {
 	CGRect frame;
 	NSMutableArray *subviews;
+	NSMutableArray *subviewsToBeAdded;
 	NSMutableArray *toBeRemovedLoop;
 	CustomEventResponder *superview;
 	bool toBeRemoved;
 }
 @property (readonly) NSMutableArray* subviews;
+@property (assign) CGRect frame;
 @property (assign) bool toBeRemoved;
 -(id)initWithFrame:(CGRect)_frame;
 

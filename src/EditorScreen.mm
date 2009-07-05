@@ -28,11 +28,13 @@
 	[self addSubview:newNodeButton];
 	
 	newMovementButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 54, 150, 45)]retain];
+	newMovementButton._delegate = self;
 	[newMovementButton setColor:0x277fb1];
 	[newMovementButton setFontColor:0xFFFFFF];
 	[newMovementButton setTitle:@"MOVEMENT"];
 		
 	newControlButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 102, 150, 45)]retain];
+	newControlButton._delegate = self;
 	[newControlButton setColor:0xd8b330];
 	[newControlButton setFontColor:0xFFFFFF];
 	[newControlButton setTitle:@"CONTROL"];
@@ -40,11 +42,15 @@
 	displayMenu = false;
 	
 	instructions = [[NSMutableArray alloc]init];
+	newNodePoint = CGPointMake(160, 240);
 	return self;
 }
 -(void)render
-{
+{	
 	[super render];
+	//render new node point helper
+	ofSetColor(255, 0, 0);
+	ofRect(newNodePoint.x-3, newNodePoint.y-3, 6, 6);
 }
 -(void)update
 {
@@ -65,5 +71,21 @@
 			[newNodeButton setTitle:@"+"];
 		}
 	}
+	if(_button == newMovementButton){
+		displayMenu = false;
+		[self removeSubview:newControlButton];
+		[self removeSubview:newMovementButton];
+		[newNodeButton setTitle:@"+"];
+		MoveInstruction *instruction = [[MoveInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 40, 40)];
+		instruction.amount = [NSNumber numberWithInt:20];
+		instruction.direction = [NSMutableString stringWithString:@"forward"];
+		instruction.allInstructions = instructions;
+		[instructions addObject:instruction];
+		[self addSubview:instruction];		
+	}
+}
+-(void)touchDoubleTap:(TouchEvent*)_tEvent;
+{
+	newNodePoint = CGPointMake(_tEvent.x_pos, _tEvent.y_pos);
 }
 @end

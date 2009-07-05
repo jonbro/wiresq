@@ -15,6 +15,4 @@
 @property (retain) NSMutableArray* instructions;
 
 -(void)processInstruction:(int)_instructionCounter withTurtle:(id)_turtle;
--(void)renderEditor;
--(void)activateEditor;
 @end
