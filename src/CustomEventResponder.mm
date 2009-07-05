@@ -11,7 +11,7 @@
 
 @implementation CustomEventResponder
 
-@synthesize subviews, toBeRemoved, frame;
+@synthesize subviews, superview, toBeRemoved, frame;
 
 -(id)init
 {

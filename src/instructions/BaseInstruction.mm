@@ -7,8 +7,6 @@
 //
 
 #import "BaseInstruction.h"
-#import "ConnectionNode.h"
-
 
 @implementation BaseInstruction
 @synthesize instructionNodes, allInstructions;
@@ -17,6 +15,7 @@
 {
 	self = [super init];
 	instructionNodes = [[NSMutableDictionary alloc] initWithCapacity:2];
+	childInstructions = [[NSMutableArray alloc]initWithCapacity:0];
 	return self;
 }
 
@@ -25,15 +24,22 @@
 	frame.origin.x += _tEvent.x_pos - _tEvent.prevTouch.x_pos;
 	frame.origin.y += _tEvent.y_pos - _tEvent.prevTouch.y_pos;
 	[self updateNodePositions];
+	[self updateSubPositions];
 	[self findNearestInstructionNode];
+}
+-(void)touchUp:(TouchEvent*)_tEvent
+{
+	[self touchDown:_tEvent];
+	if(nearestNode.incomingInstruction == self){
+		[nearestNode attachIncomingInstruction];
+	}
 }
 -(void)findNearestInstructionNode
 {
 	CGFloat lowestDistance = 0;
-	ConnectionNode *nearestNode;
 	bool firstFound = false;
 	for(BaseInstruction *instruction in allInstructions){
-		if(instruction != self){
+		if(instruction != self && [childInstructions indexOfObject:instruction] == NSNotFound){
 			for(NSString *nodeName in instruction.instructionNodes){
 				ConnectionNode *node = [instruction.instructionNodes objectForKey:nodeName];
 				node.incomingInstruction = nil;
@@ -54,8 +60,16 @@
 		nearestNode.incomingInstruction = self;
 	}
 }
+-(void) attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
+{
+	// to be overridden in subclasses
+}
 -(void)updateNodePositions
 {
-	// placeholder...
+	// to be overridden in subclasses
+}
+-(void)updateSubPositions
+{
+	// to be overridden in subclasses
 }
 @end

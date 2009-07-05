@@ -25,6 +25,7 @@
 	GLValuePickerView	*magnitudePicker;
 	NSMutableArray		*directionOptions;
 	bool				showingEditor;
+	BaseInstruction		*nextInstruction;
 }
 
 @property (copy) NSNumber*			amount;

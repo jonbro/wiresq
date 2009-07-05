@@ -37,6 +37,8 @@
 	frame = _frame;
 	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y-4, frame.size.width, 4)] forKey:@"topNode"];
 	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
+	[self addSubview:[instructionNodes objectForKey:@"topNode"]];
+	[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
 	return self;
 }
 -(void)updateNodePositions
@@ -52,6 +54,15 @@
 		}
 		[[instructionNodes objectForKey:nodeName] setFrame:subframe];
 	}	
+}
+-(void)updateSubPositions
+{
+	CGRect nextInstructionFrame = nextInstruction.frame;
+	nextInstructionFrame.origin.x = frame.origin.x;
+	nextInstructionFrame.origin.y = frame.origin.y + frame.size.height;
+	[nextInstruction setFrame:nextInstructionFrame];
+	[nextInstruction updateSubPositions];
+	[nextInstruction updateNodePositions];
 }
 -(void)processTurtle:(Turtle*)_turtle
 {
@@ -71,9 +82,6 @@
 {
 	[colorScheme drawColor2];
 	ofRect(frame.origin.x , frame.origin.y, frame.size.height, frame.size.width);
-	for(NSString *nodeName in instructionNodes){
-		[[instructionNodes objectForKey:nodeName] render];
-	}
 	[super render];
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
@@ -86,10 +94,21 @@
 }
 -(void)touchDown:(TouchEvent*)_tEvent
 {
-//	[self activateEditor];
 }
 -(void)touchUpX:(float)x Y:(float)y ID:(float)touchID
 {
 }
-
+-(void) attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
+{
+	if(_node == [instructionNodes objectForKey:@"bottomNode"]){
+		if(nextInstruction == nil){
+			nextInstruction = [incomingInstruction retain];
+			[self addSubview:nextInstruction];
+			[childInstructions addObject:nextInstruction];
+			[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
+			[instructionNodes removeObjectForKey:@"bottomNode"];
+		}
+	}
+	[self updateSubPositions];
+}
 @end

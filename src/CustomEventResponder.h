@@ -19,6 +19,7 @@
 }
 @property (readonly) NSMutableArray* subviews;
 @property (assign) CGRect frame;
+@property (readonly) CustomEventResponder* superview;
 @property (assign) bool toBeRemoved;
 -(id)initWithFrame:(CGRect)_frame;
 

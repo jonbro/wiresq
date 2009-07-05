@@ -26,4 +26,8 @@
 		glPopMatrix();
 	}
 }
+-(void)attachIncomingInstruction
+{
+	[(BaseInstruction*)superview attachInstruction:incomingInstruction toNode:self];
+}
 @end

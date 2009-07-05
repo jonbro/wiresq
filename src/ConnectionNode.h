@@ -10,10 +10,14 @@
 #import "CustomEventResponder.h"
 #import "BaseInstruction.h"
 
+@class BaseInstruction;
+
 @interface ConnectionNode : CustomEventResponder {
 	BaseInstruction *incomingInstruction;
 }
 
-@property (retain) BaseInstruction* incomingInstruction;
+@property (assign) BaseInstruction* incomingInstruction;
+
+-(void)attachIncomingInstruction;
 
 @end
