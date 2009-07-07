@@ -9,7 +9,7 @@
 #import "BaseInstruction.h"
 
 @implementation BaseInstruction
-@synthesize instructionNodes, allInstructions;
+@synthesize instructionNodes, allInstructions, editorScreen, childInstructions;
 
 -(id)init
 {
@@ -29,7 +29,6 @@
 }
 -(void)touchUp:(TouchEvent*)_tEvent
 {
-	[self touchDown:_tEvent];
 	if(nearestNode.incomingInstruction == self){
 		[nearestNode attachIncomingInstruction];
 	}

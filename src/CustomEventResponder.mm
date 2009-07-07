@@ -54,6 +54,9 @@
 	}
 	if([subviewsToBeAdded count]>0){
 		for(int i=0;i<[subviewsToBeAdded count];i++){
+			if([subviewsToBeAdded objectAtIndex:0] == superview){
+				NSLog(@"wtf");
+			}
 			[subviews addObject:[subviewsToBeAdded objectAtIndex:0]];
 			[subviewsToBeAdded removeObjectAtIndex:0];
 		}
@@ -85,6 +88,9 @@
 -(void)setSuperview:(CustomEventResponder *)_superview
 {
 	[superview release];
+	if(superview != _superview){
+		[superview removeSubview:self];
+	}
 	superview = [_superview retain];
 }
 -(void)removeSuperview

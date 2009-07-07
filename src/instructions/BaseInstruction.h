@@ -14,15 +14,17 @@
 @class ConnectionNode;
 
 @interface BaseInstruction : CustomEventResponder {
-	NSMutableDictionary	*instructionNodes;
-	NSMutableArray		*allInstructions;
-	NSMutableArray		*childInstructions;
-	ConnectionNode		*nearestNode;
+	NSMutableDictionary		*instructionNodes;
+	NSMutableArray			*allInstructions;
+	NSMutableArray			*childInstructions;
+	CustomEventResponder	*editorScreen;
+	ConnectionNode			*nearestNode;
 }
 
-@property(retain) NSMutableArray* allInstructions;
-@property(retain) NSMutableArray* childInstructions;
-@property(readonly) NSMutableDictionary* instructionNodes;
+@property(retain) NSMutableArray*			allInstructions;
+@property(retain) NSMutableArray*			childInstructions;
+@property(retain) CustomEventResponder*		editorScreen;
+@property(readonly) NSMutableDictionary*	instructionNodes;
 
 -(void)findNearestInstructionNode;
 -(void)updateNodePositions;

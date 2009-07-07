@@ -80,6 +80,7 @@
 		instruction.amount = [NSNumber numberWithInt:20];
 		instruction.direction = [NSMutableString stringWithString:@"forward"];
 		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
 		[instructions addObject:instruction];
 		[self addSubview:instruction];		
 	}

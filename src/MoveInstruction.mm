@@ -36,8 +36,8 @@
 	self = [self init];
 	frame = _frame;
 	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y-4, frame.size.width, 4)] forKey:@"topNode"];
-	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
 	[self addSubview:[instructionNodes objectForKey:@"topNode"]];
+	[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
 	[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
 	return self;
 }
@@ -53,10 +53,11 @@
 			subframe.origin.y = frame.origin.y+frame.size.height;
 		}
 		[[instructionNodes objectForKey:nodeName] setFrame:subframe];
-	}	
+	}
 }
 -(void)updateSubPositions
 {
+	[self updateNodePositions];
 	CGRect nextInstructionFrame = nextInstruction.frame;
 	nextInstructionFrame.origin.x = frame.origin.x;
 	nextInstructionFrame.origin.y = frame.origin.y + frame.size.height;
@@ -92,23 +93,46 @@
 {
 	return [directionOptions count];
 }
--(void)touchDown:(TouchEvent*)_tEvent
+-(void)touchMoved:(TouchEvent*)_tEvent
 {
+	if(superview != editorScreen){
+		[(BaseInstruction*)superview removeChildInstruction:self];
+		[editorScreen addSubview:self];		
+	}
+	[super touchMoved:_tEvent];
 }
--(void)touchUpX:(float)x Y:(float)y ID:(float)touchID
+-(void)removeChildInstruction:(BaseInstruction*)_instruction
 {
+	if(_instruction == nextInstruction){
+		[childInstructions removeObject:_instruction];
+		[nextInstruction release];
+		[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
+		[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
+		nextInstruction = nil;
+	}
 }
--(void) attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
+-(void)attachInstruction:(BaseInstruction*)incomingInstruction
+{
+	if(nextInstruction == nil){
+		nextInstruction = [incomingInstruction retain];
+		[self addSubview:nextInstruction];
+		[childInstructions addObject:nextInstruction];
+		[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
+		[instructionNodes removeObjectForKey:@"bottomNode"];
+		[self updateSubPositions];
+	}
+}
+-(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
 {
 	if(_node == [instructionNodes objectForKey:@"bottomNode"]){
-		if(nextInstruction == nil){
-			nextInstruction = [incomingInstruction retain];
-			[self addSubview:nextInstruction];
-			[childInstructions addObject:nextInstruction];
-			[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
-			[instructionNodes removeObjectForKey:@"bottomNode"];
-		}
+		[self attachInstruction:incomingInstruction];
+	}else if(_node == [instructionNodes objectForKey:@"topNode"]){
+		CGRect incomingInstructionFrame = incomingInstruction.frame;
+		incomingInstructionFrame.origin.x = frame.origin.x;
+		incomingInstructionFrame.origin.y = frame.origin.y - incomingInstructionFrame.size.height;
+		[incomingInstruction setFrame:incomingInstructionFrame];
+		[incomingInstruction attachInstruction:self];
 	}
-	[self updateSubPositions];
+	_node.incomingInstruction = nil;
 }
 @end
