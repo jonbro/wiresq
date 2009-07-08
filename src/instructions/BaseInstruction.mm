@@ -71,4 +71,8 @@
 {
 	// to be overridden in subclasses
 }
+-(void)removeChildInstruction:(BaseInstruction*)_instruction
+{
+		// to be overridden in subclasses
+}
 @end

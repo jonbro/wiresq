@@ -15,7 +15,7 @@
 
 @implementation MoveInstruction
 
-@synthesize amount, direction, pos;
+@synthesize amount, direction, pos, prevInstruction;
 -(id)init
 {
 	self = [super init];
@@ -97,6 +97,8 @@
 {
 	if(superview != editorScreen){
 		[(BaseInstruction*)superview removeChildInstruction:self];
+		[prevInstruction release];
+		prevInstruction = nil;
 		[editorScreen addSubview:self];		
 	}
 	[super touchMoved:_tEvent];
@@ -113,14 +115,19 @@
 }
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction
 {
-	if(nextInstruction == nil){
-		nextInstruction = [incomingInstruction retain];
-		[self addSubview:nextInstruction];
-		[childInstructions addObject:nextInstruction];
-		[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
-		[instructionNodes removeObjectForKey:@"bottomNode"];
-		[self updateSubPositions];
-	}
+	[nextInstruction release];
+	nextInstruction = [incomingInstruction retain];
+	[incomingInstruction setPrevious:self];
+	[self addSubview:nextInstruction];
+	[childInstructions addObject:nextInstruction];
+	[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
+	[instructionNodes removeObjectForKey:@"bottomNode"];
+	[self updateSubPositions];
+}
+-(void)setPrevious:(BaseInstruction*)_prevInstruction
+{
+	[prevInstruction release];
+	prevInstruction = [_prevInstruction retain];
 }
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
 {
@@ -131,6 +138,9 @@
 		incomingInstructionFrame.origin.x = frame.origin.x;
 		incomingInstructionFrame.origin.y = frame.origin.y - incomingInstructionFrame.size.height;
 		[incomingInstruction setFrame:incomingInstructionFrame];
+		if(prevInstruction != nil){
+			[prevInstruction attachInstruction:incomingInstruction];
+		}
 		[incomingInstruction attachInstruction:self];
 	}
 	_node.incomingInstruction = nil;

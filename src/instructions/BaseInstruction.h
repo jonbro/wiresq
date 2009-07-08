@@ -27,6 +27,7 @@
 @property(readonly) NSMutableDictionary*	instructionNodes;
 
 -(void)findNearestInstructionNode;
+-(void)removeChildInstruction:(BaseInstruction*)_instruction;
 -(void)updateNodePositions;
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(NSObject*)_node;
 -(void)updateSubPositions;
