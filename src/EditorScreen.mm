@@ -42,6 +42,11 @@
 	displayMenu = false;
 	
 	instructions = [[NSMutableArray alloc]init];
+	
+	StartInstruction *s_in = [[StartInstruction alloc]initWithFrame:CGRectMake(160, 240, 80, 40)];
+	[self addSubview:s_in];
+	[instructions addObject:s_in];
+	
 	newNodePoint = CGPointMake(160, 240);
 	return self;
 }

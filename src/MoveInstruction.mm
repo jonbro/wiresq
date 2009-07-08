@@ -41,20 +41,6 @@
 	[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
 	return self;
 }
--(void)updateNodePositions
-{
-	for(NSString *nodeName in instructionNodes){
-		CGRect subframe = [[instructionNodes objectForKey:nodeName] frame];
-		subframe.origin.x = frame.origin.x;
-		if([nodeName isEqualToString:@"topNode"]){
-			subframe.origin.y = frame.origin.y-4;
-		}
-		if([nodeName isEqualToString:@"bottomNode"]){
-			subframe.origin.y = frame.origin.y+frame.size.height;
-		}
-		[[instructionNodes objectForKey:nodeName] setFrame:subframe];
-	}
-}
 -(void)updateSubPositions
 {
 	[self updateNodePositions];
@@ -82,7 +68,7 @@
 -(void)render
 {
 	[colorScheme drawColor2];
-	ofRect(frame.origin.x , frame.origin.y, frame.size.height, frame.size.width);
+	ofRect(frame.origin.x , frame.origin.y, frame.size.width, frame.size.height);
 	[super render];
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row

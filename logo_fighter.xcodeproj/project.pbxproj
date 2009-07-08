@@ -27,6 +27,7 @@
 		5E8A87F00FD749D2003E0B6B /* TouchEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */; };
 		5ECAD36C100026A400F6187F /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD36B100026A400F6187F /* CGPointUtils.m */; };
 		5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD4FD100114D200F6187F /* ConnectionNode.mm */; };
+		5EDB6AAB10042E5B00F11EA7 /* StartInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */; };
 		5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92800FCCCD6000F31704 /* turtle.mm */; };
 		5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.mm */; };
 		5EEA92960FCCD17700F31704 /* MoveInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.mm */; };
@@ -99,6 +100,8 @@
 		5ECAD36B100026A400F6187F /* CGPointUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGPointUtils.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/CGPointUtils.m; sourceTree = DEVELOPER_DIR; };
 		5ECAD4FC100114D200F6187F /* ConnectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionNode.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.h; sourceTree = DEVELOPER_DIR; };
 		5ECAD4FD100114D200F6187F /* ConnectionNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConnectionNode.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.mm; sourceTree = DEVELOPER_DIR; };
+		5EDB6AA910042E5B00F11EA7 /* StartInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.h; sourceTree = DEVELOPER_DIR; };
+		5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StartInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA927F0FCCCD6000F31704 /* turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92800FCCCD6000F31704 /* turtle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = turtle.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92820FCCCDA200F31704 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionSet.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.h; sourceTree = DEVELOPER_DIR; };
@@ -435,6 +438,8 @@
 				5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */,
 				5E30E2800FFFCC370002CEAC /* BaseInstruction.h */,
 				5E30E2810FFFCC370002CEAC /* BaseInstruction.mm */,
+				5EDB6AA910042E5B00F11EA7 /* StartInstruction.h */,
+				5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */,
 			);
 			name = instructions;
 			path = ..;
@@ -977,6 +982,7 @@
 				5E30E2C00FFFD4310002CEAC /* GLButton.mm in Sources */,
 				5ECAD36C100026A400F6187F /* CGPointUtils.m in Sources */,
 				5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */,
+				5EDB6AAB10042E5B00F11EA7 /* StartInstruction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

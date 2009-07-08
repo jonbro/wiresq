@@ -65,7 +65,17 @@
 }
 -(void)updateNodePositions
 {
-	// to be overridden in subclasses
+	for(NSString *nodeName in instructionNodes){
+		CGRect subframe = [[instructionNodes objectForKey:nodeName] frame];
+		subframe.origin.x = frame.origin.x;
+		if([nodeName isEqualToString:@"topNode"]){
+			subframe.origin.y = frame.origin.y-4;
+		}
+		if([nodeName isEqualToString:@"bottomNode"]){
+			subframe.origin.y = frame.origin.y+frame.size.height;
+		}
+		[[instructionNodes objectForKey:nodeName] setFrame:subframe];
+	}
 }
 -(void)updateSubPositions
 {

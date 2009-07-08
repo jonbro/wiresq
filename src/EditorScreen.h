@@ -11,6 +11,7 @@
 #import "Vector2d.h"
 #import "ofMain.h"
 #import "MoveInstruction.h"
+#import "StartInstruction.h"
 #import "GLButton.h"
 #import "CGPointUtils.h"
 

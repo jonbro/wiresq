@@ -14,6 +14,7 @@
 @interface Turtle : NSObject {
 	int currentInstruction;
 	InstructionSet *in_set;
+	NSMutableArray *drawingPoints;
 	Vector2d *pos;
 	Vector2d *dir;
 }

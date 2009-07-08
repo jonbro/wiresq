@@ -26,7 +26,6 @@
 	dir = [[Vector2d alloc] init];
 	dir.x = 0;
 	dir.y = 1;
-	
 	// add some new instructions to teh turtlezzzz :D
 	MoveInstruction *m_instruction1 = [[MoveInstruction alloc]init];
 	m_instruction1.amount = [NSNumber numberWithInt:20];
@@ -38,7 +37,6 @@
 
 	[in_set.instructions addObject:m_instruction1];
 	[in_set.instructions addObject:m_instruction2];
-	
 	
 	return self;
 }
