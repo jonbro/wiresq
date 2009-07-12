@@ -74,6 +74,13 @@
 	ofSetColor(255, 0, 0);
 	ofRect(newNodePoint.x-3, newNodePoint.y-3, 6, 6);
 }
+// gets rid of all the on screen editor helpers
+-(void)removeEditors
+{
+	for(BaseInstruction* _instruction in instructions){
+		[_instruction removeEditor];
+	}
+}
 -(void)update
 {
 	[super update];
@@ -103,7 +110,7 @@
 		[newNodeButton setTitle:@"+"];
 		
 		MoveUpInstruction *instruction = [[MoveUpInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
-		instruction.amount = [NSNumber numberWithInt:20];
+		instruction.amount = [NSNumber numberWithInt:0];
 		instruction.direction = [NSMutableString stringWithString:@"forward"];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;
@@ -119,7 +126,7 @@
 		[newNodeButton setTitle:@"+"];
 		
 		MoveLeftInstruction *instruction = [[MoveLeftInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
-		instruction.amount = [NSNumber numberWithInt:20];
+		instruction.amount = [NSNumber numberWithInt:0];
 		instruction.direction = [NSMutableString stringWithString:@"left"];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;

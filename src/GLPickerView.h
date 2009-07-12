@@ -25,6 +25,7 @@
 }
 
 @property(nonatomic, assign) id<GLPickerViewDelegate> _delegate;
+@property(assign) int selected;
 @property(nonatomic, assign) id<GLPickerViewDataSource> _dataSource;
 
 -(void)render;

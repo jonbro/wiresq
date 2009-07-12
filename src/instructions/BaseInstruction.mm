@@ -86,6 +86,9 @@
 	}
 	_node.incomingInstruction = nil;
 }
+-(void)removeEditor
+{
+}
 -(void)updateNodePositions
 {
 	for(NSString *nodeName in instructionNodes){

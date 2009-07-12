@@ -14,9 +14,9 @@
 
 -(void)render
 {
-	[super render];
 	drawRectSprite(0, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height, 0, 0);
 	drawRectSprite(0, frame.origin.x+12, frame.origin.y+18, 15, 13, 101, 15);
+	[super render];
 }
 
 @end

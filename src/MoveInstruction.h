@@ -15,19 +15,17 @@
 #import "BaseInstruction.h"
 #import "connectionNode.h"
 
-@interface MoveInstruction : BaseInstruction <GLPickerViewDelegate, GLPickerViewDataSource> {
+@interface MoveInstruction : BaseInstruction <GLPickerViewDelegate, GLPickerViewDataSource, GLValuePickerViewDelegate> {
 	NSNumber*			amount;
 	NSMutableString*	direction;
 	float				currentRotation;
-	ofTrueTypeFont		interstate;
 	Vector2d*			pos;
-	GLPickerView		*directionPicker;
 	GLValuePickerView	*magnitudePicker;
 	NSMutableArray		*directionOptions;
 	bool				showingEditor;
 }
 
-@property (copy) NSNumber*			amount;
+@property (retain) NSNumber*			amount;
 @property (copy) NSMutableString*	direction;
 @property (retain) Vector2d*		pos;
 

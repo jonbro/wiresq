@@ -10,10 +10,11 @@
 
 
 @implementation GLValuePickerView
+@synthesize _delegate;
 -(id)init
 {
 	self = [super init];
-	exponent = 4;
+	exponent = 3;
 	subPickers = [[NSMutableArray alloc] initWithCapacity:exponent];
 	return self;
 }
@@ -39,4 +40,17 @@
 {
 	return 10;
 }
+-(void)pickerView:(GLPickerView *)pickerView didSelectRow:(NSInteger)row
+{
+	if(_delegate && [_delegate respondsToSelector:@selector(pickerView: didSelectValue:)] == YES){
+		//calculate value
+		int value = 0;
+		for(int i=0;i<exponent;i++){
+			value = value + [[subPickers objectAtIndex:i] selected] * pow(10, exponent-i-1);
+		}
+		//send to parent
+		[_delegate pickerView:self didSelectValue:value];
+	}
+}
+
 @end

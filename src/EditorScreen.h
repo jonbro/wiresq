@@ -31,4 +31,5 @@
 }
 -(void)render;
 -(void)update;
+-(void)removeEditors;
 @end

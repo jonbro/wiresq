@@ -14,7 +14,7 @@
 
 @implementation GLPickerView
 
-@synthesize _delegate, _dataSource;
+@synthesize _delegate, _dataSource, selected;
 -(id)init
 {
 	self = [super init];
@@ -26,6 +26,9 @@
 	if(!fingerDown){
 		selected = min(max(0, (int)round(floatSelected)), (int)[_dataSource numberOfRowsInPickerView:self]-1);
 		floatSelected += (selected-floatSelected)/2; 
+		if(_delegate && [_delegate respondsToSelector:@selector(pickerView: didSelectRow:)] == YES){
+			[_delegate pickerView:self didSelectRow:selected];
+		}
 	}
 }
 -(void)render

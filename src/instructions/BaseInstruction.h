@@ -31,6 +31,7 @@
 -(void)findNearestInstructionNode;
 -(void)removeChildInstruction:(BaseInstruction*)_instruction;
 -(void)updateNodePositions;
+-(void)removeEditor;
 -(void)attachNextInstruction:(BaseInstruction*)incomingInstruction;
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(NSObject*)_node;
 -(void)updateSubPositions;

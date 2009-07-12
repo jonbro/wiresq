@@ -12,6 +12,7 @@
 #ifdef TARGET_OPENGLES
 	#include "glu.h"
 #endif
+#import "globals.h"
 
 @implementation MoveInstruction
 
@@ -20,14 +21,10 @@
 {
 	self = [super init];
 	currentRotation = 0;
-	directionOptions = [[NSMutableArray alloc] initWithObjects:@"FRWRD", @"BCKWRD", @"LFT", @"RGHT", nil];
 	
-	directionPicker = [[GLPickerView alloc] initWithFrame:CGRectMake(0, 380, 100, 100)];
-	directionPicker._delegate = self;
-	directionPicker._dataSource = self;
-	
-	magnitudePicker = [[GLValuePickerView alloc] initWithFrame:CGRectMake(100, 380, 220, 100)];
-		
+	magnitudePicker = [[GLValuePickerView alloc] initWithFrame:CGRectMake(0, 380, 320, 100)];
+	magnitudePicker._delegate = self;
+	interstate11.loadFont("ProFont.ttf", 11);
 	showingEditor = false;
 	return self;
 }
@@ -51,12 +48,24 @@
 }
 -(void)activateEditor
 {
+	[editorScreen removeEditors];
 	showingEditor = true;
-	[self addSubview:directionPicker];
 	[self addSubview:magnitudePicker];
+}
+-(void)removeEditor
+{
+	if(showingEditor){
+		[self removeSubview:magnitudePicker];
+		showingEditor = false;
+	}
 }
 -(void)render
 {
+	glPushMatrix();
+	glTranslatef(frame.origin.x+89-interstate11.stringWidth([[amount stringValue] UTF8String]), frame.origin.y+27, 0);
+	ofSetColor(0x000000);
+	interstate11.drawString([[amount stringValue] UTF8String], 0, 0);
+	glPopMatrix();
 	[super render];
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
@@ -76,6 +85,19 @@
 		[editorScreen addSubview:self];		
 	}
 	[super touchMoved:_tEvent];
+}
+-(void)touchDoubleTap:(TouchEvent*)_tEvent
+{
+	if(!showingEditor){
+		[self activateEditor];
+	}
+}
+-(void)pickerView:(GLValuePickerView *)pickerView didSelectValue:(NSInteger)_value
+{
+	if(pickerView == magnitudePicker){
+		[amount release];
+		amount = [[NSNumber numberWithInt:_value]retain];
+	}
 }
 -(void)removeChildInstruction:(BaseInstruction*)_instruction
 {
