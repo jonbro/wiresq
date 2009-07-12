@@ -10,16 +10,21 @@
 #import "InstructionSet.h"
 #import "Vector2d.h"
 #import "ofMain.h"
-#import "MoveInstruction.h"
+#import "MoveUpInstruction.h"
+#import "MoveLeftInstruction.h"
+
 #import "StartInstruction.h"
 #import "GLButton.h"
 #import "CGPointUtils.h"
+#import "turtle.h"
 
 @interface EditorScreen : CustomEventResponder <GLButtonDelegate> {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
-	GLButton		*newNodeButton, *newMovementButton, *newControlButton;
+	GLButton		*newNodeButton, *newMovementButton, *newLeftMovementButton, *newControlButton, *runButton;
+	StartInstruction *s_in;
 	CGPoint			newNodePoint;
+	Turtle			*_turtle;
 	id				currentInstruction;
 	bool			displayMenu;
 	ofTrueTypeFont	proFont;

@@ -18,6 +18,8 @@
 	self = [super init];
 	frame = CGRectMake(0, 0, 320, 480);
 	proFont.loadFont("ProFont.ttf", 14);
+
+	_turtle = [[Turtle alloc]init];
 	
 	newNodeButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 6, 45, 45)]retain];
 	newNodeButton._delegate = self;
@@ -31,19 +33,34 @@
 	newMovementButton._delegate = self;
 	[newMovementButton setColor:0x277fb1];
 	[newMovementButton setFontColor:0xFFFFFF];
-	[newMovementButton setTitle:@"MOVEMENT"];
-		
-	newControlButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 102, 150, 45)]retain];
+	[newMovementButton setTitle:@"UP"];
+
+	newLeftMovementButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 102, 150, 45)]retain];
+	newLeftMovementButton._delegate = self;
+	[newLeftMovementButton setColor:0x277fb1];
+	[newLeftMovementButton setFontColor:0xFFFFFF];
+	[newLeftMovementButton setTitle:@"LEFT"];
+	
+	
+	newControlButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 150, 150, 45)]retain];
 	newControlButton._delegate = self;
 	[newControlButton setColor:0xd8b330];
 	[newControlButton setFontColor:0xFFFFFF];
 	[newControlButton setTitle:@"CONTROL"];
 	
+	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 90, 45)]retain];
+	runButton._delegate = self;
+	[runButton setColor:0x19954a];
+	[runButton setFontColor:0xFFFFFF];
+	[runButton setTitle:@"RUN"];
+
+	[self addSubview:runButton];
+	
 	displayMenu = false;
 	
 	instructions = [[NSMutableArray alloc]init];
 	
-	StartInstruction *s_in = [[StartInstruction alloc]initWithFrame:CGRectMake(160, 240, 80, 40)];
+	s_in = [[StartInstruction alloc]initWithFrame:CGRectMake(160, 240, 80, 40)];
 	[self addSubview:s_in];
 	[instructions addObject:s_in];
 	
@@ -67,11 +84,13 @@
 		if(!displayMenu){
 			[self addSubview:newControlButton];
 			[self addSubview:newMovementButton];
+			[self addSubview:newLeftMovementButton];
 			displayMenu = true;
 			[newNodeButton setTitle:@"-"];
 		}else{
 			[self removeSubview:newControlButton];
 			[self removeSubview:newMovementButton];
+			[self removeSubview:newLeftMovementButton];
 			displayMenu = false;
 			[newNodeButton setTitle:@"+"];
 		}
@@ -80,14 +99,36 @@
 		displayMenu = false;
 		[self removeSubview:newControlButton];
 		[self removeSubview:newMovementButton];
+		[self removeSubview:newLeftMovementButton];
 		[newNodeButton setTitle:@"+"];
-		MoveInstruction *instruction = [[MoveInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 40, 40)];
+		
+		MoveUpInstruction *instruction = [[MoveUpInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
 		instruction.amount = [NSNumber numberWithInt:20];
 		instruction.direction = [NSMutableString stringWithString:@"forward"];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;
+		
 		[instructions addObject:instruction];
 		[self addSubview:instruction];		
+	}
+	if(_button == newLeftMovementButton){
+		displayMenu = false;
+		[self removeSubview:newControlButton];
+		[self removeSubview:newMovementButton];
+		[self removeSubview:newLeftMovementButton];
+		[newNodeButton setTitle:@"+"];
+		
+		MoveLeftInstruction *instruction = [[MoveLeftInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
+		instruction.amount = [NSNumber numberWithInt:20];
+		instruction.direction = [NSMutableString stringWithString:@"left"];
+		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
+		
+		[instructions addObject:instruction];
+		[self addSubview:instruction];		
+	}
+	if(_button == runButton){
+		[_turtle runFirstInstruction:s_in];
 	}
 }
 -(void)touchDoubleTap:(TouchEvent*)_tEvent;

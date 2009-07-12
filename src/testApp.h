@@ -7,6 +7,7 @@
 #import "InstructionSet.h"
 #import "EditorScreen.h"
 #import "Events.h"
+#import "ofxMSAShape3D.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 

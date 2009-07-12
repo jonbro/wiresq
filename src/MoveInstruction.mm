@@ -15,7 +15,7 @@
 
 @implementation MoveInstruction
 
-@synthesize amount, direction, pos, prevInstruction;
+@synthesize amount, direction, pos;
 -(id)init
 {
 	self = [super init];
@@ -41,16 +41,6 @@
 	[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
 	return self;
 }
--(void)updateSubPositions
-{
-	[self updateNodePositions];
-	CGRect nextInstructionFrame = nextInstruction.frame;
-	nextInstructionFrame.origin.x = frame.origin.x;
-	nextInstructionFrame.origin.y = frame.origin.y + frame.size.height;
-	[nextInstruction setFrame:nextInstructionFrame];
-	[nextInstruction updateSubPositions];
-	[nextInstruction updateNodePositions];
-}
 -(void)processTurtle:(Turtle*)_turtle
 {
 	if([direction isEqual:@"forward"]){
@@ -67,8 +57,6 @@
 }
 -(void)render
 {
-	[colorScheme drawColor2];
-	ofRect(frame.origin.x , frame.origin.y, frame.size.width, frame.size.height);
 	[super render];
 }
 -(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
@@ -99,36 +87,9 @@
 		nextInstruction = nil;
 	}
 }
--(void)attachInstruction:(BaseInstruction*)incomingInstruction
-{
-	[nextInstruction release];
-	nextInstruction = [incomingInstruction retain];
-	[incomingInstruction setPrevious:self];
-	[self addSubview:nextInstruction];
-	[childInstructions addObject:nextInstruction];
-	[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
-	[instructionNodes removeObjectForKey:@"bottomNode"];
-	[self updateSubPositions];
-}
 -(void)setPrevious:(BaseInstruction*)_prevInstruction
 {
 	[prevInstruction release];
 	prevInstruction = [_prevInstruction retain];
-}
--(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
-{
-	if(_node == [instructionNodes objectForKey:@"bottomNode"]){
-		[self attachInstruction:incomingInstruction];
-	}else if(_node == [instructionNodes objectForKey:@"topNode"]){
-		CGRect incomingInstructionFrame = incomingInstruction.frame;
-		incomingInstructionFrame.origin.x = frame.origin.x;
-		incomingInstructionFrame.origin.y = frame.origin.y - incomingInstructionFrame.size.height;
-		[incomingInstruction setFrame:incomingInstructionFrame];
-		if(prevInstruction != nil){
-			[prevInstruction attachInstruction:incomingInstruction];
-		}
-		[incomingInstruction attachInstruction:self];
-	}
-	_node.incomingInstruction = nil;
 }
 @end

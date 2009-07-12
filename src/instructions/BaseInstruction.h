@@ -19,8 +19,10 @@
 	NSMutableArray			*childInstructions;
 	CustomEventResponder	*editorScreen;
 	ConnectionNode			*nearestNode;
+	BaseInstruction		*nextInstruction;
+	BaseInstruction		*prevInstruction;
 }
-
+@property (retain) BaseInstruction*	prevInstruction;
 @property(retain) NSMutableArray*			allInstructions;
 @property(retain) NSMutableArray*			childInstructions;
 @property(retain) CustomEventResponder*		editorScreen;
@@ -29,6 +31,7 @@
 -(void)findNearestInstructionNode;
 -(void)removeChildInstruction:(BaseInstruction*)_instruction;
 -(void)updateNodePositions;
+-(void)attachNextInstruction:(BaseInstruction*)incomingInstruction;
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(NSObject*)_node;
 -(void)updateSubPositions;
 

@@ -2,32 +2,36 @@
 #include "testApp.h"
 #include "glHelper.h"
 #import	"TouchEvent.h"
+#import "globals.h"
+
+extern ofxMSAShape3D *myShape;
 
 //--------------------------------------------------------------
 void testApp::setup(){	
 	ofBackground(50, 50, 50);
 	ofSetBackgroundAuto(true);
 	ofxMultiTouch.addListener(this);
+	ofEnableAlphaBlending();
 
 	glEnableClientState( GL_VERTEX_ARRAY );  // this should be in OF somewhere.  
 	glPointSize(60);
 	glEnable(GL_POINT_SMOOTH);
 	[glHelper setupLighting];
-	main_t = [[Turtle alloc]init];
 	main_screen = [[EditorScreen alloc]init];
 	[Events setFirstResponder:main_screen];
+
+	// load in our textures
+	
 }
 
 
 //--------------------------------------------------------------
 void testApp::update(){
-	[main_t update];
 	[main_screen update];
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	[main_t render];
 	[main_screen render];	
 }
 

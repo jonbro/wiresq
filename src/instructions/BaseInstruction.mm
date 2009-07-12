@@ -9,7 +9,7 @@
 #import "BaseInstruction.h"
 
 @implementation BaseInstruction
-@synthesize instructionNodes, allInstructions, editorScreen, childInstructions;
+@synthesize instructionNodes, allInstructions, editorScreen, childInstructions, prevInstruction;
 
 -(id)init
 {
@@ -59,9 +59,32 @@
 		nearestNode.incomingInstruction = self;
 	}
 }
--(void) attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
+-(void)attachNextInstruction:(BaseInstruction*)incomingInstruction
 {
-	// to be overridden in subclasses
+	[nextInstruction release];
+	nextInstruction = [incomingInstruction retain];
+	[incomingInstruction setPrevious:self];
+	[self addSubview:nextInstruction];
+	[childInstructions addObject:nextInstruction];
+	[self removeSubview:[instructionNodes objectForKey:@"bottomNode"]];
+	[instructionNodes removeObjectForKey:@"bottomNode"];
+	[self updateSubPositions];
+}
+-(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
+{
+	if(_node == [instructionNodes objectForKey:@"bottomNode"]){
+		[self attachNextInstruction:incomingInstruction];
+	}else if(_node == [instructionNodes objectForKey:@"topNode"]){
+		CGRect incomingInstructionFrame = incomingInstruction.frame;
+		incomingInstructionFrame.origin.x = frame.origin.x;
+		incomingInstructionFrame.origin.y = frame.origin.y - incomingInstructionFrame.size.height;
+		[incomingInstruction setFrame:incomingInstructionFrame];
+		if(prevInstruction != nil){
+			[prevInstruction attachNextInstruction:incomingInstruction];
+		}
+		[incomingInstruction attachNextInstruction:self];
+	}
+	_node.incomingInstruction = nil;
 }
 -(void)updateNodePositions
 {
@@ -79,7 +102,13 @@
 }
 -(void)updateSubPositions
 {
-	// to be overridden in subclasses
+	[self updateNodePositions];
+	CGRect nextInstructionFrame = nextInstruction.frame;
+	nextInstructionFrame.origin.x = frame.origin.x;
+	nextInstructionFrame.origin.y = frame.origin.y + frame.size.height - 7;
+	[nextInstruction setFrame:nextInstructionFrame];
+	[nextInstruction updateSubPositions];
+	[nextInstruction updateNodePositions];
 }
 -(void)removeChildInstruction:(BaseInstruction*)_instruction
 {

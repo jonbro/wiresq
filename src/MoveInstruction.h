@@ -25,18 +25,14 @@
 	GLValuePickerView	*magnitudePicker;
 	NSMutableArray		*directionOptions;
 	bool				showingEditor;
-	BaseInstruction		*nextInstruction;
-	BaseInstruction		*prevInstruction;
 }
 
 @property (copy) NSNumber*			amount;
-@property (retain) BaseInstruction*	prevInstruction;
 @property (copy) NSMutableString*	direction;
 @property (retain) Vector2d*		pos;
 
 -(void)processTurtle:(id)_turtle;
 -(void)setPrevious:(BaseInstruction*)_prevInstruction;
--(void)attachInstruction:(BaseInstruction*)incomingInstruction;
 -(void)render;
 -(void)activateEditor;
 

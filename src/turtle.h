@@ -10,11 +10,12 @@
 #import "Vector2d.h"
 #import "InstructionSet.h"
 #import "MoveInstruction.h"
+#import "BaseInstruction.h"
 
 @interface Turtle : NSObject {
-	int currentInstruction;
 	InstructionSet *in_set;
 	NSMutableArray *drawingPoints;
+	BaseInstruction *currentInstruction;
 	Vector2d *pos;
 	Vector2d *dir;
 }
@@ -24,6 +25,7 @@
 
 -(void)update;
 -(void)render;
+-(void)runFirstInstruction:(BaseInstruction*)_currentInstruction;
 
 @end
 
