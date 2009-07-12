@@ -9,6 +9,7 @@
 #import "turtle.h"
 #import "ofGraphics.h"
 #import "InstructionSet.h"
+#import "ofxiPhone.h"
 
 @implementation Turtle
 
@@ -40,7 +41,24 @@
 }
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction
 {
-	currentInstruction = _currentInstruction;
+	pos.x = 160.0;
+	pos.y = 240.0;
+	// blank the background
+	ofSetColor(0xFFFFFF);
+	ofRect(0, 0, 320, 480);
+	// run all of the instructions
+	[self runInstruction:_currentInstruction];
+	// save to the photo library
+	iPhoneScreenGrab(self);
 }
-
+-(void)runInstruction:(BaseInstruction*)_currentInstruction
+{
+	currentInstruction = _currentInstruction;
+	while(currentInstruction != nil)
+	{
+		currentInstruction = [currentInstruction processTurtle:self];
+		ofSetColor(0x000000);
+		ofCircle(pos.x,pos.y, 10);
+	}
+}
 @end

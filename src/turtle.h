@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Vector2d.h"
 #import "InstructionSet.h"
-#import "MoveInstruction.h"
 #import "BaseInstruction.h"
+
+@class BaseInstruction;
 
 @interface Turtle : NSObject {
 	InstructionSet *in_set;
@@ -26,6 +27,7 @@
 -(void)update;
 -(void)render;
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction;
+-(void)runInstruction:(BaseInstruction*)_currentInstruction;
 
 @end
 

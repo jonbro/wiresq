@@ -18,5 +18,9 @@
 	drawRectSprite(0, frame.origin.x+12, frame.origin.y+18, 15, 13, 101, 15);
 	[super render];
 }
-
+-(id)processTurtle:(Turtle*)_turtle
+{
+	[_turtle.pos add:[Vector2d mult:_turtle.dir amount:[amount floatValue]]];
+	return nextInstruction;
+}
 @end

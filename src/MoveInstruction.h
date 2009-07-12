@@ -15,6 +15,8 @@
 #import "BaseInstruction.h"
 #import "connectionNode.h"
 
+@class BaseInstruction;
+
 @interface MoveInstruction : BaseInstruction <GLPickerViewDelegate, GLPickerViewDataSource, GLValuePickerViewDelegate> {
 	NSNumber*			amount;
 	NSMutableString*	direction;
@@ -29,7 +31,6 @@
 @property (copy) NSMutableString*	direction;
 @property (retain) Vector2d*		pos;
 
--(void)processTurtle:(id)_turtle;
 -(void)setPrevious:(BaseInstruction*)_prevInstruction;
 -(void)render;
 -(void)activateEditor;

@@ -38,14 +38,6 @@
 	[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
 	return self;
 }
--(void)processTurtle:(Turtle*)_turtle
-{
-	if([direction isEqual:@"forward"]){
-		[_turtle.pos add:[Vector2d mult:_turtle.dir amount:[amount floatValue]]];
-	}else if([direction isEqual:@"left"]){
-		[_turtle.dir rotate:[amount floatValue]];
-	}
-}
 -(void)activateEditor
 {
 	[editorScreen removeEditors];

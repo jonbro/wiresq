@@ -9,7 +9,7 @@
 #import "BaseInstruction.h"
 
 @implementation BaseInstruction
-@synthesize instructionNodes, allInstructions, editorScreen, childInstructions, prevInstruction;
+@synthesize instructionNodes, allInstructions, editorScreen, childInstructions, prevInstruction, nextInstruction;
 
 -(id)init
 {
@@ -32,6 +32,10 @@
 	if(nearestNode.incomingInstruction == self){
 		[nearestNode attachIncomingInstruction];
 	}
+}
+-(id)processTurtle:(Turtle*)_turtle
+{
+	return self.nextInstruction;
 }
 -(void)findNearestInstructionNode
 {
