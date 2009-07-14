@@ -69,6 +69,8 @@
 }
 -(void)updateSubPositions
 {
+	int innerHeight = [innerInstruction getHeight];
+	frame.size.height = innerHeight+78;
 	[super updateSubPositions];
 	CGRect nextInstructionFrame = innerInstruction.frame;
 	nextInstructionFrame.origin.x = frame.origin.x + 19;
@@ -88,10 +90,14 @@
 
 -(void)render
 {
-	drawRectSprite(1, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height, 0, 0);
+	drawRectSprite(1, frame.origin.x, frame.origin.y, 137, 55, 0, 0);
 	if(innerInstruction != nil){
 		int innerHeight = [innerInstruction getHeight];
-		
+		frame.size.height = innerHeight+78;
+		drawRectSprite(1, frame.origin.x, frame.origin.y+55, 137, 6, 0, 55, 137, innerHeight-10);
+		drawRectSprite(1, frame.origin.x, frame.origin.y+55+innerHeight-10, 137, 34, 0, 61);
+	}else{
+		drawRectSprite(1, frame.origin.x, frame.origin.y+55, 137, 40, 0, 55);		
 	}
 	[super render];
 }

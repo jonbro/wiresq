@@ -100,9 +100,9 @@
 -(int)getHeight
 {
 	if(nextInstruction == nil){
-		return frame.size.height;
+		return frame.size.height - 7; // this is because of the little nubbin on the bottom, only applies to single nodes
 	}else{
-		return frame.size.height + [nextInstruction getHeight];
+		return frame.size.height - 7 + [nextInstruction getHeight];
 	}
 }
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node

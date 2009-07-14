@@ -14,3 +14,4 @@
 #endif
 
 void drawRectSprite(int tex, int x, int y, int width, int height, int offset_x, int offset_y);
+void drawRectSprite(int tex, int x, int y, int width, int height, int offset_x, int offset_y, int scale_width, int scale_height);
