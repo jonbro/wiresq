@@ -37,7 +37,8 @@
 }
 -(void)render
 {
-	
+	ofSetColor(0x000000);
+	ofCircle(pos.x, pos.y, 1);
 }
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction
 {
