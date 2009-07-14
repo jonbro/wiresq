@@ -12,6 +12,7 @@
 #import "ofMain.h"
 #import "MoveUpInstruction.h"
 #import "MoveLeftInstruction.h"
+#import "RepeatInstruction.h"
 
 #import "StartInstruction.h"
 #import "GLButton.h"

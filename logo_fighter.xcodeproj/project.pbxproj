@@ -31,12 +31,14 @@
 		5ECAD36C100026A400F6187F /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD36B100026A400F6187F /* CGPointUtils.m */; };
 		5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD4FD100114D200F6187F /* ConnectionNode.mm */; };
 		5EDB6AAB10042E5B00F11EA7 /* StartInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */; };
+		5EE77D41100C22100035A344 /* control_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE77D40100C22100035A344 /* control_atlas.png */; };
 		5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92800FCCCD6000F31704 /* turtle.mm */; };
 		5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.mm */; };
 		5EEA92960FCCD17700F31704 /* MoveInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.mm */; };
 		5EEA92EF0FCCD8D000F31704 /* vmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92ED0FCCD8D000F31704 /* vmath.cpp */; };
 		5EEA93580FCE106F00F31704 /* Vector2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA93570FCE106F00F31704 /* Vector2d.m */; };
 		5EF31285100A7FED008C3082 /* MoveLeftInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EF31284100A7FED008C3082 /* MoveLeftInstruction.mm */; };
+		5EF3153A100C1B47008C3082 /* RepeatInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EF31539100C1B47008C3082 /* RepeatInstruction.mm */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
 		BB16E9D50F2B1E6900518274 /* ofUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9BC0F2B1E6900518274 /* ofUtils.cpp */; };
@@ -113,6 +115,7 @@
 		5ECAD4FD100114D200F6187F /* ConnectionNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConnectionNode.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.mm; sourceTree = DEVELOPER_DIR; };
 		5EDB6AA910042E5B00F11EA7 /* StartInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StartInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.mm; sourceTree = DEVELOPER_DIR; };
+		5EE77D40100C22100035A344 /* control_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = control_atlas.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/control_atlas.png; sourceTree = DEVELOPER_DIR; };
 		5EEA927F0FCCCD6000F31704 /* turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92800FCCCD6000F31704 /* turtle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = turtle.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92820FCCCDA200F31704 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionSet.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.h; sourceTree = DEVELOPER_DIR; };
@@ -125,6 +128,8 @@
 		5EEA93570FCE106F00F31704 /* Vector2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Vector2d.m; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Vector2d.m; sourceTree = DEVELOPER_DIR; };
 		5EF31283100A7FED008C3082 /* MoveLeftInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveLeftInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveLeftInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5EF31284100A7FED008C3082 /* MoveLeftInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoveLeftInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveLeftInstruction.mm; sourceTree = DEVELOPER_DIR; };
+		5EF31538100C1B47008C3082 /* RepeatInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RepeatInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/RepeatInstruction.h; sourceTree = DEVELOPER_DIR; };
+		5EF31539100C1B47008C3082 /* RepeatInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RepeatInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/RepeatInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
 		BB16E9970F2B1E6900518274 /* ofAppGlutWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofAppGlutWindow.cpp; sourceTree = "<group>"; };
@@ -423,6 +428,7 @@
 		5E5600FA100A6BFD00E0681A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5EE77D40100C22100035A344 /* control_atlas.png */,
 				5E5600FB100A6BFD00E0681A /* move_atlas.png */,
 			);
 			name = images;
@@ -476,6 +482,8 @@
 				5E30E2810FFFCC370002CEAC /* BaseInstruction.mm */,
 				5EDB6AA910042E5B00F11EA7 /* StartInstruction.h */,
 				5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */,
+				5EF31538100C1B47008C3082 /* RepeatInstruction.h */,
+				5EF31539100C1B47008C3082 /* RepeatInstruction.mm */,
 			);
 			name = instructions;
 			path = ..;
@@ -974,6 +982,7 @@
 				5E0C6B0B0FD1DDC500801469 /* Avenir_Medium.ttf in Resources */,
 				5E02E9210FD753690042B1B9 /* ProFont.ttf in Resources */,
 				5E5600FC100A6BFD00E0681A /* move_atlas.png in Resources */,
+				5EE77D41100C22100035A344 /* control_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1035,7 @@
 				5E56017F100A6ED400E0681A /* MoveUpInstruction.mm in Sources */,
 				5E56018E100A6F0200E0681A /* DrawSprite.cpp in Sources */,
 				5EF31285100A7FED008C3082 /* MoveLeftInstruction.mm in Sources */,
+				5EF3153A100C1B47008C3082 /* RepeatInstruction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

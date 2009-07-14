@@ -61,6 +61,7 @@
 	instructions = [[NSMutableArray alloc]init];
 	
 	s_in = [[StartInstruction alloc]initWithFrame:CGRectMake(160, 240, 80, 40)];
+	s_in.editorScreen = self;
 	[self addSubview:s_in];
 	[instructions addObject:s_in];
 	
@@ -134,6 +135,22 @@
 		[instructions addObject:instruction];
 		[self addSubview:instruction];		
 	}
+	if(_button == newControlButton){
+		displayMenu = false;
+		[self removeSubview:newControlButton];
+		[self removeSubview:newMovementButton];
+		[self removeSubview:newLeftMovementButton];
+		[newNodeButton setTitle:@"+"];
+		
+		RepeatInstruction *instruction = [[RepeatInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 137, 94)];
+		instruction.counter = [NSNumber numberWithInt:0];
+		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
+		
+		[instructions addObject:instruction];
+		[self addSubview:instruction];		
+	}
+	
 	if(_button == runButton){
 		[_turtle runFirstInstruction:s_in];
 	}

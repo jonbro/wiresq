@@ -60,24 +60,6 @@
 	glPopMatrix();
 	[super render];
 }
--(NSString*)pickerView:(GLPickerView*)pickerView titleForRow:(NSInteger)row
-{
-	return [directionOptions objectAtIndex:row];
-}
--(NSInteger)numberOfRowsInPickerView:(GLPickerView*)pickerView
-{
-	return [directionOptions count];
-}
--(void)touchMoved:(TouchEvent*)_tEvent
-{
-	if(superview != editorScreen){
-		[(BaseInstruction*)superview removeChildInstruction:self];
-		[prevInstruction release];
-		prevInstruction = nil;
-		[editorScreen addSubview:self];		
-	}
-	[super touchMoved:_tEvent];
-}
 -(void)touchDoubleTap:(TouchEvent*)_tEvent
 {
 	if(!showingEditor){
@@ -90,20 +72,5 @@
 		[amount release];
 		amount = [[NSNumber numberWithInt:_value]retain];
 	}
-}
--(void)removeChildInstruction:(BaseInstruction*)_instruction
-{
-	if(_instruction == nextInstruction){
-		[childInstructions removeObject:_instruction];
-		[nextInstruction release];
-		[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
-		[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
-		nextInstruction = nil;
-	}
-}
--(void)setPrevious:(BaseInstruction*)_prevInstruction
-{
-	[prevInstruction release];
-	prevInstruction = [_prevInstruction retain];
 }
 @end

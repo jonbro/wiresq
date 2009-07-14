@@ -34,7 +34,9 @@
 -(void)findNearestInstructionNode;
 -(void)removeChildInstruction:(BaseInstruction*)_instruction;
 -(void)updateNodePositions;
+-(void)setPrevious:(BaseInstruction*)_prevInstruction;
 -(void)removeEditor;
+-(int)getHeight;
 -(id)processTurtle:(Turtle*)_turtle;
 -(void)attachNextInstruction:(BaseInstruction*)incomingInstruction;
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(NSObject*)_node;

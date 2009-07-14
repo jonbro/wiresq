@@ -23,6 +23,13 @@
 {
 	frame.origin.x += _tEvent.x_pos - _tEvent.prevTouch.x_pos;
 	frame.origin.y += _tEvent.y_pos - _tEvent.prevTouch.y_pos;
+	// disconnect from the previous instruction
+	if(superview != editorScreen){
+		[superview removeChildInstruction:self];
+		[prevInstruction release];
+		prevInstruction = nil;
+		[editorScreen addSubview:self];		
+	}	
 	[self updateNodePositions];
 	[self updateSubPositions];
 	[self findNearestInstructionNode];
@@ -33,9 +40,24 @@
 		[nearestNode attachIncomingInstruction];
 	}
 }
+-(void)removeChildInstruction:(BaseInstruction*)_instruction
+{
+	if(_instruction == nextInstruction){
+		[childInstructions removeObject:_instruction];
+		[nextInstruction release];
+		[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y+frame.size.height, frame.size.width, 4)] forKey:@"bottomNode"];
+		[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
+		nextInstruction = nil;
+	}
+}
 -(id)processTurtle:(Turtle*)_turtle
 {
 	return self.nextInstruction;
+}
+-(void)setPrevious:(BaseInstruction*)_prevInstruction
+{
+	[prevInstruction release];
+	prevInstruction = [_prevInstruction retain];
 }
 -(void)findNearestInstructionNode
 {
@@ -74,6 +96,15 @@
 	[instructionNodes removeObjectForKey:@"bottomNode"];
 	[self updateSubPositions];
 }
+// returns the height of this instruction + all of its sub nodes
+-(int)getHeight
+{
+	if(nextInstruction == nil){
+		return frame.size.height;
+	}else{
+		return frame.size.height + [nextInstruction getHeight];
+	}
+}
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
 {
 	if(_node == [instructionNodes objectForKey:@"bottomNode"]){
@@ -97,12 +128,13 @@
 {
 	for(NSString *nodeName in instructionNodes){
 		CGRect subframe = [[instructionNodes objectForKey:nodeName] frame];
-		subframe.origin.x = frame.origin.x;
 		if([nodeName isEqualToString:@"topNode"]){
 			subframe.origin.y = frame.origin.y-4;
+			subframe.origin.x = frame.origin.x;
 		}
 		if([nodeName isEqualToString:@"bottomNode"]){
 			subframe.origin.y = frame.origin.y+frame.size.height;
+			subframe.origin.x = frame.origin.x;
 		}
 		[[instructionNodes objectForKey:nodeName] setFrame:subframe];
 	}
@@ -116,9 +148,5 @@
 	[nextInstruction setFrame:nextInstructionFrame];
 	[nextInstruction updateSubPositions];
 	[nextInstruction updateNodePositions];
-}
--(void)removeChildInstruction:(BaseInstruction*)_instruction
-{
-		// to be overridden in subclasses
 }
 @end
