@@ -21,6 +21,8 @@
 -(id)processTurtle:(Turtle*)_turtle
 {
 	[_turtle.pos add:[Vector2d mult:_turtle.dir amount:[amount floatValue]]];
+	ofSetColor(0x000000);
+	ofCircle(_turtle.pos.x, _turtle.pos.y, 1);
 	return nextInstruction;
 }
 @end

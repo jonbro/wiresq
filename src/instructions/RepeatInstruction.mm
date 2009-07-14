@@ -26,6 +26,7 @@
 	counterPicker = [[GLValuePickerView alloc] initWithFrame:CGRectMake(0, 380, 320, 100)];
 	counterPicker._delegate = self;
 	interstate11.loadFont("ProFont.ttf", 11);
+	tmpCounter = 0;
 	showingEditor = false;
 	return self;
 }
@@ -44,6 +45,18 @@
 	[self addSubview:[instructionNodes objectForKey:@"bottomNode"]];
 	
 	return self;
+}
+-(id)processTurtle:(Turtle*)_turtle
+{
+	tmpCounter = 0;
+	while(tmpCounter < [counter intValue]){
+		tmpInnerInstruction = [innerInstruction processTurtle:_turtle];
+		while(tmpInnerInstruction != nil){
+			tmpInnerInstruction = [tmpInnerInstruction processTurtle:_turtle];
+		}
+		tmpCounter++;
+	}
+	return nextInstruction;
 }
 -(void)pickerView:(GLValuePickerView *)pickerView didSelectValue:(NSInteger)_value
 {
@@ -67,6 +80,19 @@
 		[super attachInstruction:incomingInstruction toNode:_node];
 	}
 }
+-(void)activateEditor
+{
+	[editorScreen removeEditors];
+	showingEditor = true;
+	[self addSubview:counterPicker];
+}
+-(void)removeEditor
+{
+	if(showingEditor){
+		[self removeSubview:counterPicker];
+		showingEditor = false;
+	}
+}
 -(void)updateSubPositions
 {
 	int innerHeight = [innerInstruction getHeight];
@@ -87,7 +113,12 @@
 	[[instructionNodes objectForKey:@"innerNode"] setFrame:innerNodeFrame];
 	[super updateNodePositions];
 }
-
+-(void)touchDoubleTap:(TouchEvent*)_tEvent
+{
+	if(!showingEditor){
+		[self activateEditor];
+	}
+}
 -(void)render
 {
 	drawRectSprite(1, frame.origin.x, frame.origin.y, 137, 55, 0, 0);
@@ -99,6 +130,11 @@
 	}else{
 		drawRectSprite(1, frame.origin.x, frame.origin.y+55, 137, 40, 0, 55);		
 	}
+	glPushMatrix();
+	glTranslatef(frame.origin.x+123-interstate11.stringWidth([[counter stringValue] UTF8String]), frame.origin.y+27, 0);
+	ofSetColor(0x000000);
+	interstate11.drawString([[counter stringValue] UTF8String], 0, 0);
+	glPopMatrix();
 	[super render];
 }
 @end

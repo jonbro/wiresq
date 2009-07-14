@@ -57,8 +57,6 @@
 	while(currentInstruction != nil)
 	{
 		currentInstruction = [currentInstruction processTurtle:self];
-		ofSetColor(0x000000);
-		ofCircle(pos.x,pos.y, 10);
 	}
 }
 @end

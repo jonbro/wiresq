@@ -20,10 +20,11 @@
 
 @interface RepeatInstruction : BaseInstruction <GLValuePickerViewDelegate> {
 	BaseInstruction		*innerInstruction;
+	BaseInstruction		*tmpInnerInstruction;
 	GLValuePickerView	*counterPicker;
 	bool				showingEditor, isCounting;
 	NSNumber*			counter;
-	NSNumber*			tmpCounter;
+	int					tmpCounter;
 }
 
 @property (retain) NSNumber*			counter;
