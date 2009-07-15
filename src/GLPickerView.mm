@@ -86,13 +86,13 @@
 }
 -(void)touchDown:(TouchEvent*)_tEvent;
 {
-	fingerStart = _tEvent.y_pos;
+	fingerStart = _tEvent.pos.y;
 	fingerDown = true;
 }
 - (void)touchMoved:(TouchEvent*)_tEvent
 {
-	float moveAmt = fingerStart - _tEvent.y_pos;
-	fingerStart = _tEvent.y_pos;
+	float moveAmt = fingerStart - _tEvent.pos.y;
+	fingerStart = _tEvent.pos.y;
 	int slices = 12;
 	float theta = (PI / 180) * (360.0/(slices*2.0));
 	float radius = 80;

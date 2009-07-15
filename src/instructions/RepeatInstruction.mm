@@ -85,12 +85,12 @@
 {
 	[editorScreen removeEditors];
 	showingEditor = true;
-	[self addSubview:counterPicker];
+	[editorScreen addSubview:counterPicker];
 }
 -(void)removeEditor
 {
 	if(showingEditor){
-		[self removeSubview:counterPicker];
+		[editorScreen removeSubview:counterPicker];
 		showingEditor = false;
 	}
 }

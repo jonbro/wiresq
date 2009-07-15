@@ -162,6 +162,6 @@
 }
 -(void)touchDoubleTap:(TouchEvent*)_tEvent
 {
-	newNodePoint = CGPointMake(_tEvent.x_pos, _tEvent.y_pos);
+	newNodePoint = CGPointMake(_tEvent.pos.x, _tEvent.pos.y);
 }
 @end

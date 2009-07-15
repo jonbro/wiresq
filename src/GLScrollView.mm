@@ -23,8 +23,8 @@
 }
 -(void)touchMoved:(TouchEvent*)_tEvent
 {
-	float diffX = _tEvent.x_pos - _tEvent.prevTouch.x_pos;
-	float diffY = _tEvent.y_pos - _tEvent.prevTouch.y_pos;
+	float diffX = _tEvent.pos.x - _tEvent.prevTouch.x_pos;
+	float diffY = _tEvent.pos.y - _tEvent.prevTouch.y_pos;
 	currentTranslation = CGAffineTransformConcat(currentTranslation, CGAffineTransformMakeTranslation(diffX, diffY));
 }
 -(bool)hasTransform

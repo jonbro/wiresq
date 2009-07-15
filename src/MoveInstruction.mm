@@ -42,12 +42,12 @@
 {
 	[editorScreen removeEditors];
 	showingEditor = true;
-	[self addSubview:magnitudePicker];
+	[editorScreen addSubview:magnitudePicker];
 }
 -(void)removeEditor
 {
 	if(showingEditor){
-		[self removeSubview:magnitudePicker];
+		[editorScreen removeSubview:magnitudePicker];
 		showingEditor = false;
 	}
 }
