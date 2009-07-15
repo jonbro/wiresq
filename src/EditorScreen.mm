@@ -19,6 +19,9 @@
 	frame = CGRectMake(0, 0, 320, 480);
 	proFont.loadFont("ProFont.ttf", 14);
 
+	editPane = [[GLScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];	
+	[self addSubview:editPane];
+
 	_turtle = [[Turtle alloc]init];
 	
 	newNodeButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 6, 45, 45)]retain];
@@ -59,11 +62,14 @@
 	displayMenu = false;
 	
 	instructions = [[NSMutableArray alloc]init];
+		
 	
 	s_in = [[StartInstruction alloc]initWithFrame:CGRectMake(160, 240, 80, 40)];
 	s_in.editorScreen = self;
-	[self addSubview:s_in];
+	
+	[editPane addSubview:s_in];
 	[instructions addObject:s_in];
+	
 	
 	newNodePoint = CGPointMake(160, 240);
 	return self;
@@ -71,9 +77,6 @@
 -(void)render
 {	
 	[super render];
-	//render new node point helper
-	ofSetColor(255, 0, 0);
-	ofRect(newNodePoint.x-3, newNodePoint.y-3, 6, 6);
 }
 // gets rid of all the on screen editor helpers
 -(void)removeEditors
@@ -115,9 +118,10 @@
 		instruction.direction = [NSMutableString stringWithString:@"forward"];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;
+		instruction.scrollPane = editPane;
 		
 		[instructions addObject:instruction];
-		[self addSubview:instruction];		
+		[editPane addSubview:instruction];		
 	}
 	if(_button == newLeftMovementButton){
 		displayMenu = false;
@@ -131,9 +135,10 @@
 		instruction.direction = [NSMutableString stringWithString:@"left"];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;
+		instruction.scrollPane = editPane;
 		
 		[instructions addObject:instruction];
-		[self addSubview:instruction];		
+		[editPane addSubview:instruction];		
 	}
 	if(_button == newControlButton){
 		displayMenu = false;
@@ -146,16 +151,16 @@
 		instruction.counter = [NSNumber numberWithInt:0];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;
-		
+		instruction.scrollPane = editPane;
 		[instructions addObject:instruction];
-		[self addSubview:instruction];		
+		[editPane addSubview:instruction];		
 	}
 	
 	if(_button == runButton){
 		[_turtle runFirstInstruction:s_in];
 	}
 }
--(void)touchDoubleTap:(TouchEvent*)_tEvent;
+-(void)touchDoubleTap:(TouchEvent*)_tEvent
 {
 	newNodePoint = CGPointMake(_tEvent.x_pos, _tEvent.y_pos);
 }

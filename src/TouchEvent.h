@@ -12,6 +12,7 @@
 @interface TouchEvent : NSObject {
 	float	x_pos;
 	float	y_pos;
+	CGPoint pos;
 	int		touchId;
 	TouchEvent *prevTouch;
 }
@@ -19,6 +20,9 @@
 @property float x_pos;
 @property float y_pos;
 @property int touchId;
+@property CGPoint pos;
 @property (retain) TouchEvent* prevTouch;
+
+-(TouchEvent*)initWithTouchEvent:(TouchEvent*)_tEvent;
 
 @end

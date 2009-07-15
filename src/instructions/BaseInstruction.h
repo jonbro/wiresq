@@ -20,6 +20,7 @@
 	NSMutableArray			*allInstructions;
 	NSMutableArray			*childInstructions;
 	CustomEventResponder	*editorScreen;
+	CustomEventResponder    *scrollPane;
 	ConnectionNode			*nearestNode;
 	BaseInstruction		*nextInstruction;
 	BaseInstruction		*prevInstruction;
@@ -29,6 +30,7 @@
 @property(retain) NSMutableArray*			allInstructions;
 @property(retain) NSMutableArray*			childInstructions;
 @property(retain) CustomEventResponder*		editorScreen;
+@property(retain) CustomEventResponder*		scrollPane;
 @property(readonly) NSMutableDictionary*	instructionNodes;
 
 -(void)findNearestInstructionNode;

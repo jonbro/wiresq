@@ -11,7 +11,7 @@
 
 @implementation CustomEventResponder
 
-@synthesize subviews, superview, toBeRemoved, frame;
+@synthesize subviews, superview, toBeRemoved, frame, currentTranslation;
 
 -(id)init
 {
@@ -61,6 +61,10 @@
 			[subviewsToBeAdded removeObjectAtIndex:0];
 		}
 	}
+}
+-(bool)hasTransform
+{
+	return false;
 }
 -(void)touchDown:(TouchEvent*)_tEvent
 {}

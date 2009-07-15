@@ -15,8 +15,10 @@
 	NSMutableArray *subviewsToBeAdded;
 	NSMutableArray *toBeRemovedLoop;
 	CustomEventResponder *superview;
+	CGAffineTransform currentTranslation;
 	bool toBeRemoved;
 }
+@property (readonly) CGAffineTransform currentTranslation;
 @property (readonly) NSMutableArray* subviews;
 @property (assign) CGRect frame;
 @property (readonly) CustomEventResponder* superview;
@@ -26,6 +28,8 @@
 
 -(void)update;
 -(void)render;
+
+-(bool)hasTransform;
 
 -(void)touchDown:(TouchEvent*)_tEvent;
 -(void)touchUp:(TouchEvent*)_tEvent;

@@ -9,7 +9,7 @@
 #import "BaseInstruction.h"
 
 @implementation BaseInstruction
-@synthesize instructionNodes, allInstructions, editorScreen, childInstructions, prevInstruction, nextInstruction;
+@synthesize instructionNodes, allInstructions, editorScreen, scrollPane, childInstructions, prevInstruction, nextInstruction;
 
 -(id)init
 {
@@ -24,11 +24,11 @@
 	frame.origin.x += _tEvent.x_pos - _tEvent.prevTouch.x_pos;
 	frame.origin.y += _tEvent.y_pos - _tEvent.prevTouch.y_pos;
 	// disconnect from the previous instruction
-	if(superview != editorScreen){
+	if(prevInstruction != nil){
 		[superview removeChildInstruction:self];
 		[prevInstruction release];
 		prevInstruction = nil;
-		[editorScreen addSubview:self];		
+		[scrollPane addSubview:self];		
 	}	
 	[self updateNodePositions];
 	[self updateSubPositions];

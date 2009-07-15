@@ -58,15 +58,26 @@ static NSMutableDictionary *startTouch;
 +(bool)manageTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_repsonder
 {
 	bool subViewHits = NO;
-	if([[_repsonder subviews]count]>0){
+	if([[_repsonder subviews] count]>0){
+		TouchEvent *transformedEvent = [[[TouchEvent alloc] initWithTouchEvent:_tEvent]retain];
+		if([_repsonder hasTransform]){
+			transformedEvent.pos = CGPointApplyAffineTransform(_tEvent.pos, CGAffineTransformInvert(_repsonder.currentTranslation));
+		}
 		for (CustomEventResponder *button in [_repsonder subviews]) {
-			if([self manageTouchDown:_tEvent forButton:button]){
-				subViewHits = YES;
+			if([_repsonder hasTransform]){
+				if([self manageTouchDown:transformedEvent forButton:button]){
+					subViewHits = YES;
+				}
+			}else{
+				if([self manageTouchDown:transformedEvent forButton:button]){
+					subViewHits = YES;
+				}
 			}
 		}
+		[transformedEvent release];
 	}
 	if(!subViewHits){
-		if([_repsonder insideX:_tEvent.x_pos Y:_tEvent.y_pos] && [_repsonder respondsToSelector:@selector(touchDown:)] == YES) {
+		if([_repsonder insideX:_tEvent.pos.x Y:_tEvent.pos.y] && [_repsonder respondsToSelector:@selector(touchDown:)] == YES) {
 			[currentButtonForTouch setObject:_repsonder forKey:[NSNumber numberWithInt:_tEvent.touchId]];
 			[startTouch setObject:_tEvent forKey:[NSNumber numberWithInt:_tEvent.touchId]];
 			[_repsonder touchDown:_tEvent];

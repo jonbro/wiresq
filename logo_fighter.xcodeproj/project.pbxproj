@@ -32,6 +32,8 @@
 		5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD4FD100114D200F6187F /* ConnectionNode.mm */; };
 		5EDB6AAB10042E5B00F11EA7 /* StartInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */; };
 		5EE77D41100C22100035A344 /* control_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE77D40100C22100035A344 /* control_atlas.png */; };
+		5EE77E5B100D5C1F0035A344 /* TransformUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE77E5A100D5C1F0035A344 /* TransformUtils.mm */; };
+		5EE77E93100D5F770035A344 /* GLScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE77E92100D5F770035A344 /* GLScrollView.mm */; };
 		5EEA92810FCCCD6000F31704 /* turtle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92800FCCCD6000F31704 /* turtle.mm */; };
 		5EEA92840FCCCDA200F31704 /* InstructionSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92830FCCCDA200F31704 /* InstructionSet.mm */; };
 		5EEA92960FCCD17700F31704 /* MoveInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA92950FCCD17700F31704 /* MoveInstruction.mm */; };
@@ -116,6 +118,10 @@
 		5EDB6AA910042E5B00F11EA7 /* StartInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StartInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5EE77D40100C22100035A344 /* control_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = control_atlas.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/control_atlas.png; sourceTree = DEVELOPER_DIR; };
+		5EE77E59100D5C1F0035A344 /* TransformUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformUtils.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/utilities/TransformUtils.h; sourceTree = DEVELOPER_DIR; };
+		5EE77E5A100D5C1F0035A344 /* TransformUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TransformUtils.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/utilities/TransformUtils.mm; sourceTree = DEVELOPER_DIR; };
+		5EE77E91100D5F770035A344 /* GLScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLScrollView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLScrollView.h; sourceTree = DEVELOPER_DIR; };
+		5EE77E92100D5F770035A344 /* GLScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLScrollView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLScrollView.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA927F0FCCCD6000F31704 /* turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = turtle.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.h; sourceTree = DEVELOPER_DIR; };
 		5EEA92800FCCCD6000F31704 /* turtle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = turtle.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/turtle.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA92820FCCCDA200F31704 /* InstructionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionSet.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/InstructionSet.h; sourceTree = DEVELOPER_DIR; };
@@ -384,6 +390,8 @@
 				5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */,
 				5E30E2BE0FFFD4310002CEAC /* GLButton.h */,
 				5E30E2BF0FFFD4310002CEAC /* GLButton.mm */,
+				5EE77E91100D5F770035A344 /* GLScrollView.h */,
+				5EE77E92100D5F770035A344 /* GLScrollView.mm */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -402,6 +410,8 @@
 		5E30E1AA0FFEAB980002CEAC /* math */ = {
 			isa = PBXGroup;
 			children = (
+				5EE77E59100D5C1F0035A344 /* TransformUtils.h */,
+				5EE77E5A100D5C1F0035A344 /* TransformUtils.mm */,
 				5ECAD36A100026A400F6187F /* CGPointUtils.h */,
 				5ECAD36B100026A400F6187F /* CGPointUtils.m */,
 				5EEA92ED0FCCD8D000F31704 /* vmath.cpp */,
@@ -1036,6 +1046,8 @@
 				5E56018E100A6F0200E0681A /* DrawSprite.cpp in Sources */,
 				5EF31285100A7FED008C3082 /* MoveLeftInstruction.mm in Sources */,
 				5EF3153A100C1B47008C3082 /* RepeatInstruction.mm in Sources */,
+				5EE77E5B100D5C1F0035A344 /* TransformUtils.mm in Sources */,
+				5EE77E93100D5F770035A344 /* GLScrollView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

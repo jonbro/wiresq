@@ -71,6 +71,7 @@
 		[innerInstruction release];
 		innerInstruction = [incomingInstruction retain];
 		[self addSubview:innerInstruction];
+		[innerInstruction setPrevious:self];
 		[childInstructions addObject:innerInstruction];
 		[self removeSubview:[instructionNodes objectForKey:@"innerNode"]];
 		[instructionNodes removeObjectForKey:@"innerNode"];

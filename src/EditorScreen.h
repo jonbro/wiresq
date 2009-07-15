@@ -16,12 +16,14 @@
 
 #import "StartInstruction.h"
 #import "GLButton.h"
+#import "GLScrollView.h"
 #import "CGPointUtils.h"
 #import "turtle.h"
 
 @interface EditorScreen : CustomEventResponder <GLButtonDelegate> {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
+	GLScrollView	*editPane;
 	GLButton		*newNodeButton, *newMovementButton, *newLeftMovementButton, *newControlButton, *runButton;
 	StartInstruction *s_in;
 	CGPoint			newNodePoint;
