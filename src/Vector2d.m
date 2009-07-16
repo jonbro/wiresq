@@ -8,7 +8,6 @@
 
 #import "Vector2d.h"
 
-
 @implementation Vector2d
 
 @synthesize x, y;
@@ -72,8 +71,9 @@
 }
 -(void)rotate:(float)rad
 {
-	float tx = (x * cosf(rad)) - (y * sinf(rad));
-	float ty = (x * sinf(rad)) + (y * cosf(rad));
+	float deg = ((rad * M_PI) / 180.0);
+	float tx = (x * cosf(deg)) - (y * sinf(deg));
+	float ty = (x * sinf(deg)) + (y * cosf(deg));
 	x = tx;
 	y = ty;
 }

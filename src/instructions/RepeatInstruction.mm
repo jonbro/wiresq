@@ -46,6 +46,18 @@
 	
 	return self;
 }
+-(void)removeChildInstruction:(BaseInstruction*)_instruction
+{
+	if(_instruction == innerInstruction){
+		[childInstructions removeObject:_instruction];
+		[innerInstruction release];
+		[instructionNodes setObject:[[ConnectionNode alloc]initWithFrame:CGRectMake(frame.origin.x+20, frame.origin.y+47, frame.size.width, 4)] forKey:@"innerNode"];
+		[self addSubview:[instructionNodes objectForKey:@"innerNode"]];
+		innerInstruction = nil;
+	}
+	[super removeChildInstruction:_instruction];
+}
+
 -(id)processTurtle:(Turtle*)_turtle
 {
 	tmpCounter = 0;
@@ -97,12 +109,13 @@
 -(void)updateSubPositions
 {
 	int innerHeight = [innerInstruction getHeight];
-	frame.size.height = innerHeight+78;
+	frame.size.height =  55+innerHeight-10+34;
 	[super updateSubPositions];
 	CGRect nextInstructionFrame = innerInstruction.frame;
 	nextInstructionFrame.origin.x = frame.origin.x + 19;
 	nextInstructionFrame.origin.y = frame.origin.y + 46;
 	[innerInstruction setFrame:nextInstructionFrame];
+	[self updateNodePositions];
 	[innerInstruction updateSubPositions];
 	[innerInstruction updateNodePositions];
 }
@@ -125,7 +138,7 @@
 	drawRectSprite(1, frame.origin.x, frame.origin.y, 137, 55, 0, 0);
 	if(innerInstruction != nil){
 		int innerHeight = [innerInstruction getHeight];
-		frame.size.height = innerHeight+78;
+		frame.size.height = 55+innerHeight-10+34;
 		drawRectSprite(1, frame.origin.x, frame.origin.y+55, 137, 6, 0, 55, 137, innerHeight-10);
 		drawRectSprite(1, frame.origin.x, frame.origin.y+55+innerHeight-10, 137, 34, 0, 61);
 	}else{

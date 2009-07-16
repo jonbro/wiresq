@@ -11,6 +11,10 @@
 #import "InstructionSet.h"
 #import "ofxiPhone.h"
 
+#import "ofxMSAShape3D.h"
+
+ofxMSAShape3D *turtleShape;
+
 @implementation Turtle
 
 @synthesize pos, dir;
@@ -24,7 +28,8 @@
 	pos = [[Vector2d alloc] init];
 	pos.x = 160.0;
 	pos.y = 240.0;
-
+	turtleShape = new ofxMSAShape3D();
+	
 	dir = [[Vector2d alloc] init];
 	dir.x = 0;
 	dir.y = 1;
@@ -35,21 +40,43 @@
 {
 	
 }
+-(void)addPoint:(CGPoint)_newPoint
+{
+}
 -(void)render
 {
-	ofSetColor(0x000000);
-	ofCircle(pos.x, pos.y, 1);
+	//add the left vertex
+	turtleShape->setColor(0x000000);
+	turtleShape->addVertex(pos.x, pos.y);
 }
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction
 {
+	//reset
 	pos.x = 160.0;
 	pos.y = 240.0;
-	// blank the background
+
+	//reset
+	dir.x = 0;
+	dir.y = 1;
+
+	
+	ofSetColor(255, 255, 255);
+
+	
 	ofSetColor(0xFFFFFF);
 	ofRect(0, 0, 320, 480);
 	// run all of the instructions
+	ofSetColor(0x000000);
+	turtleShape->begin(GL_LINE_STRIP);
 	[self runInstruction:_currentInstruction];
+	turtleShape->end();
 	// save to the photo library
+//	
+	ofFill();
+}
+-(void)save:(BaseInstruction*)_currentInstruction
+{
+	[self runFirstInstruction:_currentInstruction];
 	iPhoneScreenGrab(self);
 }
 -(void)runInstruction:(BaseInstruction*)_currentInstruction

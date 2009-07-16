@@ -51,11 +51,11 @@
 	[newControlButton setFontColor:0xFFFFFF];
 	[newControlButton setTitle:@"CONTROL"];
 	
-	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 90, 45)]retain];
+	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 100, 45)]retain];
 	runButton._delegate = self;
 	[runButton setColor:0x19954a];
 	[runButton setFontColor:0xFFFFFF];
-	[runButton setTitle:@"RUN"];
+	[runButton setTitle:@"SAVE"];
 
 	[self addSubview:runButton];
 	
@@ -76,6 +76,7 @@
 }
 -(void)render
 {	
+	[_turtle runFirstInstruction:s_in];
 	[super render];
 }
 // gets rid of all the on screen editor helpers
@@ -157,7 +158,7 @@
 	}
 	
 	if(_button == runButton){
-		[_turtle runFirstInstruction:s_in];
+		[_turtle save:s_in];
 	}
 }
 -(void)touchDoubleTap:(TouchEvent*)_tEvent
