@@ -11,12 +11,16 @@
 
 @interface Color : NSObject {
 	float red, green, blue;
+	float hue, saturation, lightness;
 }
 
 @property float red;
 @property float green;
 @property float blue;
+@property float hue;
+@property float saturation;
+@property float lightness;
 
 -(void)setColorH:(float)_h S:(float)_s L:(float)_l;
-
+-(void)colorWithColor:(Color*)_color;
 @end

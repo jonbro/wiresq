@@ -40,9 +40,10 @@
 }
 -(id)processTurtle:(Turtle*)_turtle
 {
-	_turtle.currentColor.red = colorValue.red;
-	_turtle.currentColor.green = colorValue.green;
-	_turtle.currentColor.blue = colorValue.blue;
+	[_turtle.currentColor colorWithColor:colorValue];
+//	_turtle.currentColor.red = colorValue.red;
+//	_turtle.currentColor.green = colorValue.green;
+//	_turtle.currentColor.blue = colorValue.blue;
 	return nextInstruction;
 }
 -(void)pickerView:(GLColorPickerView *)pickerView didSelectColor:(Color *)_color;

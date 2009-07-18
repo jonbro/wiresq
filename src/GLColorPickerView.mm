@@ -20,7 +20,7 @@
 }
 -(void)touchMoved:(TouchEvent *)_t
 {
-	[c setColorH:_t.pos.x/frame.size.width*320 S:1.0 L:(_t.pos.y-frame.origin.y)/frame.size.height];
+	[c setColorH:_t.pos.x/frame.size.width*360 S:1.0 L:(_t.pos.y-frame.origin.y)/frame.size.height];
 
 	if(_delegate && [_delegate respondsToSelector:@selector(pickerView: didSelectColor:)] == YES){
 		[_delegate pickerView:self didSelectColor:c];

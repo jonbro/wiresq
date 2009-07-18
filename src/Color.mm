@@ -9,12 +9,30 @@
 #import "Color.h"
 
 @implementation Color
-@synthesize red, green, blue;
+@synthesize red, green, blue, hue, saturation, lightness;
+-(void)setHue:(float)_h
+{
+	hue = _h;
+	[self setColorH:hue S:saturation L:lightness];
+}
+-(void)colorWithColor:(Color*)_color
+{
+	self.red = _color.red;
+	self.green = _color.blue;
+	self.blue = _color.blue;
 
+	self.hue = _color.hue;
+	self.saturation = _color.saturation;
+	self.lightness = _color.lightness;
+
+}
 -(void)setColorH:(float)_h S:(float)_s L:(float)_l
 {
-	float hue = _h;
-	float base_line = ((255.0 * _l) * (1.0 - _s));
+	hue = _h;
+	saturation = _s;
+	lightness = _l;
+	
+	float base_line = ((255.0 * lightness) * (1.0 - saturation));
 	float top_val = (255.0 * _l);
 	
 	float differential = top_val - base_line;
