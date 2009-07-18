@@ -7,56 +7,28 @@
 //
 
 #import "GLColorPickerView.h"
-#import "Color.h"
-#import "ofxMSAShape3D.h"
-#ifdef TARGET_OPENGLES
-	#include "glu.h"
-#endif
 
 @implementation GLColorPickerView
--(id)initWithRect:(CGRect)_frame
+@synthesize _delegate;
+-(id)init
 {
 	self = [super init];
-	frame = _frame;
-	//build picker texture
-	pickerTex = pickerImage.getTextureReference();
-	Color *c = [[Color alloc] init];
-	[c setColorH:0 S:100 L:40];
-	unsigned char pixels[(int)frame.size.width*(int)frame.size.height*3];
-	for(int i=0;i<frame.size.width;i++)
-	{
-		for(int j=0;j<frame.size.height;j++)
-		{
-			int index = j*(int)frame.size.width*3 + i*3;
-			pixels[index] = (int)c.red;
-			pixels[index+1] = (int)c.green;
-			pixels[index+2] = (int)c.blue;
-		}
-	}
-	pickerTex.loadData(pixels, (int)frame.size.width, (int)frame.size.height, GL_RGB);
+	pickerImage.loadImage("color_picker.png");
+	pickerImage.setImageType(OF_IMAGE_COLOR_ALPHA);	
+	c = [[Color alloc] init];
 	return self;
+}
+-(void)touchMoved:(TouchEvent *)_t
+{
+	[c setColorH:_t.pos.x/frame.size.width*320 S:1.0 L:(_t.pos.y-frame.origin.y)/frame.size.height];
+
+	if(_delegate && [_delegate respondsToSelector:@selector(pickerView: didSelectColor:)] == YES){
+		[_delegate pickerView:self didSelectColor:c];
+	}
 }
 -(void)render
 {
+	pickerImage.draw(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
 	[super render];
-	pickerTex.bind();
-	colorPickerShape = new ofxMSAShape3D();
-
-	colorPickerShape->begin(GL_TRIANGLE_STRIP);
-	
-	colorPickerShape->setTexCoord(0, 1);
-	colorPickerShape->addVertex(frame.origin.x, frame.origin.y);
-
-	colorPickerShape->setTexCoord(1, 1);
-	colorPickerShape->addVertex(frame.origin.x+frame.size.width, frame.origin.y);
-
-	colorPickerShape->setTexCoord(0, 0);
-	colorPickerShape->addVertex(frame.origin.x, frame.origin.y+frame.size.height);
-	
-	colorPickerShape->setTexCoord(1, 0);
-	colorPickerShape->addVertex(frame.origin.x+frame.size.width, frame.origin.y+frame.size.height);
-	
-	colorPickerShape->end();
-	pickerTex.unbind();
 }
 @end

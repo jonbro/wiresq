@@ -32,7 +32,6 @@
 	Turtle			*_turtle;
 	id				currentInstruction;
 	bool			displayMenu;
-	GLColorPickerView *colorPicker;
 	ofTrueTypeFont	proFont;
 }
 -(void)render;

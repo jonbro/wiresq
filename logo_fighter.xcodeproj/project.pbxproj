@@ -21,6 +21,7 @@
 		5E1CF6E01012209F00C9C20D /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 5E1CF6DF1012209F00C9C20D /* README.textile */; };
 		5E1CF6F31012233B00C9C20D /* GLColorPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF6F21012233B00C9C20D /* GLColorPickerView.mm */; };
 		5E1CF73410122A5400C9C20D /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF73310122A5400C9C20D /* Color.mm */; };
+		5E1CF79110123AD200C9C20D /* color_picker.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E1CF79010123AD200C9C20D /* color_picker.png */; };
 		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
 		5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */; };
 		5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */; };
@@ -99,6 +100,7 @@
 		5E1CF6F21012233B00C9C20D /* GLColorPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLColorPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLColorPickerView.mm; sourceTree = DEVELOPER_DIR; };
 		5E1CF73210122A5400C9C20D /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Color.h; sourceTree = DEVELOPER_DIR; };
 		5E1CF73310122A5400C9C20D /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Color.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Color.mm; sourceTree = DEVELOPER_DIR; };
+		5E1CF79010123AD200C9C20D /* color_picker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = color_picker.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/color_picker.png; sourceTree = DEVELOPER_DIR; };
 		5E1E69460FD49E2900B5BA1F /* GLPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLPickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.h; sourceTree = DEVELOPER_DIR; };
 		5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.mm; sourceTree = DEVELOPER_DIR; };
 		5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLValuePickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.h; sourceTree = DEVELOPER_DIR; };
@@ -452,6 +454,7 @@
 		5E5600FA100A6BFD00E0681A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5E1CF79010123AD200C9C20D /* color_picker.png */,
 				5EE77D40100C22100035A344 /* control_atlas.png */,
 				5E5600FB100A6BFD00E0681A /* move_atlas.png */,
 			);
@@ -1012,6 +1015,7 @@
 				5E5600FC100A6BFD00E0681A /* move_atlas.png in Resources */,
 				5EE77D41100C22100035A344 /* control_atlas.png in Resources */,
 				5E1CF6E01012209F00C9C20D /* README.textile in Resources */,
+				5E1CF79110123AD200C9C20D /* color_picker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

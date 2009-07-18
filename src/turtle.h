@@ -10,6 +10,7 @@
 #import "Vector2d.h"
 #import "InstructionSet.h"
 #import "BaseInstruction.h"
+#import "Color.h"
 
 @class BaseInstruction;
 
@@ -19,11 +20,12 @@
 	BaseInstruction *currentInstruction;
 	Vector2d *pos;
 	Vector2d *dir;
+	Color	*currentColor;
 }
 
 @property (retain) Vector2d* pos;
 @property (retain) Vector2d* dir;
-
+@property (retain) Color* currentColor;
 -(void)update;
 -(void)render;
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction;

@@ -65,10 +65,7 @@
 	[runButton setTitle:@"SAVE"];
 
 	[self addSubview:runButton];
-	
-	colorPicker = [[GLColorPickerView alloc] initWithFrame:CGRectMake(0, 400, 320, 80)];
-	[self addSubview:colorPicker];
-	
+		
 	displayMenu = false;
 	
 	instructions = [[NSMutableArray alloc]init];

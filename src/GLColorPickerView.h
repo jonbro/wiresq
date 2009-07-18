@@ -11,10 +11,21 @@
 #import "Events.h"
 #import "TouchEvent.h"
 #import "CustomEventResponder.h"
+#import "Color.h"
+
+@protocol GLColorPickerViewDelegate;
 
 @interface GLColorPickerView : CustomEventResponder {
 	ofImage pickerImage;
-	ofTexture pickerTex;
+	Color *c;
+	id<GLColorPickerViewDelegate>	_delegate;
 }
 
+@property(nonatomic, assign) id<GLColorPickerViewDelegate> _delegate;
+
+@end
+
+@protocol GLColorPickerViewDelegate
+@optional
+-(void)pickerView:(GLColorPickerView *)pickerView didSelectColor:(Color *)_color;
 @end

@@ -17,7 +17,7 @@ ofxMSAShape3D *turtleShape;
 
 @implementation Turtle
 
-@synthesize pos, dir;
+@synthesize pos, dir, currentColor;
 
 -(id)init
 {
@@ -29,6 +29,10 @@ ofxMSAShape3D *turtleShape;
 	pos.x = 160.0;
 	pos.y = 240.0;
 	turtleShape = new ofxMSAShape3D();
+	currentColor = [[Color alloc] init];
+	currentColor.red = 0;
+	currentColor.green = 0;
+	currentColor.blue = 0;
 	
 	dir = [[Vector2d alloc] init];
 	dir.x = 0;
@@ -46,7 +50,7 @@ ofxMSAShape3D *turtleShape;
 -(void)render
 {
 	//add the left vertex
-	turtleShape->setColor(0x000000);
+	turtleShape->setColor(currentColor.red/255.0, currentColor.green/255.0, currentColor.blue/255.0);
 	turtleShape->addVertex(pos.x, pos.y);
 }
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction
@@ -62,10 +66,15 @@ ofxMSAShape3D *turtleShape;
 	
 	ofSetColor(255, 255, 255);
 
+	currentColor.red = 0;
+	currentColor.green = 0;
+	currentColor.blue = 0;
 	
 	ofSetColor(0xFFFFFF);
 	ofRect(0, 0, 320, 480);
 	// run all of the instructions
+	ofSetColor(currentColor.red, currentColor.green, currentColor.blue);
+
 	ofSetColor(0x000000);
 	turtleShape->begin(GL_LINE_STRIP);
 	[self runInstruction:_currentInstruction];
