@@ -12,6 +12,7 @@
 #import "ofMain.h"
 #import "MoveUpInstruction.h"
 #import "MoveLeftInstruction.h"
+#import "ColorInstruction.h"
 #import "RepeatInstruction.h"
 
 #import "StartInstruction.h"
@@ -19,17 +20,19 @@
 #import "GLScrollView.h"
 #import "CGPointUtils.h"
 #import "turtle.h"
+#import "GLColorPickerView.h"
 
 @interface EditorScreen : CustomEventResponder <GLButtonDelegate> {
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
 	GLScrollView	*editPane;
-	GLButton		*newNodeButton, *newMovementButton, *newLeftMovementButton, *newControlButton, *runButton;
+	GLButton		*newNodeButton, *newMovementButton, *newLeftMovementButton, *newControlButton, *newColorButton, *runButton;
 	StartInstruction *s_in;
 	CGPoint			newNodePoint;
 	Turtle			*_turtle;
 	id				currentInstruction;
 	bool			displayMenu;
+	GLColorPickerView *colorPicker;
 	ofTrueTypeFont	proFont;
 }
 -(void)render;

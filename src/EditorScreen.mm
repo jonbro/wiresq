@@ -51,6 +51,13 @@
 	[newControlButton setFontColor:0xFFFFFF];
 	[newControlButton setTitle:@"CONTROL"];
 	
+	newColorButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 198, 150, 45)]retain];
+	newColorButton._delegate = self;
+	[newColorButton setColor:0x277fb1];
+	[newColorButton setFontColor:0xFFFFFF];
+	[newColorButton setTitle:@"COLOR"];
+	
+	
 	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 100, 45)]retain];
 	runButton._delegate = self;
 	[runButton setColor:0x19954a];
@@ -58,6 +65,9 @@
 	[runButton setTitle:@"SAVE"];
 
 	[self addSubview:runButton];
+	
+	colorPicker = [[GLColorPickerView alloc] initWithFrame:CGRectMake(0, 400, 320, 80)];
+	[self addSubview:colorPicker];
 	
 	displayMenu = false;
 	
@@ -97,12 +107,14 @@
 			[self addSubview:newControlButton];
 			[self addSubview:newMovementButton];
 			[self addSubview:newLeftMovementButton];
+			[self addSubview:newColorButton];
 			displayMenu = true;
 			[newNodeButton setTitle:@"-"];
 		}else{
 			[self removeSubview:newControlButton];
 			[self removeSubview:newMovementButton];
 			[self removeSubview:newLeftMovementButton];
+			[self removeSubview:newColorButton];
 			displayMenu = false;
 			[newNodeButton setTitle:@"+"];
 		}
@@ -112,6 +124,7 @@
 		[self removeSubview:newControlButton];
 		[self removeSubview:newMovementButton];
 		[self removeSubview:newLeftMovementButton];
+		[self removeSubview:newColorButton];
 		[newNodeButton setTitle:@"+"];
 		
 		MoveUpInstruction *instruction = [[MoveUpInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
@@ -129,6 +142,7 @@
 		[self removeSubview:newControlButton];
 		[self removeSubview:newMovementButton];
 		[self removeSubview:newLeftMovementButton];
+		[self removeSubview:newColorButton];
 		[newNodeButton setTitle:@"+"];
 		
 		MoveLeftInstruction *instruction = [[MoveLeftInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
@@ -146,6 +160,7 @@
 		[self removeSubview:newControlButton];
 		[self removeSubview:newMovementButton];
 		[self removeSubview:newLeftMovementButton];
+		[self removeSubview:newColorButton];
 		[newNodeButton setTitle:@"+"];
 		
 		RepeatInstruction *instruction = [[RepeatInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 137, 94)];
@@ -156,6 +171,23 @@
 		[instructions addObject:instruction];
 		[editPane addSubview:instruction];		
 	}
+
+	if(_button == newColorButton){
+		displayMenu = false;
+		[self removeSubview:newControlButton];
+		[self removeSubview:newMovementButton];
+		[self removeSubview:newLeftMovementButton];
+		[self removeSubview:newColorButton];
+		[newNodeButton setTitle:@"+"];
+		
+		ColorInstruction *instruction = [[ColorInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
+		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
+		instruction.scrollPane = editPane;
+		[instructions addObject:instruction];
+		[editPane addSubview:instruction];		
+	}
+	
 	
 	if(_button == runButton){
 		[_turtle save:s_in];

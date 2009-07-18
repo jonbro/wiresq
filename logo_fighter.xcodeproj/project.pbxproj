@@ -19,6 +19,8 @@
 		5E0C6BB40FD1F1C600801469 /* glHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C6BB30FD1F1C600801469 /* glHelper.mm */; };
 		5E1CF6DE1012202000C9C20D /* ColorInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF6DD1012202000C9C20D /* ColorInstruction.mm */; };
 		5E1CF6E01012209F00C9C20D /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 5E1CF6DF1012209F00C9C20D /* README.textile */; };
+		5E1CF6F31012233B00C9C20D /* GLColorPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF6F21012233B00C9C20D /* GLColorPickerView.mm */; };
+		5E1CF73410122A5400C9C20D /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF73310122A5400C9C20D /* Color.mm */; };
 		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
 		5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */; };
 		5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */; };
@@ -93,6 +95,10 @@
 		5E1CF6DC1012202000C9C20D /* ColorInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ColorInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5E1CF6DD1012202000C9C20D /* ColorInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ColorInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ColorInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5E1CF6DF1012209F00C9C20D /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.textile; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/README.textile; sourceTree = DEVELOPER_DIR; };
+		5E1CF6F11012233B00C9C20D /* GLColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLColorPickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLColorPickerView.h; sourceTree = DEVELOPER_DIR; };
+		5E1CF6F21012233B00C9C20D /* GLColorPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLColorPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLColorPickerView.mm; sourceTree = DEVELOPER_DIR; };
+		5E1CF73210122A5400C9C20D /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Color.h; sourceTree = DEVELOPER_DIR; };
+		5E1CF73310122A5400C9C20D /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Color.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/Color.mm; sourceTree = DEVELOPER_DIR; };
 		5E1E69460FD49E2900B5BA1F /* GLPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLPickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.h; sourceTree = DEVELOPER_DIR; };
 		5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.mm; sourceTree = DEVELOPER_DIR; };
 		5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLValuePickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.h; sourceTree = DEVELOPER_DIR; };
@@ -398,6 +404,8 @@
 				5E30E2BF0FFFD4310002CEAC /* GLButton.mm */,
 				5EE77E91100D5F770035A344 /* GLScrollView.h */,
 				5EE77E92100D5F770035A344 /* GLScrollView.mm */,
+				5E1CF6F11012233B00C9C20D /* GLColorPickerView.h */,
+				5E1CF6F21012233B00C9C20D /* GLColorPickerView.mm */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -480,6 +488,8 @@
 				5EEA92830FCCCDA200F31704 /* InstructionSet.mm */,
 				5E8A87EE0FD749D2003E0B6B /* TouchEvent.h */,
 				5E8A87EF0FD749D2003E0B6B /* TouchEvent.mm */,
+				5E1CF73210122A5400C9C20D /* Color.h */,
+				5E1CF73310122A5400C9C20D /* Color.mm */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -1058,6 +1068,8 @@
 				5EE77E5B100D5C1F0035A344 /* TransformUtils.mm in Sources */,
 				5EE77E93100D5F770035A344 /* GLScrollView.mm in Sources */,
 				5E1CF6DE1012202000C9C20D /* ColorInstruction.mm in Sources */,
+				5E1CF6F31012233B00C9C20D /* GLColorPickerView.mm in Sources */,
+				5E1CF73410122A5400C9C20D /* Color.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

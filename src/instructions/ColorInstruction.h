@@ -14,11 +14,12 @@
 #import "GLValuePickerView.h"
 #import "BaseInstruction.h"
 #import "connectionNode.h"
+#import "DrawSprite.h"
 
 @class BaseInstruction;
 
 @interface ColorInstruction : BaseInstruction {
-	
+	int colorValue;
 }
 
 @end
