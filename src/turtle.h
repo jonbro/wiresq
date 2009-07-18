@@ -20,14 +20,18 @@
 	BaseInstruction *currentInstruction;
 	Vector2d *pos;
 	Vector2d *dir;
+	float	lineWeight;
 	Color	*currentColor;
 }
 
 @property (retain) Vector2d* pos;
 @property (retain) Vector2d* dir;
 @property (retain) Color* currentColor;
+@property float lineWeight;
+
 -(void)update;
 -(void)render;
+-(void)setLineWidth:(float)_width;
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction;
 -(void)runInstruction:(BaseInstruction*)_currentInstruction;
 

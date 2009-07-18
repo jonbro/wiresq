@@ -15,6 +15,7 @@
 #import "ColorInstruction.h"
 #import "ColorShiftInstruction.h"
 #import "RepeatInstruction.h"
+#import "LineWeightInstruction.h"
 
 #import "StartInstruction.h"
 #import "GLButton.h"
@@ -27,7 +28,7 @@
 	InstructionSet *in_set;
 	NSMutableArray *instructions;
 	GLScrollView	*editPane;
-	GLButton		*newNodeButton, *newMovementButton, *newLeftMovementButton, *newControlButton, *newColorButton, *newColorShiftButton, *runButton;
+	GLButton		*newNodeButton, *newMovementButton, *newLeftMovementButton, *newControlButton, *newColorButton, *newColorShiftButton, *newLineWidthButton, *runButton;
 	StartInstruction *s_in;
 	CGPoint			newNodePoint;
 	Turtle			*_turtle;
@@ -38,4 +39,5 @@
 -(void)render;
 -(void)update;
 -(void)removeEditors;
+-(void)removeMenu;
 @end

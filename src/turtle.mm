@@ -33,7 +33,7 @@ ofxMSAShape3D *turtleShape;
 	currentColor.red = 0;
 	currentColor.green = 0;
 	currentColor.blue = 0;
-	
+	lineWeight = 1;
 	dir = [[Vector2d alloc] init];
 	dir.x = 0;
 	dir.y = 1;
@@ -52,6 +52,13 @@ ofxMSAShape3D *turtleShape;
 	//add the left vertex
 	turtleShape->setColor(currentColor.red/255.0, currentColor.green/255.0, currentColor.blue/255.0);
 	turtleShape->addVertex(pos.x, pos.y);
+}
+-(void)setLineWidth:(float)_width
+{
+	lineWeight = _width;
+	turtleShape->end();
+	glLineWidth(lineWeight);
+	turtleShape->begin(GL_LINE_STRIP);
 }
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction
 {
@@ -76,6 +83,7 @@ ofxMSAShape3D *turtleShape;
 	ofSetColor(currentColor.red, currentColor.green, currentColor.blue);
 
 	ofSetColor(0x000000);
+	glLineWidth(lineWeight);
 	turtleShape->begin(GL_LINE_STRIP);
 	[self runInstruction:_currentInstruction];
 	turtleShape->end();

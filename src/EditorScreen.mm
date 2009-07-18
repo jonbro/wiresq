@@ -63,6 +63,13 @@
 	[newColorShiftButton setColor:0x277fb1];
 	[newColorShiftButton setFontColor:0xFFFFFF];
 	[newColorShiftButton setTitle:@"COLOR SHIFT"];
+
+	newLineWidthButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 294, 150, 45)]retain];
+	newLineWidthButton._delegate = self;
+	[newLineWidthButton setColor:0x277fb1];
+	[newLineWidthButton setFontColor:0xFFFFFF];
+	[newLineWidthButton setTitle:@"WEIGHT"];
+	
 	
 	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 100, 45)]retain];
 	runButton._delegate = self;
@@ -112,26 +119,15 @@
 			[self addSubview:newLeftMovementButton];
 			[self addSubview:newColorButton];
 			[self addSubview:newColorShiftButton];
+			[self addSubview:newLineWidthButton];
 			displayMenu = true;
 			[newNodeButton setTitle:@"-"];
 		}else{
-			[self removeSubview:newControlButton];
-			[self removeSubview:newMovementButton];
-			[self removeSubview:newLeftMovementButton];
-			[self removeSubview:newColorButton];
-			[self removeSubview:newColorShiftButton];
-			displayMenu = false;
-			[newNodeButton setTitle:@"+"];
+			[self removeMenu];
 		}
 	}
 	if(_button == newMovementButton){
-		displayMenu = false;
-		[self removeSubview:newControlButton];
-		[self removeSubview:newMovementButton];
-		[self removeSubview:newLeftMovementButton];
-		[self removeSubview:newColorButton];
-		[self removeSubview:newColorShiftButton];
-		[newNodeButton setTitle:@"+"];
+		[self removeMenu];
 		
 		MoveUpInstruction *instruction = [[MoveUpInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
 		instruction.amount = [NSNumber numberWithInt:0];
@@ -144,13 +140,7 @@
 		[editPane addSubview:instruction];		
 	}
 	if(_button == newLeftMovementButton){
-		displayMenu = false;
-		[self removeSubview:newControlButton];
-		[self removeSubview:newMovementButton];
-		[self removeSubview:newLeftMovementButton];
-		[self removeSubview:newColorButton];
-		[self removeSubview:newColorShiftButton];
-		[newNodeButton setTitle:@"+"];
+		[self removeMenu];
 		
 		MoveLeftInstruction *instruction = [[MoveLeftInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
 		instruction.amount = [NSNumber numberWithInt:0];
@@ -163,13 +153,7 @@
 		[editPane addSubview:instruction];		
 	}
 	if(_button == newControlButton){
-		displayMenu = false;
-		[self removeSubview:newControlButton];
-		[self removeSubview:newMovementButton];
-		[self removeSubview:newLeftMovementButton];
-		[self removeSubview:newColorButton];
-		[self removeSubview:newColorShiftButton];
-		[newNodeButton setTitle:@"+"];
+		[self removeMenu];
 		
 		RepeatInstruction *instruction = [[RepeatInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 137, 94)];
 		instruction.counter = [NSNumber numberWithInt:0];
@@ -181,13 +165,7 @@
 	}
 
 	if(_button == newColorButton){
-		displayMenu = false;
-		[self removeSubview:newControlButton];
-		[self removeSubview:newMovementButton];
-		[self removeSubview:newLeftMovementButton];
-		[self removeSubview:newColorButton];
-		[self removeSubview:newColorShiftButton];
-		[newNodeButton setTitle:@"+"];
+		[self removeMenu];
 		
 		ColorInstruction *instruction = [[ColorInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
 		instruction.allInstructions = instructions;
@@ -198,16 +176,21 @@
 	}
 	
 	if(_button == newColorShiftButton){
-		displayMenu = false;
-		[self removeSubview:newControlButton];
-		[self removeSubview:newMovementButton];
-		[self removeSubview:newLeftMovementButton];
-		[self removeSubview:newColorButton];
-		[self removeSubview:newColorShiftButton];
-		[newNodeButton setTitle:@"+"];
-		
+		[self removeMenu];
 		ColorShiftInstruction *instruction = [[ColorShiftInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
 		instruction.amount = [NSNumber numberWithInt:0];
+		instruction.direction = [NSMutableString stringWithString:@"left"];
+		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
+		instruction.scrollPane = editPane;
+		[instructions addObject:instruction];
+		[editPane addSubview:instruction];		
+	}
+
+	if(_button == newLineWidthButton){
+		[self removeMenu];
+		LineWeightInstruction *instruction = [[LineWeightInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
+		instruction.amount = [NSNumber numberWithInt:1];
 		instruction.direction = [NSMutableString stringWithString:@"left"];
 		instruction.allInstructions = instructions;
 		instruction.editorScreen = self;
@@ -219,6 +202,17 @@
 	if(_button == runButton){
 		[_turtle save:s_in];
 	}
+}
+-(void)removeMenu
+{
+	displayMenu = false;
+	[self removeSubview:newControlButton];
+	[self removeSubview:newMovementButton];
+	[self removeSubview:newLeftMovementButton];
+	[self removeSubview:newColorButton];
+	[self removeSubview:newColorShiftButton];
+	[self removeSubview:newLineWidthButton];
+	[newNodeButton setTitle:@"+"];	
 }
 -(void)touchDoubleTap:(TouchEvent*)_tEvent
 {
