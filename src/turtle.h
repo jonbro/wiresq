@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Vector2d.h"
+#import "vmath.h"
 #import "InstructionSet.h"
 #import "BaseInstruction.h"
 #import "Color.h"
@@ -20,12 +21,16 @@
 	BaseInstruction *currentInstruction;
 	Vector2d *pos;
 	Vector2d *dir;
+	Vector3f *pos3;
+	Vector3f *dir3;
 	float	lineWeight;
 	Color	*currentColor;
 }
 
 @property (retain) Vector2d* pos;
 @property (retain) Vector2d* dir;
+@property Vector3f* pos3;
+@property Vector3f* dir3;
 @property (retain) Color* currentColor;
 @property float lineWeight;
 

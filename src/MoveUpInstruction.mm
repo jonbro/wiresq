@@ -20,6 +20,7 @@
 }
 -(id)processTurtle:(Turtle*)_turtle
 {
+	*_turtle.pos3 += (*_turtle.dir3)*[amount floatValue];
 	[_turtle.pos add:[Vector2d mult:_turtle.dir amount:[amount floatValue]]];
 	[_turtle render];
 	return nextInstruction;

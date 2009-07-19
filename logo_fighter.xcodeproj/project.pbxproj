@@ -24,6 +24,7 @@
 		5E1CF79110123AD200C9C20D /* color_picker.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E1CF79010123AD200C9C20D /* color_picker.png */; };
 		5E1CF89510126D5E00C9C20D /* ColorShiftInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF89410126D5E00C9C20D /* ColorShiftInstruction.mm */; };
 		5E1CF91210128A2600C9C20D /* LineWeightInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CF91110128A2600C9C20D /* LineWeightInstruction.mm */; };
+		5E1CFAA41013AF6600C9C20D /* MovePitchInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1CFAA31013AF6600C9C20D /* MovePitchInstruction.mm */; };
 		5E1E69480FD49E2900B5BA1F /* GLPickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */; };
 		5E30E1CD0FFEAE0B0002CEAC /* GLValuePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E1CC0FFEAE0B0002CEAC /* GLValuePickerView.mm */; };
 		5E30E27F0FFFCBEB0002CEAC /* ForeverLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30E27E0FFFCBEB0002CEAC /* ForeverLoop.mm */; };
@@ -107,6 +108,8 @@
 		5E1CF89410126D5E00C9C20D /* ColorShiftInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ColorShiftInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/ColorShiftInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5E1CF91010128A2600C9C20D /* LineWeightInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineWeightInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/LineWeightInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5E1CF91110128A2600C9C20D /* LineWeightInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LineWeightInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/LineWeightInstruction.mm; sourceTree = DEVELOPER_DIR; };
+		5E1CFAA21013AF6600C9C20D /* MovePitchInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovePitchInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/MovePitchInstruction.h; sourceTree = DEVELOPER_DIR; };
+		5E1CFAA31013AF6600C9C20D /* MovePitchInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MovePitchInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/instructions/MovePitchInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5E1E69460FD49E2900B5BA1F /* GLPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLPickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.h; sourceTree = DEVELOPER_DIR; };
 		5E1E69470FD49E2900B5BA1F /* GLPickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLPickerView.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLPickerView.mm; sourceTree = DEVELOPER_DIR; };
 		5E30E1CB0FFEAE0B0002CEAC /* GLValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLValuePickerView.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/GLValuePickerView.h; sourceTree = DEVELOPER_DIR; };
@@ -475,6 +478,8 @@
 				5E56017E100A6ED400E0681A /* MoveUpInstruction.mm */,
 				5EF31283100A7FED008C3082 /* MoveLeftInstruction.h */,
 				5EF31284100A7FED008C3082 /* MoveLeftInstruction.mm */,
+				5E1CFAA21013AF6600C9C20D /* MovePitchInstruction.h */,
+				5E1CFAA31013AF6600C9C20D /* MovePitchInstruction.mm */,
 			);
 			name = move_sub_instructions;
 			sourceTree = "<group>";
@@ -1086,6 +1091,7 @@
 				5E1CF73410122A5400C9C20D /* Color.mm in Sources */,
 				5E1CF89510126D5E00C9C20D /* ColorShiftInstruction.mm in Sources */,
 				5E1CF91210128A2600C9C20D /* LineWeightInstruction.mm in Sources */,
+				5E1CFAA41013AF6600C9C20D /* MovePitchInstruction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

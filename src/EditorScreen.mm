@@ -70,6 +70,11 @@
 	[newLineWidthButton setFontColor:0xFFFFFF];
 	[newLineWidthButton setTitle:@"WEIGHT"];
 	
+	newPitchMovementButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 342, 150, 45)]retain];
+	newPitchMovementButton._delegate = self;
+	[newPitchMovementButton setColor:0x277fb1];
+	[newPitchMovementButton setFontColor:0xFFFFFF];
+	[newPitchMovementButton setTitle:@"PITCH"];
 	
 	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 100, 45)]retain];
 	runButton._delegate = self;
@@ -120,6 +125,7 @@
 			[self addSubview:newColorButton];
 			[self addSubview:newColorShiftButton];
 			[self addSubview:newLineWidthButton];
+			[self addSubview:newPitchMovementButton];
 			displayMenu = true;
 			[newNodeButton setTitle:@"-"];
 		}else{
@@ -199,6 +205,19 @@
 		[editPane addSubview:instruction];		
 	}
 	
+	if(_button == newPitchMovementButton){
+		[self removeMenu];
+		MovePitchInstruction *instruction = [[MovePitchInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
+		instruction.amount = [NSNumber numberWithInt:1];
+		instruction.direction = [NSMutableString stringWithString:@"left"];
+		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
+		instruction.scrollPane = editPane;
+		[instructions addObject:instruction];
+		[editPane addSubview:instruction];		
+	}
+	
+	
 	if(_button == runButton){
 		[_turtle save:s_in];
 	}
@@ -212,6 +231,7 @@
 	[self removeSubview:newColorButton];
 	[self removeSubview:newColorShiftButton];
 	[self removeSubview:newLineWidthButton];
+	[self removeSubview:newPitchMovementButton];
 	[newNodeButton setTitle:@"+"];	
 }
 -(void)touchDoubleTap:(TouchEvent*)_tEvent

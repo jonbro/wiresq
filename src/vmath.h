@@ -493,7 +493,7 @@ namespace VMATH_NAMESPACE
    /// Two dimensional Vector of floats
    typedef class Vector2 <float> Vector2f;
    /// Two dimensional Vector of doubles
-   typedef class Vector2 <double> Vector2d;
+//   typedef class Vector2 <double> Vector2d;
 
 
    /**

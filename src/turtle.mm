@@ -17,7 +17,7 @@ ofxMSAShape3D *turtleShape;
 
 @implementation Turtle
 
-@synthesize pos, dir, currentColor;
+@synthesize pos, dir, currentColor, pos3, dir3;
 
 -(id)init
 {
@@ -25,6 +25,9 @@ ofxMSAShape3D *turtleShape;
 	in_set = [[InstructionSet alloc] init];
 	currentInstruction = 0;
 
+	pos3 = new Vector3f(0.0, 0.0, 0.0);
+	dir3 = new Vector3f(0.0, 1.0, 0.0);
+	
 	pos = [[Vector2d alloc] init];
 	pos.x = 160.0;
 	pos.y = 240.0;
@@ -51,7 +54,7 @@ ofxMSAShape3D *turtleShape;
 {
 	//add the left vertex
 	turtleShape->setColor(currentColor.red/255.0, currentColor.green/255.0, currentColor.blue/255.0);
-	turtleShape->addVertex(pos.x, pos.y);
+	turtleShape->addVertex(pos3->x, pos3->y);
 }
 -(void)setLineWidth:(float)_width
 {
@@ -70,6 +73,13 @@ ofxMSAShape3D *turtleShape;
 	dir.x = 0;
 	dir.y = 1;
 
+	pos3->x = 160.0;
+	pos3->y = 240.0;
+	pos3->z = 0;
+
+	dir3->x = 0.0;
+	dir3->y = 1.0;
+	dir3->z = 0.0;
 	
 	ofSetColor(255, 255, 255);
 

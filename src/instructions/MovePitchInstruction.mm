@@ -6,19 +6,18 @@
 //  Copyright 2009 Heavy Ephemera Industries. All rights reserved.
 //
 
-#import "MoveLeftInstruction.h"
+#import "MovePitchInstruction.h"
 
 
-@implementation MoveLeftInstruction
+@implementation MovePitchInstruction
 -(void)render
 {
 	drawRectSprite(0, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height, 0, 0);
-	drawRectSprite(0, frame.origin.x+12, frame.origin.y+18, 15, 13, 101, 0);
 	[super render];
 }
 -(id)processTurtle:(Turtle*)_turtle
 {
-	_turtle.dir3->rotate(0, 0, [amount floatValue]);
+	_turtle.dir3->rotate(0.0, [amount floatValue], 0.0);
 	[_turtle.dir rotate:[amount floatValue]];
 	return nextInstruction;
 }
