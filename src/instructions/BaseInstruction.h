@@ -36,6 +36,7 @@
 -(void)findNearestInstructionNode;
 -(void)removeChildInstruction:(BaseInstruction*)_instruction;
 -(void)updateNodePositions;
+-(void)removeTopNode;
 -(void)setPrevious:(BaseInstruction*)_prevInstruction;
 -(void)removeEditor;
 -(int)getHeight;

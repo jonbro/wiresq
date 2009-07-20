@@ -96,6 +96,11 @@
 	[instructionNodes removeObjectForKey:@"bottomNode"];
 	[self updateSubPositions];
 }
+-(void)removeTopNode
+{
+	[self removeSubview:[instructionNodes objectForKey:@"topNode"]];
+	[instructionNodes removeObjectForKey:@"topNode"];
+}
 // returns the height of this instruction + all of its sub nodes
 -(int)getHeight
 {

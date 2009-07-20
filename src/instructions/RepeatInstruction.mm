@@ -80,13 +80,15 @@
 -(void)attachInstruction:(BaseInstruction*)incomingInstruction toNode:(ConnectionNode*)_node
 {
 	if(_node == [instructionNodes objectForKey:@"innerNode"]){
+		if(innerInstruction != nil){
+			[incomingInstruction attachNextInstruction:innerInstruction];
+		}
 		[innerInstruction release];
 		innerInstruction = [incomingInstruction retain];
+		[innerInstruction removeTopNode];
 		[self addSubview:innerInstruction];
 		[innerInstruction setPrevious:self];
 		[childInstructions addObject:innerInstruction];
-		[self removeSubview:[instructionNodes objectForKey:@"innerNode"]];
-		[instructionNodes removeObjectForKey:@"innerNode"];
 		[self updateSubPositions];
 		_node.incomingInstruction = nil;
 	}else{
