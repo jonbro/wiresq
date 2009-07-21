@@ -19,7 +19,7 @@
 	frame = CGRectMake(0, 0, 320, 480);
 	proFont.loadFont("ProFont.ttf", 14);
 
-	editPane = [[GLScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];	
+	editPane = [[[GLScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)]retain];	
 	[self addSubview:editPane];
 
 	_turtle = [[Turtle alloc]init];
@@ -236,6 +236,7 @@
 }
 -(void)touchDoubleTap:(TouchEvent*)_tEvent
 {
+	_tEvent.currentTransform = editPane.currentTranslation;
 	newNodePoint = CGPointMake(_tEvent.pos.x, _tEvent.pos.y);
 }
 @end

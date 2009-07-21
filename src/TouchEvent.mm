@@ -21,14 +21,14 @@
 {
 	self = [self init];
 	self.pos = _tEvent.pos;
-	self.x_pos = _tEvent.pos.x;
-	self.y_pos = _tEvent.pos.y;
 	self.touchId = _tEvent.touchId;
+	self.currentTransform = _tEvent.currentTransform;
 	self.prevTouch = _tEvent.prevTouch;
 	return self;
 }
 -(CGPoint)pos
 {
+//	return pos;
 	return CGPointApplyAffineTransform(pos, CGAffineTransformInvert(currentTransform));
 }
 @end

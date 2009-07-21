@@ -95,8 +95,6 @@ void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *da
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){
 	TouchEvent* t_event = [[TouchEvent alloc]init];
-	t_event.x_pos = x;
-	t_event.y_pos = y;
 	t_event.pos = CGPointMake(x, y);
 	t_event.touchId = touchId;
 	[Events touchDoubleTap:t_event];

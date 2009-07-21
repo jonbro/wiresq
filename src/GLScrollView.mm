@@ -10,6 +10,7 @@
 
 
 @implementation GLScrollView
+@synthesize touchingHere;
 -(id)init
 {
 	self = [super init];
@@ -19,7 +20,12 @@
 }
 -(void)touchDown:(TouchEvent*)_tEvent
 {
+//	_tEvent.currentTransform = currentTranslation;
 	touchingHere = CGPointMake(_tEvent.pos.x, _tEvent.pos.y);
+}
+-(bool)insideX:(float)x Y:(float)y
+{
+	return	true;
 }
 -(void)touchMoved:(TouchEvent*)_tEvent
 {
@@ -39,7 +45,6 @@
 	glMultMatrixf(m);
 	ofSetColor(255, 0, 0);
 	ofRect(touchingHere.x, touchingHere.y, 6, 6);
-
 	[super render];
 	glPopMatrix();
 }

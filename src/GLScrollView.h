@@ -14,4 +14,5 @@
 @interface GLScrollView : CustomEventResponder {
 	CGPoint touchingHere;
 }
+@property CGPoint touchingHere;
 @end

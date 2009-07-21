@@ -28,6 +28,10 @@
 {
 //	font = _font;
 }
+-(bool)insideX:(float)x Y:(float)y
+{
+	return (x>frame.origin.x && y>frame.origin.y && x<frame.origin.x+frame.size.width && y<frame.origin.y+frame.size.height);
+}
 -(void)setColor:(int)_color
 {
 	color = _color;
