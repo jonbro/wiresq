@@ -60,26 +60,25 @@ static NSMutableDictionary *startTouch;
 	}
 	return subViewHits;
 }
-+(bool)manageTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_repsonder
++(bool)manageTouchDown:(TouchEvent *)_tEvent forButton:(CustomEventResponder *)_responder
 {
 	bool subViewHits = NO;
-	if([[_repsonder subviews] count]>0){
+	if([[_responder subviews] count]>0){
 		TouchEvent *transformedEvent = [[[TouchEvent alloc] initWithTouchEvent:_tEvent]retain];
-		if([_repsonder hasTransform]){
-			transformedEvent.pos = CGPointApplyAffineTransform(_tEvent.pos, CGAffineTransformInvert(_repsonder.currentTranslation));
-		}
-		for (CustomEventResponder *button in [_repsonder subviews]) {
+		if([_responder hasTransform]){
+			transformedEvent.currentTransform = _responder.currentTranslation;
+		}		
+		for (CustomEventResponder *button in [_responder subviews]) {
 			if([self manageTouchDown:transformedEvent forButton:button]){
 				subViewHits = YES;
 			}
 		}
-		[transformedEvent release];
 	}
 	if(!subViewHits){
-		if([_repsonder insideX:_tEvent.pos.x Y:_tEvent.pos.y] && [_repsonder respondsToSelector:@selector(touchDown:)] == YES) {
-			[currentButtonForTouch setObject:_repsonder forKey:[NSNumber numberWithInt:_tEvent.touchId]];
+		if([_responder insideX:_tEvent.pos.x Y:_tEvent.pos.y] && [_responder respondsToSelector:@selector(touchDown:)] == YES) {
+			[currentButtonForTouch setObject:_responder forKey:[NSNumber numberWithInt:_tEvent.touchId]];
 			[startTouch setObject:_tEvent forKey:[NSNumber numberWithInt:_tEvent.touchId]];
-			[_repsonder touchDown:_tEvent];
+			[_responder touchDown:_tEvent];
 			return true;
 		}
 	}
@@ -90,6 +89,7 @@ static NSMutableDictionary *startTouch;
 	if([currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] != nil){
 		[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchUp:_tEvent];
 		[currentButtonForTouch removeObjectForKey:[NSNumber numberWithInt:_tEvent.touchId]];
+		[startTouch removeObjectForKey:[NSNumber numberWithInt:_tEvent.touchId]];
 	}
 }
 +(void)touchMoved:(TouchEvent*)_tEvent
@@ -98,6 +98,7 @@ static NSMutableDictionary *startTouch;
 	   && [[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]]respondsToSelector:@selector(touchMoved:)] == YES){
 		[_tEvent.prevTouch release];
 		_tEvent.prevTouch = [[startTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]]retain];
+		_tEvent.currentTransform = _tEvent.prevTouch.currentTransform;
 		[startTouch setObject:_tEvent forKey:[NSNumber numberWithInt:_tEvent.touchId]];
 		[[currentButtonForTouch objectForKey:[NSNumber numberWithInt:_tEvent.touchId]] touchMoved:_tEvent];
 	}

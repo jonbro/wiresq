@@ -10,15 +10,25 @@
 
 
 @implementation TouchEvent
-@synthesize x_pos, y_pos, touchId, prevTouch, pos;
--(TouchEvent*)initWithTouchEvent:(TouchEvent*)_tEvent
+@synthesize x_pos, y_pos, touchId, prevTouch, pos, currentTransform;
+-(id)init
 {
 	self = [super init];
+	currentTransform = CGAffineTransformIdentity;
+	return self;
+}
+-(TouchEvent*)initWithTouchEvent:(TouchEvent*)_tEvent
+{
+	self = [self init];
 	self.pos = _tEvent.pos;
 	self.x_pos = _tEvent.pos.x;
 	self.y_pos = _tEvent.pos.y;
 	self.touchId = _tEvent.touchId;
 	self.prevTouch = _tEvent.prevTouch;
 	return self;
+}
+-(CGPoint)pos
+{
+	return CGPointApplyAffineTransform(pos, CGAffineTransformInvert(currentTransform));
 }
 @end

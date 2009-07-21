@@ -21,8 +21,8 @@
 
 -(void)touchMoved:(TouchEvent*)_tEvent
 {
-	frame.origin.x += _tEvent.pos.x - _tEvent.prevTouch.x_pos;
-	frame.origin.y += _tEvent.pos.y - _tEvent.prevTouch.y_pos;
+	frame.origin.x += _tEvent.pos.x - _tEvent.prevTouch.pos.x;
+	frame.origin.y += _tEvent.pos.y - _tEvent.prevTouch.pos.y;
 	// disconnect from the previous instruction
 	if(prevInstruction != nil){
 		[superview removeChildInstruction:self];

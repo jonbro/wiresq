@@ -19,6 +19,7 @@
 	frame = CGRectMake(0, 0, 0, 0);
 	subviews = [[NSMutableArray alloc] initWithCapacity:0];
 	subviewsToBeAdded = [[NSMutableArray alloc] initWithCapacity:0];
+	currentTranslation = CGAffineTransformIdentity;
 	toBeRemoved = false;
 	return self;
 }
