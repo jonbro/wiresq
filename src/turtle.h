@@ -17,13 +17,15 @@
 
 @interface Turtle : NSObject {
 	InstructionSet *in_set;
-	NSMutableArray *drawingPoints;
+	NSMutableArray *drawingPoints, *variables;
 	BaseInstruction *currentInstruction;
 	Vector2d *pos;
 	Vector2d *dir;
 	Vector3f *pos3;
 	Vector3f *dir3;
 	float	lineWeight;
+	bool	hasOverride, settingVar;
+	int		overrideVar, varToSet;
 	Color	*currentColor;
 }
 
@@ -31,12 +33,17 @@
 @property (retain) Vector2d* dir;
 @property Vector3f* pos3;
 @property Vector3f* dir3;
+@property bool		hasOverride;
 @property (retain) Color* currentColor;
 @property float lineWeight;
 
 -(void)update;
 -(void)render;
+-(int)overRideVal;
+-(void)processArb:(int)amount;
+-(void)setTexture:(int)tex;
 -(void)setLineWidth:(float)_width;
+-(void)resetTurtle;
 -(void)runFirstInstruction:(BaseInstruction*)_currentInstruction;
 -(void)runInstruction:(BaseInstruction*)_currentInstruction;
 

@@ -17,7 +17,11 @@
 }
 -(id)processTurtle:(Turtle*)_turtle
 {
-	_turtle.dir3->rotate(0.0, [amount floatValue], 0.0);
+	if([_turtle hasOverride]){
+		_turtle.dir3->rotate([_turtle overRideVal], 0.0, 0.0);
+	}else{
+		_turtle.dir3->rotate([amount floatValue], 0.0, 0.0);
+	}
 	[_turtle.dir rotate:[amount floatValue]];
 	return nextInstruction;
 }

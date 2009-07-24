@@ -75,6 +75,12 @@
 	[newPitchMovementButton setColor:0x277fb1];
 	[newPitchMovementButton setFontColor:0xFFFFFF];
 	[newPitchMovementButton setTitle:@"PITCH"];
+
+	newArbButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 390, 150, 45)]retain];
+	newArbButton._delegate = self;
+	[newArbButton setColor:0x277fb1];
+	[newArbButton setFontColor:0xFFFFFF];
+	[newArbButton setTitle:@"ARB"];
 	
 	runButton = [[[GLButton alloc] initWithFrame:CGRectMake(54, 6, 100, 45)]retain];
 	runButton._delegate = self;
@@ -125,6 +131,7 @@
 			[self addSubview:newColorButton];
 			[self addSubview:newColorShiftButton];
 			[self addSubview:newLineWidthButton];
+			[self addSubview:newArbButton];
 			[self addSubview:newPitchMovementButton];
 			displayMenu = true;
 			[newNodeButton setTitle:@"-"];
@@ -217,6 +224,17 @@
 		[editPane addSubview:instruction];		
 	}
 	
+	if(_button == newArbButton){
+		[self removeMenu];
+		MoveArbInstruction *instruction = [[MoveArbInstruction alloc]initWithFrame:CGRectMake(newNodePoint.x, newNodePoint.y, 101, 53)];
+		instruction.amount = [NSNumber numberWithInt:0];
+		instruction.direction = [NSMutableString stringWithString:@"left"];
+		instruction.allInstructions = instructions;
+		instruction.editorScreen = self;
+		instruction.scrollPane = editPane;
+		[instructions addObject:instruction];
+		[editPane addSubview:instruction];		
+	}
 	
 	if(_button == runButton){
 		[_turtle save:s_in];
@@ -227,6 +245,7 @@
 	displayMenu = false;
 	[self removeSubview:newControlButton];
 	[self removeSubview:newMovementButton];
+	[self removeSubview:newArbButton];
 	[self removeSubview:newLeftMovementButton];
 	[self removeSubview:newColorButton];
 	[self removeSubview:newColorShiftButton];

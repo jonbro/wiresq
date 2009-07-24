@@ -1,3 +1,18 @@
 HOT DING DANG!
 
 !http://img.skitch.com/20090718-er92611m2tqh4rqa3udba59swy.jpg!
+
+the ARB instruction
+
+000 - 009: texture picking
+010 - 019: blend mode
+02a: next recieving instruction override with value in a
+03a: set variable a to value in next ARB
+04a: a *= -1
+1ab: a += b
+2ab: a -= b
+3ab: a *= b
+4ab: a /= b
+5ab: a = b
+6ab: a %= b
+999: reset turtle direction and position (potentially to be moved to the sub onehundreds for clarity)

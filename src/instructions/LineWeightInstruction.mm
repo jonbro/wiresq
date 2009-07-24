@@ -18,7 +18,11 @@
 }
 -(id)processTurtle:(Turtle*)_turtle
 {
-	[_turtle setLineWidth:[amount floatValue]/10];
+	if([_turtle hasOverride]){
+		[_turtle setLineWidth:[_turtle overRideVal]/10.0];
+	}else{
+		[_turtle setLineWidth:[amount floatValue]/10.0];
+	}
 	return nextInstruction;
 }
 

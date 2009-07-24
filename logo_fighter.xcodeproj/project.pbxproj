@@ -39,6 +39,9 @@
 		5ECAD36C100026A400F6187F /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD36B100026A400F6187F /* CGPointUtils.m */; };
 		5ECAD4FE100114D200F6187F /* ConnectionNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAD4FD100114D200F6187F /* ConnectionNode.mm */; };
 		5ED76A6210167CD400126A8B /* bob.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED76A6110167CD400126A8B /* bob.png */; };
+		5ED76AEC1016AEAF00126A8B /* bob2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED76AEB1016AEAF00126A8B /* bob2.png */; };
+		5ED76BCC1017DF3400126A8B /* MoveArbInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED76BCB1017DF3400126A8B /* MoveArbInstruction.mm */; };
+		5ED76C4F1017E81400126A8B /* bob3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED76C4E1017E81400126A8B /* bob3.png */; };
 		5EDB6AAB10042E5B00F11EA7 /* StartInstruction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */; };
 		5EE77D41100C22100035A344 /* control_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE77D40100C22100035A344 /* control_atlas.png */; };
 		5EE77E5B100D5C1F0035A344 /* TransformUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE77E5A100D5C1F0035A344 /* TransformUtils.mm */; };
@@ -139,6 +142,10 @@
 		5ECAD4FC100114D200F6187F /* ConnectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionNode.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.h; sourceTree = DEVELOPER_DIR; };
 		5ECAD4FD100114D200F6187F /* ConnectionNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConnectionNode.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/src/ConnectionNode.mm; sourceTree = DEVELOPER_DIR; };
 		5ED76A6110167CD400126A8B /* bob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bob.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/bob.png; sourceTree = DEVELOPER_DIR; };
+		5ED76AEB1016AEAF00126A8B /* bob2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bob2.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/bob2.png; sourceTree = DEVELOPER_DIR; };
+		5ED76BCA1017DF3400126A8B /* MoveArbInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveArbInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveArbInstruction.h; sourceTree = DEVELOPER_DIR; };
+		5ED76BCB1017DF3400126A8B /* MoveArbInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoveArbInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/MoveArbInstruction.mm; sourceTree = DEVELOPER_DIR; };
+		5ED76C4E1017E81400126A8B /* bob3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bob3.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/bob3.png; sourceTree = DEVELOPER_DIR; };
 		5EDB6AA910042E5B00F11EA7 /* StartInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartInstruction.h; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.h; sourceTree = DEVELOPER_DIR; };
 		5EDB6AAA10042E5B00F11EA7 /* StartInstruction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StartInstruction.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/StartInstruction.mm; sourceTree = DEVELOPER_DIR; };
 		5EE77D40100C22100035A344 /* control_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = control_atlas.png; path = of_preRelease_v0.06_iphone/apps/my_apps/logo_fighter/data/images/control_atlas.png; sourceTree = DEVELOPER_DIR; };
@@ -465,6 +472,8 @@
 		5E5600FA100A6BFD00E0681A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5ED76C4E1017E81400126A8B /* bob3.png */,
+				5ED76AEB1016AEAF00126A8B /* bob2.png */,
 				5ED76A6110167CD400126A8B /* bob.png */,
 				5E1CF79010123AD200C9C20D /* color_picker.png */,
 				5EE77D40100C22100035A344 /* control_atlas.png */,
@@ -483,6 +492,8 @@
 				5EF31284100A7FED008C3082 /* MoveLeftInstruction.mm */,
 				5E1CFAA21013AF6600C9C20D /* MovePitchInstruction.h */,
 				5E1CFAA31013AF6600C9C20D /* MovePitchInstruction.mm */,
+				5ED76BCA1017DF3400126A8B /* MoveArbInstruction.h */,
+				5ED76BCB1017DF3400126A8B /* MoveArbInstruction.mm */,
 			);
 			name = move_sub_instructions;
 			sourceTree = "<group>";
@@ -1035,6 +1046,8 @@
 				5E1CF6E01012209F00C9C20D /* README.textile in Resources */,
 				5E1CF79110123AD200C9C20D /* color_picker.png in Resources */,
 				5ED76A6210167CD400126A8B /* bob.png in Resources */,
+				5ED76AEC1016AEAF00126A8B /* bob2.png in Resources */,
+				5ED76C4F1017E81400126A8B /* bob3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1096,6 +1109,7 @@
 				5E1CF89510126D5E00C9C20D /* ColorShiftInstruction.mm in Sources */,
 				5E1CF91210128A2600C9C20D /* LineWeightInstruction.mm in Sources */,
 				5E1CFAA41013AF6600C9C20D /* MovePitchInstruction.mm in Sources */,
+				5ED76BCC1017DF3400126A8B /* MoveArbInstruction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

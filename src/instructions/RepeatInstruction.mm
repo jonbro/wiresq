@@ -61,7 +61,11 @@
 -(id)processTurtle:(Turtle*)_turtle
 {
 	tmpCounter = 0;
-	while(tmpCounter < [counter intValue]){
+	int thisCounter = [counter intValue];
+	if([_turtle hasOverride]){
+		thisCounter = [_turtle overRideVal];
+	}
+	while(tmpCounter < thisCounter){
 		tmpInnerInstruction = [innerInstruction processTurtle:_turtle];
 		while(tmpInnerInstruction != nil){
 			tmpInnerInstruction = [tmpInnerInstruction processTurtle:_turtle];
