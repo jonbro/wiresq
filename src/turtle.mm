@@ -103,6 +103,9 @@ ofTexture turtleTex;
 			int b = (amount - 100) - a*10;
 			int bVal = [[variables objectAtIndex:b] intValue];
 			[variables replaceObjectAtIndex:a withObject:[NSNumber numberWithInt:aVal+bVal]];
+		}else if(amount == 998){
+			ofSetColor(currentColor.red, currentColor.green, currentColor.blue);
+			ofRect(0, 0, 320, 480);
 		}else if(amount == 999){
 			[self resetTurtle];
 		}

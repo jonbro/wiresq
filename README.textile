@@ -15,4 +15,5 @@ the ARB instruction
 4ab: a /= b
 5ab: a = b
 6ab: a %= b
+998: flood fill background with current color
 999: reset turtle direction and position (potentially to be moved to the sub onehundreds for clarity)
