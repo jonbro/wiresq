@@ -415,9 +415,8 @@
 				5E0C6ADA0FD1DBF300801469 /* InterBla */,
 				5E0C6ADB0FD1DBF300801469 /* Interstate */,
 			);
-			name = fonts;
-			path = ../iphone_turtle/data/fonts;
-			sourceTree = SOURCE_ROOT;
+			path = fonts;
+			sourceTree = "<group>";
 		};
 		5E5600FA100A6BFD00E0681A /* data */ = {
 			isa = PBXGroup;
