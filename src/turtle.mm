@@ -2,8 +2,8 @@
 //  turtle.m
 //  logo_fighter
 //
-//  Created by Jonathan Brodsky on 5/26/09.
-//  Released into the Public Domain 2009 Heavy Ephemera Industries. No rights reserved.
+//  Created by jonbroFERrealz on 5/26/09.
+//  Copyright 2009 Heavy Ephemera Industries. All rights reserved.
 //
 
 #import "turtle.h"
@@ -103,12 +103,6 @@ ofTexture turtleTex;
 			int b = (amount - 100) - a*10;
 			int bVal = [[variables objectAtIndex:b] intValue];
 			[variables replaceObjectAtIndex:a withObject:[NSNumber numberWithInt:aVal+bVal]];
-		}else if(amount >= 200 && amount < 300){
-			int a = (amount - 200) / 10;
-			int aVal = [[variables objectAtIndex:a] intValue];
-			int b = (amount - 200) - a*10;
-			int bVal = [[variables objectAtIndex:b] intValue];
-			[variables replaceObjectAtIndex:a withObject:[NSNumber numberWithInt:aVal-bVal]];
 		}else if(amount == 998){
 			ofSetColor(currentColor.red, currentColor.green, currentColor.blue);
 			ofRect(0, 0, 320, 480);
