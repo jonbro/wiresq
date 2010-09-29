@@ -1,0 +1,3 @@
+#define NUMCELLSX 100
+#define NUMCELLSY 100
+#define NUMCELLSTOTAL 1000

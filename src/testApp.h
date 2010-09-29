@@ -1,35 +1,43 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxAccelerometer.h"
-#include "ofxMultiTouch.h"
-#import	 "turtle.h"
-#import "InstructionSet.h"
-#import "EditorScreen.h"
-#import "Events.h"
-#import "ofxMSAShape3D.h"
-
-class testApp : public ofSimpleApp, public ofxMultiTouchListener {
-
+#include "ofxiPhone.h"
+#include "Button.h"
+#include "MultiButton.h"
+#include "defines.h"
+#include "RootModel.h"
+#include "MixerController.h"
+#include "MainController.h"
+class testApp : public ofxiPhoneApp {
+	
 public:
 	void setup();
 	void update();
 	void draw();
 	void exit();
 	
-	void keyPressed(int key) {}
-	void keyReleased(int key)  {}
-	void mouseMoved(int x, int y );
-	void mouseDragged(int x, int y, int button);
-	void mousePressed(int x, int y, int button);
-	void mouseReleased();
-	void mouseReleased(int x, int y, int button );
+	void touchDown(ofTouchEventArgs &touch);
+	void touchMoved(ofTouchEventArgs &touch);
+	void touchUp(ofTouchEventArgs &touch);
+	void touchDoubleTap(ofTouchEventArgs &touch);
 	
-	void touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
-	void touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
-	void touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
-	void touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
-	Turtle* main_t;
-	EditorScreen* main_screen;
+	void lostFocus();
+	void gotFocus();
+	void gotMemoryWarning();
+	
+	void play(double * output);
+
+	void audioRequested(float * output, int bufferSize, int nChannels);
+	ofAudioEventArgs audioEventArgs;
+	
+	
+	Button saveLoad;
+	
+	RootModel rootModel;
+	MainController mainController;
+	MixerController mixer;
+	int sx, sy;
+	
 };
+
 
