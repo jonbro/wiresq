@@ -33,6 +33,10 @@ void SynthListController::setup()
 	synthEdit.rootModel = rootModel;
 	synthEdit.setup();
 	synthEdit.disableAllEvents();
+	
+		
+	
+	
 }
 void SynthListController::update()
 {
@@ -49,10 +53,22 @@ void SynthListController::draw()
 	if (editing) {
 		synthEdit.draw();
 	}else{
-		ofSetColor(0xffffff);
-		background.draw(0, 0);
 		int lastY = 6;
 		for (int i=0; i<numSynths; i++) {
+			ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
+			// draw the connecting line
+			ofPoint partOne;
+			partOne.set(rootModel->synthLinks[i].x*40+2, rootModel->synthLinks[i].y*40+2+44);
+			partOne += rootModel->scrollOffset;
+			ofNoFill();
+			ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5, partOne.y+2.5, partOne.x+40, partOne.y+2.5);
+			lastY+=2+synthItem[0].getHeight();
+		}
+		ofSetColor(0xffffff);
+		background.draw(0, 0);
+		lastY = 6;
+		for (int i=0; i<numSynths; i++) {
+			ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
 			if (i==rootModel->currentSynth) {
 				synthItem[1].draw(0, lastY+2);
 			}else{

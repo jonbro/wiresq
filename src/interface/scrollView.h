@@ -31,6 +31,8 @@ public:
 	ofPoint fingerStart[16];
 	ofPoint fingerCurrent[16];
 	ofPoint fingerCenterStart, fingerCenterCurrent;
+	ofPoint lastChanged;
+	float timeChanged, timeScrolled;
 	float fingerDistStart, fingerDistCurrent;
 	
 	RootModel *rootModel;

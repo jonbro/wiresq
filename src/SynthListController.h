@@ -5,6 +5,7 @@
 #import "Button.h"
 #import "RootModel.h"
 #import "SynthEditController.h"
+#import "ofxColor.h"
 
 #define NUMSYNTHS 8
 

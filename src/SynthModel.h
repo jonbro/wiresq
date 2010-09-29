@@ -1,5 +1,6 @@
 #pragma once
 #import <Foundation/Foundation.h>
+#import "ofxColor.h"
 
 @interface synthModelObj : NSObject <NSCoding> {
 	NSNumber *Attack;
@@ -30,5 +31,5 @@ public:
 	float Attack, Hold, Decay;
 	float Pitch;
 	float Cutoff, Res;
-	
+	ofxColorf color;
 };

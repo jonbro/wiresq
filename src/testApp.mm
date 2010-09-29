@@ -21,7 +21,7 @@ void testApp::setup(){
 	mixer.setup();	
 
 	ofSoundStreamSetup(2,0,this,44100,256, 4);
-	saveLoad.setPosAndSize(320-40, 480-40, 40, 40);
+	//saveLoad.setPosAndSize(320-40, 480-40, 40, 40);
 	rootModel.load();
 
 }
@@ -51,12 +51,12 @@ void testApp::exit() {
 
 //--------------------------------------------------------------
 void testApp::touchDown(ofTouchEventArgs &touch){
-	
+	/*
 	if(saveLoad.hitTest(touch)){
 		rootModel.save();
 		rootModel.load();
 	}
-	/**/
+	*/
 }
 
 //--------------------------------------------------------------

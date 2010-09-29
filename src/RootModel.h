@@ -40,6 +40,7 @@ public:
 	int world[NUMCELLSX][NUMCELLSX][2];
 	
 	ofPoint synthLinks[8]; // should be implemented in a vector eventually
+	ofPoint scrollOffset;
 	bool linkingSynths;
 	int currentSynth;
 	

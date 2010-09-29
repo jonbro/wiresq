@@ -28,7 +28,6 @@
 		5E2568A610ED26CD00A9501C /* PocoNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688210ED26CC00A9501C /* PocoNet.a */; };
 		5E2568A710ED26CD00A9501C /* PocoUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688310ED26CC00A9501C /* PocoUtil.a */; };
 		5E2568A810ED26CD00A9501C /* PocoXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688410ED26CC00A9501C /* PocoXML.a */; };
-		5E7D0106124E923800271AB4 /* SynthListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D0105124E923800271AB4 /* SynthListController.mm */; };
 		5E7D03DB124EBF0B00271AB4 /* scrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D03DA124EBF0B00271AB4 /* scrollView.mm */; };
 		5E7D044F124EDEBE00271AB4 /* SynthEditController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D044E124EDEBE00271AB4 /* SynthEditController.mm */; };
 		5E7D050C124FB40100271AB4 /* SynthModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D050B124FB40100271AB4 /* SynthModel.mm */; };
@@ -38,6 +37,8 @@
 		5E84B8DF124FEBEF00F3BA69 /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E84B8DE124FEBEF00F3BA69 /* MainController.mm */; };
 		5E84BA1C125010FB00F3BA69 /* MoogFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E84BA1B125010FB00F3BA69 /* MoogFilter.mm */; };
 		5EB37FCB125196BC005826B6 /* test.data in Resources */ = {isa = PBXBuildFile; fileRef = 5EB37FCA125196BC005826B6 /* test.data */; };
+		5EB3804F1252C626005826B6 /* ofxColorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB380451252C626005826B6 /* ofxColorBase.cpp */; };
+		5EB3805A1252C7B8005826B6 /* SynthListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EB380591252C7B8005826B6 /* SynthListController.mm */; };
 		5ED6D900124E5B6D0065CADC /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5ED6D8FA124E5B6D0065CADC /* images */; };
 		5EF43132124D8644006024A3 /* freeimage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF4312F124D8644006024A3 /* freeimage.a */; };
 		5EF43171124D870F006024A3 /* freeimage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF43170124D870F006024A3 /* freeimage.a */; };
@@ -110,7 +111,6 @@
 		5E25688310ED26CC00A9501C /* PocoUtil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoUtil.a; path = ../../../libs/poco/lib/osx/PocoUtil.a; sourceTree = SOURCE_ROOT; };
 		5E25688410ED26CC00A9501C /* PocoXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoXML.a; path = ../../../libs/poco/lib/osx/PocoXML.a; sourceTree = SOURCE_ROOT; };
 		5E7D0104124E923800271AB4 /* SynthListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthListController.h; path = openFrameworks/apps/my_apps/ww/src/SynthListController.h; sourceTree = DEVELOPER_DIR; };
-		5E7D0105124E923800271AB4 /* SynthListController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthListController.mm; path = openFrameworks/apps/my_apps/ww/src/SynthListController.mm; sourceTree = DEVELOPER_DIR; };
 		5E7D03DA124EBF0B00271AB4 /* scrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = scrollView.mm; path = openFrameworks/apps/my_apps/ww/src/interface/scrollView.mm; sourceTree = DEVELOPER_DIR; };
 		5E7D0429124EDCF300271AB4 /* SynthEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthEditController.h; path = src/SynthEditController.h; sourceTree = SOURCE_ROOT; };
 		5E7D044E124EDEBE00271AB4 /* SynthEditController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthEditController.mm; path = src/SynthEditController.mm; sourceTree = SOURCE_ROOT; };
@@ -125,6 +125,14 @@
 		5E84BA1A125010FB00F3BA69 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = src/MoogFilter.h; sourceTree = SOURCE_ROOT; };
 		5E84BA1B125010FB00F3BA69 /* MoogFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoogFilter.mm; path = src/MoogFilter.mm; sourceTree = SOURCE_ROOT; };
 		5EB37FCA125196BC005826B6 /* test.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.data; path = bin/data/test.data; sourceTree = SOURCE_ROOT; };
+		5EB380441252C626005826B6 /* ofxColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColor.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColor.h; sourceTree = SOURCE_ROOT; };
+		5EB380451252C626005826B6 /* ofxColorBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxColorBase.cpp; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorBase.cpp; sourceTree = SOURCE_ROOT; };
+		5EB380461252C626005826B6 /* ofxColorBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorBase.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorBase.h; sourceTree = SOURCE_ROOT; };
+		5EB380471252C626005826B6 /* ofxColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorConversion.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorConversion.h; sourceTree = SOURCE_ROOT; };
+		5EB380481252C626005826B6 /* ofxColorMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorMatching.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorMatching.h; sourceTree = SOURCE_ROOT; };
+		5EB380491252C626005826B6 /* ofxColorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorMath.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorMath.h; sourceTree = SOURCE_ROOT; };
+		5EB3804A1252C626005826B6 /* ofxColorShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorShared.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorShared.h; sourceTree = SOURCE_ROOT; };
+		5EB380591252C7B8005826B6 /* SynthListController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthListController.mm; path = src/SynthListController.mm; sourceTree = SOURCE_ROOT; };
 		5ED6D8FA124E5B6D0065CADC /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = bin/data/images; sourceTree = SOURCE_ROOT; };
 		5ED6D9BE124E658D0065CADC /* TopBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopBarController.h; path = openFrameworks/apps/my_apps/ww/src/TopBarController.h; sourceTree = DEVELOPER_DIR; };
 		5EF4312F124D8644006024A3 /* freeimage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = freeimage.a; path = ../../../libs/FreeImage/lib/iphone/freeimage.a; sourceTree = SOURCE_ROOT; };
@@ -365,6 +373,30 @@
 			name = audioSystem;
 			sourceTree = "<group>";
 		};
+		5EB3803A1252C626005826B6 /* ofxColor */ = {
+			isa = PBXGroup;
+			children = (
+				5EB380431252C626005826B6 /* src */,
+			);
+			name = ofxColor;
+			path = ../../../addons/kyleLibs/ofxColor;
+			sourceTree = SOURCE_ROOT;
+		};
+		5EB380431252C626005826B6 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5EB380441252C626005826B6 /* ofxColor.h */,
+				5EB380451252C626005826B6 /* ofxColorBase.cpp */,
+				5EB380461252C626005826B6 /* ofxColorBase.h */,
+				5EB380471252C626005826B6 /* ofxColorConversion.h */,
+				5EB380481252C626005826B6 /* ofxColorMatching.h */,
+				5EB380491252C626005826B6 /* ofxColorMath.h */,
+				5EB3804A1252C626005826B6 /* ofxColorShared.h */,
+			);
+			name = src;
+			path = ../../../addons/kyleLibs/ofxColor/src;
+			sourceTree = SOURCE_ROOT;
+		};
 		5ED6D9C1124E65940065CADC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +407,7 @@
 				5ED6D9BE124E658D0065CADC /* TopBarController.h */,
 				5E84B8B9124FEAA800F3BA69 /* TopBarController.mm */,
 				5E7D0104124E923800271AB4 /* SynthListController.h */,
-				5E7D0105124E923800271AB4 /* SynthListController.mm */,
+				5EB380591252C7B8005826B6 /* SynthListController.mm */,
 				5E7D04CE124FAF9600271AB4 /* MainController.h */,
 				5E84B8DE124FEBEF00F3BA69 /* MainController.mm */,
 			);
@@ -424,6 +456,7 @@
 		BB16F26B0F2B646B00518274 /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				5EB3803A1252C626005826B6 /* ofxColor */,
 				5E094A92124D79750069FB2B /* ofxMSAInteractiveObject */,
 			);
 			name = addons;
@@ -768,7 +801,6 @@
 				5E094A81124D79560069FB2B /* testApp.mm in Sources */,
 				5E094AA6124D79750069FB2B /* ofxMSAInteractiveObject.cpp in Sources */,
 				5E094ACE124D7D9F0069FB2B /* RootModel.mm in Sources */,
-				5E7D0106124E923800271AB4 /* SynthListController.mm in Sources */,
 				5E7D03DB124EBF0B00271AB4 /* scrollView.mm in Sources */,
 				5E7D044F124EDEBE00271AB4 /* SynthEditController.mm in Sources */,
 				5E7D050C124FB40100271AB4 /* SynthModel.mm in Sources */,
@@ -776,6 +808,8 @@
 				5E84B8BA124FEAA800F3BA69 /* TopBarController.mm in Sources */,
 				5E84B8DF124FEBEF00F3BA69 /* MainController.mm in Sources */,
 				5E84BA1C125010FB00F3BA69 /* MoogFilter.mm in Sources */,
+				5EB3804F1252C626005826B6 /* ofxColorBase.cpp in Sources */,
+				5EB3805A1252C7B8005826B6 /* SynthListController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

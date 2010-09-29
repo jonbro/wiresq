@@ -15,6 +15,7 @@ ScrollView::ScrollView(){
 }
 
 void ScrollView::draw(){
+	ofSetColor(0xFFFFFF);
 	// standard size is 40 40
 	ofPushMatrix();
 	float cellSize = 40.0*offset.z;
@@ -60,13 +61,21 @@ void ScrollView::draw(){
 	ofTranslate(offset.x, offset.y+y, 0);
 
 	for (int i=0; i<8; i++) {
-		ofSetColor(0xFFFFFF);
+		ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
 		ofRect(rootModel->synthLinks[i].x*cellSize+2, rootModel->synthLinks[i].y*cellSize+2, cellSize/8.0, cellSize/8.0);
 	}
 	ofPopMatrix();
+	//debug
+	/*
+	ofSetColor(0xF60000);
+	ofCircle(fingerCenterCurrent.x, fingerCenterCurrent.y, 40);
+	ofSetColor(0x00F600);
+	ofCircle(fingerCenterStart.x, fingerCenterStart.y, 40);
+	 */
 }
 void ScrollView::update(){
 	float cellSize = 40.0*offset.z;
+	rootModel->scrollOffset = offset;
 
 	if (numFingers ==0) {
 		if (offset.x>0) {
@@ -88,20 +97,6 @@ void ScrollView::update(){
 		}		
 	}
 }
-void ScrollView::touchDown(ofTouchEventArgs &touch)
-{
-	fingerStartedInView[touch.id] = true;
-	numFingers++;
-	fingerStart[touch.id].set(touch.x, touch.y, 0);
-	if (numFingers >=2) {
-		fingerCenterStart = fingerStart[0]+(fingerStart[1]-fingerStart[0])*0.5;
-		fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
-	}
-	printf("ScrollView touchDown, numfingers:%i hittest: %s\n", numFingers, hitTest(touch)?"true":"false");
-	if (numFingers == 1 && hitTest(touch)) {
-		setCell(touch);
-	}
-}
 bool ScrollView::hitTest(ofTouchEventArgs &touch)
 {
 	if (touch.x > x && touch.x < width+x
@@ -112,19 +107,38 @@ bool ScrollView::hitTest(ofTouchEventArgs &touch)
 }
 void ScrollView::setCell(ofTouchEventArgs &touch)
 {
-	printf("ScrollView linking synths: %s\n", rootModel->linkingSynths?"true":"false");
-	float cellSize = offset.z*40.0;
-	int xOffset = (touch.x-offset.x)/cellSize;
-	int yOffset = (touch.y-y-offset.y)/cellSize;
-	if (rootModel->linkingSynths) {
-		rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset, 0);
-	}else {
-		rootModel->world[xOffset][yOffset][0] = rootModel->currentState;
-		rootModel->world[xOffset][yOffset][1] = rootModel->currentState;
+	if (ofGetElapsedTimeMillis() - timeScrolled > 200) {
+		float cellSize = offset.z*40.0;
+		int xOffset = (touch.x-offset.x)/cellSize;
+		int yOffset = (touch.y-y-offset.y)/cellSize;
+		if (rootModel->linkingSynths) {
+			lastChanged.set(xOffset, yOffset, rootModel->currentSynth);
+			timeChanged = ofGetElapsedTimeMillis();			
+			rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset, 0);
+		}else {
+			lastChanged.set(xOffset, yOffset, rootModel->world[xOffset][yOffset][0]);
+			timeChanged = ofGetElapsedTimeMillis();
+			rootModel->world[xOffset][yOffset][0] = rootModel->currentState;
+			rootModel->world[xOffset][yOffset][1] = rootModel->currentState;
+		}
+	}
+}
+void ScrollView::touchDown(ofTouchEventArgs &touch)
+{
+	fingerStartedInView[touch.id] = true;
+	numFingers++;
+	fingerStart[touch.id].set(touch.x, touch.y, 0);
+	fingerCurrent[touch.id].set(touch.x, touch.y, 0);
+	fingerCenterCurrent = fingerCenterStart = fingerStart[0]+(fingerStart[1]-fingerStart[0])*0.5;
+	fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
+	printf("ScrollView touchDown, numfingers:%i hittest: %s\n", numFingers, hitTest(touch)?"true":"false");
+	if (numFingers == 1 && hitTest(touch)) {
+		setCell(touch);
 	}
 }
 void ScrollView::touchMoved(ofTouchEventArgs &touch)
 {
+	printf("ScrollView touchMoved, numfingers:%i hittest: %s\n", numFingers, hitTest(touch)?"true":"false");
 	fingerCurrent[touch.id].set(touch.x, touch.y, 0);
 	if (numFingers==1 && hitTest(touch)) {
 		setCell(touch);
@@ -132,8 +146,18 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 	}else if (numFingers >=2) {
 		fingerCenterCurrent = fingerCurrent[0]+(fingerCurrent[1]-fingerCurrent[0])*0.5;
 		offset += fingerCenterCurrent - fingerCenterStart;
+		if (ofGetElapsedTimeMillis() - timeChanged < 200) {
+			if (rootModel->linkingSynths) {
+				rootModel->synthLinks[(int)lastChanged.z].set(lastChanged.x, lastChanged.y, 0);
+			}else {
+				rootModel->world[(int)lastChanged.x][(int)lastChanged.y][0] = (int)lastChanged.z;
+				rootModel->world[(int)lastChanged.x][(int)lastChanged.y][1] = (int)lastChanged.z;
+			}
+		}
+		/*
 		fingerDistCurrent = ofpLength(fingerCurrent[0]-fingerCurrent[1]);
-		/*printf("fingerDistCurrent: %f\n", fingerDistCurrent);
+		
+		printf("fingerDistCurrent: %f\n", fingerDistCurrent);
 		printf("fingerDistDiff: %f\n", fingerDistCurrent-fingerDistStart);
 		
 		float cellSize = offset.z;
@@ -143,11 +167,12 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 		 
 		offset.y *= offset.z;
 		offset.x *= offset.z;
-		*/
-		fingerDistStart = fingerDistCurrent;
+		
+		fingerDistStart = fingerDistCurrent;*/
+		
 		fingerCenterStart = fingerCenterCurrent;
+		timeScrolled = ofGetElapsedTimeMillis();
 	}
-	
 }
 void ScrollView::touchUp(ofTouchEventArgs &touch)
 {

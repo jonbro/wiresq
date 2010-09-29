@@ -42,8 +42,17 @@ RootModel::RootModel(){
 	running = false;
 	
 	linkingSynths = false;
+
+	ofxColorf myColor(.1, .2, .3);
+	myColor.setMode(OF_COLOR_HSV);
+	myColor.setRange(1);
+	myColor.set(0, 1, 1);
+	
 	for (int i=0; i<8; i++) {
 		synthData[i].setup();
+		myColor.setMode(OF_COLOR_HSV).setHue((float)i/(float)(8+1));
+		synthData[i].color = myColor;
+
 	}
 	//initialize world
 	for (int i=0; i<NUMCELLSX; i++) {
