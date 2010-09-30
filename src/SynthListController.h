@@ -9,10 +9,13 @@
 
 #define NUMSYNTHS 8
 
+class MainController;
+
 class SynthListController : public ofxMSAInteractiveObject{
 public:
 	void setup();
 	void draw();
+	void drawConnectors();
 	void update();
 	void touchDown(ofTouchEventArgs &touch);
 	virtual bool hitTest(ofTouchEventArgs &touch);
@@ -21,7 +24,7 @@ public:
 	ofImage synthItem[2];
 	Button synthSelect[NUMSYNTHS];
 	int numSynths;
-	SynthEditController synthEdit;
 	bool editing;
 	RootModel *rootModel;
+	MainController *mainController;
 };

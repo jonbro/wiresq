@@ -57,9 +57,8 @@ void SynthUnit::setFrequency(float frequency) {
 }
 
 float SynthUnit::getSample() {
-	// square wave.
+	// this might not be a square wave, look more like a triangle
 	phase += phaseIncrement;						// update the phase of the oscillator
 	if(phase>=2*PI) phase -= 2*PI;					// wrap it around
 	return phase<PI ? (-1.f + (2.f*phase/PI)):(1.f - (2.f*(phase-PI)/PI)); // generate the signal
-	
 }

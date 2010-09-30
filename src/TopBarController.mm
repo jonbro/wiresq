@@ -8,6 +8,7 @@
  */
 
 #include "TopBarController.h"
+#include "MainController.h"
 
 void TopBarController::setup(){
 	background.loadImage("images/topbar.png");
@@ -38,18 +39,9 @@ void TopBarController::setup(){
 	toSynthControl.setPosAndSize(0, 445, 42, 44);
 	toSynthControl.removeListeners();
 	atSynthList = false;
-	
-	synthList.rootModel = rootModel;
-	synthList.setPosAndSize(0, 0, 184, 480);
-	synthList.setup();
-	synthList.disableAllEvents();
-		
 }
 bool TopBarController::hitTest(ofTouchEventArgs &touch)
 {
-	if (atSynthList && synthList.hitTest(touch)) {
-		return true;
-	}
 	return toSynthControl.hitTest(touch);
 }
 
@@ -62,16 +54,11 @@ void TopBarController::draw(){
 	}else {
 		playImages[0].draw(279, 5);
 	}
-	if (atSynthList) {
-		synthList.draw();
-	}else {
+	if (!atSynthList) {
 		toSynthImage.draw(0, 445);
 	}
 }
 void TopBarController::update(){
-	if (atSynthList) {
-		synthList.update();
-	}
 }
 void TopBarController::touchDown(ofTouchEventArgs &touch)
 {
@@ -81,17 +68,16 @@ void TopBarController::touchDown(ofTouchEventArgs &touch)
 	if (playControl.hitTest(touch)) {
 		rootModel->running = !(rootModel->running);
 	}
-	if (toSynthControl.hitTest(touch)) {
+	if (toSynthControl.hitTest(touch)){
 		atSynthList = !atSynthList;
 		if (!atSynthList) {
 			rootModel->linkingSynths = false;
 			toSynthControl.setPosAndSize(0, 438, 42, 44);
-		}else {
+			mainController->changeScreen("scroller");
+		}else{
 			rootModel->linkingSynths = true;
 			toSynthControl.setPosAndSize(150, 438, 42, 44);
+			mainController->changeScreen("synth_list");
 		}
-	}
-	if (atSynthList) {
-		synthList.touchDown(touch);
 	}
 }

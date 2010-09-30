@@ -6,6 +6,8 @@
 #import "Button.h"
 #import "SynthListController.h"
 
+class MainController;
+
 class TopBarController : public ofxMSAInteractiveObject{
 public:
 	void setup();
@@ -20,7 +22,7 @@ public:
 	
 	Button stateControl, playControl, toSynthControl;
 	RootModel *rootModel;
-	SynthListController	synthList;
+	MainController *mainController;
 	
 	bool atSynthList;
 };

@@ -8,6 +8,7 @@
  */
 
 #include "SynthEditController.h"
+#include "MainController.h"
 
 void SynthEditController::setup()
 {
@@ -91,6 +92,9 @@ void SynthEditController::draw()
 }
 void SynthEditController::touchDown(ofTouchEventArgs &touch){
 	if (exitButton.hitTest(touch)) {
-		exitNow = true;
+		mainController->changeScreen("synth_list");
 	}
+}
+void SynthEditController::touchMoved(ofTouchEventArgs &touch){
+	
 }

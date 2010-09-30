@@ -11,12 +11,15 @@
 
 #define NUMSYNTHS 8
 
+class MainController;
+
 class SynthEditController : public ofxMSAInteractiveObject{
 public:
 	void setup();
 	void draw();
 	void update();
 	void touchDown(ofTouchEventArgs &touch);
+	void touchMoved(ofTouchEventArgs &touch);
 	void setSliders();
 	ofImage background, slideBg, slideLeftCap, slideLoop, slideRightCap, slideFull, exitButtonImg;
 	ofTrueTypeFont interstate, interstateLrg;
@@ -24,5 +27,6 @@ public:
 	Slider slideControl[7];
 	SynthModel *synth;
 	RootModel *rootModel;
+	MainController *mainController;
 	bool exitNow;
 };

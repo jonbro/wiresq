@@ -45,6 +45,8 @@ public:
 	int currentSynth;
 	
 	int currentState;
+	int currentScreen;
+	
 	bool running;
 	
 	SynthModel synthData[8];

@@ -8,6 +8,7 @@
  */
 
 #include "SynthListController.h"
+#include "MainController.h"
 
 void SynthListController::setup()
 {
@@ -29,60 +30,42 @@ void SynthListController::setup()
 		lastY+=2+synthItem[0].getHeight();
 		synthSelect[i].disableAllEvents();
 	}
-	editing = false;
-	synthEdit.rootModel = rootModel;
-	synthEdit.setup();
-	synthEdit.disableAllEvents();
-	
-		
-	
-	
 }
 void SynthListController::update()
 {
-	if (editing) {
-		synthEdit.update();
-		if (synthEdit.exitNow) {
-			synthEdit.exitNow = false;
-			editing =false;
-		}
-	}
 }
 void SynthListController::draw()
 {
-	if (editing) {
-		synthEdit.draw();
-	}else{
-		int lastY = 6;
-		for (int i=0; i<numSynths; i++) {
-			ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
-			// draw the connecting line
-			ofPoint partOne;
-			partOne.set(rootModel->synthLinks[i].x*40+2, rootModel->synthLinks[i].y*40+2+44);
-			partOne += rootModel->scrollOffset;
-			ofNoFill();
-			ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5, partOne.y+2.5, partOne.x+40, partOne.y+2.5);
-			lastY+=2+synthItem[0].getHeight();
+	ofSetColor(0xffffff);
+	background.draw(0, 0);
+	int lastY = 6;
+	for (int i=0; i<numSynths; i++) {
+		ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
+		if (i==rootModel->currentSynth) {
+			synthItem[1].draw(0, lastY+2);
+		}else{
+			synthItem[0].draw(0, lastY+2);
 		}
-		ofSetColor(0xffffff);
-		background.draw(0, 0);
-		lastY = 6;
-		for (int i=0; i<numSynths; i++) {
-			ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
-			if (i==rootModel->currentSynth) {
-				synthItem[1].draw(0, lastY+2);
-			}else{
-				synthItem[0].draw(0, lastY+2);
-			}
-			lastY+=2+synthItem[0].getHeight();
-		}
+		lastY+=2+synthItem[0].getHeight();
+	}
+}
+void SynthListController::drawConnectors(){
+	int lastY = 6;
+	for (int i=0; i<numSynths; i++) {
+		ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
+		// draw the connecting line
+		ofPoint partOne;
+		partOne.set(rootModel->synthLinks[i].x*40+2, rootModel->synthLinks[i].y*40+2+44);
+		partOne += rootModel->scrollOffset;
+		ofNoFill();
+		ofSetLineWidth(2);
+		ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5+146, fmax(partOne.y+2.5, 47), partOne.x+40+146, fmax(partOne.y+2.5, 47));
+		lastY+=2+synthItem[0].getHeight();
 	}
 }
 bool SynthListController::hitTest(ofTouchEventArgs &touch)
 {
-	if (editing) {
-		return true;
-	}
+	printf("SynthListController::hitTest\n");
 	if (touch.x > x && touch.x < width+x
 		&& touch.y > y && touch.y < height+y) {
 		return true;
@@ -91,26 +74,20 @@ bool SynthListController::hitTest(ofTouchEventArgs &touch)
 }
 void SynthListController::touchDown(ofTouchEventArgs &touch)
 {
-	if (!editing) {
-		bool second = false;
-		for (int i=0; i<numSynths; i++) {
-			if(synthSelect[i].hitTest(touch)){
-				if (rootModel->currentSynth == i) {
-					second = true;
-				}
-				rootModel->currentSynth = i;
+	bool second = false;
+	for (int i=0; i<numSynths; i++) {
+		if(synthSelect[i].hitTest(touch)){
+			if (rootModel->currentSynth == i) {
+				second = true;
 			}
+			rootModel->currentSynth = i;
 		}
-		if (second) {
-			synthSelect[rootModel->currentSynth].width /= 2;
-			if (synthSelect[rootModel->currentSynth].hitTest(touch)) {
-				editing = true;
-				synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
-				synthEdit.setSliders();
-			}
-			synthSelect[rootModel->currentSynth].width *= 2;
-		}		
-	}else {
-		synthEdit.touchDown(touch);
 	}
+	if (second) {
+		synthSelect[rootModel->currentSynth].width /= 2;
+		if (synthSelect[rootModel->currentSynth].hitTest(touch)) {
+			mainController->changeScreen("synth_edit");
+		}
+		synthSelect[rootModel->currentSynth].width *= 2;
+	}		
 }

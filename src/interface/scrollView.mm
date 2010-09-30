@@ -109,10 +109,13 @@ void ScrollView::setCell(ofTouchEventArgs &touch)
 {
 	if (ofGetElapsedTimeMillis() - timeScrolled > 200) {
 		float cellSize = offset.z*40.0;
+		if (rootModel->currentScreen == SCREEN_LIST) {
+			touch.x-=146;
+		}
 		int xOffset = (touch.x-offset.x)/cellSize;
 		int yOffset = (touch.y-y-offset.y)/cellSize;
 		if (rootModel->linkingSynths) {
-			lastChanged.set(xOffset, yOffset, rootModel->currentSynth);
+			lastChanged.set(rootModel->synthLinks[rootModel->currentSynth].x, rootModel->synthLinks[rootModel->currentSynth].x, rootModel->currentSynth);
 			timeChanged = ofGetElapsedTimeMillis();			
 			rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset, 0);
 		}else {
