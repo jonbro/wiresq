@@ -16,6 +16,8 @@ public:
 	void setup();
 	void draw();
 	void update();
+	void DisableSliders();
+	void EnableSliders();
 	ofImage background, slideBg, slideLeftCap, slideLoop, slideRightCap, slideFull, exitButtonImg;
 	ofTrueTypeFont interstate;
 	Slider slideControl[2];

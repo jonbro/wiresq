@@ -83,6 +83,10 @@ void MainController::update(ofEventArgs &e)
 }
 void MainController::touchDown(ofTouchEventArgs &touch)
 {
+	float startY = touch.y;
+	if (rootModel->currentScreen == SCREEN_SPEED) {
+		touch.y -= synthListOffset.y;
+	}	
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchDown(touch);
 	}else if (topBar.hitTest(touch) == false) {
@@ -97,15 +101,21 @@ void MainController::touchDown(ofTouchEventArgs &touch)
 		}
 	}
 	topBar.touchDown(touch);
+	touch.y = startY;
 }
 void MainController::touchMoved(ofTouchEventArgs &touch)
 {
+	float startY = touch.y;
+	if (rootModel->currentScreen == SCREEN_SPEED) {
+		touch.y -= synthListOffset.y;
+	}
 	// only pass down events that fail hit tests otherwise
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchMoved(touch);
 	}else if (topBar.hitTest(touch) == false || rootModel->currentScreen == SCREEN_LIST) {
 		scroller.touchMoved(touch);
 	}
+	touch.y = startY;
 }
 void MainController::touchUp(ofTouchEventArgs &touch)
 { 
@@ -127,8 +137,15 @@ void MainController::changeScreen(string screen){
 		synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
 		synthListOffsetTarget.set(320, 0, 0);
 	}else if(screen == "speed"){
-		rootModel->currentScreen = SCREEN_SPEED;
-		synthListOffsetTarget.set(-146, 200, 0);
+		if (rootModel->currentScreen != SCREEN_SPEED) {
+			rootModel->currentScreen = SCREEN_SPEED;
+			speedControl.EnableSliders();
+			synthListOffsetTarget.set(-146, 200, 0);			
+		}else {
+			rootModel->currentScreen = SCREEN_SCROLL;
+			synthListOffsetTarget.set(-146, 0, 0);
+			speedControl.DisableSliders();
+		}
 	}
 
 }

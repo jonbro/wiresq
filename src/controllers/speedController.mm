@@ -32,6 +32,7 @@ void SpeedController::setup()
 		slideControl[i].horizontal = true;
 		slideControl[i].disableAppEvents();
 	}
+	DisableSliders();
 	interstate.loadFont("InterstatePlusBold.ttf", 10);
 	setSliders();
 }
@@ -40,6 +41,17 @@ void SpeedController::update()
 {
 	rootModel->bpm = slideControl[0].value*259.0+1;	
 	rootModel->clockMult = slideControl[1].value*15.0+1;	
+}
+void SpeedController::DisableSliders(){
+	for (int i=0; i<2; i++) {
+		slideControl[i].removeListeners();
+	}
+}
+void SpeedController::EnableSliders(){
+	for (int i=0; i<2; i++) {
+		slideControl[i].addListeners();
+		slideControl[i].disableAppEvents();
+	}
 }
 void SpeedController::setSliders()
 {

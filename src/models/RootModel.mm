@@ -18,6 +18,8 @@
 	world = [[NSMutableArray alloc] init];
 	links = [[NSMutableArray alloc] init];
 	synths = [[NSMutableArray alloc] init];
+	bpm = [[NSNumber alloc] initWithFloat:120.0];
+	clockMult = [[NSNumber alloc] initWithInt:2];
 	return self;
 }
 - (void)encodeWithCoder:(NSCoder *)coder
@@ -26,6 +28,8 @@
 	[coder encodeObject:world forKey:@"world"];
 	[coder encodeObject:links forKey:@"links"];
 	[coder encodeObject:synths forKey:@"synths"];
+	[coder encodeObject:bpm forKey:@"bpm"];
+	[coder encodeObject:clockMult forKey:@"clockMult"];
 }
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -33,6 +37,8 @@
 	self.world = [[coder decodeObjectForKey:@"world"] retain];
 	self.links = [[coder decodeObjectForKey:@"links"] retain];
 	self.synths = [[coder decodeObjectForKey:@"synths"] retain];
+	self.bpm = [[coder decodeObjectForKey:@"bpm"] retain];
+	self.clockMult = [[coder decodeObjectForKey:@"clockMult"] retain];
     return self;
 }
 @end
