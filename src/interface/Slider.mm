@@ -16,10 +16,6 @@ void Slider::draw(){
 	ofRect(x, y, width, height);
 	// draw the inside
 	ofSetColor(100, 100, 100);
-<<<<<<< HEAD:src/interface/Slider.mm
-=======
-	printf("drawing: horizontal: %s\n", horizontal?"true":"false");
->>>>>>> da85fcbb31a4b4ff46f726c2669e6934ca174d91:src/interface/Slider.mm
 	if (horizontal == true) {
 		ofRect(width*value+x+1, y+1.0, width-width*value-2, height-2);
 		ofSetColor(255, 255, 255);		
