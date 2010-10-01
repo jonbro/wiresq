@@ -10,7 +10,7 @@
 
 @implementation rootModelObj
 
-@synthesize world, links, synths;
+@synthesize world, links, synths, bpm, clockMult;
 
 -(id)init
 {
@@ -38,6 +38,10 @@
 @end
 
 RootModel::RootModel(){
+	
+	bpm = 120.0;
+	clockMult = 2;
+	
 	currentState = 0;
 	running = false;
 	
@@ -71,6 +75,15 @@ void RootModel::save(){
 	// copy over all the data
 	// world data
 	printf("RootModel::save\n");
+	
+	NSNumber *clockMultObj = [[NSNumber numberWithInt:clockMult] retain];
+	objcRootModel.clockMult = clockMultObj;
+	[clockMultObj release];
+
+	NSNumber *bpmObj = [[NSNumber numberWithFloat:bpm] retain];
+	objcRootModel.bpm = bpmObj;
+	[bpmObj release];
+	
 	[objcRootModel.world removeAllObjects];
 	for (int y=0; y<NUMCELLSY; y++) {
 		for (int x=0; x<NUMCELLSX; x++) {
@@ -109,13 +122,12 @@ void RootModel::load(){
 		printf("RootModel::load non nil\n");
 		objcRootModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
 		if([objcRootModel isKindOfClass:[rootModelObj class]]){
+			bpm = [objcRootModel.bpm floatValue];
+			clockMult = [objcRootModel.clockMult intValue];
 			// copy data from the main object
 			for (int y=0; y<NUMCELLSY; y++) {
 				for (int x=0; x<NUMCELLSX; x++) {
 					world[x][y][0] = world[x][y][1] = [[objcRootModel.world objectAtIndex:y*NUMCELLSX+x] intValue];
-					if (world[x][y][0] == 1) {
-						NSLog(@"non zero");
-					}
 				}
 			}
 			for (int i=0; i<8; i++) {

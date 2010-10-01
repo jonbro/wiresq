@@ -13,12 +13,13 @@ void testApp::setup(){
 	ofxiPhoneAlerts.addListener(this);
 	ofEnableAlphaBlending();
 
-	mainController.rootModel = &rootModel;
-	mainController.setup();
-	
 	mixer.rootModel = &rootModel;
 	mixer.setup();
 
+	mainController.rootModel = &rootModel;
+	mainController.mixer = &mixer;
+	mainController.setup();	
+	
 	ofSoundStreamSetup(2,0,this,44100,256, 4);
 	//saveLoad.setPosAndSize(320-40, 480-40, 40, 40);
 	rootModel.load();

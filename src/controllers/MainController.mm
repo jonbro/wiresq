@@ -31,7 +31,10 @@ void MainController::setup()
 	synthEdit.synth = &rootModel->synthData[0];
 	synthEdit.mainController = this;
 	synthEdit.setup();
-	synthEdit.disableAllEvents();	
+	synthEdit.disableAllEvents();
+	
+	speedControl.setup();
+	speedControl.rootModel = rootModel;
 }
 void MainController::draw(ofEventArgs &e)
 {
@@ -39,10 +42,19 @@ void MainController::draw(ofEventArgs &e)
 	ofRect(0, 0, 320, 480);
 	ofSetColor(0xffffff);
 	ofPushMatrix();
-	ofTranslate(synthListOffset.x+146, 0, 0);
-	scroller.draw();
+		ofTranslate(0, synthListOffset.y, 0);
+		if (rootModel->currentScreen == SCREEN_SPEED) {
+			ofPushMatrix();
+			ofTranslate(0, -200, 0);
+			speedControl.draw();
+			ofPopMatrix();
+		}
+		ofPushMatrix();
+			ofTranslate(synthListOffset.x+146, 0, 0);
+			scroller.draw();
+		ofPopMatrix();
+		topBar.draw();
 	ofPopMatrix();
-	topBar.draw();
 	ofPushMatrix();
 	ofTranslate(synthListOffset.x, 0, 0);
 	if (rootModel->currentScreen == SCREEN_LIST) {
@@ -64,8 +76,10 @@ void MainController::update(ofEventArgs &e)
 	scroller.update();
 	topBar.update();
 	synthListOffset.x = ofLerp(synthListOffset.x, synthListOffsetTarget.x, 0.2);
+	synthListOffset.y = ofLerp(synthListOffset.y, synthListOffsetTarget.y, 0.2);
 	synthList.update();
 	synthEdit.update();
+	speedControl.update();
 }
 void MainController::touchDown(ofTouchEventArgs &touch)
 {
@@ -112,5 +126,9 @@ void MainController::changeScreen(string screen){
 		synthEdit.setSliders();
 		synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
 		synthListOffsetTarget.set(320, 0, 0);
+	}else if(screen == "speed"){
+		rootModel->currentScreen = SCREEN_SPEED;
+		synthListOffsetTarget.set(-146, 200, 0);
 	}
+
 }

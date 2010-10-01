@@ -7,6 +7,8 @@
 #include "SynthListController.h"
 #include "SynthEditController.h"
 #include "defines.h"
+#include "MixerController.h"
+#include "speedController.h"
 
 class MainController{
 public:
@@ -28,4 +30,6 @@ public:
 	TopBarController topBar;
 	SynthListController synthList;
 	SynthEditController synthEdit;
+	MixerController *mixer;
+	SpeedController speedControl;
 };

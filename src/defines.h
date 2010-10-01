@@ -5,3 +5,4 @@
 #define SCREEN_SCROLL 0
 #define SCREEN_LIST 1
 #define SCREEN_EDIT 2
+#define SCREEN_SPEED 3

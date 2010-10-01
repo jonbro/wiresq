@@ -33,12 +33,16 @@ void TopBarController::setup(){
 
 	playControl.setPosAndSize(279, 5, 34, 34);
 	playControl.removeListeners();
-
+	
+	toSpeed.setPosAndSize(279-40, 4, 34, 34);
+	toSpeed.removeListeners();
+	
 	toSynthImage.loadImage("images/to_synths.png");
 	toSynthImage.setImageType(OF_IMAGE_COLOR_ALPHA);
 	toSynthControl.setPosAndSize(0, 445, 42, 44);
 	toSynthControl.removeListeners();
 	atSynthList = false;
+	interstate.loadFont("InterstatePlusBold.ttf", 10);
 }
 bool TopBarController::hitTest(ofTouchEventArgs &touch)
 {
@@ -54,6 +58,8 @@ void TopBarController::draw(){
 	}else {
 		playImages[0].draw(279, 5);
 	}
+	string bpm_clock = ofToString(rootModel->bpm, 0)+"X"+ofToString(rootModel->clockMult, 0);
+	interstate.drawString(bpm_clock, 279-interstate.stringWidth(bpm_clock)-10, 26);
 	if (!atSynthList) {
 		toSynthImage.draw(0, 445);
 	}
@@ -67,6 +73,9 @@ void TopBarController::touchDown(ofTouchEventArgs &touch)
 	}
 	if (playControl.hitTest(touch)) {
 		rootModel->running = !(rootModel->running);
+	}
+	if (toSpeed.hitTest(touch)) {
+		mainController->changeScreen("speed");
 	}
 	if (toSynthControl.hitTest(touch)){
 		atSynthList = !atSynthList;

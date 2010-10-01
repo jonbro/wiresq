@@ -17,12 +17,15 @@
 	NSMutableArray *world;
 	NSMutableArray *links;
 	NSMutableArray *synths;
+	NSNumber *bpm;
+	NSNumber *clockMult;
 }
 
 @property (nonatomic, retain) NSMutableArray *world;
 @property (nonatomic, retain) NSMutableArray *links;
 @property (nonatomic, retain) NSMutableArray *synths;
-
+@property (retain) NSNumber *bpm;
+@property (retain) NSNumber *clockMult;
 @end
 
 
@@ -46,6 +49,9 @@ public:
 	
 	int currentState;
 	int currentScreen;
+	
+	float bpm;
+	int clockMult;
 	
 	bool running;
 	

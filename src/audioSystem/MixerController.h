@@ -5,6 +5,7 @@
 class MixerController{
 public:
 	void setup();
+	void calculateRate();
 	void audioRequested(float * output, int bufferSize, int nChannels);
 	
 	RootModel *rootModel;

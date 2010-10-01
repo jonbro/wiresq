@@ -39,12 +39,18 @@
 		5EAD8E35125571A80063BF47 /* RootModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E22125571A80063BF47 /* RootModel.mm */; };
 		5EAD8E36125571A80063BF47 /* SynthModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E24125571A80063BF47 /* SynthModel.mm */; };
 		5EAD8E37125571A80063BF47 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E26125571A80063BF47 /* testApp.mm */; };
+		5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E7E125574FD0063BF47 /* speedController.mm */; };
+		5EAD8EB91255790A0063BF47 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8E981255790A0063BF47 /* Default.png */; };
+		5EAD8EBB1255790A0063BF47 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8E9A1255790A0063BF47 /* Icon.png */; };
+		5EAD8ED61255790A0063BF47 /* InterstatePlusBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB61255790A0063BF47 /* InterstatePlusBold.ttf */; };
+		5EAD8ED71255790A0063BF47 /* test.data in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB71255790A0063BF47 /* test.data */; };
+		5EAD8ED81255790A0063BF47 /* transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB81255790A0063BF47 /* transparency.png */; };
+		5EAD8EF5125579160063BF47 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8ED9125579160063BF47 /* images */; };
+		5EAD8FA012557DBB0063BF47 /* freetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAD8F9F12557DBB0063BF47 /* freetype.a */; };
 		5EB30F461255672C00E3B866 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */; };
 		5EB30F5C1255673D00E3B866 /* ofxColorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F521255673D00E3B866 /* ofxColorBase.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
-		BB24DD8F10DA77E000E9C588 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BB24DD8C10DA77E000E9C588 /* Default.png */; };
-		BB24DD9010DA77E000E9C588 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB24DD8D10DA77E000E9C588 /* Icon.png */; };
 		BB24DDCA10DA781C00E9C588 /* ofxiphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB24DDC910DA781C00E9C588 /* ofxiphone-Info.plist */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 		E434BF6512477ED500452519 /* freeimage-iphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E434BF6412477ED500452519 /* freeimage-iphone.a */; };
@@ -117,13 +123,22 @@
 		5EAD8E1C125571A80063BF47 /* ofPointUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofPointUtils.h; path = src/interface/ofPointUtils.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E1D125571A80063BF47 /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Slider.h; path = src/interface/Slider.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E1E125571A80063BF47 /* Slider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Slider.mm; path = src/interface/Slider.mm; sourceTree = SOURCE_ROOT; };
-		5EAD8E1F125571A80063BF47 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
+		5EAD8E1F125571A80063BF47 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = openFrameworks/apps/my_apps/ww_working/src/main.mm; sourceTree = DEVELOPER_DIR; };
 		5EAD8E21125571A80063BF47 /* RootModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootModel.h; path = src/models/RootModel.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E22125571A80063BF47 /* RootModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RootModel.mm; path = src/models/RootModel.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E23125571A80063BF47 /* SynthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthModel.h; path = src/models/SynthModel.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E24125571A80063BF47 /* SynthModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthModel.mm; path = src/models/SynthModel.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E25125571A80063BF47 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E26125571A80063BF47 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
+		5EAD8E7D125574FD0063BF47 /* speedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speedController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/speedController.h; sourceTree = DEVELOPER_DIR; };
+		5EAD8E7E125574FD0063BF47 /* speedController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = speedController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/speedController.mm; sourceTree = DEVELOPER_DIR; };
+		5EAD8E981255790A0063BF47 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = SOURCE_ROOT; };
+		5EAD8E9A1255790A0063BF47 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = SOURCE_ROOT; };
+		5EAD8EB61255790A0063BF47 /* InterstatePlusBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = InterstatePlusBold.ttf; path = bin/data/InterstatePlusBold.ttf; sourceTree = SOURCE_ROOT; };
+		5EAD8EB71255790A0063BF47 /* test.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.data; path = bin/data/test.data; sourceTree = SOURCE_ROOT; };
+		5EAD8EB81255790A0063BF47 /* transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparency.png; path = bin/data/transparency.png; sourceTree = SOURCE_ROOT; };
+		5EAD8ED9125579160063BF47 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = bin/data/images; sourceTree = SOURCE_ROOT; };
+		5EAD8F9F12557DBB0063BF47 /* freetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = freetype.a; path = ../../../libs/freetype/lib/osx/freetype.a; sourceTree = SOURCE_ROOT; };
 		5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxMSAInteractiveObject.cpp; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.cpp; sourceTree = SOURCE_ROOT; };
 		5EB30F401255672C00E3B866 /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAInteractiveObject.h; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.h; sourceTree = SOURCE_ROOT; };
 		5EB30F511255673D00E3B866 /* ofxColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColor.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColor.h; sourceTree = SOURCE_ROOT; };
@@ -135,8 +150,6 @@
 		5EB30F571255673D00E3B866 /* ofxColorShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorShared.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorShared.h; sourceTree = SOURCE_ROOT; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		BB24DD8C10DA77E000E9C588 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		BB24DD8D10DA77E000E9C588 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		BB24DDC910DA781C00E9C588 /* ofxiphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiphone-Info.plist"; sourceTree = "<group>"; };
 		BB24DDCF10DA784F00E9C588 /* FreeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeImage.h; sourceTree = "<group>"; };
 		BB24DDE210DA785000E9C588 /* ftconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftconfig.h; sourceTree = "<group>"; };
@@ -224,6 +237,7 @@
 				E434BF7312477FBA00452519 /* freetype-iphone.a in Frameworks */,
 				E496D5B11252C8210098A2B3 /* glu-iphone.a in Frameworks */,
 				E496D5B21252C8210098A2B3 /* glu.a in Frameworks */,
+				5EAD8FA012557DBB0063BF47 /* freetype.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +360,8 @@
 				5EAD8E10125571A80063BF47 /* SynthListController.mm */,
 				5EAD8E11125571A80063BF47 /* TopBarController.h */,
 				5EAD8E12125571A80063BF47 /* TopBarController.mm */,
+				5EAD8E7D125574FD0063BF47 /* speedController.h */,
+				5EAD8E7E125574FD0063BF47 /* speedController.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -379,6 +395,15 @@
 			);
 			name = models;
 			path = src/models;
+			sourceTree = SOURCE_ROOT;
+		};
+		5EAD8F9E12557DBB0063BF47 /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				5EAD8F9F12557DBB0063BF47 /* freetype.a */,
+			);
+			name = osx;
+			path = ../../../libs/freetype/lib/osx;
 			sourceTree = SOURCE_ROOT;
 		};
 		5EB30F321255672C00E3B866 /* ofxMSAInteractiveObject */ = {
@@ -444,8 +469,12 @@
 		BB24DD8B10DA77E000E9C588 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				BB24DD8C10DA77E000E9C588 /* Default.png */,
-				BB24DD8D10DA77E000E9C588 /* Icon.png */,
+				5EAD8ED9125579160063BF47 /* images */,
+				5EAD8E981255790A0063BF47 /* Default.png */,
+				5EAD8E9A1255790A0063BF47 /* Icon.png */,
+				5EAD8EB61255790A0063BF47 /* InterstatePlusBold.ttf */,
+				5EAD8EB71255790A0063BF47 /* test.data */,
+				5EAD8EB81255790A0063BF47 /* transparency.png */,
 			);
 			name = data;
 			path = bin/data;
@@ -575,6 +604,7 @@
 		BB24DE1110DA785000E9C588 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				5EAD8F9E12557DBB0063BF47 /* osx */,
 				BB24DE1210DA785000E9C588 /* iphone */,
 			);
 			path = lib;
@@ -675,12 +705,12 @@
 			children = (
 				5EAD8E01125571A80063BF47 /* audioSystem */,
 				5EAD8E08125571A80063BF47 /* controllers */,
-				5EAD8E13125571A80063BF47 /* defines.h */,
 				5EAD8E14125571A80063BF47 /* interface */,
-				5EAD8E1F125571A80063BF47 /* main.mm */,
 				5EAD8E20125571A80063BF47 /* models */,
+				5EAD8E1F125571A80063BF47 /* main.mm */,
 				5EAD8E25125571A80063BF47 /* testApp.h */,
 				5EAD8E26125571A80063BF47 /* testApp.mm */,
+				5EAD8E13125571A80063BF47 /* defines.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -752,9 +782,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB24DD8F10DA77E000E9C588 /* Default.png in Resources */,
-				BB24DD9010DA77E000E9C588 /* Icon.png in Resources */,
 				BB24DDCA10DA781C00E9C588 /* ofxiphone-Info.plist in Resources */,
+				5EAD8EB91255790A0063BF47 /* Default.png in Resources */,
+				5EAD8EBB1255790A0063BF47 /* Icon.png in Resources */,
+				5EAD8ED61255790A0063BF47 /* InterstatePlusBold.ttf in Resources */,
+				5EAD8ED71255790A0063BF47 /* test.data in Resources */,
+				5EAD8ED81255790A0063BF47 /* transparency.png in Resources */,
+				5EAD8EF5125579160063BF47 /* images in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +834,7 @@
 				5EAD8E35125571A80063BF47 /* RootModel.mm in Sources */,
 				5EAD8E36125571A80063BF47 /* SynthModel.mm in Sources */,
 				5EAD8E37125571A80063BF47 /* testApp.mm in Sources */,
+				5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +858,7 @@
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ofxiphone-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${TARGET_NAME}";
 			};
@@ -836,6 +872,10 @@
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ofxiphone-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/openFrameworks/libs/freetype/lib/osx\"",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${TARGET_NAME}";
 			};
@@ -986,6 +1026,10 @@
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ofxiphone-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/openFrameworks/libs/freetype/lib/osx\"",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${TARGET_NAME}";
 			};

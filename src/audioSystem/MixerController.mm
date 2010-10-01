@@ -2,14 +2,18 @@
 
 void MixerController::setup()
 {
-	float clockMult = 2.0;
-	float bpm = 120.0;
-	beatLength = (22050.0*60/bpm)/clockMult;
+	currentSynth = 0;
+	frameCounter = 0;
 	for (int i=0; i<8; i++) {
 		synths[i].setup();
 	}
-	currentSynth = 0;
-	frameCounter = 0;	
+	calculateRate();
+}
+void MixerController::calculateRate()
+{
+	float clockMult = rootModel->clockMult;
+	float bpm = rootModel->bpm;
+	beatLength = (22050.0*60/bpm)/clockMult;
 }
 void MixerController::audioRequested(float * output, int bufferSize, int nChannels) {
 	for(int i = 0; i < bufferSize; i++) {

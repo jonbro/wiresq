@@ -19,8 +19,9 @@ public:
 	ofImage stateImages[4];
 	ofImage background, toSynthImage;
 	ofImage playImages[2];
-	
-	Button stateControl, playControl, toSynthControl;
+	ofTrueTypeFont interstate;
+
+	Button stateControl, playControl, toSynthControl, toSpeed;
 	RootModel *rootModel;
 	MainController *mainController;
 	
