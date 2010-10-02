@@ -8,6 +8,7 @@
  */
 
 #include "scrollView.h"
+#include "MainController.h"
 
 ScrollView::ScrollView(){
 	numFingers = 0;
@@ -185,6 +186,10 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 		fingerCenterStart = fingerCenterCurrent;
 		timeScrolled = ofGetElapsedTimeMillis();
 	}
+}
+void ScrollView::touchDoubleTap(ofTouchEventArgs &touch)
+{
+	mainController->changeScreen("note_pop");
 }
 void ScrollView::touchUp(ofTouchEventArgs &touch)
 {

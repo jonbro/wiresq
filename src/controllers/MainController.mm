@@ -4,6 +4,7 @@ void MainController::setup()
 {
 	ofAddListener(ofEvents.touchDown, this, &MainController::touchDown);
 	ofAddListener(ofEvents.touchUp, this, &MainController::touchUp);
+	ofAddListener(ofEvents.touchDoubleTap, this, &MainController::touchDoubleTap);
 	ofAddListener(ofEvents.touchMoved, this, &MainController::touchMoved);	
 	ofAddListener(ofEvents.update, this, &MainController::update);
 	ofAddListener(ofEvents.draw, this, &MainController::draw);
@@ -16,6 +17,7 @@ void MainController::setup()
 	
 	scroller.setPosAndSize(0, 44, 320, 436);
 	scroller.rootModel = rootModel;
+	scroller.mainController = this;
 	scroller.disableAllEvents();
 	
 	synthList.rootModel = rootModel;
@@ -35,6 +37,9 @@ void MainController::setup()
 	
 	speedControl.setup();
 	speedControl.rootModel = rootModel;
+	
+	notePopControl.setup();
+	
 }
 void MainController::draw(ofEventArgs &e)
 {
@@ -70,6 +75,9 @@ void MainController::draw(ofEventArgs &e)
 		synthList.draw();		
 	}
 	ofPopMatrix();
+	if (rootModel->currentScreen == SCREEN_NOTE) {
+		notePopControl.draw();
+	}
 }
 void MainController::update(ofEventArgs &e)
 {
@@ -102,6 +110,9 @@ void MainController::touchDown(ofTouchEventArgs &touch)
 	}
 	topBar.touchDown(touch);
 	touch.y = startY;
+	if (rootModel->currentScreen = SCREEN_NOTE) {
+		notePopControl.touchDown(touch);
+	}
 }
 void MainController::touchMoved(ofTouchEventArgs &touch)
 {
@@ -116,13 +127,22 @@ void MainController::touchMoved(ofTouchEventArgs &touch)
 		scroller.touchMoved(touch);
 	}
 	touch.y = startY;
+	if (rootModel->currentScreen = SCREEN_NOTE) {
+		notePopControl.touchMoved(touch);
+	}	
 }
 void MainController::touchUp(ofTouchEventArgs &touch)
 { 
 	scroller.touchUp(touch);
+	if (rootModel->currentScreen = SCREEN_NOTE) {
+		notePopControl.touchUp(touch);
+	}		
 }
 void MainController::touchDoubleTap(ofTouchEventArgs &touch)
 {
+	if (rootModel->currentScreen == SCREEN_SCROLL) {
+		scroller.touchDoubleTap(touch);
+	}
 }
 void MainController::changeScreen(string screen){
 	if(screen=="synth_list"){
@@ -146,6 +166,7 @@ void MainController::changeScreen(string screen){
 			synthListOffsetTarget.set(-146, 0, 0);
 			speedControl.DisableSliders();
 		}
+	}else if(screen == "note_pop"){
+		rootModel->currentScreen = SCREEN_NOTE;
 	}
-
 }

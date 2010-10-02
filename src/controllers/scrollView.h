@@ -1,16 +1,12 @@
-/*
- *  scrollView.h
- *  ww
- *
- *  Created by jonbroFERrealz on 9/24/10.
- *  Copyright 2010 Heavy Ephemera Industries. All rights reserved.
- *
- */
+#pragma once
+
 #include "defines.h" 
 
 #include "ofxMSAInteractiveObject.h"
 #include "Button.h"
 #include "RootModel.h"
+
+class MainController;
 
 class ScrollView : public ofxMSAInteractiveObject{
 public:
@@ -20,6 +16,7 @@ public:
 	void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
+	void touchDoubleTap(ofTouchEventArgs &touch);
 	bool hitTest(ofTouchEventArgs &touch);
 
 	void setCell(ofTouchEventArgs &touch);
@@ -36,6 +33,7 @@ public:
 	float fingerDistStart, fingerDistCurrent;
 	
 	RootModel *rootModel;
+	MainController *mainController;
 	bool state;
 	bool fingerStartedInView[16];
 };

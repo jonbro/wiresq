@@ -6,3 +6,4 @@
 #define SCREEN_LIST 1
 #define SCREEN_EDIT 2
 #define SCREEN_SPEED 3
+#define SCREEN_NOTE 4

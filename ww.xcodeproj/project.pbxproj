@@ -142,6 +142,7 @@
 		5EAD90F7125793320063BF47 /* OpenDin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenDin.ttf; path = bin/data/OpenDin.ttf; sourceTree = SOURCE_ROOT; };
 		5EAD91421257C1C20063BF47 /* NotePopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotePopController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/NotePopController.h; sourceTree = DEVELOPER_DIR; };
 		5EAD91431257C1C20063BF47 /* NotePopController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotePopController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/NotePopController.mm; sourceTree = DEVELOPER_DIR; };
+		5EAD91E91257CC790063BF47 /* MSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAShape3D.h; path = ../../../addons/msalibs/MSAShape3D/src/MSAShape3D.h; sourceTree = SOURCE_ROOT; };
 		5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxMSAInteractiveObject.cpp; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.cpp; sourceTree = SOURCE_ROOT; };
 		5EB30F401255672C00E3B866 /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAInteractiveObject.h; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.h; sourceTree = SOURCE_ROOT; };
 		5EB30F511255673D00E3B866 /* ofxColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColor.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColor.h; sourceTree = SOURCE_ROOT; };
@@ -411,6 +412,24 @@
 			path = ../../../libs/freetype/lib/osx;
 			sourceTree = SOURCE_ROOT;
 		};
+		5EAD91DD1257CC790063BF47 /* MSAShape3D */ = {
+			isa = PBXGroup;
+			children = (
+				5EAD91E81257CC790063BF47 /* src */,
+			);
+			name = MSAShape3D;
+			path = ../../../addons/msalibs/MSAShape3D;
+			sourceTree = SOURCE_ROOT;
+		};
+		5EAD91E81257CC790063BF47 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5EAD91E91257CC790063BF47 /* MSAShape3D.h */,
+			);
+			name = src;
+			path = ../../../addons/msalibs/MSAShape3D/src;
+			sourceTree = SOURCE_ROOT;
+		};
 		5EB30F321255672C00E3B866 /* ofxMSAInteractiveObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +484,7 @@
 		BB16F26B0F2B646B00518274 /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				5EAD91DD1257CC790063BF47 /* MSAShape3D */,
 				5EB30F471255673D00E3B866 /* ofxColor */,
 				5EB30F321255672C00E3B866 /* ofxMSAInteractiveObject */,
 			);
