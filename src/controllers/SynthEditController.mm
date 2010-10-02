@@ -33,8 +33,8 @@ void SynthEditController::setup()
 	exitButtonImg.loadImage("images/from_synths.png");
 	exitButtonImg.setImageType(OF_IMAGE_COLOR_ALPHA);
 
-	interstate.loadFont("InterstatePlusBold.ttf", 10);
-	interstateLrg.loadFont("InterstatePlusBold.ttf", 20);
+	interstate.loadFont("OpenDin.ttf", 14);
+	interstateLrg.loadFont("OpenDin.ttf", 28);
 	float offset = 65;
 	for (int i=0; i<7; i++) {
 		slideControl[i].setup();
@@ -73,7 +73,7 @@ void SynthEditController::draw()
 	// draw all of the custom controllers
 	for (int i=0; i<7; i++) {
 		ofSetColor(0, 0, 0);
-		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+8);
+		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
 		ofSetColor(0xFFFFFF);
 		if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {
 			slideFull.draw(slideControl[i].x, slideControl[i].y);

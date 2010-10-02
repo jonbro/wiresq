@@ -33,7 +33,7 @@ void SpeedController::setup()
 		slideControl[i].disableAppEvents();
 	}
 	DisableSliders();
-	interstate.loadFont("InterstatePlusBold.ttf", 10);
+	interstate.loadFont("OpenDin.ttf", 14);
 	setSliders();
 }
 // passes the data back to the model
@@ -67,7 +67,7 @@ void SpeedController::draw()
 	// draw all of the custom controllers
 	for (int i=0; i<2; i++) {
 		ofSetColor(0, 0, 0);
-		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+8);
+		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
 		ofSetColor(0xFFFFFF);
 		if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {
 			slideFull.draw(slideControl[i].x, slideControl[i].y);

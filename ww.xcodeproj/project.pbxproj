@@ -42,11 +42,12 @@
 		5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E7E125574FD0063BF47 /* speedController.mm */; };
 		5EAD8EB91255790A0063BF47 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8E981255790A0063BF47 /* Default.png */; };
 		5EAD8EBB1255790A0063BF47 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8E9A1255790A0063BF47 /* Icon.png */; };
-		5EAD8ED61255790A0063BF47 /* InterstatePlusBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB61255790A0063BF47 /* InterstatePlusBold.ttf */; };
 		5EAD8ED71255790A0063BF47 /* test.data in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB71255790A0063BF47 /* test.data */; };
 		5EAD8ED81255790A0063BF47 /* transparency.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB81255790A0063BF47 /* transparency.png */; };
 		5EAD8EF5125579160063BF47 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8ED9125579160063BF47 /* images */; };
 		5EAD8FA012557DBB0063BF47 /* freetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAD8F9F12557DBB0063BF47 /* freetype.a */; };
+		5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD90F7125793320063BF47 /* OpenDin.ttf */; };
+		5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD91431257C1C20063BF47 /* NotePopController.mm */; };
 		5EB30F461255672C00E3B866 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */; };
 		5EB30F5C1255673D00E3B866 /* ofxColorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F521255673D00E3B866 /* ofxColorBase.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
@@ -134,11 +135,13 @@
 		5EAD8E7E125574FD0063BF47 /* speedController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = speedController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/speedController.mm; sourceTree = DEVELOPER_DIR; };
 		5EAD8E981255790A0063BF47 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = SOURCE_ROOT; };
 		5EAD8E9A1255790A0063BF47 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = SOURCE_ROOT; };
-		5EAD8EB61255790A0063BF47 /* InterstatePlusBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = InterstatePlusBold.ttf; path = bin/data/InterstatePlusBold.ttf; sourceTree = SOURCE_ROOT; };
 		5EAD8EB71255790A0063BF47 /* test.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.data; path = bin/data/test.data; sourceTree = SOURCE_ROOT; };
 		5EAD8EB81255790A0063BF47 /* transparency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparency.png; path = bin/data/transparency.png; sourceTree = SOURCE_ROOT; };
 		5EAD8ED9125579160063BF47 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = bin/data/images; sourceTree = SOURCE_ROOT; };
 		5EAD8F9F12557DBB0063BF47 /* freetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = freetype.a; path = ../../../libs/freetype/lib/osx/freetype.a; sourceTree = SOURCE_ROOT; };
+		5EAD90F7125793320063BF47 /* OpenDin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenDin.ttf; path = bin/data/OpenDin.ttf; sourceTree = SOURCE_ROOT; };
+		5EAD91421257C1C20063BF47 /* NotePopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotePopController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/NotePopController.h; sourceTree = DEVELOPER_DIR; };
+		5EAD91431257C1C20063BF47 /* NotePopController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotePopController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/NotePopController.mm; sourceTree = DEVELOPER_DIR; };
 		5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxMSAInteractiveObject.cpp; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.cpp; sourceTree = SOURCE_ROOT; };
 		5EB30F401255672C00E3B866 /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAInteractiveObject.h; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.h; sourceTree = SOURCE_ROOT; };
 		5EB30F511255673D00E3B866 /* ofxColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColor.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColor.h; sourceTree = SOURCE_ROOT; };
@@ -362,6 +365,8 @@
 				5EAD8E12125571A80063BF47 /* TopBarController.mm */,
 				5EAD8E7D125574FD0063BF47 /* speedController.h */,
 				5EAD8E7E125574FD0063BF47 /* speedController.mm */,
+				5EAD91421257C1C20063BF47 /* NotePopController.h */,
+				5EAD91431257C1C20063BF47 /* NotePopController.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -469,10 +474,10 @@
 		BB24DD8B10DA77E000E9C588 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5EAD90F7125793320063BF47 /* OpenDin.ttf */,
 				5EAD8ED9125579160063BF47 /* images */,
 				5EAD8E981255790A0063BF47 /* Default.png */,
 				5EAD8E9A1255790A0063BF47 /* Icon.png */,
-				5EAD8EB61255790A0063BF47 /* InterstatePlusBold.ttf */,
 				5EAD8EB71255790A0063BF47 /* test.data */,
 				5EAD8EB81255790A0063BF47 /* transparency.png */,
 			);
@@ -785,10 +790,10 @@
 				BB24DDCA10DA781C00E9C588 /* ofxiphone-Info.plist in Resources */,
 				5EAD8EB91255790A0063BF47 /* Default.png in Resources */,
 				5EAD8EBB1255790A0063BF47 /* Icon.png in Resources */,
-				5EAD8ED61255790A0063BF47 /* InterstatePlusBold.ttf in Resources */,
 				5EAD8ED71255790A0063BF47 /* test.data in Resources */,
 				5EAD8ED81255790A0063BF47 /* transparency.png in Resources */,
 				5EAD8EF5125579160063BF47 /* images in Resources */,
+				5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +840,7 @@
 				5EAD8E36125571A80063BF47 /* SynthModel.mm in Sources */,
 				5EAD8E37125571A80063BF47 /* testApp.mm in Sources */,
 				5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */,
+				5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

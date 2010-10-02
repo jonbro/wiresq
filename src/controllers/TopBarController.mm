@@ -42,7 +42,7 @@ void TopBarController::setup(){
 	toSynthControl.setPosAndSize(0, 445, 42, 44);
 	toSynthControl.removeListeners();
 	atSynthList = false;
-	interstate.loadFont("InterstatePlusBold.ttf", 10);
+	interstate.loadFont("OpenDin.ttf", 14);
 }
 bool TopBarController::hitTest(ofTouchEventArgs &touch)
 {
@@ -59,7 +59,7 @@ void TopBarController::draw(){
 		playImages[0].draw(279, 5);
 	}
 	string bpm_clock = ofToString(rootModel->bpm, 0)+"X"+ofToString(rootModel->clockMult, 0);
-	interstate.drawString(bpm_clock, 279-interstate.stringWidth(bpm_clock)-10, 26);
+	interstate.drawString(bpm_clock, 279-interstate.stringWidth(bpm_clock)-10, 28);
 	if (!atSynthList) {
 		toSynthImage.draw(0, 445);
 	}
