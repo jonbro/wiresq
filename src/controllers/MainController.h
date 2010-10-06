@@ -24,7 +24,7 @@ public:
 	
 	void changeScreen(string screen);
 	ofPoint synthListOffset, synthListOffsetTarget;
-
+	int lastTouch;
 	RootModel *rootModel;
 
 	ScrollView scroller;

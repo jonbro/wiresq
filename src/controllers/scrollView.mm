@@ -189,6 +189,14 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 }
 void ScrollView::touchDoubleTap(ofTouchEventArgs &touch)
 {
+	float cellSize = offset.z*40.0;
+	if (rootModel->currentScreen == SCREEN_LIST) {
+		touch.x-=146;
+	}
+	int xOffset = (touch.x-offset.x)/cellSize;
+	int yOffset = (touch.y-y-offset.y)/cellSize;
+	mainController->notePopControl.editTargetX = xOffset;
+	mainController->notePopControl.editTargetY = yOffset;
 	mainController->changeScreen("note_pop");
 }
 void ScrollView::touchUp(ofTouchEventArgs &touch)

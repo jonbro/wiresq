@@ -39,7 +39,9 @@ void MainController::setup()
 	speedControl.rootModel = rootModel;
 	
 	notePopControl.setup();
-	
+	notePopControl.rootModel = rootModel;
+	notePopControl.mainController = this;
+	lastTouch = 0;
 }
 void MainController::draw(ofEventArgs &e)
 {
@@ -91,6 +93,10 @@ void MainController::update(ofEventArgs &e)
 }
 void MainController::touchDown(ofTouchEventArgs &touch)
 {
+	if (ofGetElapsedTimeMillis() - lastTouch < 100) {
+		this->touchDoubleTap(touch);
+	}
+	lastTouch = ofGetElapsedTimeMillis();
 	float startY = touch.y;
 	if (rootModel->currentScreen == SCREEN_SPEED) {
 		touch.y -= synthListOffset.y;
@@ -110,7 +116,7 @@ void MainController::touchDown(ofTouchEventArgs &touch)
 	}
 	topBar.touchDown(touch);
 	touch.y = startY;
-	if (rootModel->currentScreen = SCREEN_NOTE) {
+	if (rootModel->currentScreen == SCREEN_NOTE) {
 		notePopControl.touchDown(touch);
 	}
 }
@@ -127,14 +133,14 @@ void MainController::touchMoved(ofTouchEventArgs &touch)
 		scroller.touchMoved(touch);
 	}
 	touch.y = startY;
-	if (rootModel->currentScreen = SCREEN_NOTE) {
+	if (rootModel->currentScreen == SCREEN_NOTE) {
 		notePopControl.touchMoved(touch);
 	}	
 }
 void MainController::touchUp(ofTouchEventArgs &touch)
 { 
 	scroller.touchUp(touch);
-	if (rootModel->currentScreen = SCREEN_NOTE) {
+	if (rootModel->currentScreen == SCREEN_NOTE) {
 		notePopControl.touchUp(touch);
 	}		
 }
@@ -168,5 +174,6 @@ void MainController::changeScreen(string screen){
 		}
 	}else if(screen == "note_pop"){
 		rootModel->currentScreen = SCREEN_NOTE;
+		notePopControl.showTime = ofGetElapsedTimeMillis();
 	}
 }

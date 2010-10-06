@@ -15,6 +15,7 @@
 
 @interface rootModelObj : NSObject <NSCoding> {
 	NSMutableArray *world;
+	NSMutableArray *notes;
 	NSMutableArray *links;
 	NSMutableArray *synths;
 	NSNumber *bpm;
@@ -22,6 +23,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *world;
+@property (nonatomic, retain) NSMutableArray *notes;
 @property (nonatomic, retain) NSMutableArray *links;
 @property (nonatomic, retain) NSMutableArray *synths;
 @property (retain) NSNumber *bpm;
@@ -40,8 +42,8 @@ public:
 	int neighbors(int x, int y);
 	
 	rootModelObj *objcRootModel;
-	int world[NUMCELLSX][NUMCELLSX][2];
-	
+	int world[NUMCELLSX][NUMCELLSY][2];
+	int notes[NUMCELLSX][NUMCELLSY];
 	ofPoint synthLinks[8]; // should be implemented in a vector eventually
 	ofPoint scrollOffset;
 	bool linkingSynths;

@@ -10,12 +10,13 @@
 
 @implementation rootModelObj
 
-@synthesize world, links, synths, bpm, clockMult;
+@synthesize world, links, synths, bpm, clockMult, notes;
 
 -(id)init
 {
 	self = [super init];
 	world = [[NSMutableArray alloc] init];
+	notes = [[NSMutableArray alloc] init];
 	links = [[NSMutableArray alloc] init];
 	synths = [[NSMutableArray alloc] init];
 	bpm = [[NSNumber alloc] initWithFloat:120.0];
@@ -26,6 +27,7 @@
 {
 	NSLog(@"world: %i", [self.world count]);
 	[coder encodeObject:world forKey:@"world"];
+	[coder encodeObject:notes forKey:@"notes"];
 	[coder encodeObject:links forKey:@"links"];
 	[coder encodeObject:synths forKey:@"synths"];
 	[coder encodeObject:bpm forKey:@"bpm"];
@@ -35,6 +37,7 @@
 {
 	self = [self init];
 	self.world = [[coder decodeObjectForKey:@"world"] retain];
+	self.notes = [[coder decodeObjectForKey:@"notes"] retain];
 	self.links = [[coder decodeObjectForKey:@"links"] retain];
 	self.synths = [[coder decodeObjectForKey:@"synths"] retain];
 	self.bpm = [[coder decodeObjectForKey:@"bpm"] retain];
@@ -69,6 +72,7 @@ RootModel::RootModel(){
 		for (int j=0; j<NUMCELLSY; j++) {
 			world[i][j][0] = 0;
 			world[i][j][1] = 0;
+			notes[i][j] = 60;
 #if RANDOMSTATES
 			int state = ofRandom(0, 5);
 			world[i][j][0] = state;
@@ -91,14 +95,18 @@ void RootModel::save(){
 	[bpmObj release];
 	
 	[objcRootModel.world removeAllObjects];
+	[objcRootModel.notes removeAllObjects];
 	for (int y=0; y<NUMCELLSY; y++) {
 		for (int x=0; x<NUMCELLSX; x++) {
 			NSNumber *cell = [[NSNumber numberWithInt:world[x][y][0]]retain];
+			NSNumber *note = [[NSNumber numberWithInt:notes[x][y]]retain];
 			[objcRootModel.world addObject:cell];
+			[objcRootModel.notes addObject:note];
 			if (world[x][y][0] == 1) {
 				NSLog(@"non zero");
 			}			
 			[cell release];
+			[note release];
 		}
 	}
 	// link data
@@ -134,6 +142,7 @@ void RootModel::load(){
 			for (int y=0; y<NUMCELLSY; y++) {
 				for (int x=0; x<NUMCELLSX; x++) {
 					world[x][y][0] = world[x][y][1] = [[objcRootModel.world objectAtIndex:y*NUMCELLSX+x] intValue];
+					notes[x][y] = [[objcRootModel.notes objectAtIndex:y*NUMCELLSX+x] intValue];
 				}
 			}
 			for (int i=0; i<8; i++) {
