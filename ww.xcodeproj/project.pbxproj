@@ -22,6 +22,7 @@
 		5E2568A610ED26CD00A9501C /* PocoNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688210ED26CC00A9501C /* PocoNet.a */; };
 		5E2568A710ED26CD00A9501C /* PocoUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688310ED26CC00A9501C /* PocoUtil.a */; };
 		5E2568A810ED26CD00A9501C /* PocoXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688410ED26CC00A9501C /* PocoXML.a */; };
+		5E30B78D125D524100B68658 /* synthLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30B78C125D524100B68658 /* synthLink.mm */; };
 		5EAD8E27125571A80063BF47 /* MixerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E03125571A80063BF47 /* MixerController.mm */; };
 		5EAD8E28125571A80063BF47 /* MoogFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E05125571A80063BF47 /* MoogFilter.mm */; };
 		5EAD8E29125571A80063BF47 /* synthUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E06125571A80063BF47 /* synthUnit.cpp */; };
@@ -97,6 +98,8 @@
 		5E25688210ED26CC00A9501C /* PocoNet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoNet.a; path = ../../../libs/poco/lib/osx/PocoNet.a; sourceTree = SOURCE_ROOT; };
 		5E25688310ED26CC00A9501C /* PocoUtil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoUtil.a; path = ../../../libs/poco/lib/osx/PocoUtil.a; sourceTree = SOURCE_ROOT; };
 		5E25688410ED26CC00A9501C /* PocoXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoXML.a; path = ../../../libs/poco/lib/osx/PocoXML.a; sourceTree = SOURCE_ROOT; };
+		5E30B78B125D524100B68658 /* synthLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = synthLink.h; path = openFrameworks/apps/my_apps/ww_working/src/models/synthLink.h; sourceTree = DEVELOPER_DIR; };
+		5E30B78C125D524100B68658 /* synthLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = synthLink.mm; path = openFrameworks/apps/my_apps/ww_working/src/models/synthLink.mm; sourceTree = DEVELOPER_DIR; };
 		5EAD8E02125571A80063BF47 /* MixerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixerController.h; path = src/audioSystem/MixerController.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E03125571A80063BF47 /* MixerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MixerController.mm; path = src/audioSystem/MixerController.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E04125571A80063BF47 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = src/audioSystem/MoogFilter.h; sourceTree = SOURCE_ROOT; };
@@ -398,6 +401,8 @@
 				5EAD8E22125571A80063BF47 /* RootModel.mm */,
 				5EAD8E23125571A80063BF47 /* SynthModel.h */,
 				5EAD8E24125571A80063BF47 /* SynthModel.mm */,
+				5E30B78B125D524100B68658 /* synthLink.h */,
+				5E30B78C125D524100B68658 /* synthLink.mm */,
 			);
 			name = models;
 			path = src/models;
@@ -861,6 +866,7 @@
 				5EAD8E37125571A80063BF47 /* testApp.mm in Sources */,
 				5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */,
 				5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */,
+				5E30B78D125D524100B68658 /* synthLink.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

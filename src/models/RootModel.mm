@@ -147,7 +147,7 @@ void RootModel::load(){
 			}
 			for (int i=0; i<8; i++) {
 				NSArray *linkObject = [objcRootModel.links objectAtIndex:i];
-				synthLinks[i].set([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue], 0);
+				synthLinks[i].set([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue]);
 			}
 			for (int i=0; i<8; i++) {
 				synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i];

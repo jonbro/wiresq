@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #include "ofMain.h"
 #include "SynthModel.h"
-#
+#include "synthLink.h"
 
 @interface rootModelObj : NSObject <NSCoding> {
 	NSMutableArray *world;
@@ -44,7 +44,7 @@ public:
 	rootModelObj *objcRootModel;
 	int world[NUMCELLSX][NUMCELLSY][2];
 	int notes[NUMCELLSX][NUMCELLSY];
-	ofPoint synthLinks[8]; // should be implemented in a vector eventually
+	SynthLink synthLinks[8]; // should be implemented in a vector eventually
 	ofPoint scrollOffset;
 	bool linkingSynths;
 	int currentSynth;

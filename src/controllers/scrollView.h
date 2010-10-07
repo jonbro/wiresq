@@ -5,14 +5,18 @@
 #include "ofxMSAInteractiveObject.h"
 #include "Button.h"
 #include "RootModel.h"
+#include "synthLink.h"
+#include <deque>
 
 class MainController;
 
 class ScrollView : public ofxMSAInteractiveObject{
 public:
 	ScrollView();
+	void setup();
 	void draw();
 	void update();
+	void rollBackSet();
 	void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
@@ -29,8 +33,11 @@ public:
 	ofPoint fingerCurrent[16];
 	ofPoint fingerCenterStart, fingerCenterCurrent;
 	ofPoint lastChanged;
+	ofImage triggerDisplay;
 	float timeChanged, timeScrolled;
 	float fingerDistStart, fingerDistCurrent;
+	
+	deque<SynthLink> triggersToDisplay;
 	
 	RootModel *rootModel;
 	MainController *mainController;

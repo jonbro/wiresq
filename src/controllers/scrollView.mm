@@ -14,7 +14,11 @@ ScrollView::ScrollView(){
 	numFingers = 0;
 	offset.set(0, 0, 1.0);
 }
-
+void ScrollView::setup()
+{
+	triggerDisplay.loadImage("images/trigger_display.png");
+	triggerDisplay.setAnchorPercent(0.5, 0.5);
+}
 void ScrollView::draw(){
 	ofSetColor(0xFFFFFF);
 	// standard size is 40 40
@@ -65,14 +69,26 @@ void ScrollView::draw(){
 		ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
 		ofRect(rootModel->synthLinks[i].x*cellSize+2, rootModel->synthLinks[i].y*cellSize+2, cellSize/8.0, cellSize/8.0);
 	}
+	deque<SynthLink>::iterator theIterator;
+
+	for( theIterator = triggersToDisplay.begin(); theIterator != triggersToDisplay.end(); ++theIterator ) {
+		if (ofGetElapsedTimeMillis() - theIterator->triggerTime < 2000) {
+			float timeSinceTrigger = ofGetElapsedTimeMillis() - theIterator->triggerTime;
+			float alpha = 1 - timeSinceTrigger/2000.0;
+			float size = timeSinceTrigger/2000.0 *200.0;
+			
+			ofSetColor(rootModel->synthData[theIterator->synth].color.red*255.0, rootModel->synthData[theIterator->synth].color.green*255.0, rootModel->synthData[theIterator->synth].color.blue*255.0, alpha*255.0);
+			//ofSetColor(255, 255, 255, alpha*255.0);
+			triggerDisplay.draw(theIterator->x*cellSize+cellSize/2.0, theIterator->y*cellSize+cellSize/2.0, size, size);
+		}else {
+			triggersToDisplay.erase(theIterator);
+			--theIterator;
+		}
+		
+	}
+	
+	
 	ofPopMatrix();
-	//debug
-	/*
-	ofSetColor(0xF60000);
-	ofCircle(fingerCenterCurrent.x, fingerCenterCurrent.y, 40);
-	ofSetColor(0x00F600);
-	ofCircle(fingerCenterStart.x, fingerCenterStart.y, 40);
-	 */
 }
 void ScrollView::update(){
 	float cellSize = 40.0*offset.z;
@@ -117,7 +133,7 @@ void ScrollView::setCell(ofTouchEventArgs &touch)
 		if (rootModel->linkingSynths) {
 			lastChanged.set(rootModel->synthLinks[rootModel->currentSynth].x, rootModel->synthLinks[rootModel->currentSynth].x, rootModel->currentSynth);
 			timeChanged = ofGetElapsedTimeMillis();			
-			rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset, 0);
+			rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset);
 		}else {
 			lastChanged.set(xOffset, yOffset, rootModel->world[xOffset][yOffset][0]);
 			timeChanged = ofGetElapsedTimeMillis();
@@ -135,10 +151,15 @@ void ScrollView::touchDown(ofTouchEventArgs &touch)
 	
 	fingerCenterCurrent = fingerCenterStart = fingerStart[0]+(fingerStart[1]-fingerStart[0])*0.5;
 	fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
-	
-	if (numFingers == 1 && hitTest(touch)) {
-		setCell(touch);
-	}
+}
+void ScrollView::rollBackSet()
+{
+	if (rootModel->linkingSynths) {
+		rootModel->synthLinks[(int)lastChanged.z].set(lastChanged.x, lastChanged.y);
+	}else {
+		rootModel->world[(int)lastChanged.x][(int)lastChanged.y][0] = (int)lastChanged.z;
+		rootModel->world[(int)lastChanged.x][(int)lastChanged.y][1] = (int)lastChanged.z;
+	}	
 }
 void ScrollView::touchMoved(ofTouchEventArgs &touch)
 {
@@ -151,12 +172,7 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 		fingerCenterCurrent = fingerCurrent[0]+(fingerCurrent[1]-fingerCurrent[0])*0.5;
 		offset += fingerCenterCurrent - fingerCenterStart;
 		if (ofGetElapsedTimeMillis() - timeChanged < 200) {
-			if (rootModel->linkingSynths) {
-				rootModel->synthLinks[(int)lastChanged.z].set(lastChanged.x, lastChanged.y, 0);
-			}else {
-				rootModel->world[(int)lastChanged.x][(int)lastChanged.y][0] = (int)lastChanged.z;
-				rootModel->world[(int)lastChanged.x][(int)lastChanged.y][1] = (int)lastChanged.z;
-			}
+			rollBackSet();
 		}
 		
 		fingerDistCurrent = ofpLength(fingerCurrent[0]-fingerCurrent[1]);
@@ -193,6 +209,7 @@ void ScrollView::touchDoubleTap(ofTouchEventArgs &touch)
 	if (rootModel->currentScreen == SCREEN_LIST) {
 		touch.x-=146;
 	}
+	rollBackSet();
 	int xOffset = (touch.x-offset.x)/cellSize;
 	int yOffset = (touch.y-y-offset.y)/cellSize;
 	mainController->notePopControl.editTargetX = xOffset;

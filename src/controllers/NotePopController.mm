@@ -8,32 +8,48 @@ void NotePopController::setup()
 	notes.loadImage("images/note_pop_notes.png");
 	notes.setImageType(OF_IMAGE_COLOR_ALPHA);
 	octaves.loadImage("images/note_pop_octaves.png");
+	octaves.setImageType(OF_IMAGE_COLOR_ALPHA);
 	x = ofGetWidth()/2.0-fg.getWidth()/2.0;
 	y = ofGetHeight()/2.0-fg.getHeight()/2.0;
 	width = fg.getWidth();
 	height = fg.getHeight();
+
 	leftPane.setup();
 	leftPane.setPosAndSize(this->x, this->y, fg.getWidth()/2.0, fg.getHeight());
 	leftPane.removeListeners();
+	
+	rightPane.setup();
+	rightPane.setPosAndSize(this->x+fg.getWidth()/2.0, this->y, fg.getWidth()/2.0, fg.getHeight());
+	rightPane.removeListeners();
+	
 	sliderOffset1 = -13;
-	fingerDown1 = false;
+	sliderOffset2 = (4*28)-10;
+	fingerDown1 = false; 
+	
+	octaveNum = 5;
+	noteNum = 0;
+	
 	showTime = ofGetElapsedTimeMillis();
+}
+void NotePopController::initDisplay(){
+	octaveNum = rootModel->notes[editTargetX][editTargetY]/12;
+	noteNum = rootModel->notes[editTargetX][editTargetY]%12;
 }
 void NotePopController::draw()
 {
 	bg.draw(this->x, this->y);
 	drawRect(this->x+19, this->y+11, 32, 48, 0, sliderOffset1, 0);
+	drawRect(this->x+74, this->y+11, 26, 48, 0, sliderOffset2, 1);
 	fg.draw(this->x, this->y);
 }
 void NotePopController::update()
 {
 	if (!fingerDown1) {
-		// slide back the the nearest note
-//		float nearestBelow = fmod(sliderOffset1,28);
-//		nearestBelow = (int)((sliderOffset1-5)/28)*28;
-//		nearestBelow+=5;
 		sliderOffset1 = ofLerp(sliderOffset1, (noteNum*28)-13, 0.5);
 	}
+	if (!fingerDown2) {
+		sliderOffset2 = ofLerp(sliderOffset2, (octaveNum*28)-10, 0.5);
+	}	
 }
 void NotePopController::touchDown(ofTouchEventArgs &touch)
 {
@@ -41,6 +57,11 @@ void NotePopController::touchDown(ofTouchEventArgs &touch)
 		fingerDown1 = true;
 		fingerNumber1 = touch.id;
 		fingerPos1 = touch.y;
+	}
+	if (rightPane.hitTest(touch) && !fingerDown2){
+		fingerDown2 = true;
+		fingerNumber2 = touch.id;
+		fingerPos2 = touch.y;
 	}
 	if (fingerDown1 == false && !this->hitTest(touch) && ofGetElapsedTimeMillis() - showTime>200) {
 		mainController->changeScreen("scroller");
@@ -52,6 +73,10 @@ void NotePopController::touchMoved(ofTouchEventArgs &touch)
 		sliderOffset1 += fingerPos1 - touch.y;
 		fingerPos1 = touch.y;
 	}
+	if (fingerDown2 && touch.id == fingerNumber2) {
+		sliderOffset2 += fingerPos2 - touch.y;
+		fingerPos2 = touch.y;
+	}	
 }
 void NotePopController::touchUp(ofTouchEventArgs &touch)
 {
@@ -63,8 +88,17 @@ void NotePopController::touchUp(ofTouchEventArgs &touch)
 			noteNum++;
 		}
 		noteNum = ofClamp(noteNum, 0, 10);
-		rootModel->notes[editTargetX][editTargetY] = noteNum+60;
 	}
+	if (fingerDown2 && touch.id == fingerNumber2) {
+		fingerDown2 = false;
+		float remainder = fmod(sliderOffset2+10, 28);
+		octaveNum = (int)((sliderOffset2+10)/28);
+		if (remainder > 9) {
+			octaveNum++;
+		}
+		octaveNum = ofClamp(octaveNum, 0, 9);
+	}
+	rootModel->notes[editTargetX][editTargetY] = noteNum+12*octaveNum;		
 }
 bool NotePopController::hitTest(ofTouchEventArgs &touch)
 {
@@ -82,9 +116,7 @@ void NotePopController::drawRect(int x, int y, int width, int height, int inputW
 	if(texture == 0){
 		tex = &notes.getTextureReference();
 	}else if(texture == 1){
-		octaves.getTextureReference().bind();
-		atlasWidth = octaves.getWidth();
-		atlasHeight = octaves.getHeight();
+		tex = &octaves.getTextureReference();
 	}
 	tex->bind();
 	atlasWidth = tex->getWidth();

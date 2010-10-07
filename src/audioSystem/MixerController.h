@@ -2,6 +2,8 @@
 #include "synthUnit.h"
 #include "RootModel.h"
 
+class MainController;
+
 class MixerController{
 public:
 	void setup();
@@ -9,6 +11,7 @@ public:
 	void audioRequested(float * output, int bufferSize, int nChannels);
 	
 	RootModel *rootModel;
+	MainController *mainController;
 	
 	SynthUnit synths[8];
 	int currentBeat, currentSynth;

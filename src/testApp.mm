@@ -14,6 +14,7 @@ void testApp::setup(){
 	ofEnableAlphaBlending();
 
 	mixer.rootModel = &rootModel;
+	mixer.mainController = &mainController;
 	mixer.setup();
 
 	mainController.rootModel = &rootModel;

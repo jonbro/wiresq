@@ -7,9 +7,10 @@
 #include "SynthListController.h"
 #include "SynthEditController.h"
 #include "defines.h"
-#include "MixerController.h"
 #include "speedController.h"
 #include "NotePopController.h"
+
+class MixerController;
 
 class MainController{
 public:

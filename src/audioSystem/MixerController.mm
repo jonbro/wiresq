@@ -1,4 +1,5 @@
 #include "MixerController.h"
+#include "MainController.h"
 
 void MixerController::setup()
 {
@@ -25,6 +26,11 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 			for (int j=0; j<8; j++) {
 				if (rootModel->world[(int)rootModel->synthLinks[j].x][(int)rootModel->synthLinks[j].y][0] == 2 && rootModel->running) {
 					currentSynth = (currentSynth+1)%8;
+					
+					rootModel->synthLinks[j].triggerTime = ofGetElapsedTimeMillis();
+					rootModel->synthLinks[j].synth = j;
+					mainController->scroller.triggersToDisplay.push_front(rootModel->synthLinks[j]);
+					
 					// copy over the synth data
 					float pitch = rootModel->notes[(int)rootModel->synthLinks[j].x][(int)rootModel->synthLinks[j].y];
 					synths[currentSynth].filterLeft.setRes(rootModel->synthData[j].Res);

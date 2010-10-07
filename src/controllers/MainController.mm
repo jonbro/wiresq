@@ -1,4 +1,5 @@
 #include "MainController.h"
+#include "MixerController.h"
 
 void MainController::setup()
 {
@@ -16,6 +17,7 @@ void MainController::setup()
 	topBar.disableAppEvents();
 	
 	scroller.setPosAndSize(0, 44, 320, 436);
+	scroller.setup();
 	scroller.rootModel = rootModel;
 	scroller.mainController = this;
 	scroller.disableAllEvents();
@@ -129,7 +131,7 @@ void MainController::touchMoved(ofTouchEventArgs &touch)
 	// only pass down events that fail hit tests otherwise
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchMoved(touch);
-	}else if (topBar.hitTest(touch) == false || rootModel->currentScreen == SCREEN_LIST) {
+	}else if ((topBar.hitTest(touch) == false || rootModel->currentScreen == SCREEN_LIST) && rootModel->currentScreen != SCREEN_NOTE) {
 		scroller.touchMoved(touch);
 	}
 	touch.y = startY;
@@ -175,5 +177,6 @@ void MainController::changeScreen(string screen){
 	}else if(screen == "note_pop"){
 		rootModel->currentScreen = SCREEN_NOTE;
 		notePopControl.showTime = ofGetElapsedTimeMillis();
+		notePopControl.initDisplay();
 	}
 }

@@ -13,7 +13,9 @@ public:
 	void setup();
 	void draw();
 	void update();
-
+	
+	void initDisplay();
+	
 	void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
@@ -23,14 +25,14 @@ public:
 	void drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture);
 	
 	Button leftPane, rightPane;
-	bool fingerDown1;
-	int fingerNumber1;
-	float fingerPos1;
+	bool fingerDown1, fingerDown2;
+	int fingerNumber1, fingerNumber2;
+	float fingerPos1, fingerPos2;
 	
-	float sliderOffset1;
+	float sliderOffset1, sliderOffset2;
 	MainController *mainController;
 	RootModel *rootModel;
 	ofImage bg, fg, notes, octaves;
 	MSA::Shape3D myShape;
-	int showTime, noteNum, editTargetX, editTargetY;
+	int showTime, noteNum, octaveNum, editTargetX, editTargetY;
 };
