@@ -52,6 +52,7 @@ RootModel::RootModel(){
 	clockMult = 2;
 	
 	currentState = 0;
+	drawState = 0;
 	running = false;
 	
 	linkingSynths = false;

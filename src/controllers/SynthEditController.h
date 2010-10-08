@@ -18,6 +18,9 @@ public:
 	void setup();
 	void draw();
 	void update();
+	void DisableSliders();
+	void EnableSliders();
+		
 	void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void setSliders();

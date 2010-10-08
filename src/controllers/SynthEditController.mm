@@ -47,6 +47,17 @@ void SynthEditController::setup()
 	exitButton.setPosAndSize(244, 415, 40, 40);
 	exitNow = false;
 }
+void SynthEditController::DisableSliders(){
+	for (int i=0; i<7; i++) {
+		slideControl[i].removeListeners();
+	}
+}
+void SynthEditController::EnableSliders(){
+	for (int i=0; i<7; i++) {
+		slideControl[i].addListeners();
+		slideControl[i].disableAppEvents();
+	}
+}
 void SynthEditController::update(){
 	// pass the data back to the synth
 	synth->Attack = slideControl[0].value;

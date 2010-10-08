@@ -17,11 +17,12 @@ public:
 	bool hitTest(ofTouchEventArgs &touch);
 	
 	ofImage stateImages[4];
+	ofImage pencilPan[2];
 	ofImage background, toSynthImage;
 	ofImage playImages[2];
 	ofTrueTypeFont interstate;
 
-	Button stateControl, playControl, toSynthControl, toSpeed;
+	Button stateControl, playControl, toSynthControl, toSpeed, panControl;
 	RootModel *rootModel;
 	MainController *mainController;
 	

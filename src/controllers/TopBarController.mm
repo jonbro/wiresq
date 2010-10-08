@@ -23,8 +23,13 @@ void TopBarController::setup(){
 	stateImages[3].loadImage("images/tail.png");
 	stateImages[3].setImageType(OF_IMAGE_COLOR_ALPHA);
 	
-	stateControl.setPosAndSize(5, 5, 114, 36);
+	stateControl.setPosAndSize(47, 5, 114, 36);
 	stateControl.removeListeners();
+	
+	pencilPan[0].loadImage("images/pencil.png");
+	pencilPan[1].loadImage("images/pan.png");
+	panControl.setPosAndSize(5, 4, 37, 36);
+	panControl.removeListeners();
 	
 	playImages[0].loadImage("images/play_false.png");
 	playImages[0].setImageType(OF_IMAGE_COLOR_ALPHA);
@@ -52,7 +57,10 @@ bool TopBarController::hitTest(ofTouchEventArgs &touch)
 void TopBarController::draw(){
 	ofSetColor(255, 255, 255);
 	background.draw(0, 0);
-	stateImages[rootModel->currentState].draw(5, 5);
+	stateImages[rootModel->currentState].draw(stateControl.x, stateControl.y);
+	
+	pencilPan[rootModel->drawState].draw(panControl.x, panControl.y);
+	
 	if (rootModel->running) {
 		playImages[1].draw(279, 5);
 	}else {
@@ -71,6 +79,9 @@ void TopBarController::touchDown(ofTouchEventArgs &touch)
 	if (stateControl.hitTest(touch) && !atSynthList) {
 		rootModel->currentState = (rootModel->currentState+1)%4;
 	}
+	if (panControl.hitTest(touch) && !atSynthList) {
+		rootModel->drawState = (rootModel->drawState+1)%2;
+	}	
 	if (playControl.hitTest(touch)) {
 		rootModel->running = !(rootModel->running);
 	}

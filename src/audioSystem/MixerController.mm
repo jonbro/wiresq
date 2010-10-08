@@ -29,8 +29,15 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 					
 					rootModel->synthLinks[j].triggerTime = ofGetElapsedTimeMillis();
 					rootModel->synthLinks[j].synth = j;
-					mainController->scroller.triggersToDisplay.push_front(rootModel->synthLinks[j]);
-					
+					if (mainController->scroller.triggersToDisplay.size() < 20) {
+						SynthLink *link = new SynthLink();
+						link->x = rootModel->synthLinks[j].x;
+						link->y = rootModel->synthLinks[j].y;
+						link->synth = rootModel->synthLinks[j].synth;
+						link->triggerTime = rootModel->synthLinks[j].triggerTime;
+						mainController->scroller.triggersToDisplay.push_front(*link);
+						delete(link);
+					}
 					// copy over the synth data
 					float pitch = rootModel->notes[(int)rootModel->synthLinks[j].x][(int)rootModel->synthLinks[j].y];
 					synths[currentSynth].filterLeft.setRes(rootModel->synthData[j].Res);
@@ -51,7 +58,7 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 		}
 		synths[j].audioRequested(mixBuffer, bufferSize, nChannels);
 		for(int i = 0; i < bufferSize*nChannels; i++) {
-			output[i] += mixBuffer[i]*0.5;
+			output[i] += mixBuffer[i]*0.125;
 			if (!mixBuffer) {
 				mixBuffer=(float *)malloc(bufferSize*2*sizeof(float));
 			}

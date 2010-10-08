@@ -50,6 +50,7 @@ public:
 	int currentSynth;
 	
 	int currentState;
+	int drawState;
 	int currentScreen;
 	
 	float bpm;

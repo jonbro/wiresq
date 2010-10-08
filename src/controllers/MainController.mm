@@ -153,6 +153,7 @@ void MainController::touchDoubleTap(ofTouchEventArgs &touch)
 	}
 }
 void MainController::changeScreen(string screen){
+	synthEdit.DisableSliders();
 	if(screen=="synth_list"){
 		rootModel->currentScreen = SCREEN_LIST;
 		synthListOffsetTarget.set(0, 0, 0);
@@ -162,6 +163,7 @@ void MainController::changeScreen(string screen){
 	}else if (screen == "synth_edit") {
 		rootModel->currentScreen = SCREEN_EDIT;
 		synthEdit.setSliders();
+		synthEdit.EnableSliders();
 		synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
 		synthListOffsetTarget.set(320, 0, 0);
 	}else if(screen == "speed"){

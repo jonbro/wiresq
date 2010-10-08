@@ -144,12 +144,15 @@ void ScrollView::setCell(ofTouchEventArgs &touch)
 }
 void ScrollView::touchDown(ofTouchEventArgs &touch)
 {
+	if (rootModel->drawState == 0 || rootModel->currentScreen == SCREEN_LIST) {
+		setCell(touch);
+	}
 	fingerStartedInView[touch.id] = true;
 	numFingers++;
 	fingerStart[touch.id].set(touch.x, touch.y, 0);
 	fingerCurrent[touch.id].set(touch.x, touch.y, 0);
 	
-	fingerCenterCurrent = fingerCenterStart = fingerStart[0]+(fingerStart[1]-fingerStart[0])*0.5;
+	fingerCenterCurrent = fingerCenterStart = fingerStart[touch.id];
 	fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
 }
 void ScrollView::rollBackSet()
@@ -164,44 +167,44 @@ void ScrollView::rollBackSet()
 void ScrollView::touchMoved(ofTouchEventArgs &touch)
 {
 	fingerCurrent[touch.id].set(touch.x, touch.y, 0);
-	if (numFingers==1 && hitTest(touch)) {
+	if (rootModel->drawState == 0 || rootModel->currentScreen == SCREEN_LIST) {
 		setCell(touch);
+	}else{
 		fingerStart[touch.id].set(touch.x, touch.y, 0);
 		fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
-	}else if (numFingers >=2) {
-		fingerCenterCurrent = fingerCurrent[0]+(fingerCurrent[1]-fingerCurrent[0])*0.5;
+		fingerCenterCurrent = fingerCurrent[touch.id];
 		offset += fingerCenterCurrent - fingerCenterStart;
 		if (ofGetElapsedTimeMillis() - timeChanged < 200) {
 			rollBackSet();
 		}
-		
 		fingerDistCurrent = ofpLength(fingerCurrent[0]-fingerCurrent[1]);
 		float scaleDiff = 1-fingerDistStart/fingerDistCurrent;
 		/*
-		offset.z += scaleDiff; // that last thing should be a function of the current scale
-
-		ofPoint ScreenCenter, ScreenCentertwo;
-		ScreenCenter.set(ofGetWidth()/2, ofGetHeight()/2, 0);
-		ScreenCenter *= offset.z;
-		ScreenCenter *= 1.0-scaleDiff;
-		/*ScreenCenter -=offset;
-		ScreenCentertwo.set(ofGetWidth(), ofGetHeight(), 0);
-		ScreenCentertwo -=offset;
-		ScreenCenter *= 1.0-scaleDiff;
-		ScreenCenter -= ScreenCentertwo;
-		*/
+		 offset.z += scaleDiff; // that last thing should be a function of the current scale
+		 
+		 ofPoint ScreenCenter, ScreenCentertwo;
+		 ScreenCenter.set(ofGetWidth()/2, ofGetHeight()/2, 0);
+		 ScreenCenter *= offset.z;
+		 ScreenCenter *= 1.0-scaleDiff;
+		 /*ScreenCenter -=offset;
+		 ScreenCentertwo.set(ofGetWidth(), ofGetHeight(), 0);
+		 ScreenCentertwo -=offset;
+		 ScreenCenter *= 1.0-scaleDiff;
+		 ScreenCenter -= ScreenCentertwo;
+		 */
 		//offset += ScreenCenter;
 		
 		//offset.z = ofClamp(offset.z, 0.2, 1.8);
 		/*
-		offset.y *= offset.z;
-		offset.x *= offset.z;
-		*/
+		 offset.y *= offset.z;
+		 offset.x *= offset.z;
+		 */
 		fingerDistStart = fingerDistCurrent;
 		
 		fingerCenterStart = fingerCenterCurrent;
-		timeScrolled = ofGetElapsedTimeMillis();
+		timeScrolled = ofGetElapsedTimeMillis();		
 	}
+
 }
 void ScrollView::touchDoubleTap(ofTouchEventArgs &touch)
 {
