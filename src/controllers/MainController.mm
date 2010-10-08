@@ -54,7 +54,7 @@ void MainController::draw(ofEventArgs &e)
 		ofTranslate(0, synthListOffset.y, 0);
 		if (rootModel->currentScreen == SCREEN_SPEED) {
 			ofPushMatrix();
-			ofTranslate(0, -200, 0);
+			ofTranslate(0, -100, 0);
 			speedControl.draw();
 			ofPopMatrix();
 		}
@@ -170,7 +170,7 @@ void MainController::changeScreen(string screen){
 		if (rootModel->currentScreen != SCREEN_SPEED) {
 			rootModel->currentScreen = SCREEN_SPEED;
 			speedControl.EnableSliders();
-			synthListOffsetTarget.set(-146, 200, 0);			
+			synthListOffsetTarget.set(-146, 100, 0);			
 		}else {
 			rootModel->currentScreen = SCREEN_SCROLL;
 			synthListOffsetTarget.set(-146, 0, 0);
