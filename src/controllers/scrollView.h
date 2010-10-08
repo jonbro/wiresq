@@ -28,7 +28,7 @@ public:
 	int currentTouch, numFingers;
 	bool hasTouch;
 	
-	ofPoint offset;
+	ofPoint offset, mainOffset;
 	ofPoint fingerStart[16];
 	ofPoint fingerCurrent[16];
 	ofPoint fingerCenterStart, fingerCenterCurrent;

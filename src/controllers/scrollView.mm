@@ -87,14 +87,13 @@ void ScrollView::draw(){
 		
 	}
 	
-	
 	ofPopMatrix();
 }
 void ScrollView::update(){
 	float cellSize = 40.0*offset.z;
 	rootModel->scrollOffset = offset;
 
-	if (numFingers ==0) {
+	if (numFingers == 0 && rootModel->currentScreen != SCREEN_NOTE) {
 		if (offset.x>0) {
 			offset.x = ofLerp(offset.x, 0.0, 0.3);
 		}else if (offset.x<-NUMCELLSX*cellSize+width) {
@@ -110,7 +109,10 @@ void ScrollView::update(){
 		}
 		if (offset.z>1.8) {
 			offset.z = ofLerp(offset.z, 1.8, 0.3);
-		}		
+		}
+	}else if(rootModel->currentScreen == SCREEN_NOTE){
+		offset.x = ofLerp(offset.x, (-mainController->notePopControl.editTargetX*40+20)+(ofGetWidth()/2-40), 0.3);
+		offset.y = ofLerp(offset.y, (-mainController->notePopControl.editTargetY*40+20)+(ofGetHeight()/2-40), 0.3);
 	}
 }
 bool ScrollView::hitTest(ofTouchEventArgs &touch)
