@@ -114,6 +114,10 @@ void ScrollView::update(){
 		offset.x = ofLerp(offset.x, (-mainController->notePopControl.editTargetX*40+20)+(ofGetWidth()/2-40), 0.3);
 		offset.y = ofLerp(offset.y, (-mainController->notePopControl.editTargetY*40+20)+(ofGetHeight()/2-40), 0.3);
 	}
+	if (ofGetElapsedTimeMillis() - timeChanged > 200 && waitingForCommit) {
+		commitSet();
+		waitingForCommit = false;
+	}
 }
 bool ScrollView::hitTest(ofTouchEventArgs &touch)
 {
@@ -133,21 +137,24 @@ void ScrollView::setCell(ofTouchEventArgs &touch)
 		int xOffset = (touch.x-offset.x)/cellSize;
 		int yOffset = (touch.y-y-offset.y)/cellSize;
 		if (rootModel->linkingSynths) {
-			lastChanged.set(rootModel->synthLinks[rootModel->currentSynth].x, rootModel->synthLinks[rootModel->currentSynth].x, rootModel->currentSynth);
-			timeChanged = ofGetElapsedTimeMillis();			
 			rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset);
 		}else {
-			lastChanged.set(xOffset, yOffset, rootModel->world[xOffset][yOffset][0]);
-			timeChanged = ofGetElapsedTimeMillis();
 			rootModel->world[xOffset][yOffset][0] = rootModel->currentState;
 			rootModel->world[xOffset][yOffset][1] = rootModel->currentState;
-		}
+		}		
 	}
 }
 void ScrollView::touchDown(ofTouchEventArgs &touch)
 {
 	if (rootModel->drawState == 0 || rootModel->currentScreen == SCREEN_LIST) {
-		setCell(touch);
+		if (rootModel->linkingSynths) {
+			lastChanged.set(touch.x, touch.y, rootModel->currentSynth);
+			timeChanged = ofGetElapsedTimeMillis();			
+		}else {
+			lastChanged.set(touch.x, touch.y, 0);
+			timeChanged = ofGetElapsedTimeMillis();			
+		}		
+		waitingForCommit = true;
 	}
 	fingerStartedInView[touch.id] = true;
 	numFingers++;
@@ -157,14 +164,12 @@ void ScrollView::touchDown(ofTouchEventArgs &touch)
 	fingerCenterCurrent = fingerCenterStart = fingerStart[touch.id];
 	fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
 }
-void ScrollView::rollBackSet()
+void ScrollView::commitSet()
 {
-	if (rootModel->linkingSynths) {
-		rootModel->synthLinks[(int)lastChanged.z].set(lastChanged.x, lastChanged.y);
-	}else {
-		rootModel->world[(int)lastChanged.x][(int)lastChanged.y][0] = (int)lastChanged.z;
-		rootModel->world[(int)lastChanged.x][(int)lastChanged.y][1] = (int)lastChanged.z;
-	}	
+	ofTouchEventArgs touch;
+	touch.x = lastChanged.x;
+	touch.y = lastChanged.y;
+	setCell(touch);
 }
 void ScrollView::touchMoved(ofTouchEventArgs &touch)
 {
@@ -176,9 +181,6 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 		fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
 		fingerCenterCurrent = fingerCurrent[touch.id];
 		offset += fingerCenterCurrent - fingerCenterStart;
-		if (ofGetElapsedTimeMillis() - timeChanged < 200) {
-			rollBackSet();
-		}
 		fingerDistCurrent = ofpLength(fingerCurrent[0]-fingerCurrent[1]);
 		float scaleDiff = 1-fingerDistStart/fingerDistCurrent;
 		/*
@@ -214,7 +216,7 @@ void ScrollView::touchDoubleTap(ofTouchEventArgs &touch)
 	if (rootModel->currentScreen == SCREEN_LIST) {
 		touch.x-=146;
 	}
-	rollBackSet();
+	waitingForCommit = false;
 	int xOffset = (touch.x-offset.x)/cellSize;
 	int yOffset = (touch.y-y-offset.y)/cellSize;
 	mainController->notePopControl.editTargetX = xOffset;

@@ -16,7 +16,7 @@ public:
 	void setup();
 	void draw();
 	void update();
-	void rollBackSet();
+	void commitSet();
 	void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
@@ -26,7 +26,7 @@ public:
 	void setCell(ofTouchEventArgs &touch);
 
 	int currentTouch, numFingers;
-	bool hasTouch;
+	bool hasTouch, waitingForCommit;
 	
 	ofPoint offset, mainOffset;
 	ofPoint fingerStart[16];

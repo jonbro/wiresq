@@ -111,6 +111,8 @@ void SynthEditController::draw()
 	}
 	exitButtonImg.draw(exitButton.x, exitButton.y);
 	ofSetColor(0xFFFFFF);
+	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 41);
+	ofSetColor(synth->color.red*255.0, synth->color.green*255.0, synth->color.blue*255.0);
 	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 40);
 }
 void SynthEditController::touchDown(ofTouchEventArgs &touch){
