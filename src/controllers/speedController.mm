@@ -69,7 +69,7 @@ void SpeedController::setSliders()
 void SpeedController::draw()
 {
 	ofSetColor(0x4f565a);
-	ofRect(0, 0, 320, 200);
+	ofRect(0, 0, 320, 100);
 	string settings[7] = {"BPM", "CLK"};
 	ofSetColor(0xffffff);
 	// draw all of the custom controllers

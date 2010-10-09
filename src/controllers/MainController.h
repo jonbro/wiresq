@@ -26,6 +26,7 @@ public:
 	void changeScreen(string screen);
 	ofPoint synthListOffset, synthListOffsetTarget;
 	int lastTouch, lastTouchTime;
+	bool doubleOnScroller;
 	RootModel *rootModel;
 
 	ScrollView scroller;

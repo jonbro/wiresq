@@ -51,9 +51,9 @@ void TopBarController::setup(){
 }
 bool TopBarController::hitTest(ofTouchEventArgs &touch)
 {
-	if (touch.x > x && touch.x < width+x
-		&& touch.y > y && touch.y < height+y
-		&& !toSynthControl.hitTest(touch)) {
+	if ((touch.x > x && touch.x < width+x
+		&& touch.y > y && touch.y < height+y)
+		|| toSynthControl.hitTest(touch)) {
 		return true;
 	}
 	return false;

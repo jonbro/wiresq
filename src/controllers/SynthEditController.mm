@@ -69,7 +69,6 @@ void SynthEditController::EnableSliders(){
 void SynthEditController::update(){
 	// pass the data back to the synth
 	synth->wavType = (int)ceilf(slideControl[0].value*3.0)-1;
-	printf("wavtype: %i\n", synth->wavType);
 	synth->Attack = slideControl[1].value;
 	synth->Hold = slideControl[2].value;
 	synth->Decay = slideControl[3].value;

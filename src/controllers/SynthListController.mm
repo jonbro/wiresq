@@ -65,7 +65,6 @@ void SynthListController::drawConnectors(){
 }
 bool SynthListController::hitTest(ofTouchEventArgs &touch)
 {
-	printf("SynthListController::hitTest\n");
 	if (touch.x > x && touch.x < width+x
 		&& touch.y > y && touch.y < height+y) {
 		return true;

@@ -53,12 +53,6 @@ void MainController::draw(ofEventArgs &e)
 	ofSetColor(0xffffff);
 	ofPushMatrix();
 		ofTranslate(0, synthListOffset.y, 0);
-		if (rootModel->currentScreen == SCREEN_SPEED) {
-			ofPushMatrix();
-			ofTranslate(0, -100, 0);
-			speedControl.draw();
-			ofPopMatrix();
-		}
 		ofPushMatrix();
 			ofTranslate(synthListOffset.x+146, 0, 0);
 			scroller.draw();
@@ -77,9 +71,19 @@ void MainController::draw(ofEventArgs &e)
 		ofPopMatrix();
 	}
 	if (fabs(synthListOffset.x+146.0)>1) {
+		ofPushMatrix();
+		ofTranslate(0, synthListOffset.y, 0);
 		synthList.draw();		
+		ofPopMatrix();
 	}
 	ofPopMatrix();
+	if (rootModel->currentScreen == SCREEN_SPEED) {
+		ofPushMatrix();
+		ofTranslate(0, synthListOffset.y, 0);
+		ofTranslate(0, -100, 0);
+		speedControl.draw();
+		ofPopMatrix();
+	}	
 	if (rootModel->currentScreen == SCREEN_NOTE) {
 		notePopControl.draw();
 	}
@@ -96,33 +100,40 @@ void MainController::update(ofEventArgs &e)
 }
 void MainController::touchDown(ofTouchEventArgs &touch)
 {
-	if (ofGetElapsedTimeMillis() - lastTouchTime < 200 && lastTouch == touch.id) {
-		this->touchDoubleTap(touch);
-	}
-	lastTouchTime = ofGetElapsedTimeMillis();
-	lastTouch = touch.id;
 	float startY = touch.y;
+	doubleOnScroller = false;
 	if (rootModel->currentScreen == SCREEN_SPEED) {
 		touch.y -= synthListOffset.y;
-	}	
+	}
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchDown(touch);
-	}else if (topBar.hitTest(touch) == false && !speedControl.hitTest(touch)) {
-		if (rootModel->currentScreen == SCREEN_LIST) {
-			if(!synthList.hitTest(touch)){
-				scroller.touchDown(touch);
+	}else if (rootModel->currentScreen == SCREEN_LIST || rootModel->currentScreen == SCREEN_SCROLL || rootModel->currentScreen == SCREEN_SPEED) {
+		if (rootModel->currentScreen == SCREEN_LIST && synthList.hitTest(touch)){
+			if (topBar.toSynthControl.hitTest(touch)) {
+				topBar.touchDown(touch);
 			}else {
 				synthList.touchDown(touch);
 			}
-		}else {
-			scroller.touchDown(touch);
+		}else{
+			if (topBar.hitTest(touch)) {
+				topBar.touchDown(touch);
+			}else if (scroller.hitTest(touch)) {
+				scroller.touchDown(touch);
+				doubleOnScroller = true;
+			}
 		}
-	}
-	topBar.touchDown(touch);
-	touch.y = startY;
-	if (rootModel->currentScreen == SCREEN_NOTE) {
+		// remove the speed offset
+	}else if (rootModel->currentScreen == SCREEN_NOTE) {
+		// remove the speed offset
+		touch.y = startY;
 		notePopControl.touchDown(touch);
 	}
+	touch.y = startY;
+	if (ofGetElapsedTimeMillis() - lastTouchTime < 200 && lastTouch == touch.id && doubleOnScroller == true) {
+		this->touchDoubleTap(touch);
+	}
+	lastTouchTime = ofGetElapsedTimeMillis();
+	lastTouch = touch.id;	
 }
 void MainController::touchMoved(ofTouchEventArgs &touch)
 {
@@ -172,7 +183,10 @@ void MainController::changeScreen(string screen){
 		if (rootModel->currentScreen != SCREEN_SPEED) {
 			rootModel->currentScreen = SCREEN_SPEED;
 			speedControl.EnableSliders();
-			synthListOffsetTarget.set(-146, 100, 0);			
+			synthListOffsetTarget.set(-146, 100, 0);
+			rootModel->linkingSynths = false;
+			topBar.toSynthControl.setPosAndSize(0, 438, 42, 44);
+			topBar.atSynthList = false;			
 		}else {
 			rootModel->currentScreen = SCREEN_SCROLL;
 			synthListOffsetTarget.set(-146, 0, 0);
@@ -183,11 +197,4 @@ void MainController::changeScreen(string screen){
 		notePopControl.showTime = ofGetElapsedTimeMillis();
 		notePopControl.initDisplay();
 	}
-	/*
-	if (screen != "synth_list") {
-		rootModel->linkingSynths = false;
-		topBar.toSynthControl.setPosAndSize(0, 438, 42, 44);
-		topBar.atSynthList = false;
-	}
-	*/
 }
