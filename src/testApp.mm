@@ -12,7 +12,7 @@ void testApp::setup(){
 	//iPhoneAlerts will be sent to this.
 	ofxiPhoneAlerts.addListener(this);
 	ofEnableAlphaBlending();
-
+	ofSetFrameRate(30);
 	mixer.rootModel = &rootModel;
 	mixer.mainController = &mainController;
 	mixer.setup();

@@ -45,6 +45,7 @@ void SynthModel::setup()
 }
 void SynthModel::save()
 {
+	objCmodel.wavType = [NSNumber numberWithFloat:wavType];
 	objCmodel.Attack = [NSNumber numberWithFloat:Attack];
 	objCmodel.Hold = [NSNumber numberWithFloat:Hold];
 	objCmodel.Decay = [NSNumber numberWithFloat:Decay];
@@ -54,6 +55,7 @@ void SynthModel::save()
 }
 void SynthModel::load()
 {
+	wavType = [objCmodel.wavType floatValue];
 	Attack = [objCmodel.Attack floatValue];
 	Hold = [objCmodel.Hold floatValue];
 	Decay = [objCmodel.Decay floatValue];

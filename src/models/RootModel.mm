@@ -66,7 +66,6 @@ RootModel::RootModel(){
 		synthData[i].setup();
 		myColor.setMode(OF_COLOR_HSV).setHue((float)i/(float)(8+1));
 		synthData[i].color = myColor;
-
 	}
 	//initialize world
 	for (int i=0; i<NUMCELLSX; i++) {

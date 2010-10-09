@@ -164,9 +164,9 @@ void MainController::changeScreen(string screen){
 		synthListOffsetTarget.set(-146, 0, 0);
 	}else if (screen == "synth_edit") {
 		rootModel->currentScreen = SCREEN_EDIT;
+		synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
 		synthEdit.setSliders();
 		synthEdit.EnableSliders();
-		synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
 		synthListOffsetTarget.set(320, 0, 0);
 	}else if(screen == "speed"){
 		if (rootModel->currentScreen != SCREEN_SPEED) {
@@ -183,9 +183,11 @@ void MainController::changeScreen(string screen){
 		notePopControl.showTime = ofGetElapsedTimeMillis();
 		notePopControl.initDisplay();
 	}
+	/*
 	if (screen != "synth_list") {
 		rootModel->linkingSynths = false;
 		topBar.toSynthControl.setPosAndSize(0, 438, 42, 44);
 		topBar.atSynthList = false;
 	}
+	*/
 }

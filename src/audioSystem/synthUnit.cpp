@@ -22,7 +22,7 @@ void SynthUnit::setup()
 	wavType = 0;
 	// load up our noise data
 	for (int i=0; i<22050; i++) {
-		noiseSampleData[i] = ofRandom(-1, 1);
+		noiseSampleData[i] = ofRandom(-0.5, 0.5);
 	}
 	numPackets = 22050;
 }
