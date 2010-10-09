@@ -183,4 +183,9 @@ void MainController::changeScreen(string screen){
 		notePopControl.showTime = ofGetElapsedTimeMillis();
 		notePopControl.initDisplay();
 	}
+	if (screen != "synth_list") {
+		rootModel->linkingSynths = false;
+		topBar.toSynthControl.setPosAndSize(0, 438, 42, 44);
+		topBar.atSynthList = false;
+	}
 }

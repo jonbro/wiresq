@@ -40,6 +40,7 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 					}
 					// copy over the synth data
 					float pitch = rootModel->notes[(int)rootModel->synthLinks[j].x][(int)rootModel->synthLinks[j].y];
+					synths[currentSynth].wavType = rootModel->synthData[j].wavType;
 					synths[currentSynth].filterLeft.setRes(rootModel->synthData[j].Res);
 					synths[currentSynth].filterLeft.setCutoff(rootModel->synthData[j].Cutoff);
 					synths[currentSynth].inTime = 10000.0 * rootModel->synthData[j].Attack;

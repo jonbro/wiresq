@@ -3,6 +3,7 @@
 #import "ofxColor.h"
 
 @interface synthModelObj : NSObject <NSCoding> {
+	NSNumber *wavType;
 	NSNumber *Attack;
 	NSNumber *Hold;
 	NSNumber *Decay;
@@ -11,6 +12,7 @@
 	NSNumber *Res;
 }
 
+@property (retain) NSNumber *wavType;
 @property (retain) NSNumber *Attack;
 @property (retain) NSNumber *Hold;
 @property (retain) NSNumber *Decay;
@@ -27,7 +29,7 @@ public:
 	void load();
 	
 	synthModelObj *objCmodel;
-	
+	int wavType;
 	float Attack, Hold, Decay;
 	float Pitch;
 	float Cutoff, Res;

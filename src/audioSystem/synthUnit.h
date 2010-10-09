@@ -11,6 +11,8 @@ public:
 	void triggerSynth(int _startOffset, float pitch);
 	void setup();
 	float getSampleTriangle();
+	float getSampleSquare();
+	float getSampleNoise();
 	void setFrequency(float frequency);
 	
 	MoogFilter filterLeft, filterRight;
@@ -22,4 +24,10 @@ public:
 	float pitch;
 	bool hasMix;
 	float holdTime, outTime, inTime, volume;
+	
+	// sampler data
+	float sampleDelta, samplePos;
+	float noiseSampleData[22050];
+	int loopStart, loopEnd, numPackets;
+	
 };

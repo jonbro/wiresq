@@ -68,6 +68,7 @@ void SynthEditController::EnableSliders(){
 }
 void SynthEditController::update(){
 	// pass the data back to the synth
+	synth->wavType = (int)(slideControl[0].value*2.99);
 	synth->Attack = slideControl[1].value;
 	synth->Hold = slideControl[2].value;
 	synth->Decay = slideControl[3].value;
@@ -93,7 +94,7 @@ void SynthEditController::draw()
 	threeSegment[(int)(slideControl[0].value*2.99)].draw(slideControl[0].x, slideControl[0].y);
 
 	// draw all of the sliders
-	for (int i=1; i<5; i++) {
+	for (int i=1; i<6; i++) {
 		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
 		ofSetColor(0xFFFFFF);
 		if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {

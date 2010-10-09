@@ -19,7 +19,12 @@ void SynthUnit::setup()
 	filterLeft.setup();
 	filterLeft.setRes(1.0);
 	filterRight.setup();
-	
+	wavType = 0;
+	// load up our noise data
+	for (int i=0; i<22050; i++) {
+		noiseSampleData[i] = ofRandom(-1, 1);
+	}
+	numPackets = 22050;
 }
 void SynthUnit::audioRequested( float * output, int bufferSize, int nChannels )
 {
@@ -35,7 +40,17 @@ void SynthUnit::audioRequested( float * output, int bufferSize, int nChannels )
 			}
 			if(offset>inTime+holdTime)
 				volumeModifier = 1.0-((float)offset-inTime-holdTime)/outTime;
-			output[j*2] = getSample();
+			switch (wavType) {
+				case 0:
+					output[j*2] = getSampleTriangle();
+					break;
+				case 1:
+					output[j*2] = getSampleTriangle();
+					break;
+				default:
+					output[j*2] = getSampleNoise();
+					break;
+			}
 			filterLeft.processSample(&output[j*2]);
 			output[j*2] *= volumeModifier;
 			output[j*2+1] = output[j*2];
@@ -54,10 +69,23 @@ void SynthUnit::triggerSynth(int _startOffset, float pitch) // centered on 60
 }
 void SynthUnit::setFrequency(float frequency) {
 	phaseIncrement = frequency*2*PI/SAMPLERATE;		// calculate how much we need to increment the phase for each sample
+	sampleDelta = frequency/440.0; // don't need the fundamenta frequency here
 }
 
 float SynthUnit::getSampleTriangle() {
 	phase += phaseIncrement;						// update the phase of the oscillator
 	if(phase>=2*PI) phase -= 2*PI;					// wrap it around
 	return phase<PI ? (-1.f + (2.f*phase/PI)):(1.f - (2.f*(phase-PI)/PI)); // generate the signal
+}
+float SynthUnit::getSampleSquare() {
+	phase += phaseIncrement;						// update the phase of the oscillator
+	if(phase>=2*PI) phase -= 2*PI;					// wrap it around
+	return phase<PI ? -1.f:1.f; // generate the signal
+}
+float SynthUnit::getSampleNoise() {
+	samplePos += sampleDelta;
+	if (samplePos>=numPackets) {
+		samplePos = 0;
+	}
+	return noiseSampleData[(int)samplePos];
 }

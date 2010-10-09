@@ -2,7 +2,7 @@
 
 @implementation synthModelObj
 
-@synthesize Attack, Hold, Decay, Pitch, Cutoff, Res;
+@synthesize Attack, Hold, Decay, Pitch, Cutoff, Res, wavType;
 
 -(id)init
 {
@@ -11,6 +11,7 @@
 }
 - (void)encodeWithCoder:(NSCoder *)coder
 {
+	[coder encodeObject:wavType forKey:@"wavType"];
 	[coder encodeObject:Attack forKey:@"Attack"];
 	[coder encodeObject:Hold forKey:@"Hold"];
 	[coder encodeObject:Decay forKey:@"Decay"];
@@ -21,6 +22,7 @@
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [self init];
+	self.wavType = [[coder decodeObjectForKey:@"wavType"] retain];
 	self.Attack = [[coder decodeObjectForKey:@"Attack"] retain];
 	self.Hold = [[coder decodeObjectForKey:@"Hold"] retain];
 	self.Decay = [[coder decodeObjectForKey:@"Decay"] retain];
@@ -39,6 +41,7 @@ void SynthModel::setup()
 	
 	Cutoff = 0.5;
 	Res = 0.0;
+	wavType = 0;
 }
 void SynthModel::save()
 {
