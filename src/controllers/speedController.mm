@@ -53,6 +53,14 @@ void SpeedController::EnableSliders(){
 		slideControl[i].disableAppEvents();
 	}
 }
+bool SpeedController::hitTest(ofTouchEventArgs &touch)
+{
+	if (touch.x > x && touch.x < width+x
+		&& touch.y > y && touch.y < height+y) {
+		return true;
+	}
+	return false;
+}
 void SpeedController::setSliders()
 {
 	slideControl[0].value = (rootModel->bpm-1)/259.0;	

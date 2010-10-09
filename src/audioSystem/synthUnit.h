@@ -10,7 +10,7 @@ public:
 	void audioRequested( float * output, int bufferSize, int nChannels );
 	void triggerSynth(int _startOffset, float pitch);
 	void setup();
-	float getSample();
+	float getSampleTriangle();
 	void setFrequency(float frequency);
 	
 	MoogFilter filterLeft, filterRight;
@@ -18,7 +18,7 @@ public:
 	float phaseIncrement;
 	
 	// internal state of the sampler
-	int offset, startOffset;
+	int offset, startOffset, wavType;
 	float pitch;
 	bool hasMix;
 	float holdTime, outTime, inTime, volume;

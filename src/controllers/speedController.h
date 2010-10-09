@@ -18,6 +18,8 @@ public:
 	void update();
 	void DisableSliders();
 	void EnableSliders();
+	bool hitTest(ofTouchEventArgs &touch);
+	
 	ofImage background, slideBg, slideLeftCap, slideLoop, slideRightCap, slideFull, exitButtonImg;
 	ofTrueTypeFont interstate;
 	Slider slideControl[2];

@@ -25,9 +25,10 @@ public:
 	void touchMoved(ofTouchEventArgs &touch);
 	void setSliders();
 	ofImage background, slideBg, slideLeftCap, slideLoop, slideRightCap, slideFull, exitButtonImg;
+	ofImage threeSegment[3];
 	ofTrueTypeFont interstate, interstateLrg;
 	Button exitButton;
-	Slider slideControl[7];
+	Slider slideControl[8];
 	SynthModel *synth;
 	RootModel *rootModel;
 	MainController *mainController;

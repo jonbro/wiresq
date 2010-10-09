@@ -35,8 +35,16 @@ void SynthEditController::setup()
 
 	interstate.loadFont("OpenDin.ttf", 14);
 	interstateLrg.loadFont("OpenDin.ttf", 28);
+	
+	threeSegment[0].loadImage("images/segment3_1.png");
+	threeSegment[0].setImageType(OF_IMAGE_COLOR_ALPHA);
+	threeSegment[1].loadImage("images/segment3_2.png");
+	threeSegment[1].setImageType(OF_IMAGE_COLOR_ALPHA);
+	threeSegment[2].loadImage("images/segment3_3.png");
+	threeSegment[2].setImageType(OF_IMAGE_COLOR_ALPHA);
+	
 	float offset = 65;
-	for (int i=0; i<7; i++) {
+	for (int i=0; i<8; i++) {
 		slideControl[i].setup();
 		slideControl[i].setPosAndSize(65, (slideBg.getHeight()+10)*i+offset, slideBg.getWidth(), slideBg.getHeight());
 		slideControl[i].horizontal = true;
@@ -48,42 +56,44 @@ void SynthEditController::setup()
 	exitNow = false;
 }
 void SynthEditController::DisableSliders(){
-	for (int i=0; i<7; i++) {
+	for (int i=0; i<8; i++) {
 		slideControl[i].removeListeners();
 	}
 }
 void SynthEditController::EnableSliders(){
-	for (int i=0; i<7; i++) {
+	for (int i=0; i<8; i++) {
 		slideControl[i].addListeners();
 		slideControl[i].disableAppEvents();
 	}
 }
 void SynthEditController::update(){
 	// pass the data back to the synth
-	synth->Attack = slideControl[0].value;
-	synth->Hold = slideControl[1].value;
-	synth->Decay = slideControl[2].value;
-	synth->Pitch = slideControl[3].value;
-	synth->Cutoff = slideControl[5].value;
-	synth->Res = slideControl[6].value;
+	synth->Attack = slideControl[1].value;
+	synth->Hold = slideControl[2].value;
+	synth->Decay = slideControl[3].value;
+	synth->Cutoff = slideControl[4].value;
+	synth->Res = slideControl[5].value;
 }
 void SynthEditController::setSliders()
 {
-	slideControl[0].value = synth->Attack;
-	slideControl[1].value = synth->Hold;
-	slideControl[2].value = synth->Decay;
-	slideControl[3].value = synth->Pitch;
-	slideControl[5].value = synth->Cutoff;
-	slideControl[6].value = synth->Res;	
+	slideControl[1].value = synth->Attack;
+	slideControl[2].value = synth->Hold;
+	slideControl[3].value = synth->Decay;
+	slideControl[4].value = synth->Cutoff;
+	slideControl[5].value = synth->Res;	
 }
 void SynthEditController::draw()
 {
-	string settings[7] = {"ATK", "HLD", "REL", "PTC", "STN", "CUT", "RES"};
+	string settings[8] = {"WAV", "ATK", "HLD", "REL", "CUT", "RES"};
 	ofSetColor(0xffffff);
 	background.draw(0, 0);
-	// draw all of the custom controllers
-	for (int i=0; i<7; i++) {
-		ofSetColor(0, 0, 0);
+	ofSetColor(0xFFFFFF);
+	// draw the three segment control
+	interstate.drawString(settings[0], slideControl[0].x-interstate.stringWidth(settings[0])-10, interstate.getLineHeight()+slideControl[0].y+3);
+	threeSegment[(int)(slideControl[0].value*2.99)].draw(slideControl[0].x, slideControl[0].y);
+
+	// draw all of the sliders
+	for (int i=1; i<5; i++) {
 		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
 		ofSetColor(0xFFFFFF);
 		if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {

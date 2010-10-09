@@ -5,7 +5,7 @@ void MainController::setup()
 {
 	ofAddListener(ofEvents.touchDown, this, &MainController::touchDown);
 	ofAddListener(ofEvents.touchUp, this, &MainController::touchUp);
-	ofAddListener(ofEvents.touchDoubleTap, this, &MainController::touchDoubleTap);
+	// ofAddListener(ofEvents.touchDoubleTap, this, &MainController::touchDoubleTap);
 	ofAddListener(ofEvents.touchMoved, this, &MainController::touchMoved);	
 	ofAddListener(ofEvents.update, this, &MainController::update);
 	ofAddListener(ofEvents.draw, this, &MainController::draw);
@@ -38,6 +38,7 @@ void MainController::setup()
 	synthEdit.disableAllEvents();
 	
 	speedControl.setup();
+	speedControl.setPosAndSize(0, -100, 320, 100);
 	speedControl.rootModel = rootModel;
 	
 	notePopControl.setup();
@@ -95,17 +96,18 @@ void MainController::update(ofEventArgs &e)
 }
 void MainController::touchDown(ofTouchEventArgs &touch)
 {
-	if (ofGetElapsedTimeMillis() - lastTouch < 100) {
+	if (ofGetElapsedTimeMillis() - lastTouchTime < 200 && lastTouch == touch.id) {
 		this->touchDoubleTap(touch);
 	}
-	lastTouch = ofGetElapsedTimeMillis();
+	lastTouchTime = ofGetElapsedTimeMillis();
+	lastTouch = touch.id;
 	float startY = touch.y;
 	if (rootModel->currentScreen == SCREEN_SPEED) {
 		touch.y -= synthListOffset.y;
 	}	
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchDown(touch);
-	}else if (topBar.hitTest(touch) == false) {
+	}else if (topBar.hitTest(touch) == false && !speedControl.hitTest(touch)) {
 		if (rootModel->currentScreen == SCREEN_LIST) {
 			if(!synthList.hitTest(touch)){
 				scroller.touchDown(touch);
@@ -131,7 +133,7 @@ void MainController::touchMoved(ofTouchEventArgs &touch)
 	// only pass down events that fail hit tests otherwise
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchMoved(touch);
-	}else if ((topBar.hitTest(touch) == false || rootModel->currentScreen == SCREEN_LIST) && rootModel->currentScreen != SCREEN_NOTE) {
+	}else if ((topBar.hitTest(touch) == false || rootModel->currentScreen == SCREEN_LIST) && rootModel->currentScreen != SCREEN_NOTE && !speedControl.hitTest(touch)) {
 		scroller.touchMoved(touch);
 	}
 	touch.y = startY;
