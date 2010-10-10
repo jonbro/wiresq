@@ -42,6 +42,7 @@ void SynthModel::setup()
 	Cutoff = 0.5;
 	Res = 0.0;
 	wavType = 0;
+	printf("setting up synth\n");
 }
 void SynthModel::save()
 {
