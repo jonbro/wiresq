@@ -14,9 +14,45 @@
 			margin: auto;
 			padding-top: 20px;
 		}
+		a{
+			color: #2D6A6D;
+		}
+		.section{
+			margin-top: 30px;
+			border-top: 1px solid #8c8c8c;
+		}
+		.block{
+			float: left;
+			width: 160px;
+			padding: 0 10px;
+			text-align: center;
+		}
 	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="wiresq/js/cufon-yui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="wiresq/js/OpenDin_500.font.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			Cufon.replace('.block a, h3');
+		});
+	</script>
 </head>
 <body>
 <img src="heavy_ephemera.jpg" width="540" height="168" alt="Heavy Ephemera">
+<div class='section'>
+	<div class="block">
+		<h3>applications</h3>
+		<a href='wiresq/index.html'>wiresq</a>
+	</div>
+	<div class="block">
+		<h3>.</h3>
+		<a href='mailto:jonbro@gmail.com'>contact</a>
+	</div>
+	<div class="block">
+		<h3>.</h3>
+		<a href='http://www.github.com/jonbro/heavyephemera'>source code</a>
+	</div>
+</div>
 </body>
 </html>
