@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "SynthModel.h"
 #include "synthLink.h"
+#include <vector>
 
 @interface rootModelObj : NSObject <NSCoding> {
 	NSMutableArray *world;
@@ -39,12 +40,17 @@ public:
 	void save();
 	void load();
 	
+	void setLink(int x, int y, int synth);
+	bool hasLink(int x, int y, int synth);
+	void removeLink(int x, int y, int synth);
 	int neighbors(int x, int y);
 	
 	rootModelObj *objcRootModel;
 	int world[NUMCELLSX][NUMCELLSY][2];
 	int notes[NUMCELLSX][NUMCELLSY];
-	SynthLink synthLinks[8]; // should be implemented in a vector eventually
+	
+	vector<SynthLink> synthLinks; // should be implemented in a vector eventually
+	
 	ofPoint scrollOffset;
 	bool linkingSynths;
 	int currentSynth;

@@ -38,7 +38,7 @@ public:
 	float fingerDistStart, fingerDistCurrent;
 	
 	deque<SynthLink> triggersToDisplay;
-	
+	int numLinks[NUMCELLSX][NUMCELLSY];
 	RootModel *rootModel;
 	MainController *mainController;
 	bool state;

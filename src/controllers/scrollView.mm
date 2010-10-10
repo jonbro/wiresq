@@ -64,11 +64,23 @@ void ScrollView::draw(){
 	// draw the synth links...
 	ofPushMatrix();
 	ofTranslate(offset.x, offset.y+y, 0);
-
-	for (int i=0; i<8; i++) {
-		ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
-		ofRect(rootModel->synthLinks[i].x*cellSize+2, rootModel->synthLinks[i].y*cellSize+2, cellSize/8.0, cellSize/8.0);
+	for(int i=0;i<rootModel->synthLinks.size();i++){
+		SynthLink *link = &rootModel->synthLinks[i];
+		numLinks[(int)link->x][(int)link->y] = 0;
 	}
+	
+	for(int i=0;i<rootModel->synthLinks.size();i++){
+		SynthLink *link = &rootModel->synthLinks[i];
+		if (link->x<width/cellSize+1 && link->y<height/cellSize+1) {
+			ofSetColor(rootModel->synthData[link->synth].color.red*255.0, rootModel->synthData[link->synth].color.green*255.0, rootModel->synthData[link->synth].color.blue*255.0);
+			float additionalSynthxOff = (numLinks[(int)link->x][(int)link->y]%4)*cellSize/8.0*2;
+			float additionalSynthyOff = (numLinks[(int)link->x][(int)link->y]/4)*cellSize/8.0*2;
+			ofRect((link->x*cellSize+2)+additionalSynthxOff, (link->y*cellSize+2)+additionalSynthyOff, cellSize/8.0, cellSize/8.0);
+			link->linkNumber = numLinks[(int)link->x][(int)link->y];
+			numLinks[(int)link->x][(int)link->y]++;
+		}
+	}
+	
 	deque<SynthLink>::iterator theIterator;
 
 	for( theIterator = triggersToDisplay.begin(); theIterator != triggersToDisplay.end(); ++theIterator ) {
@@ -137,7 +149,7 @@ void ScrollView::setCell(ofTouchEventArgs &touch)
 		int xOffset = (touch.x-offset.x)/cellSize;
 		int yOffset = (touch.y-y-offset.y)/cellSize;
 		if (rootModel->linkingSynths) {
-			rootModel->synthLinks[rootModel->currentSynth].set(xOffset, yOffset);
+			rootModel->setLink(xOffset, yOffset, rootModel->currentSynth);
 		}else {
 			rootModel->world[xOffset][yOffset][0] = rootModel->currentState;
 			rootModel->world[xOffset][yOffset][1] = rootModel->currentState;

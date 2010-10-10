@@ -50,17 +50,19 @@ void SynthListController::draw()
 	}
 }
 void SynthListController::drawConnectors(){
-	int lastY = 6;
-	for (int i=0; i<numSynths; i++) {
-		ofSetColor(rootModel->synthData[i].color.red*255.0, rootModel->synthData[i].color.green*255.0, rootModel->synthData[i].color.blue*255.0);
-		// draw the connecting line
-		ofPoint partOne;
-		partOne.set(rootModel->synthLinks[i].x*40+2, rootModel->synthLinks[i].y*40+2+44);
-		partOne += rootModel->scrollOffset;
-		ofNoFill();
-		ofSetLineWidth(2);
-		ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5+146, fmax(partOne.y+2.5, 47), partOne.x+40+146, fmax(partOne.y+2.5, 47));
-		lastY+=2+synthItem[0].getHeight();
+	int lastY = 6+(rootModel->currentSynth*(2+synthItem[0].getHeight()));
+	for(int i=0;i<rootModel->synthLinks.size();i++){
+		SynthLink *link = &rootModel->synthLinks[i];
+		if (link->synth == rootModel->currentSynth) {
+			ofSetColor(rootModel->synthData[link->synth].color.red*255.0, rootModel->synthData[link->synth].color.green*255.0, rootModel->synthData[link->synth].color.blue*255.0);
+			ofPoint partOne;
+			float additionalSynthxOff = (link->linkNumber%4)*40/8.0*2;
+			float additionalSynthyOff = (link->linkNumber/4)*40/8.0*2;
+			partOne.set(link->x*40+2+additionalSynthxOff, link->y*40+2+44+additionalSynthyOff);
+			ofNoFill();
+			ofSetLineWidth(2);
+			ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5+146, fmax(partOne.y+2.5, 47), partOne.x+40+146, fmax(partOne.y+2.5, 47));
+		}
 	}
 }
 bool SynthListController::hitTest(ofTouchEventArgs &touch)
