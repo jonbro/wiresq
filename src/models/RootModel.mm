@@ -110,14 +110,13 @@ void RootModel::save(){
 		}
 	}
 	// link data
-	/* TODO
 	NSLog(@"num links: %i", [objcRootModel.links count]);
 	[objcRootModel.links removeAllObjects];
-	for (int i=0; i<8; i++) {
-		NSArray *linkObject = [NSArray arrayWithObjects:[NSNumber numberWithInt:(int)synthLinks[i].x], [NSNumber numberWithInt:(int)synthLinks[i].y], nil];
+	for (int i=0; i<synthLinks.size(); i++) {
+		NSArray *linkObject = [NSArray arrayWithObjects:[NSNumber numberWithInt:(int)synthLinks[i].x], [NSNumber numberWithInt:(int)synthLinks[i].y], [NSNumber numberWithInt:(int)synthLinks[i].synth], nil];
 		[objcRootModel.links addObject:linkObject];
 	}
-	*/
+	
 	// synth data
 	for (int i=0; i<8; i++) {
 		synthModelObj *objCsynthData = [[synthModelObj alloc] init];
@@ -147,12 +146,11 @@ void RootModel::load(){
 					notes[x][y] = [[objcRootModel.notes objectAtIndex:y*NUMCELLSX+x] intValue];
 				}
 			}
-			/* TODO
-			for (int i=0; i<8; i++) {
+			for (int i=0; i<synthLinks.size(); i++) {
 				NSArray *linkObject = [objcRootModel.links objectAtIndex:i];
-				synthLinks[i].set([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue]);
+				setLink([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue], [[linkObject objectAtIndex:2] intValue]);
 			}
-			*/
+			
 			for (int i=0; i<8; i++) {
 				synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i];
 				synthData[i].objCmodel = synthObject;
@@ -218,12 +216,14 @@ int RootModel::neighbors(int x, int y){
 
 void RootModel::setLink(int x, int y, int synth)
 {
-	SynthLink *link = new SynthLink();
-	link->x = x;
-	link->y = y;
-	link->synth = synth;
-	synthLinks.push_back(*link);
-	delete link;
+	if (!hasLink(x, y, synth)) {
+		SynthLink *link = new SynthLink();
+		link->x = x;
+		link->y = y;
+		link->synth = synth;
+		synthLinks.push_back(*link);
+		delete link;		
+	}
 }
 void RootModel::removeLink(int x, int y, int synth)
 {
@@ -240,14 +240,12 @@ void RootModel::removeLink(int x, int y, int synth)
 }
 bool RootModel::hasLink(int x, int y, int synth)
 {
-	/*
-	 for(int i=0;i<rootModel->synthLinks.size();i++){
-		SynthLink *link = &rootModel->synthLinks[i];
+	for(int i=0;i<synthLinks.size();i++){
+		SynthLink *link = &synthLinks[i];
 		if (link->synth == synth && link->x == x && link->y == y) {
 			return true;
 		}
 	}
-	*/
 	return false;
 }
 
