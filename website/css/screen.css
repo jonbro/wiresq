@@ -1,0 +1,105 @@
+html{
+	background: #aec6cb;
+}
+body{
+	width: 960px;
+	color: #000;
+	margin: auto;
+	font-family: helvetica;
+}
+p{
+	font-family: georgia;
+	font-size: 12px;
+	line-height: 16px;
+}
+.clear{
+	clear: both;
+}
+/*top bar*/
+#top_bar{
+	padding-left: 25px;
+	padding-bottom: 70px;
+}
+#logo{
+	background: #000;
+}
+#logo, #menu li a{
+	padding: 2px 6px 5px 6px;
+	font-size: 28px;
+	float: left;
+	color: #fff;
+}
+#logo .hilight{
+	color: #ffd801;
+}
+#menu{
+	list-style: none;
+}
+#menu li{
+	float: left;
+	text-transform: uppercase;
+	font-size: 28px;
+	margin-left: 20px;
+	overflow: hidden;
+}
+#menu li a{
+	display: block;
+	color: #000;
+	padding: 2px 4px 5px 6px;
+}
+#menu li a.current, #menu li a:hover{
+	background: #4d4d4d;
+	color: #ff4001;
+}
+#he_logo{
+	margin: 0;
+	padding: 0;
+	float: right;
+	background: #0080ff;
+}
+#he_logo img{
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+h2{
+	border-top: 2px solid #666;
+	padding: 0 25px;
+	color: #666;
+}
+/* help body */
+.help_block{
+	width: 450px;
+	padding-right: 25px;
+	position: relative;
+	min-height: 300px;
+	float: left;
+}
+.help_block p{
+	z-index: 2;
+	position: relative;
+	padding-left: 177px;
+}
+.help_block h3{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	padding-left: 26px;
+	padding-bottom: 10px;
+	font-size: 28px;
+	text-transform: uppercase;
+}
+.left_img{
+	z-index: 1;
+	position: absolute;
+	left: -20px;
+	padding: 0 47px 10px;
+	background: url('../img/help_img_bg.gif') 5px 0px no-repeat;
+}
+.left_img img{
+	border: 1px solid #000;
+}
+.right_img{
+	float: right;
+	padding-left: 5px;
+}
