@@ -70,15 +70,16 @@ void ScrollView::draw(){
 	}
 	
 	for(int i=0;i<rootModel->synthLinks.size();i++){
+		
 		SynthLink *link = &rootModel->synthLinks[i];
-		if (link->x<width/cellSize+1 && link->y<height/cellSize+1) {
-			ofSetColor(rootModel->synthData[link->synth].color.red*255.0, rootModel->synthData[link->synth].color.green*255.0, rootModel->synthData[link->synth].color.blue*255.0);
-			float additionalSynthxOff = (numLinks[(int)link->x][(int)link->y]%4)*cellSize/8.0*2;
-			float additionalSynthyOff = (numLinks[(int)link->x][(int)link->y]/4)*cellSize/8.0*2;
-			ofRect((link->x*cellSize+2)+additionalSynthxOff, (link->y*cellSize+2)+additionalSynthyOff, cellSize/8.0, cellSize/8.0);
-			link->linkNumber = numLinks[(int)link->x][(int)link->y];
-			numLinks[(int)link->x][(int)link->y]++;
-		}
+		/*if (link->x+offset.x<width/cellSize+1 && link->y+offset.y<height/cellSize+1) { DONT FEEL LIKE FIGURING OUT THIS CULLING RIGHT NOW*/
+
+		ofSetColor(rootModel->synthData[link->synth].color.red*255.0, rootModel->synthData[link->synth].color.green*255.0, rootModel->synthData[link->synth].color.blue*255.0);
+		float additionalSynthxOff = (numLinks[(int)link->x][(int)link->y]%4)*cellSize/8.0*2;
+		float additionalSynthyOff = (numLinks[(int)link->x][(int)link->y]/4)*cellSize/8.0*2;
+		ofRect((link->x*cellSize+2)+additionalSynthxOff, (link->y*cellSize+2)+additionalSynthyOff, cellSize/8.0, cellSize/8.0);
+		link->linkNumber = numLinks[(int)link->x][(int)link->y];
+		numLinks[(int)link->x][(int)link->y]++;
 	}
 	
 	deque<SynthLink>::iterator theIterator;
