@@ -1,9 +1,0 @@
-#define NUMCELLSX 100
-#define NUMCELLSY 100
-#define NUMCELLSTOTAL 1000
-
-#define SCREEN_SCROLL 0
-#define SCREEN_LIST 1
-#define SCREEN_EDIT 2
-#define SCREEN_SPEED 3
-#define SCREEN_NOTE 4
