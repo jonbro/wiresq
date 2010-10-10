@@ -14,6 +14,36 @@
 	<script src="js/cufon-yui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/OpenDin_500.font.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/site.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		#flashcontent {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}	
+		#flashcontent p { color:white; padding:5px;}
+		</style>
+		
+	<script type="text/javascript" src="com/js/swfobject/swfobject.js"></script>		
+	<script type="text/javascript">
+		var flashvars = {};
+		var params = {};
+		
+		params.bgcolor = "#000000";
+		params.allowscriptaccess = "always";
+		
+		flashvars.videoPath = "movie.f4v";
+		flashvars.posterPath = "com/poster/myPosterFrame.jpg";
+		flashvars.skinPath = "com/skin/skin.swf";
+		
+		var stageW = 230;
+		var stageH = 400;
+		
+		var attributes = {};
+		attributes.id = "flashcontent";			
+		
+		swfobject.embedSWF("player.swf", "flashcontent", stageW, stageH, "9.0.0", false, flashvars, params, attributes);
+	</script>
+	
 </head>
 <body>
 	<div id="top_bar">
@@ -30,6 +60,7 @@
 		</div>
 	</div>
 	<div class='clear'></div>
+	<div id="flashcontent"><p>This ScreenFlow video requires a more recent version of the Adobe Flash Player to display.  Please update your version of the <a href="http://www.adobe.com/go/getflashplayer">Adobe Flash Player</a>.</p></div>	
 
 </body>
 </html>
