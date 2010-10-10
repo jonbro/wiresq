@@ -51,18 +51,22 @@ void SynthListController::draw()
 }
 void SynthListController::drawConnectors(){
 	int lastY = 6+(rootModel->currentSynth*(2+synthItem[0].getHeight()));
+	ofSetColor(rootModel->synthData[rootModel->currentSynth].color.red*255.0, rootModel->synthData[rootModel->currentSynth].color.green*255.0, rootModel->synthData[rootModel->currentSynth].color.blue*255.0);
+	ofNoFill();
+	ofSetLineWidth(2);
+	ofPoint partOne;
 	for(int i=0;i<rootModel->synthLinks.size();i++){
 		SynthLink *link = &rootModel->synthLinks[i];
 		if (link->synth == rootModel->currentSynth) {
-			ofSetColor(rootModel->synthData[link->synth].color.red*255.0, rootModel->synthData[link->synth].color.green*255.0, rootModel->synthData[link->synth].color.blue*255.0);
-			ofPoint partOne;
-			float additionalSynthxOff = (link->linkNumber%4)*40/8.0*2;
-			float additionalSynthyOff = (link->linkNumber/4)*40/8.0*2;
+			float additionalSynthxOff = (link->linkNumber%4)*40/8.0*2+mainController->scroller.offset.x;
+			float additionalSynthyOff = (link->linkNumber/4)*40/8.0*2+mainController->scroller.offset.y;
 			partOne.set(link->x*40+2+additionalSynthxOff, link->y*40+2+44+additionalSynthyOff);
-			ofNoFill();
-			ofSetLineWidth(2);
 			ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5+146, fmax(partOne.y+2.5, 47), partOne.x+40+146, fmax(partOne.y+2.5, 47));
 		}
+	}
+	if (hasTempPoint) {
+		partOne = tempPoint;
+		ofCurve(0, lastY+2+synthItem[0].height/2.0, synthItem[0].width, lastY+2+synthItem[0].height/2.0, partOne.x+2.5+146, fmax(partOne.y+2.5, 47), partOne.x+40+146, fmax(partOne.y+2.5, 47));
 	}
 }
 bool SynthListController::hitTest(ofTouchEventArgs &touch)
@@ -76,6 +80,7 @@ bool SynthListController::hitTest(ofTouchEventArgs &touch)
 void SynthListController::touchDown(ofTouchEventArgs &touch)
 {
 	bool second = false;
+	fingerStartedInView[touch.id] = true;
 	for (int i=0; i<numSynths; i++) {
 		if(synthSelect[i].hitTest(touch)){
 			if (rootModel->currentSynth == i) {
@@ -88,7 +93,32 @@ void SynthListController::touchDown(ofTouchEventArgs &touch)
 		synthSelect[rootModel->currentSynth].width /= 2;
 		if (synthSelect[rootModel->currentSynth].hitTest(touch)) {
 			mainController->changeScreen("synth_edit");
+			fingerStartedInView[touch.id] = false;
 		}
 		synthSelect[rootModel->currentSynth].width *= 2;
-	}		
+	}
+}
+void SynthListController::touchMoved(ofTouchEventArgs &touch)
+{
+	if (rootModel->currentScreen == SCREEN_LIST) {
+		touch.x-=146;
+	}	
+	if (fingerStartedInView[touch.id] && mainController->scroller.hitTest(touch)) {
+		hasTempPoint = true;
+		tempPoint.set(touch.x, touch.y, 0);
+	}else {
+		hasTempPoint = false;
+	}
+	if (rootModel->currentScreen == SCREEN_LIST) {
+		touch.x+=146;
+	}	
+}
+void SynthListController::touchUp(ofTouchEventArgs &touch)
+{
+	// check to see if it is outside of this view
+	if (fingerStartedInView[touch.id] && !hitTest(touch) && mainController->scroller.hitTest(touch)) {
+		mainController->scroller.linkCell(touch);
+	}
+	fingerStartedInView[touch.id] = false;
+	hasTempPoint = false;
 }

@@ -148,13 +148,19 @@ void ScrollView::setCell(ofTouchEventArgs &touch)
 		}
 		int xOffset = (touch.x-offset.x)/cellSize;
 		int yOffset = (touch.y-y-offset.y)/cellSize;
-		if (rootModel->linkingSynths) {
-			rootModel->setLink(xOffset, yOffset, rootModel->currentSynth);
-		}else {
-			rootModel->world[xOffset][yOffset][0] = rootModel->currentState;
-			rootModel->world[xOffset][yOffset][1] = rootModel->currentState;
-		}		
+		rootModel->world[xOffset][yOffset][0] = rootModel->currentState;
+		rootModel->world[xOffset][yOffset][1] = rootModel->currentState;
 	}
+}
+void ScrollView::linkCell(ofTouchEventArgs &touch)
+{
+	float cellSize = offset.z*40.0;
+	if (rootModel->currentScreen == SCREEN_LIST) {
+		touch.x-=146;
+	}
+	int xOffset = (touch.x-offset.x)/cellSize;
+	int yOffset = (touch.y-y-offset.y)/cellSize;
+	rootModel->setLink(xOffset, yOffset, rootModel->currentSynth);
 }
 void ScrollView::touchDown(ofTouchEventArgs &touch)
 {
@@ -186,9 +192,9 @@ void ScrollView::commitSet()
 void ScrollView::touchMoved(ofTouchEventArgs &touch)
 {
 	fingerCurrent[touch.id].set(touch.x, touch.y, 0);
-	if (rootModel->drawState == 0 || rootModel->currentScreen == SCREEN_LIST) {
+	if (rootModel->drawState == 0 && rootModel->currentScreen == SCREEN_SCROLL) {
 		setCell(touch);
-	}else{
+	}else if(fingerStartedInView[touch.id]){
 		fingerStart[touch.id].set(touch.x, touch.y, 0);
 		fingerDistStart = ofpLength(fingerStart[0]-fingerStart[1]);
 		fingerCenterCurrent = fingerCurrent[touch.id];
@@ -228,12 +234,19 @@ void ScrollView::touchDoubleTap(ofTouchEventArgs &touch)
 	if (rootModel->currentScreen == SCREEN_LIST) {
 		touch.x-=146;
 	}
+	printf("doubletapped\n");
 	waitingForCommit = false;
 	int xOffset = (touch.x-offset.x)/cellSize;
 	int yOffset = (touch.y-y-offset.y)/cellSize;
-	mainController->notePopControl.editTargetX = xOffset;
-	mainController->notePopControl.editTargetY = yOffset;
-	mainController->changeScreen("note_pop");
+	if (rootModel->currentScreen != SCREEN_LIST) {
+		mainController->notePopControl.editTargetX = xOffset;
+		mainController->notePopControl.editTargetY = yOffset;
+		mainController->changeScreen("note_pop");
+	}else {
+		// remove the link
+		rootModel->removeLink(xOffset, yOffset, rootModel->currentSynth);
+	}
+
 }
 void ScrollView::touchUp(ofTouchEventArgs &touch)
 {

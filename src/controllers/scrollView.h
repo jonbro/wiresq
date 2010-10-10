@@ -24,6 +24,7 @@ public:
 	bool hitTest(ofTouchEventArgs &touch);
 
 	void setCell(ofTouchEventArgs &touch);
+	void linkCell(ofTouchEventArgs &touch);
 
 	int currentTouch, numFingers;
 	bool hasTouch, waitingForCommit;

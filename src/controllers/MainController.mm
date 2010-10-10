@@ -146,22 +146,26 @@ void MainController::touchMoved(ofTouchEventArgs &touch)
 		synthEdit.touchMoved(touch);
 	}else if ((topBar.hitTest(touch) == false || rootModel->currentScreen == SCREEN_LIST) && rootModel->currentScreen != SCREEN_NOTE && !speedControl.hitTest(touch)) {
 		scroller.touchMoved(touch);
+		synthList.touchMoved(touch);
 	}
 	touch.y = startY;
 	if (rootModel->currentScreen == SCREEN_NOTE) {
 		notePopControl.touchMoved(touch);
-	}	
+	}
 }
 void MainController::touchUp(ofTouchEventArgs &touch)
 { 
 	scroller.touchUp(touch);
+	if (rootModel->currentScreen == SCREEN_LIST) {
+		synthList.touchUp(touch);
+	}
 	if (rootModel->currentScreen == SCREEN_NOTE) {
 		notePopControl.touchUp(touch);
 	}		
 }
 void MainController::touchDoubleTap(ofTouchEventArgs &touch)
 {
-	if (rootModel->currentScreen == SCREEN_SCROLL) {
+	if (rootModel->currentScreen == SCREEN_SCROLL || rootModel->currentScreen == SCREEN_LIST) {
 		scroller.touchDoubleTap(touch);
 	}
 }

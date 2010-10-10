@@ -225,8 +225,18 @@ void RootModel::setLink(int x, int y, int synth)
 	synthLinks.push_back(*link);
 	delete link;
 }
-void RootModel::removeLink(int x, int y, int synth){
-	
+void RootModel::removeLink(int x, int y, int synth)
+{
+	int i = -1;
+	for(i=0;i<synthLinks.size();i++){
+		SynthLink *link = &synthLinks[i];
+		if (link->synth == synth && link->x == x && link->y == y) {
+			break;
+		}
+	}
+	if (i>-1 && i<synthLinks.size()) {
+		synthLinks.erase(synthLinks.begin()+i);
+	}
 }
 bool RootModel::hasLink(int x, int y, int synth)
 {
