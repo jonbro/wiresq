@@ -51,6 +51,11 @@
 		5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD91431257C1C20063BF47 /* NotePopController.mm */; };
 		5EB30F461255672C00E3B866 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */; };
 		5EB30F5C1255673D00E3B866 /* ofxColorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F521255673D00E3B866 /* ofxColorBase.cpp */; };
+		5ED0C64F1266810800F2815B /* FileOpsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0C64E1266810800F2815B /* FileOpsViewController.mm */; };
+		5ED0C65F126685A800F2815B /* fileops.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ED0C65E126685A800F2815B /* fileops.xib */; };
+		5ED0C6F712668A9300F2815B /* LoadViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0C6F612668A9300F2815B /* LoadViewController.mm */; };
+		5ED0C72012668CA900F2815B /* SaveViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0C71F12668CA900F2815B /* SaveViewController.mm */; };
+		5ED0C7401266911800F2815B /* fileButtonView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0C73F1266911800F2815B /* fileButtonView.mm */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BB24DDCA10DA781C00E9C588 /* ofxiphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB24DDC910DA781C00E9C588 /* ofxiphone-Info.plist */; };
@@ -155,6 +160,15 @@
 		5EB30F551255673D00E3B866 /* ofxColorMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorMatching.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorMatching.h; sourceTree = SOURCE_ROOT; };
 		5EB30F561255673D00E3B866 /* ofxColorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorMath.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorMath.h; sourceTree = SOURCE_ROOT; };
 		5EB30F571255673D00E3B866 /* ofxColorShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorShared.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorShared.h; sourceTree = SOURCE_ROOT; };
+		5ED0C64D1266810800F2815B /* FileOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileOpsViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/FileOpsViewController.h; sourceTree = DEVELOPER_DIR; };
+		5ED0C64E1266810800F2815B /* FileOpsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FileOpsViewController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/FileOpsViewController.mm; sourceTree = DEVELOPER_DIR; };
+		5ED0C65E126685A800F2815B /* fileops.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fileops.xib; path = openFrameworks/apps/my_apps/ww_working/bin/data/fileops.xib; sourceTree = DEVELOPER_DIR; };
+		5ED0C6F512668A9300F2815B /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/LoadViewController.h; sourceTree = DEVELOPER_DIR; };
+		5ED0C6F612668A9300F2815B /* LoadViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LoadViewController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/LoadViewController.mm; sourceTree = DEVELOPER_DIR; };
+		5ED0C71E12668CA900F2815B /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/SaveViewController.h; sourceTree = DEVELOPER_DIR; };
+		5ED0C71F12668CA900F2815B /* SaveViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SaveViewController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/SaveViewController.mm; sourceTree = DEVELOPER_DIR; };
+		5ED0C73E1266911800F2815B /* fileButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fileButtonView.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/fileButtonView.h; sourceTree = DEVELOPER_DIR; };
+		5ED0C73F1266911800F2815B /* fileButtonView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = fileButtonView.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/fileButtonView.mm; sourceTree = DEVELOPER_DIR; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiphone-Info.plist"; sourceTree = "<group>"; };
@@ -357,6 +371,8 @@
 		5EAD8E08125571A80063BF47 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5ED0C73E1266911800F2815B /* fileButtonView.h */,
+				5ED0C73F1266911800F2815B /* fileButtonView.mm */,
 				5EAD8E09125571A80063BF47 /* MainController.h */,
 				5EAD8E0A125571A80063BF47 /* MainController.mm */,
 				5EAD8E0B125571A80063BF47 /* scrollView.h */,
@@ -371,6 +387,12 @@
 				5EAD8E7E125574FD0063BF47 /* speedController.mm */,
 				5EAD91421257C1C20063BF47 /* NotePopController.h */,
 				5EAD91431257C1C20063BF47 /* NotePopController.mm */,
+				5ED0C64D1266810800F2815B /* FileOpsViewController.h */,
+				5ED0C64E1266810800F2815B /* FileOpsViewController.mm */,
+				5ED0C6F512668A9300F2815B /* LoadViewController.h */,
+				5ED0C6F612668A9300F2815B /* LoadViewController.mm */,
+				5ED0C71E12668CA900F2815B /* SaveViewController.h */,
+				5ED0C71F12668CA900F2815B /* SaveViewController.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -505,6 +527,7 @@
 				5EAD8E9A1255790A0063BF47 /* Icon.png */,
 				5EAD8EB71255790A0063BF47 /* test.data */,
 				5EAD8EB81255790A0063BF47 /* transparency.png */,
+				5ED0C65E126685A800F2815B /* fileops.xib */,
 			);
 			name = data;
 			path = bin/data;
@@ -819,6 +842,7 @@
 				5EAD8ED81255790A0063BF47 /* transparency.png in Resources */,
 				5EAD8EF5125579160063BF47 /* images in Resources */,
 				5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */,
+				5ED0C65F126685A800F2815B /* fileops.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +891,10 @@
 				5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */,
 				5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */,
 				5E30B78D125D524100B68658 /* synthLink.mm in Sources */,
+				5ED0C64F1266810800F2815B /* FileOpsViewController.mm in Sources */,
+				5ED0C6F712668A9300F2815B /* LoadViewController.mm in Sources */,
+				5ED0C72012668CA900F2815B /* SaveViewController.mm in Sources */,
+				5ED0C7401266911800F2815B /* fileButtonView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,7 +983,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "12127181-2327-4CDA-854D-D2444B8CBEEC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "478E59FB-8E04-4395-92AC-54D562C91479";
 				SDKROOT = iphoneos4.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_LDFLAGS = "";
@@ -1000,7 +1028,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "12127181-2327-4CDA-854D-D2444B8CBEEC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "478E59FB-8E04-4395-92AC-54D562C91479";
 				SDKROOT = iphoneos4.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1044,7 +1072,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "12127181-2327-4CDA-854D-D2444B8CBEEC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "478E59FB-8E04-4395-92AC-54D562C91479";
 				SDKROOT = iphoneos4.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

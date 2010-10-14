@@ -45,6 +45,9 @@ void MainController::setup()
 	notePopControl.rootModel = rootModel;
 	notePopControl.mainController = this;
 	lastTouch = 0;
+
+	toFileOps.setPosAndSize(280, 440, 40, 40);
+	fileOpsView = [[FileOpsViewController alloc]init];
 }
 void MainController::draw(ofEventArgs &e)
 {
@@ -76,6 +79,7 @@ void MainController::draw(ofEventArgs &e)
 		synthList.draw();		
 		ofPopMatrix();
 	}
+	toFileOps.draw();
 	ofPopMatrix();
 	if (rootModel->currentScreen == SCREEN_SPEED) {
 		ofPushMatrix();
@@ -104,6 +108,10 @@ void MainController::touchDown(ofTouchEventArgs &touch)
 	doubleOnScroller = false;
 	if (rootModel->currentScreen == SCREEN_SPEED) {
 		touch.y -= synthListOffset.y;
+	}
+	if (toFileOps.hitTest(touch)) {
+		ofSetFrameRate(0);
+		[ofxiPhoneGetUIWindow() addSubview:fileOpsView.view];
 	}
 	if (rootModel->currentScreen == SCREEN_EDIT) {
 		synthEdit.touchDown(touch);
