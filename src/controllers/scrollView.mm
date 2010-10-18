@@ -93,12 +93,14 @@ void ScrollView::draw(){
 			ofSetColor(rootModel->synthData[theIterator->synth].color.red*255.0, rootModel->synthData[theIterator->synth].color.green*255.0, rootModel->synthData[theIterator->synth].color.blue*255.0, alpha*255.0);
 			//ofSetColor(255, 255, 255, alpha*255.0);
 			triggerDisplay.draw(theIterator->x*cellSize+cellSize/2.0, theIterator->y*cellSize+cellSize/2.0, size, size);
-		}else {
-			triggersToDisplay.erase(theIterator);
-			--theIterator;
 		}
-		
 	}
+	for (int i=triggersToDisplay.size(); i<0; i--) {
+		if (ofGetElapsedTimeMillis() - theIterator->triggerTime > 2000) {
+			triggersToDisplay.erase(triggersToDisplay.begin() + i);
+		}
+	}
+	
 	
 	ofPopMatrix();
 }

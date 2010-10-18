@@ -8,6 +8,7 @@ void MixerController::setup()
 	for (int i=0; i<8; i++) {
 		synths[i].setup();
 	}
+	mixBuffer=(float *)malloc(512*2*sizeof(float));
 	calculateRate();
 }
 void MixerController::calculateRate()
@@ -28,8 +29,7 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 				if (rootModel->world[(int)link->x][(int)link->y][0] == 2 && rootModel->running) {
 					currentSynth = (currentSynth+1)%8;
 					link->triggerTime = ofGetElapsedTimeMillis();
-					//rootModel->synthLinks[j].synth = j;
-					if (mainController->scroller.triggersToDisplay.size() < 20) {
+					if (mainController->scroller.triggersToDisplay.size() < 10) {
 						mainController->scroller.triggersToDisplay.push_front(*link);
 					}
 					// copy over the synth data
@@ -43,25 +43,13 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 					synths[currentSynth].triggerSynth(0, pitch);					
 				}
 			}			
-			for (int j=0; j<8; j++) {
-					
-			}
 		}
 		frameCounter++;
 	}
-	float *mixBuffer = 0;
 	for (int j=0; j<8; j++) {
-		if (!mixBuffer) {
-			mixBuffer=(float *)malloc(bufferSize*2*sizeof(float));
-		}
 		synths[j].audioRequested(mixBuffer, bufferSize, nChannels);
 		for(int i = 0; i < bufferSize*nChannels; i++) {
 			output[i] += mixBuffer[i]*0.125;
-			if (!mixBuffer) {
-				mixBuffer=(float *)malloc(bufferSize*2*sizeof(float));
-			}
-			audioOff = fmax(fabs(output[i]), audioOff);
 		}	
 	}
-	free(mixBuffer);	
 }

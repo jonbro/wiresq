@@ -19,4 +19,5 @@ public:
 	int frameCounter;
 	int beatLength;
 	float audioOff, audioOffInterp;	
+	float *mixBuffer;
 };

@@ -21,17 +21,14 @@ void testApp::setup(){
 	mainController.mixer = &mixer;
 	mainController.setup();	
 	
-	ofSoundStreamSetup(2,0,this,44100,256, 4);
+	ofSoundStreamSetup(2,0,this,44100, 512, 4);
 	//saveLoad.setPosAndSize(320-40, 480-40, 40, 40);
 	rootModel.load();
 
 }
 
 void testApp::audioRequested(float * output, int bufferSize, int nChannels) {
-	for(int i = 0; i < bufferSize; i++) {
-		output[i*2] = 0;
-		output[i*2+1] = 0;
-	}
+	memset(output, 0, sizeof(float)*bufferSize*nChannels);
 	mixer.audioRequested(output, bufferSize, nChannels);
 }
 
