@@ -48,8 +48,8 @@
 
 RootModel::RootModel(){
 	
-	bpm = 120.0;
-	clockMult = 2;
+	bpm = 80.0;
+	clockMult = 1;
 	
 	currentState = 0;
 	drawState = 0;

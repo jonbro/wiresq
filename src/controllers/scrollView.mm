@@ -167,6 +167,9 @@ void ScrollView::linkCell(ofTouchEventArgs &touch)
 }
 void ScrollView::touchDown(ofTouchEventArgs &touch)
 {
+	if (rootModel->currentScreen == SCREEN_SPEED) {
+		mainController->changeScreen("scroller");
+	}
 	if (rootModel->drawState == 0 || rootModel->currentScreen == SCREEN_LIST) {
 		if (rootModel->linkingSynths) {
 			lastChanged.set(touch.x, touch.y, rootModel->currentSynth);
