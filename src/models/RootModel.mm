@@ -115,6 +115,8 @@ void RootModel::save(){
 	for (int i=0; i<synthLinks.size(); i++) {
 		NSArray *linkObject = [NSArray arrayWithObjects:[NSNumber numberWithInt:(int)synthLinks[i].x], [NSNumber numberWithInt:(int)synthLinks[i].y], [NSNumber numberWithInt:(int)synthLinks[i].synth], nil];
 		[objcRootModel.links addObject:linkObject];
+		printf("saving link\n");
+
 	}
 	
 	// synth data
@@ -146,9 +148,10 @@ void RootModel::load(){
 					notes[x][y] = [[objcRootModel.notes objectAtIndex:y*NUMCELLSX+x] intValue];
 				}
 			}
-			for (int i=0; i<synthLinks.size(); i++) {
+			for (int i=0; i<[objcRootModel.links count]; i++) {
 				NSArray *linkObject = [objcRootModel.links objectAtIndex:i];
 				setLink([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue], [[linkObject objectAtIndex:2] intValue]);
+				printf("setting link\n");
 			}
 			
 			for (int i=0; i<8; i++) {

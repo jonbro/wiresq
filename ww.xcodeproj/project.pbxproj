@@ -51,6 +51,7 @@
 		5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD91431257C1C20063BF47 /* NotePopController.mm */; };
 		5EB30F461255672C00E3B866 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */; };
 		5EB30F5C1255673D00E3B866 /* ofxColorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F521255673D00E3B866 /* ofxColorBase.cpp */; };
+		5ECD80C8126E1D7900AF36EC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECD80C7126E1D7900AF36EC /* Icon@2x.png */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BB24DDCA10DA781C00E9C588 /* ofxiphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB24DDC910DA781C00E9C588 /* ofxiphone-Info.plist */; };
@@ -155,6 +156,7 @@
 		5EB30F551255673D00E3B866 /* ofxColorMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorMatching.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorMatching.h; sourceTree = SOURCE_ROOT; };
 		5EB30F561255673D00E3B866 /* ofxColorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorMath.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorMath.h; sourceTree = SOURCE_ROOT; };
 		5EB30F571255673D00E3B866 /* ofxColorShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxColorShared.h; path = ../../../addons/kyleLibs/ofxColor/src/ofxColorShared.h; sourceTree = SOURCE_ROOT; };
+		5ECD80C7126E1D7900AF36EC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "openFrameworks/apps/my_apps/ww_working/bin/data/Icon@2x.png"; sourceTree = DEVELOPER_DIR; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiphone-Info.plist"; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				5EAD8ED9125579160063BF47 /* images */,
 				5EAD8E981255790A0063BF47 /* Default.png */,
 				5EAD8E9A1255790A0063BF47 /* Icon.png */,
+				5ECD80C7126E1D7900AF36EC /* Icon@2x.png */,
 				5EAD8EB71255790A0063BF47 /* test.data */,
 				5EAD8EB81255790A0063BF47 /* transparency.png */,
 			);
@@ -819,6 +822,7 @@
 				5EAD8ED81255790A0063BF47 /* transparency.png in Resources */,
 				5EAD8EF5125579160063BF47 /* images in Resources */,
 				5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */,
+				5ECD80C8126E1D7900AF36EC /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

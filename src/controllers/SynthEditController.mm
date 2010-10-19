@@ -45,6 +45,9 @@ void SynthEditController::setup()
 	
 	float offset = 65;
 	for (int i=0; i<8; i++) {
+		if (i==1 || i==4) {
+			offset+=24;
+		}
 		slideControl[i].setup();
 		slideControl[i].setPosAndSize(65, (slideBg.getHeight()+10)*i+offset, slideBg.getWidth(), slideBg.getHeight());
 		slideControl[i].horizontal = true;
@@ -114,6 +117,11 @@ void SynthEditController::draw()
 	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 41);
 	ofSetColor(synth->color.red*255.0, synth->color.green*255.0, synth->color.blue*255.0);
 	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 40);
+	// draw the synth descriptors
+	ofSetColor(0xFFFFFF);
+	interstate.drawString("AMP ENVELOPE", 65, 131);
+	interstate.drawString("FILTER", 65, 299);
+
 }
 void SynthEditController::touchDown(ofTouchEventArgs &touch){
 	if (exitButton.hitTest(touch)) {
