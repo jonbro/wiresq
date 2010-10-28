@@ -20,35 +20,15 @@
 			margin-left: 25px;
 			margin-right: auto;
 			float: left;
-			width: 230px;
+			width: 400px;
 		}	
 		#flashcontent p { color:white; padding:5px;}
 		#content{
-			margin-left: 300px;
+			margin-left: 520px;
 			width: 400px;
 		}
 		</style>
 		
-	<script type="text/javascript" src="com/js/swfobject/swfobject.js"></script>		
-	<script type="text/javascript">
-		var flashvars = {};
-		var params = {};
-		
-		params.bgcolor = "#000000";
-		params.allowscriptaccess = "always";
-		
-		flashvars.videoPath = "movie.f4v";
-		flashvars.posterPath = "com/poster/myPosterFrame.jpg";
-		flashvars.skinPath = "com/skin/skin.swf";
-		
-		var stageW = 230;
-		var stageH = 400;
-		
-		var attributes = {};
-		attributes.id = "flashcontent";			
-		
-		swfobject.embedSWF("player.swf", "flashcontent", stageW, stageH, "9.0.0", false, flashvars, params, attributes);
-	</script>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -79,15 +59,20 @@
 		</div>
 	</div>
 	<div class='clear'></div>
-	<iframe title="YouTube video player" class="youtube-player" type="text/html" width="700" height="500" src="http://www.youtube.com/embed/1hoa0dUYm9c?hd=1" frameborder="0"></iframe>
+	<div id="flashcontent">
+		<br>
+		<iframe title="YouTube video player" class="youtube-player" type="text/html" width="460" height="300" src="http://www.youtube.com/embed/1hoa0dUYm9c?hd=1" frameborder="0"></iframe>
+	</div>
 	<div id="content">
 		<h2>A turing complete sequencer.</h2>
 		<p>Wiresq is based on <a href="http://en.wikipedia.org/wiki/Wireworld" title="Wireworld - Wikipedia, the free encyclopedia" target='_blank'>Wireworld</a>, a cellular automata which can exhibit the features of digital logic circuits easily and compactly. Compared with the game of life, drawing a memory circuit is quite easy.</p>
 		<p>You can construct systems within wiresq that display complex but repeatable behaivor, and experiment with circuit design.</p>
 		<h2>A simple synthesizer.</h2>
 		<p>A three waveform subtractive synthesizer with an agressive filter. Enough to sketch out your ideas, not too much to get bogged down in.</p>
-		<h2>Coming soon.</h2>
-		<p>Expected to launch by the end of october for your iOS device. Follow the progress at the <a href='http://jonbro.tk'>dev blog</a>.</p>
+		<h2>Out Now.</h2>
+		<p>Please proceed to <a href='http://itunes.apple.com/us/app/wiresq/id399289681?mt=8'>the app store to purchase</a>. Or if graphics are more your style:<br><br>
+			<a href='http://itunes.apple.com/us/app/wiresq/id399289681?mt=8'><img src="img/app_store_link.jpg" width="200" height="65" alt="App Store Link"></a>
+			</p>
 	</div>
 </body>
 </html>
