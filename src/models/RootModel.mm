@@ -153,9 +153,9 @@ void RootModel::load(){
 				setLink([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue], [[linkObject objectAtIndex:2] intValue]);
 				printf("setting link\n");
 			}
-			
+			int offset = [objcRootModel.synths count]-8;
 			for (int i=0; i<8; i++) {
-				synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i];
+				synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i+offset];
 				synthData[i].objCmodel = synthObject;
 				synthData[i].load();
 			}
