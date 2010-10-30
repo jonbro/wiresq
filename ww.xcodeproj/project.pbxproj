@@ -23,14 +23,20 @@
 		5E2568A710ED26CD00A9501C /* PocoUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688310ED26CC00A9501C /* PocoUtil.a */; };
 		5E2568A810ED26CD00A9501C /* PocoXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688410ED26CC00A9501C /* PocoXML.a */; };
 		5E30B78D125D524100B68658 /* synthLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30B78C125D524100B68658 /* synthLink.mm */; };
+		5E5ECA50127C872E00DC5B9A /* fileButtonView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA3B127C872E00DC5B9A /* fileButtonView.mm */; };
+		5E5ECA51127C872E00DC5B9A /* FileOpsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */; };
+		5E5ECA52127C872E00DC5B9A /* LoadViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */; };
+		5E5ECA53127C872E00DC5B9A /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA41127C872E00DC5B9A /* MainController.mm */; };
+		5E5ECA54127C872E00DC5B9A /* NotePopController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA43127C872E00DC5B9A /* NotePopController.mm */; };
+		5E5ECA55127C872E00DC5B9A /* SaveViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */; };
+		5E5ECA56127C872E00DC5B9A /* scrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA47127C872E00DC5B9A /* scrollView.mm */; };
+		5E5ECA57127C872E00DC5B9A /* speedController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA49127C872E00DC5B9A /* speedController.mm */; };
+		5E5ECA58127C872E00DC5B9A /* SynthEditController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA4B127C872E00DC5B9A /* SynthEditController.mm */; };
+		5E5ECA59127C872E00DC5B9A /* SynthListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA4D127C872E00DC5B9A /* SynthListController.mm */; };
+		5E5ECA5A127C872E00DC5B9A /* TopBarController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA4F127C872E00DC5B9A /* TopBarController.mm */; };
 		5EAD8E27125571A80063BF47 /* MixerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E03125571A80063BF47 /* MixerController.mm */; };
 		5EAD8E28125571A80063BF47 /* MoogFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E05125571A80063BF47 /* MoogFilter.mm */; };
 		5EAD8E29125571A80063BF47 /* synthUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E06125571A80063BF47 /* synthUnit.cpp */; };
-		5EAD8E2A125571A80063BF47 /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E0A125571A80063BF47 /* MainController.mm */; };
-		5EAD8E2B125571A80063BF47 /* scrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E0C125571A80063BF47 /* scrollView.mm */; };
-		5EAD8E2C125571A80063BF47 /* SynthEditController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E0E125571A80063BF47 /* SynthEditController.mm */; };
-		5EAD8E2D125571A80063BF47 /* SynthListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E10125571A80063BF47 /* SynthListController.mm */; };
-		5EAD8E2E125571A80063BF47 /* TopBarController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E12125571A80063BF47 /* TopBarController.mm */; };
 		5EAD8E2F125571A80063BF47 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E15125571A80063BF47 /* Button.cpp */; };
 		5EAD8E30125571A80063BF47 /* CircleButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E17125571A80063BF47 /* CircleButton.cpp */; };
 		5EAD8E31125571A80063BF47 /* MultiButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E19125571A80063BF47 /* MultiButton.cpp */; };
@@ -40,7 +46,6 @@
 		5EAD8E35125571A80063BF47 /* RootModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E22125571A80063BF47 /* RootModel.mm */; };
 		5EAD8E36125571A80063BF47 /* SynthModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E24125571A80063BF47 /* SynthModel.mm */; };
 		5EAD8E37125571A80063BF47 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E26125571A80063BF47 /* testApp.mm */; };
-		5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD8E7E125574FD0063BF47 /* speedController.mm */; };
 		5EAD8EB91255790A0063BF47 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8E981255790A0063BF47 /* Default.png */; };
 		5EAD8EBB1255790A0063BF47 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8E9A1255790A0063BF47 /* Icon.png */; };
 		5EAD8ED71255790A0063BF47 /* test.data in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8EB71255790A0063BF47 /* test.data */; };
@@ -48,7 +53,6 @@
 		5EAD8EF5125579160063BF47 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD8ED9125579160063BF47 /* images */; };
 		5EAD8FA012557DBB0063BF47 /* freetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAD8F9F12557DBB0063BF47 /* freetype.a */; };
 		5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD90F7125793320063BF47 /* OpenDin.ttf */; };
-		5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD91431257C1C20063BF47 /* NotePopController.mm */; };
 		5EB30F461255672C00E3B866 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */; };
 		5EB30F5C1255673D00E3B866 /* ofxColorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EB30F521255673D00E3B866 /* ofxColorBase.cpp */; };
 		5ECD80C8126E1D7900AF36EC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECD80C7126E1D7900AF36EC /* Icon@2x.png */; };
@@ -101,22 +105,34 @@
 		5E25688410ED26CC00A9501C /* PocoXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoXML.a; path = ../../../libs/poco/lib/osx/PocoXML.a; sourceTree = SOURCE_ROOT; };
 		5E30B78B125D524100B68658 /* synthLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = synthLink.h; path = openFrameworks/apps/my_apps/ww_working/src/models/synthLink.h; sourceTree = DEVELOPER_DIR; };
 		5E30B78C125D524100B68658 /* synthLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = synthLink.mm; path = openFrameworks/apps/my_apps/ww_working/src/models/synthLink.mm; sourceTree = DEVELOPER_DIR; };
+		5E5ECA3A127C872E00DC5B9A /* fileButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fileButtonView.h; path = src/controllers/fileButtonView.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA3B127C872E00DC5B9A /* fileButtonView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = fileButtonView.mm; path = src/controllers/fileButtonView.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA3C127C872E00DC5B9A /* FileOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileOpsViewController.h; path = src/controllers/FileOpsViewController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FileOpsViewController.mm; path = src/controllers/FileOpsViewController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadViewController.h; path = src/controllers/LoadViewController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LoadViewController.mm; path = src/controllers/LoadViewController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA40127C872E00DC5B9A /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = src/controllers/MainController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA41127C872E00DC5B9A /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MainController.mm; path = src/controllers/MainController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA42127C872E00DC5B9A /* NotePopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotePopController.h; path = src/controllers/NotePopController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA43127C872E00DC5B9A /* NotePopController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotePopController.mm; path = src/controllers/NotePopController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA44127C872E00DC5B9A /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = src/controllers/SaveViewController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SaveViewController.mm; path = src/controllers/SaveViewController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA46127C872E00DC5B9A /* scrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scrollView.h; path = src/controllers/scrollView.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA47127C872E00DC5B9A /* scrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = scrollView.mm; path = src/controllers/scrollView.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA48127C872E00DC5B9A /* speedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speedController.h; path = src/controllers/speedController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA49127C872E00DC5B9A /* speedController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = speedController.mm; path = src/controllers/speedController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA4A127C872E00DC5B9A /* SynthEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthEditController.h; path = src/controllers/SynthEditController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA4B127C872E00DC5B9A /* SynthEditController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthEditController.mm; path = src/controllers/SynthEditController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA4C127C872E00DC5B9A /* SynthListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthListController.h; path = src/controllers/SynthListController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA4D127C872E00DC5B9A /* SynthListController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthListController.mm; path = src/controllers/SynthListController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA4E127C872E00DC5B9A /* TopBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopBarController.h; path = src/controllers/TopBarController.h; sourceTree = SOURCE_ROOT; };
+		5E5ECA4F127C872E00DC5B9A /* TopBarController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TopBarController.mm; path = src/controllers/TopBarController.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E02125571A80063BF47 /* MixerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixerController.h; path = src/audioSystem/MixerController.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E03125571A80063BF47 /* MixerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MixerController.mm; path = src/audioSystem/MixerController.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E04125571A80063BF47 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = src/audioSystem/MoogFilter.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E05125571A80063BF47 /* MoogFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoogFilter.mm; path = src/audioSystem/MoogFilter.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E06125571A80063BF47 /* synthUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = synthUnit.cpp; path = src/audioSystem/synthUnit.cpp; sourceTree = SOURCE_ROOT; };
 		5EAD8E07125571A80063BF47 /* synthUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = synthUnit.h; path = src/audioSystem/synthUnit.h; sourceTree = SOURCE_ROOT; };
-		5EAD8E09125571A80063BF47 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = src/controllers/MainController.h; sourceTree = SOURCE_ROOT; };
-		5EAD8E0A125571A80063BF47 /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MainController.mm; path = src/controllers/MainController.mm; sourceTree = SOURCE_ROOT; };
-		5EAD8E0B125571A80063BF47 /* scrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scrollView.h; path = src/controllers/scrollView.h; sourceTree = SOURCE_ROOT; };
-		5EAD8E0C125571A80063BF47 /* scrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = scrollView.mm; path = src/controllers/scrollView.mm; sourceTree = SOURCE_ROOT; };
-		5EAD8E0D125571A80063BF47 /* SynthEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthEditController.h; path = src/controllers/SynthEditController.h; sourceTree = SOURCE_ROOT; };
-		5EAD8E0E125571A80063BF47 /* SynthEditController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthEditController.mm; path = src/controllers/SynthEditController.mm; sourceTree = SOURCE_ROOT; };
-		5EAD8E0F125571A80063BF47 /* SynthListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthListController.h; path = src/controllers/SynthListController.h; sourceTree = SOURCE_ROOT; };
-		5EAD8E10125571A80063BF47 /* SynthListController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthListController.mm; path = src/controllers/SynthListController.mm; sourceTree = SOURCE_ROOT; };
-		5EAD8E11125571A80063BF47 /* TopBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopBarController.h; path = src/controllers/TopBarController.h; sourceTree = SOURCE_ROOT; };
-		5EAD8E12125571A80063BF47 /* TopBarController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TopBarController.mm; path = src/controllers/TopBarController.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E13125571A80063BF47 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = src/defines.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E15125571A80063BF47 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Button.cpp; path = src/interface/Button.cpp; sourceTree = SOURCE_ROOT; };
 		5EAD8E16125571A80063BF47 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Button.h; path = src/interface/Button.h; sourceTree = SOURCE_ROOT; };
@@ -135,8 +151,6 @@
 		5EAD8E24125571A80063BF47 /* SynthModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SynthModel.mm; path = src/models/SynthModel.mm; sourceTree = SOURCE_ROOT; };
 		5EAD8E25125571A80063BF47 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		5EAD8E26125571A80063BF47 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
-		5EAD8E7D125574FD0063BF47 /* speedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speedController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/speedController.h; sourceTree = DEVELOPER_DIR; };
-		5EAD8E7E125574FD0063BF47 /* speedController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = speedController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/speedController.mm; sourceTree = DEVELOPER_DIR; };
 		5EAD8E981255790A0063BF47 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = SOURCE_ROOT; };
 		5EAD8E9A1255790A0063BF47 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = SOURCE_ROOT; };
 		5EAD8EB71255790A0063BF47 /* test.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.data; path = bin/data/test.data; sourceTree = SOURCE_ROOT; };
@@ -144,8 +158,6 @@
 		5EAD8ED9125579160063BF47 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = bin/data/images; sourceTree = SOURCE_ROOT; };
 		5EAD8F9F12557DBB0063BF47 /* freetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = freetype.a; path = ../../../libs/freetype/lib/osx/freetype.a; sourceTree = SOURCE_ROOT; };
 		5EAD90F7125793320063BF47 /* OpenDin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenDin.ttf; path = bin/data/OpenDin.ttf; sourceTree = SOURCE_ROOT; };
-		5EAD91421257C1C20063BF47 /* NotePopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotePopController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/NotePopController.h; sourceTree = DEVELOPER_DIR; };
-		5EAD91431257C1C20063BF47 /* NotePopController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotePopController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/NotePopController.mm; sourceTree = DEVELOPER_DIR; };
 		5EAD91E91257CC790063BF47 /* MSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAShape3D.h; path = ../../../addons/msalibs/MSAShape3D/src/MSAShape3D.h; sourceTree = SOURCE_ROOT; };
 		5EB30F3F1255672C00E3B866 /* ofxMSAInteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxMSAInteractiveObject.cpp; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.cpp; sourceTree = SOURCE_ROOT; };
 		5EB30F401255672C00E3B866 /* ofxMSAInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAInteractiveObject.h; path = ../../../addons/msalibs/ofxMSAInteractiveObject/src/ofxMSAInteractiveObject.h; sourceTree = SOURCE_ROOT; };
@@ -342,6 +354,36 @@
 			path = ../../../libs/poco/lib/osx;
 			sourceTree = SOURCE_ROOT;
 		};
+		5E5ECA39127C872E00DC5B9A /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E5ECA3A127C872E00DC5B9A /* fileButtonView.h */,
+				5E5ECA3B127C872E00DC5B9A /* fileButtonView.mm */,
+				5E5ECA3C127C872E00DC5B9A /* FileOpsViewController.h */,
+				5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */,
+				5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */,
+				5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */,
+				5E5ECA40127C872E00DC5B9A /* MainController.h */,
+				5E5ECA41127C872E00DC5B9A /* MainController.mm */,
+				5E5ECA42127C872E00DC5B9A /* NotePopController.h */,
+				5E5ECA43127C872E00DC5B9A /* NotePopController.mm */,
+				5E5ECA44127C872E00DC5B9A /* SaveViewController.h */,
+				5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */,
+				5E5ECA46127C872E00DC5B9A /* scrollView.h */,
+				5E5ECA47127C872E00DC5B9A /* scrollView.mm */,
+				5E5ECA48127C872E00DC5B9A /* speedController.h */,
+				5E5ECA49127C872E00DC5B9A /* speedController.mm */,
+				5E5ECA4A127C872E00DC5B9A /* SynthEditController.h */,
+				5E5ECA4B127C872E00DC5B9A /* SynthEditController.mm */,
+				5E5ECA4C127C872E00DC5B9A /* SynthListController.h */,
+				5E5ECA4D127C872E00DC5B9A /* SynthListController.mm */,
+				5E5ECA4E127C872E00DC5B9A /* TopBarController.h */,
+				5E5ECA4F127C872E00DC5B9A /* TopBarController.mm */,
+			);
+			name = controllers;
+			path = src/controllers;
+			sourceTree = SOURCE_ROOT;
+		};
 		5EAD8E01125571A80063BF47 /* audioSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,28 +396,6 @@
 			);
 			name = audioSystem;
 			path = src/audioSystem;
-			sourceTree = SOURCE_ROOT;
-		};
-		5EAD8E08125571A80063BF47 /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				5EAD8E09125571A80063BF47 /* MainController.h */,
-				5EAD8E0A125571A80063BF47 /* MainController.mm */,
-				5EAD8E0B125571A80063BF47 /* scrollView.h */,
-				5EAD8E0C125571A80063BF47 /* scrollView.mm */,
-				5EAD8E0D125571A80063BF47 /* SynthEditController.h */,
-				5EAD8E0E125571A80063BF47 /* SynthEditController.mm */,
-				5EAD8E0F125571A80063BF47 /* SynthListController.h */,
-				5EAD8E10125571A80063BF47 /* SynthListController.mm */,
-				5EAD8E11125571A80063BF47 /* TopBarController.h */,
-				5EAD8E12125571A80063BF47 /* TopBarController.mm */,
-				5EAD8E7D125574FD0063BF47 /* speedController.h */,
-				5EAD8E7E125574FD0063BF47 /* speedController.mm */,
-				5EAD91421257C1C20063BF47 /* NotePopController.h */,
-				5EAD91431257C1C20063BF47 /* NotePopController.mm */,
-			);
-			name = controllers;
-			path = src/controllers;
 			sourceTree = SOURCE_ROOT;
 		};
 		5EAD8E14125571A80063BF47 /* interface */ = {
@@ -736,8 +756,8 @@
 		E4D8936A11527B74007E1F53 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5E5ECA39127C872E00DC5B9A /* controllers */,
 				5EAD8E01125571A80063BF47 /* audioSystem */,
-				5EAD8E08125571A80063BF47 /* controllers */,
 				5EAD8E14125571A80063BF47 /* interface */,
 				5EAD8E20125571A80063BF47 /* models */,
 				5EAD8E1F125571A80063BF47 /* main.mm */,
@@ -854,11 +874,6 @@
 				5EAD8E27125571A80063BF47 /* MixerController.mm in Sources */,
 				5EAD8E28125571A80063BF47 /* MoogFilter.mm in Sources */,
 				5EAD8E29125571A80063BF47 /* synthUnit.cpp in Sources */,
-				5EAD8E2A125571A80063BF47 /* MainController.mm in Sources */,
-				5EAD8E2B125571A80063BF47 /* scrollView.mm in Sources */,
-				5EAD8E2C125571A80063BF47 /* SynthEditController.mm in Sources */,
-				5EAD8E2D125571A80063BF47 /* SynthListController.mm in Sources */,
-				5EAD8E2E125571A80063BF47 /* TopBarController.mm in Sources */,
 				5EAD8E2F125571A80063BF47 /* Button.cpp in Sources */,
 				5EAD8E30125571A80063BF47 /* CircleButton.cpp in Sources */,
 				5EAD8E31125571A80063BF47 /* MultiButton.cpp in Sources */,
@@ -868,9 +883,18 @@
 				5EAD8E35125571A80063BF47 /* RootModel.mm in Sources */,
 				5EAD8E36125571A80063BF47 /* SynthModel.mm in Sources */,
 				5EAD8E37125571A80063BF47 /* testApp.mm in Sources */,
-				5EAD8E7F125574FD0063BF47 /* speedController.mm in Sources */,
-				5EAD91441257C1C20063BF47 /* NotePopController.mm in Sources */,
 				5E30B78D125D524100B68658 /* synthLink.mm in Sources */,
+				5E5ECA50127C872E00DC5B9A /* fileButtonView.mm in Sources */,
+				5E5ECA51127C872E00DC5B9A /* FileOpsViewController.mm in Sources */,
+				5E5ECA52127C872E00DC5B9A /* LoadViewController.mm in Sources */,
+				5E5ECA53127C872E00DC5B9A /* MainController.mm in Sources */,
+				5E5ECA54127C872E00DC5B9A /* NotePopController.mm in Sources */,
+				5E5ECA55127C872E00DC5B9A /* SaveViewController.mm in Sources */,
+				5E5ECA56127C872E00DC5B9A /* scrollView.mm in Sources */,
+				5E5ECA57127C872E00DC5B9A /* speedController.mm in Sources */,
+				5E5ECA58127C872E00DC5B9A /* SynthEditController.mm in Sources */,
+				5E5ECA59127C872E00DC5B9A /* SynthListController.mm in Sources */,
+				5E5ECA5A127C872E00DC5B9A /* TopBarController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

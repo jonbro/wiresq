@@ -1,14 +1,20 @@
 #pragma once
 
+#import <UIKit/UIKit.h>
+
 #import "ofMain.h"
 #include "scrollView.h"
 #include "TopBarController.h"
 #include "RootModel.h"
+#include "Button.h"
 #include "SynthListController.h"
 #include "SynthEditController.h"
 #include "defines.h"
 #include "speedController.h"
 #include "NotePopController.h"
+#include "FileOpsViewController.h"
+#include "ofxiPhoneExtras.h"
+
 
 class MixerController;
 
@@ -28,7 +34,7 @@ public:
 	int lastTouch, lastTouchTime;
 	bool doubleOnScroller;
 	RootModel *rootModel;
-
+	Button toFileOps;
 	ScrollView scroller;
 	TopBarController topBar;
 	SynthListController synthList;
@@ -36,4 +42,5 @@ public:
 	NotePopController notePopControl;
 	MixerController *mixer;
 	SpeedController speedControl;
+	FileOpsViewController *fileOpsView;
 };
