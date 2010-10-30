@@ -39,6 +39,7 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 					synths[currentSynth].filterLeft.setCutoff(rootModel->synthData[link->synth].Cutoff);
 					synths[currentSynth].inTime = 10000.0 * rootModel->synthData[link->synth].Attack;
 					synths[currentSynth].holdTime = 22500.0 * rootModel->synthData[link->synth].Hold;
+					synths[currentSynth].volume = rootModel->synthData[link->synth].Volume;
 					synths[currentSynth].outTime = 88200.0 * sin(rootModel->synthData[link->synth].Decay*PI/2.0);
 					synths[currentSynth].triggerSynth(0, pitch);					
 				}

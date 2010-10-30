@@ -36,7 +36,7 @@ void SynthUnit::audioRequested( float * output, int bufferSize, int nChannels )
 			if(offset<inTime)
 				volumeModifier = ((float)offset)/inTime+0.01;
 			if (offset>inTime&&offset<inTime+holdTime) {
-				volumeModifier = volume;
+				volumeModifier = 1.0;
 			}
 			if(offset>inTime+holdTime)
 				volumeModifier = 1.0-((float)offset-inTime-holdTime)/outTime;
@@ -52,7 +52,7 @@ void SynthUnit::audioRequested( float * output, int bufferSize, int nChannels )
 					break;
 			}
 			filterLeft.processSample(&output[j*2]);
-			output[j*2] *= volumeModifier;
+			output[j*2] *= volumeModifier*volume;
 			output[j*2+1] = output[j*2];
 			offset++;
 		}else {
