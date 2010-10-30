@@ -91,7 +91,6 @@ void SynthListController::touchDown(ofTouchEventArgs &touch)
 	}
 	if (second) {
 		synthSelect[rootModel->currentSynth].width /= 2;
-		printf("selecting synth num:%i\n", rootModel->currentSynth);
 		if (synthSelect[rootModel->currentSynth].hitTest(touch)) {
 			mainController->changeScreen("synth_edit");
 			fingerStartedInView[touch.id] = false;

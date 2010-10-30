@@ -95,7 +95,9 @@ void MainController::update(ofEventArgs &e)
 	synthListOffset.x = ofLerp(synthListOffset.x, synthListOffsetTarget.x, 0.2);
 	synthListOffset.y = ofLerp(synthListOffset.y, synthListOffsetTarget.y, 0.2);
 	synthList.update();
-	synthEdit.update();
+	if (rootModel->currentScreen == SCREEN_EDIT) {
+		synthEdit.update();
+	}
 	speedControl.update();
 }
 void MainController::touchDown(ofTouchEventArgs &touch)
@@ -180,6 +182,7 @@ void MainController::changeScreen(string screen){
 		synthListOffsetTarget.set(-146, 0, 0);
 	}else if (screen == "synth_edit") {
 		rootModel->currentScreen = SCREEN_EDIT;
+		printf("setting edit page to synth num: %i\n", rootModel->currentSynth);
 		synthEdit.synth = &rootModel->synthData[rootModel->currentSynth];
 		synthEdit.setSliders();
 		synthEdit.EnableSliders();

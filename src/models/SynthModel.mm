@@ -73,4 +73,6 @@ void SynthModel::load()
 	Cutoff = [objCmodel.Cutoff floatValue];
 	Res = [objCmodel.Res floatValue];
 	Volume = [objCmodel.Volume floatValue];
+	printf("loading sid: %i\n", sid);
+	printf("wav type: %i\n", wavType);
 }

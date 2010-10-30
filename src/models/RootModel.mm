@@ -154,9 +154,11 @@ void RootModel::load(){
 				printf("setting link\n");
 			}
 			int offset = [objcRootModel.synths count]-8;
+			printf("loading synths offset %i \n", offset);
 			for (int i=0; i<8; i++) {
 				synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i+offset];
 				synthData[i].objCmodel = synthObject;
+				NSLog(@"synth object: %@", synthObject.wavType);
 				synthData[i].load();
 			}
 		}else {
