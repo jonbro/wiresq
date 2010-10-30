@@ -171,6 +171,7 @@ void MainController::touchDoubleTap(ofTouchEventArgs &touch)
 }
 void MainController::changeScreen(string screen){
 	synthEdit.DisableSliders();
+	speedControl.DisableSliders();
 	if(screen=="synth_list"){
 		rootModel->currentScreen = SCREEN_LIST;
 		synthListOffsetTarget.set(0, 0, 0);
@@ -194,7 +195,6 @@ void MainController::changeScreen(string screen){
 		}else {
 			rootModel->currentScreen = SCREEN_SCROLL;
 			synthListOffsetTarget.set(-146, 0, 0);
-			speedControl.DisableSliders();
 		}
 	}else if(screen == "note_pop"){
 		rootModel->currentScreen = SCREEN_NOTE;

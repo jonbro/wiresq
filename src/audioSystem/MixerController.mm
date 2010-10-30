@@ -27,7 +27,7 @@ void MixerController::audioRequested(float * output, int bufferSize, int nChanne
 			for(int i=0;i<rootModel->synthLinks.size();i++){
 				SynthLink *link = &rootModel->synthLinks[i];
 				if (rootModel->world[(int)link->x][(int)link->y][0] == 2 && rootModel->running) {
-					currentSynth = (currentSynth+1)%8;
+					currentSynth = link->synth;
 					link->triggerTime = ofGetElapsedTimeMillis();
 					if (mainController->scroller.triggersToDisplay.size() < 10) {
 						mainController->scroller.triggersToDisplay.push_front(*link);

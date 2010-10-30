@@ -45,7 +45,7 @@ void SynthUnit::audioRequested( float * output, int bufferSize, int nChannels )
 					output[j*2] = getSampleTriangle();
 					break;
 				case 1:
-					output[j*2] = getSampleTriangle();
+					output[j*2] = getSampleSquare();
 					break;
 				default:
 					output[j*2] = getSampleNoise();

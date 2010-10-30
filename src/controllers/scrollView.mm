@@ -95,7 +95,7 @@ void ScrollView::draw(){
 			triggerDisplay.draw(theIterator->x*cellSize+cellSize/2.0, theIterator->y*cellSize+cellSize/2.0, size, size);
 		}
 	}
-	for (int i=triggersToDisplay.size(); i<0; i--) {
+	for (int i=triggersToDisplay.size(); i>0; i--) {
 		if (ofGetElapsedTimeMillis() - theIterator->triggerTime > 2000) {
 			triggersToDisplay.erase(triggersToDisplay.begin() + i);
 		}
@@ -207,26 +207,6 @@ void ScrollView::touchMoved(ofTouchEventArgs &touch)
 		offset += fingerCenterCurrent - fingerCenterStart;
 		fingerDistCurrent = ofpLength(fingerCurrent[0]-fingerCurrent[1]);
 		float scaleDiff = 1-fingerDistStart/fingerDistCurrent;
-		/*
-		 offset.z += scaleDiff; // that last thing should be a function of the current scale
-		 
-		 ofPoint ScreenCenter, ScreenCentertwo;
-		 ScreenCenter.set(ofGetWidth()/2, ofGetHeight()/2, 0);
-		 ScreenCenter *= offset.z;
-		 ScreenCenter *= 1.0-scaleDiff;
-		 /*ScreenCenter -=offset;
-		 ScreenCentertwo.set(ofGetWidth(), ofGetHeight(), 0);
-		 ScreenCentertwo -=offset;
-		 ScreenCenter *= 1.0-scaleDiff;
-		 ScreenCenter -= ScreenCentertwo;
-		 */
-		//offset += ScreenCenter;
-		
-		//offset.z = ofClamp(offset.z, 0.2, 1.8);
-		/*
-		 offset.y *= offset.z;
-		 offset.x *= offset.z;
-		 */
 		fingerDistStart = fingerDistCurrent;
 		
 		fingerCenterStart = fingerCenterCurrent;
