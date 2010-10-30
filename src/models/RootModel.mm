@@ -63,6 +63,7 @@ RootModel::RootModel(){
 	myColor.set(0, 1, 1);
 	
 	for (int i=0; i<8; i++) {
+		synthData[i].sid = i;
 		synthData[i].setup();
 		myColor.setMode(OF_COLOR_HSV).setHue((float)i/(float)(8+1));
 		synthData[i].color = myColor;
@@ -120,6 +121,8 @@ void RootModel::save(){
 	}
 	
 	// synth data
+	NSLog(@"num synths: %i", [objcRootModel.synths count]);
+	[objcRootModel.synths removeAllObjects];
 	for (int i=0; i<8; i++) {
 		synthModelObj *objCsynthData = [[synthModelObj alloc] init];
 		synthData[i].objCmodel = objCsynthData;

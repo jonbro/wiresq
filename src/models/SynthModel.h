@@ -10,6 +10,7 @@
 	NSNumber *Pitch;
 	NSNumber *Cutoff;
 	NSNumber *Res;
+	NSNumber *Volume;
 }
 
 @property (retain) NSNumber *wavType;
@@ -19,6 +20,7 @@
 @property (retain) NSNumber *Pitch;
 @property (retain) NSNumber *Cutoff;
 @property (retain) NSNumber *Res;
+@property (retain) NSNumber *Volume;
 
 @end
 
@@ -32,6 +34,8 @@ public:
 	int wavType;
 	float Attack, Hold, Decay;
 	float Pitch;
+	float Volume;
 	float Cutoff, Res;
+	int sid;
 	ofxColorf color;
 };

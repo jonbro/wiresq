@@ -2,7 +2,7 @@
 
 @implementation synthModelObj
 
-@synthesize Attack, Hold, Decay, Pitch, Cutoff, Res, wavType;
+@synthesize Attack, Hold, Decay, Pitch, Cutoff, Res, wavType, Volume;
 
 -(id)init
 {
@@ -18,6 +18,7 @@
 	[coder encodeObject:Pitch forKey:@"Pitch"];
 	[coder encodeObject:Cutoff forKey:@"Cutoff"];
 	[coder encodeObject:Res forKey:@"Res"];
+	[coder encodeObject:Volume forKey:@"Vol"];
 }
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -29,6 +30,7 @@
 	self.Pitch = [[coder decodeObjectForKey:@"Pitch"] retain];
 	self.Cutoff = [[coder decodeObjectForKey:@"Cutoff"] retain];
 	self.Res = [[coder decodeObjectForKey:@"Res"] retain];
+	self.Volume = [[coder decodeObjectForKey:@"Vol"] retain];
     return self;
 }
 @end
@@ -42,7 +44,9 @@ void SynthModel::setup()
 	Cutoff = 0.5;
 	Res = 0.0;
 	wavType = 0;
-	printf("setting up synth\n");
+	
+	Volume = 1.0;
+	printf("setting up synth: %i \n", sid);
 }
 void SynthModel::save()
 {
@@ -53,6 +57,7 @@ void SynthModel::save()
 	objCmodel.Pitch = [NSNumber numberWithFloat:Pitch];
 	objCmodel.Cutoff = [NSNumber numberWithFloat:Cutoff];
 	objCmodel.Res = [NSNumber numberWithFloat:Res];
+	objCmodel.Volume = [NSNumber numberWithFloat:Volume];
 }
 void SynthModel::load()
 {
@@ -63,4 +68,5 @@ void SynthModel::load()
 	Pitch = [objCmodel.Pitch floatValue];
 	Cutoff = [objCmodel.Cutoff floatValue];
 	Res = [objCmodel.Res floatValue];
+	Volume = [objCmodel.Volume floatValue];
 }

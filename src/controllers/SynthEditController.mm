@@ -43,9 +43,9 @@ void SynthEditController::setup()
 	threeSegment[2].loadImage("images/segment3_3.png");
 	threeSegment[2].setImageType(OF_IMAGE_COLOR_ALPHA);
 	
-	float offset = 65;
+	float offset = 20;
 	for (int i=0; i<8; i++) {
-		if (i==1 || i==4) {
+		if (i==2 || i==5) {
 			offset+=24;
 		}
 		slideControl[i].setup();
@@ -71,52 +71,56 @@ void SynthEditController::EnableSliders(){
 }
 void SynthEditController::update(){
 	// pass the data back to the synth
-	synth->wavType = (int)ceilf(slideControl[0].value*3.0)-1;
-	synth->Attack = slideControl[1].value;
-	synth->Hold = slideControl[2].value;
-	synth->Decay = slideControl[3].value;
-	synth->Cutoff = slideControl[4].value;
-	synth->Res = slideControl[5].value;
+	synth->Volume = slideControl[0].value;
+	synth->wavType = (int)ceilf(slideControl[1].value*3.0)-1;
+	synth->Attack = slideControl[2].value;
+	synth->Hold = slideControl[3].value;
+	synth->Decay = slideControl[4].value;
+	synth->Cutoff = slideControl[5].value;
+	synth->Res = slideControl[6].value;
 }
 void SynthEditController::setSliders()
 {
-	slideControl[0].value = (synth->wavType+1)/3.0;
-	slideControl[1].value = synth->Attack;
-	slideControl[2].value = synth->Hold;
-	slideControl[3].value = synth->Decay;
-	slideControl[4].value = synth->Cutoff;
-	slideControl[5].value = synth->Res;	
+	slideControl[0].value = synth->Volume;
+	slideControl[1].value = (synth->wavType+1)/3.0;
+	slideControl[2].value = synth->Attack;
+	slideControl[3].value = synth->Hold;
+	slideControl[4].value = synth->Decay;
+	slideControl[5].value = synth->Cutoff;
+	slideControl[6].value = synth->Res;	
 }
 void SynthEditController::draw()
 {
-	string settings[8] = {"WAV", "ATK", "HLD", "REL", "CUT", "RES"};
+	string settings[8] = {"VOL","WAV", "ATK", "HLD", "REL", "CUT", "RES"};
 	ofSetColor(0xffffff);
 	background.draw(0, 0);
 	ofSetColor(0xFFFFFF);
 	// draw the three segment control
 	interstate.drawString(settings[0], slideControl[0].x-interstate.stringWidth(settings[0])-10, interstate.getLineHeight()+slideControl[0].y+3);
-	threeSegment[(int)(slideControl[0].value*2.99)].draw(slideControl[0].x, slideControl[0].y);
+	threeSegment[(int)(slideControl[1].value*2.99)].draw(slideControl[1].x, slideControl[1].y);
 
 	// draw all of the sliders
-	for (int i=1; i<6; i++) {
+	for (int i=0; i<7; i++) {
 		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
 		ofSetColor(0xFFFFFF);
-		if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {
-			slideFull.draw(slideControl[i].x, slideControl[i].y);
-		}else{
-			slideBg.draw(slideControl[i].x, slideControl[i].y);
-			if (slideControl[i].value > 0) {
-				slideLeftCap.draw(slideControl[i].x, slideControl[i].y);
-				slideLoop.draw(slideControl[i].x+4, slideControl[i].y+1, slideControl[i].value*slideControl[i].width-4, slideControl[i].height-2);
-				slideRightCap.draw(slideControl[i].x+slideControl[i].value*slideControl[i].width, slideControl[i].y+1);
+		if (i!=1) { // skip the waveform controller
+			if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {
+				slideFull.draw(slideControl[i].x, slideControl[i].y);
+			}else{
+				slideBg.draw(slideControl[i].x, slideControl[i].y);
+				if (slideControl[i].value > 0) {
+					slideLeftCap.draw(slideControl[i].x, slideControl[i].y);
+					slideLoop.draw(slideControl[i].x+4, slideControl[i].y+1, slideControl[i].value*slideControl[i].width-4, slideControl[i].height-2);
+					slideRightCap.draw(slideControl[i].x+slideControl[i].value*slideControl[i].width, slideControl[i].y+1);
+				}
 			}
 		}
 	}
 	exitButtonImg.draw(exitButton.x, exitButton.y);
 	ofSetColor(0xFFFFFF);
-	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 41);
+	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 445);
 	ofSetColor(synth->color.red*255.0, synth->color.green*255.0, synth->color.blue*255.0);
-	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 40);
+	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 446);
 	// draw the synth descriptors
 	ofSetColor(0xFFFFFF);
 	interstate.drawString("AMP ENVELOPE", 65, 131);
