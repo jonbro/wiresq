@@ -162,7 +162,10 @@ void RootModel::load(){
 				synthData[i].objCmodel = synthObject;
 				synthData[i].load();
 			}
+		}else {
+			printf("failed class check \n");
 		}
+
 	}else {
 		objcRootModel = [[rootModelObj alloc] init];
 	}
