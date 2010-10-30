@@ -30,7 +30,11 @@
 	self.Pitch = [[coder decodeObjectForKey:@"Pitch"] retain];
 	self.Cutoff = [[coder decodeObjectForKey:@"Cutoff"] retain];
 	self.Res = [[coder decodeObjectForKey:@"Res"] retain];
-	self.Volume = [[coder decodeObjectForKey:@"Vol"] retain];
+	if ([coder containsValueForKey:@"Vol"]) {
+		self.Volume = [[coder decodeObjectForKey:@"Vol"] retain];
+	}else {
+		self.Volume = [NSNumber numberWithFloat:1.0];
+	}
     return self;
 }
 @end

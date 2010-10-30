@@ -103,9 +103,6 @@ void RootModel::save(){
 			NSNumber *note = [[NSNumber numberWithInt:notes[x][y]]retain];
 			[objcRootModel.world addObject:cell];
 			[objcRootModel.notes addObject:note];
-			if (world[x][y][0] == 1) {
-				NSLog(@"non zero");
-			}			
 			[cell release];
 			[note release];
 		}
