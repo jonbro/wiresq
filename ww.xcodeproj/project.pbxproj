@@ -12,6 +12,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
+		5E142AE9127E09F10072C153 /* saved_data in Resources */ = {isa = PBXBuildFile; fileRef = 5E142AE7127E09F10072C153 /* saved_data */; };
 		5E25689710ED26CC00A9501C /* CppUnit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687010ED26CC00A9501C /* CppUnit.a */; };
 		5E25689810ED26CC00A9501C /* PocoFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687110ED26CC00A9501C /* PocoFoundation.a */; };
 		5E25689910ED26CC00A9501C /* PocoNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687210ED26CC00A9501C /* PocoNet.a */; };
@@ -23,7 +24,6 @@
 		5E2568A710ED26CD00A9501C /* PocoUtil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688310ED26CC00A9501C /* PocoUtil.a */; };
 		5E2568A810ED26CD00A9501C /* PocoXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25688410ED26CC00A9501C /* PocoXML.a */; };
 		5E30B78D125D524100B68658 /* synthLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E30B78C125D524100B68658 /* synthLink.mm */; };
-		5E5ECA50127C872E00DC5B9A /* fileButtonView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA3B127C872E00DC5B9A /* fileButtonView.mm */; };
 		5E5ECA51127C872E00DC5B9A /* FileOpsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */; };
 		5E5ECA52127C872E00DC5B9A /* LoadViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */; };
 		5E5ECA53127C872E00DC5B9A /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5ECA41127C872E00DC5B9A /* MainController.mm */; };
@@ -93,6 +93,7 @@
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		5E142AE7127E09F10072C153 /* saved_data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = saved_data; path = bin/data/saved_data; sourceTree = SOURCE_ROOT; };
 		5E25687010ED26CC00A9501C /* CppUnit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = CppUnit.a; path = ../../../libs/poco/lib/iphone/CppUnit.a; sourceTree = SOURCE_ROOT; };
 		5E25687110ED26CC00A9501C /* PocoFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoFoundation.a; path = ../../../libs/poco/lib/iphone/PocoFoundation.a; sourceTree = SOURCE_ROOT; };
 		5E25687210ED26CC00A9501C /* PocoNet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoNet.a; path = ../../../libs/poco/lib/iphone/PocoNet.a; sourceTree = SOURCE_ROOT; };
@@ -105,18 +106,16 @@
 		5E25688410ED26CC00A9501C /* PocoXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoXML.a; path = ../../../libs/poco/lib/osx/PocoXML.a; sourceTree = SOURCE_ROOT; };
 		5E30B78B125D524100B68658 /* synthLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = synthLink.h; path = openFrameworks/apps/my_apps/ww_working/src/models/synthLink.h; sourceTree = DEVELOPER_DIR; };
 		5E30B78C125D524100B68658 /* synthLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = synthLink.mm; path = openFrameworks/apps/my_apps/ww_working/src/models/synthLink.mm; sourceTree = DEVELOPER_DIR; };
-		5E5ECA3A127C872E00DC5B9A /* fileButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fileButtonView.h; path = src/controllers/fileButtonView.h; sourceTree = SOURCE_ROOT; };
-		5E5ECA3B127C872E00DC5B9A /* fileButtonView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = fileButtonView.mm; path = src/controllers/fileButtonView.mm; sourceTree = SOURCE_ROOT; };
-		5E5ECA3C127C872E00DC5B9A /* FileOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileOpsViewController.h; path = src/controllers/FileOpsViewController.h; sourceTree = SOURCE_ROOT; };
-		5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FileOpsViewController.mm; path = src/controllers/FileOpsViewController.mm; sourceTree = SOURCE_ROOT; };
-		5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadViewController.h; path = src/controllers/LoadViewController.h; sourceTree = SOURCE_ROOT; };
-		5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LoadViewController.mm; path = src/controllers/LoadViewController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA3C127C872E00DC5B9A /* FileOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileOpsViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/FileOpsViewController.h; sourceTree = DEVELOPER_DIR; };
+		5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FileOpsViewController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/FileOpsViewController.mm; sourceTree = DEVELOPER_DIR; };
+		5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/LoadViewController.h; sourceTree = DEVELOPER_DIR; };
+		5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LoadViewController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/LoadViewController.mm; sourceTree = DEVELOPER_DIR; };
 		5E5ECA40127C872E00DC5B9A /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainController.h; path = src/controllers/MainController.h; sourceTree = SOURCE_ROOT; };
 		5E5ECA41127C872E00DC5B9A /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MainController.mm; path = src/controllers/MainController.mm; sourceTree = SOURCE_ROOT; };
 		5E5ECA42127C872E00DC5B9A /* NotePopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotePopController.h; path = src/controllers/NotePopController.h; sourceTree = SOURCE_ROOT; };
 		5E5ECA43127C872E00DC5B9A /* NotePopController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NotePopController.mm; path = src/controllers/NotePopController.mm; sourceTree = SOURCE_ROOT; };
-		5E5ECA44127C872E00DC5B9A /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = src/controllers/SaveViewController.h; sourceTree = SOURCE_ROOT; };
-		5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SaveViewController.mm; path = src/controllers/SaveViewController.mm; sourceTree = SOURCE_ROOT; };
+		5E5ECA44127C872E00DC5B9A /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/SaveViewController.h; sourceTree = DEVELOPER_DIR; };
+		5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SaveViewController.mm; path = openFrameworks/apps/my_apps/ww_working/src/controllers/SaveViewController.mm; sourceTree = DEVELOPER_DIR; };
 		5E5ECA46127C872E00DC5B9A /* scrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scrollView.h; path = src/controllers/scrollView.h; sourceTree = SOURCE_ROOT; };
 		5E5ECA47127C872E00DC5B9A /* scrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = scrollView.mm; path = src/controllers/scrollView.mm; sourceTree = SOURCE_ROOT; };
 		5E5ECA48127C872E00DC5B9A /* speedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speedController.h; path = src/controllers/speedController.h; sourceTree = SOURCE_ROOT; };
@@ -310,6 +309,19 @@
 			name = "core frameworks";
 			sourceTree = "<group>";
 		};
+		5E142A02127DF31C0072C153 /* additional_screens */ = {
+			isa = PBXGroup;
+			children = (
+				5E5ECA44127C872E00DC5B9A /* SaveViewController.h */,
+				5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */,
+				5E5ECA3C127C872E00DC5B9A /* FileOpsViewController.h */,
+				5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */,
+				5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */,
+				5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */,
+			);
+			name = additional_screens;
+			sourceTree = "<group>";
+		};
 		5E25686A10ED26BE00A9501C /* poco */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,18 +369,11 @@
 		5E5ECA39127C872E00DC5B9A /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5E5ECA3A127C872E00DC5B9A /* fileButtonView.h */,
-				5E5ECA3B127C872E00DC5B9A /* fileButtonView.mm */,
-				5E5ECA3C127C872E00DC5B9A /* FileOpsViewController.h */,
-				5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */,
-				5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */,
-				5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */,
+				5E142A02127DF31C0072C153 /* additional_screens */,
 				5E5ECA40127C872E00DC5B9A /* MainController.h */,
 				5E5ECA41127C872E00DC5B9A /* MainController.mm */,
 				5E5ECA42127C872E00DC5B9A /* NotePopController.h */,
 				5E5ECA43127C872E00DC5B9A /* NotePopController.mm */,
-				5E5ECA44127C872E00DC5B9A /* SaveViewController.h */,
-				5E5ECA45127C872E00DC5B9A /* SaveViewController.mm */,
 				5E5ECA46127C872E00DC5B9A /* scrollView.h */,
 				5E5ECA47127C872E00DC5B9A /* scrollView.mm */,
 				5E5ECA48127C872E00DC5B9A /* speedController.h */,
@@ -521,6 +526,7 @@
 		BB24DD8B10DA77E000E9C588 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5E142AE7127E09F10072C153 /* saved_data */,
 				5EAD90F7125793320063BF47 /* OpenDin.ttf */,
 				5EAD8ED9125579160063BF47 /* images */,
 				5EAD8E981255790A0063BF47 /* Default.png */,
@@ -843,6 +849,7 @@
 				5EAD8EF5125579160063BF47 /* images in Resources */,
 				5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */,
 				5ECD80C8126E1D7900AF36EC /* Icon@2x.png in Resources */,
+				5E142AE9127E09F10072C153 /* saved_data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,7 +891,6 @@
 				5EAD8E36125571A80063BF47 /* SynthModel.mm in Sources */,
 				5EAD8E37125571A80063BF47 /* testApp.mm in Sources */,
 				5E30B78D125D524100B68658 /* synthLink.mm in Sources */,
-				5E5ECA50127C872E00DC5B9A /* fileButtonView.mm in Sources */,
 				5E5ECA51127C872E00DC5B9A /* FileOpsViewController.mm in Sources */,
 				5E5ECA52127C872E00DC5B9A /* LoadViewController.mm in Sources */,
 				5E5ECA53127C872E00DC5B9A /* MainController.mm in Sources */,

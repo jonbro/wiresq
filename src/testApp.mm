@@ -23,7 +23,7 @@ void testApp::setup(){
 	
 	ofSoundStreamSetup(2,0,this,44100, 512, 4);
 	//saveLoad.setPosAndSize(320-40, 480-40, 40, 40);
-	rootModel.load();
+	rootModel.loadDefault();
 
 }
 

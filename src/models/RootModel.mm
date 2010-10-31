@@ -130,44 +130,70 @@ void RootModel::save(){
 	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:objcRootModel] forKey:@"savedArray"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
+void RootModel::saveToFile(NSString *file)
+{
+	save();
+	file = [file stringByAppendingString:@".wsq"];
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *path = [[documentsDirectory stringByAppendingPathComponent:file] retain];
+	bool success = [NSKeyedArchiver archiveRootObject:objcRootModel toFile:path];
+	NSLog(@"save successful: %s", success?"true":"false");
+}
+
 void RootModel::load(){
+	if([objcRootModel isKindOfClass:[rootModelObj class]]){
+		bpm = [objcRootModel.bpm floatValue];
+		clockMult = [objcRootModel.clockMult intValue];
+		// copy data from the main object
+		for (int y=0; y<NUMCELLSY; y++) {
+			for (int x=0; x<NUMCELLSX; x++) {
+				world[x][y][0] = world[x][y][1] = [[objcRootModel.world objectAtIndex:y*NUMCELLSX+x] intValue];
+				notes[x][y] = [[objcRootModel.notes objectAtIndex:y*NUMCELLSX+x] intValue];
+			}
+		}
+		
+		//clear all the links first
+		for(int i=synthLinks.size();i>0;i--){
+			synthLinks.erase(synthLinks.begin()+i);
+		}
+		
+		// copy over the data from the synth links
+		for (int i=0; i<[objcRootModel.links count]; i++) {
+			NSArray *linkObject = [objcRootModel.links objectAtIndex:i];
+			setLink([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue], [[linkObject objectAtIndex:2] intValue]);
+			printf("setting link\n");
+		}
+		int offset = [objcRootModel.synths count]-8;
+		printf("loading synths offset %i \n", offset);
+		for (int i=0; i<8; i++) {
+			synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i+offset];
+			synthData[i].objCmodel = synthObject;
+			NSLog(@"synth object: %@", synthObject.wavType);
+			synthData[i].load();
+		}
+	}else {
+		printf("failed class check \n");
+	}
+}
+void RootModel::loadFromFile(NSString *file)
+{
+	[objcRootModel release];
+	objcRootModel = [[NSKeyedUnarchiver unarchiveObjectWithFile:file] retain];
+	load();
+}
+void RootModel::loadDefault()
+{
 	NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
 	NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"savedArray"];
 	printf("RootModel::load\n");
 	if (dataRepresentingSavedArray != nil)
 	{
-		printf("RootModel::load non nil\n");
 		objcRootModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
-		if([objcRootModel isKindOfClass:[rootModelObj class]]){
-			bpm = [objcRootModel.bpm floatValue];
-			clockMult = [objcRootModel.clockMult intValue];
-			// copy data from the main object
-			for (int y=0; y<NUMCELLSY; y++) {
-				for (int x=0; x<NUMCELLSX; x++) {
-					world[x][y][0] = world[x][y][1] = [[objcRootModel.world objectAtIndex:y*NUMCELLSX+x] intValue];
-					notes[x][y] = [[objcRootModel.notes objectAtIndex:y*NUMCELLSX+x] intValue];
-				}
-			}
-			for (int i=0; i<[objcRootModel.links count]; i++) {
-				NSArray *linkObject = [objcRootModel.links objectAtIndex:i];
-				setLink([[linkObject objectAtIndex:0]intValue], [[linkObject objectAtIndex:1] intValue], [[linkObject objectAtIndex:2] intValue]);
-				printf("setting link\n");
-			}
-			int offset = [objcRootModel.synths count]-8;
-			printf("loading synths offset %i \n", offset);
-			for (int i=0; i<8; i++) {
-				synthModelObj *synthObject = [objcRootModel.synths objectAtIndex:i+offset];
-				synthData[i].objCmodel = synthObject;
-				NSLog(@"synth object: %@", synthObject.wavType);
-				synthData[i].load();
-			}
-		}else {
-			printf("failed class check \n");
-		}
-
-	}else {
+	} else {
 		objcRootModel = [[rootModelObj alloc] init];
 	}
+	load();
 }
 void RootModel::update(){
 	if (running) {

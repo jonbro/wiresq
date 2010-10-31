@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "RootModel.h"
 
-@interface SaveViewController : UIViewController {
-	UITextField*			textField;
+@interface SaveViewController : UIViewController<UITextFieldDelegate> {
+	UITextField	*textField;
+	UIImageView	*textFieldContainer;
+	UIImageView	*fileNameLabel;
+	UIButton	*saveButton;
+	RootModel *rootModel;
 }
+@property (assign) RootModel* rootModel;
+@property (retain) UITextField	*textField;
+
+-(void)saveClick;
 
 @end

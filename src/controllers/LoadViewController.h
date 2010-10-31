@@ -11,6 +11,8 @@
 #import "fileButtonView.h"
 
 @interface LoadViewController : UITableViewController {
+	int numRows;
+	NSMutableArray *files;
 }
 
 @end

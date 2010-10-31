@@ -48,6 +48,8 @@ void MainController::setup()
 
 	toFileOps.setPosAndSize(280, 440, 40, 40);
 	fileOpsView = [[FileOpsViewController alloc]init];
+	fileOpsView.rootModel = rootModel;
+	
 }
 void MainController::draw(ofEventArgs &e)
 {
@@ -112,38 +114,55 @@ void MainController::touchDown(ofTouchEventArgs &touch)
 		touch.y -= synthListOffset.y;
 	}
 	if (toFileOps.hitTest(touch)) {
-		ofSetFrameRate(0);
-		[ofxiPhoneGetUIWindow() addSubview:fileOpsView.view];
-	}
-	if (rootModel->currentScreen == SCREEN_EDIT) {
-		synthEdit.touchDown(touch);
-	}else if (rootModel->currentScreen == SCREEN_LIST || rootModel->currentScreen == SCREEN_SCROLL || rootModel->currentScreen == SCREEN_SPEED) {
-		if (rootModel->currentScreen == SCREEN_LIST && synthList.hitTest(touch)){
-			if (topBar.toSynthControl.hitTest(touch)) {
-				topBar.touchDown(touch);
-			}else {
-				synthList.touchDown(touch);
+
+		UIView *currentView = ofxiPhoneGetGLView();
+
+		// get the the underlying UIWindow, or the view containing the current view view
+		UIView *theWindow = [currentView superview];
+		
+		// remove the current view and replace with myView1
+		[currentView removeFromSuperview];
+		[theWindow addSubview:fileOpsView.view];
+		
+		// set up an animation for the transition between the views
+		CATransition *animation = [CATransition animation];
+		[animation setDuration:0.5];
+		[animation setType:kCATransitionPush];
+		[animation setSubtype:kCATransitionFromRight];
+		[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+		
+		[[theWindow layer] addAnimation:animation forKey:@"SwitchToView1"];		
+	}else {
+		if (rootModel->currentScreen == SCREEN_EDIT) {
+			synthEdit.touchDown(touch);
+		}else if (rootModel->currentScreen == SCREEN_LIST || rootModel->currentScreen == SCREEN_SCROLL || rootModel->currentScreen == SCREEN_SPEED) {
+			if (rootModel->currentScreen == SCREEN_LIST && synthList.hitTest(touch)){
+				if (topBar.toSynthControl.hitTest(touch)) {
+					topBar.touchDown(touch);
+				}else {
+					synthList.touchDown(touch);
+				}
+			}else{
+				if (topBar.hitTest(touch)) {
+					topBar.touchDown(touch);
+				}else if (scroller.hitTest(touch)) {
+					scroller.touchDown(touch);
+					doubleOnScroller = true;
+				}
 			}
-		}else{
-			if (topBar.hitTest(touch)) {
-				topBar.touchDown(touch);
-			}else if (scroller.hitTest(touch)) {
-				scroller.touchDown(touch);
-				doubleOnScroller = true;
-			}
+			// remove the speed offset
+		}else if (rootModel->currentScreen == SCREEN_NOTE) {
+			// remove the speed offset
+			touch.y = startY;
+			notePopControl.touchDown(touch);
 		}
-		// remove the speed offset
-	}else if (rootModel->currentScreen == SCREEN_NOTE) {
-		// remove the speed offset
 		touch.y = startY;
-		notePopControl.touchDown(touch);
+		if (ofGetElapsedTimeMillis() - lastTouchTime < 200 && lastTouch == touch.id && doubleOnScroller == true) {
+			this->touchDoubleTap(touch);
+		}
+		lastTouchTime = ofGetElapsedTimeMillis();
+		lastTouch = touch.id;		
 	}
-	touch.y = startY;
-	if (ofGetElapsedTimeMillis() - lastTouchTime < 200 && lastTouch == touch.id && doubleOnScroller == true) {
-		this->touchDoubleTap(touch);
-	}
-	lastTouchTime = ofGetElapsedTimeMillis();
-	lastTouch = touch.id;	
 }
 void MainController::touchMoved(ofTouchEventArgs &touch)
 {

@@ -37,8 +37,12 @@ public:
 	RootModel();
 	void update();
 	void step();
+	
 	void save();
+	void saveToFile(NSString *file);
 	void load();
+	void loadFromFile(NSString *file);
+	void loadDefault();
 	
 	void setLink(int x, int y, int synth);
 	bool hasLink(int x, int y, int synth);
