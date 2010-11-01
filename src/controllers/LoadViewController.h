@@ -14,5 +14,5 @@
 	int numRows;
 	NSMutableArray *files;
 }
-
+-(void)loadFiles;
 @end

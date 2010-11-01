@@ -15,7 +15,12 @@
 	self = [super init]; 
 	
 	files = [[NSMutableArray alloc]init];
-	
+	[self loadFiles];
+	return self;
+}
+-(void)loadFiles
+{
+	[files removeAllObjects];
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSArray *docsContent = [[NSFileManager defaultManager] directoryContentsAtPath:documentsDirectory];
@@ -26,7 +31,6 @@
 			[files addObject:file];
 		}
 	}
-	return self;
 }
 -  (NSInteger)tableView:(UITableView *)tableView  numberOfRowsInSection:(NSInteger)section 
 {

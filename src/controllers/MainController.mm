@@ -46,7 +46,10 @@ void MainController::setup()
 	notePopControl.mainController = this;
 	lastTouch = 0;
 
-	toFileOps.setPosAndSize(280, 440, 40, 40);
+	toFileOps.setPosAndSize(282, 445, 38, 35);
+	toFileOps.disableAllEvents();
+	toExtra.loadImage("images/to_extra.png");
+	
 	fileOpsView = [[FileOpsViewController alloc]init];
 	fileOpsView.rootModel = rootModel;
 	
@@ -63,6 +66,7 @@ void MainController::draw(ofEventArgs &e)
 			scroller.draw();
 		ofPopMatrix();
 		topBar.draw();
+		toExtra.draw(toFileOps.x, toFileOps.y);
 	ofPopMatrix();
 	ofPushMatrix();
 	ofTranslate(synthListOffset.x, 0, 0);
@@ -81,7 +85,6 @@ void MainController::draw(ofEventArgs &e)
 		synthList.draw();		
 		ofPopMatrix();
 	}
-	toFileOps.draw();
 	ofPopMatrix();
 	if (rootModel->currentScreen == SCREEN_SPEED) {
 		ofPushMatrix();

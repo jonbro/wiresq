@@ -33,8 +33,12 @@ public:
 	ofPoint synthListOffset, synthListOffsetTarget;
 	int lastTouch, lastTouchTime;
 	bool doubleOnScroller;
+	
 	RootModel *rootModel;
+	
 	Button toFileOps;
+	ofImage toExtra;
+	
 	ScrollView scroller;
 	TopBarController topBar;
 	SynthListController synthList;

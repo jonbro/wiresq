@@ -37,7 +37,7 @@
 				];
 	textField.returnKeyType = UIReturnKeyDone;
 	textField.delegate = self;
-	
+	textField.text = @"";
 	saveButton = [[UIButton alloc]initWithFrame:CGRectMake(left, textFieldContainer.frame.size.height+textFieldContainer.frame.origin.y+10, 49, 36)];
 	[saveButton 
 		setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"button_save" ofType:@"png" inDirectory:@"images"]] 
@@ -58,7 +58,18 @@
 }
 -(void)saveClick
 {
-	[self.parentViewController save];
-	[textField resignFirstResponder];
+	if ([textField.text isEqualToString:@""]){
+		UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle: @"Not Saved"
+								   message: @"You must enter a filename."
+								  delegate: self
+						 cancelButtonTitle: @"OK"
+						 otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}else {
+		[self.parentViewController save];
+		[textField resignFirstResponder];		
+	}
 }
 @end

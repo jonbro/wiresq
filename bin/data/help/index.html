@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>wiresq_help</title>
+	<!-- css -->
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+	<!-- javascript -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/cufon-yui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/OpenDin_500.font.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/site.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-251531-8']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<meta name="viewport" content="width=500" />
+
+</head>
+<body>
+	<div class='clear'></div>
+	<h2>Editor</h2>
+	<div class='help_block'>
+		<h3>World</h3>
+		<div class='left_img'><img src="img/help_world.jpg"/></div>
+		<p><span style='background: #F8C942;color: #000;'>Wires are yellow.</span>  <span style='background: #E03B25;color: #000;'>Sparks are red.</span> <span style='background: #1C76F0;color: #000;'>Tails are blue.</span></p>
+		<p><img src="img/help_pencil.gif" class='right_img' alt="Help Pencil">You can toggle between painting cells and scrolling by clicking the icon in the top left corner.</p>
+	</div>
+
+	<div class='help_block'>
+		<h3>Rules</h3>
+		<div class='left_img'><img src="img/help_rules.jpg"/></div>
+		<p><span style='background: #E03B25;color: #000;'>Sparks</span> always become <span style='background: #1C76F0;color: #000;'>Tails</span>.</p>
+		<p><span style='background: #1C76F0;color: #000;'>Tails</span> always become <span style='background: #F8C942;color: #000;'>Wires</span>.</p>
+		<p><span style='background: #F8C942;color: #000;'>Wires</span> become <span style='background: #E03B25;color: #000;'>Sparks</span> if <b>one</b> or <b>two</b> of the neighbor cells are <span style='background: #E03B25;color: #000;'>Sparks</span>. The neighbors can be either right next door or on a diagonal.</p>	
+	</div>
+
+	<div class='help_block'>
+		<h3>Links</h3>
+		<div class='left_img'><img src="img/help_synth_link.jpg"/></div><p>Drag from the synth in the left column to a cell in the world. Double click a cell to remove an existing link for the selected synth.</p>	
+	</div>
+	<div class='help_block'>
+		<h3>Notes</h3>
+		<div class='left_img'><img src="img/help_note.jpg"/></div><p>Double tap a cell to bring up the note selector. Any synths linked to this cell will trigger with this note. Tap outside the selector to hide it.</p>	
+	</div>
+	<div class='help_block'>
+		<h3>Speed</h3>
+		<div class='left_img'><img src="img/help_speed.jpg"/></div><p>Tap the speed in the top bar to bring up the speed control. There is also a clock multiplyer to simplify building structures that need to run faster.</p>	
+	</div>
+	
+	<div class='help_block'>
+		<h3>Synths</h3>
+		<div class='left_img'><img src="img/help_synth.jpg"/></div><p>This is a simple subtractive synth. There are controls for the volume envelope (ATK, HLD, REL), the waveform, and a filter (CUT, RES).</p>	
+	</div>
+	<div class='clear'>
+		
+	</div>
+	<h2>Structures</h2>
+	<div class='help_block'>
+		<h3>Clock</h3>
+		<div class='left_img'><img src="img/help_cycle.jpg"/></div><p>Any closed loop will create a clock. You can generate pulses at different rates by changing the size of the loops.</p>	
+	</div>
+	<div class='help_block'>
+		<h3>Diode</h3>
+		<div class='left_img'><img src="img/help_diode.jpg"/></div><p>You can control the direction of sparks by placing diodes. This one will only allow sparks to go downward, not upwards.</p>	
+	</div>
+	<div class='help_block'>
+		<h3>XOR</h3>
+		<div class='left_img'><img src="img/help_xor.jpg"/></div><p>A spark coming from the left or right will pass, but if two sparks arrive simultaneously, neither will pass. Make sure your timing is right on this or you may have strage sparks traveling back up your wires.</p>	
+	</div>
+	<div class='help_block'>
+		<h3>AND-NOT</h3>
+		<div class='left_img'><img src="img/help_and_not.jpg"/></div><p>A spark coming from the left will pass unless a spark arrives simultaneously from the right. A spark from the right will never pass.</p>	
+	</div>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-251531-8']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+</body>
+</html>

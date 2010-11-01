@@ -13,6 +13,8 @@
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
 		5E142AE9127E09F10072C153 /* saved_data in Resources */ = {isa = PBXBuildFile; fileRef = 5E142AE7127E09F10072C153 /* saved_data */; };
+		5E142DAD127E40B80072C153 /* HelpViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E142DAC127E40B80072C153 /* HelpViewController.mm */; };
+		5E142DD2127E42FD0072C153 /* help in Resources */ = {isa = PBXBuildFile; fileRef = 5E142DD0127E42FD0072C153 /* help */; };
 		5E25689710ED26CC00A9501C /* CppUnit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687010ED26CC00A9501C /* CppUnit.a */; };
 		5E25689810ED26CC00A9501C /* PocoFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687110ED26CC00A9501C /* PocoFoundation.a */; };
 		5E25689910ED26CC00A9501C /* PocoNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687210ED26CC00A9501C /* PocoNet.a */; };
@@ -94,6 +96,9 @@
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		5E142AE7127E09F10072C153 /* saved_data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = saved_data; path = bin/data/saved_data; sourceTree = SOURCE_ROOT; };
+		5E142DA9127E409E0072C153 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/HelpViewController.h; sourceTree = DEVELOPER_DIR; };
+		5E142DAC127E40B80072C153 /* HelpViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HelpViewController.mm; path = src/controllers/HelpViewController.mm; sourceTree = SOURCE_ROOT; };
+		5E142DD0127E42FD0072C153 /* help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = help; path = bin/data/help; sourceTree = SOURCE_ROOT; };
 		5E25687010ED26CC00A9501C /* CppUnit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = CppUnit.a; path = ../../../libs/poco/lib/iphone/CppUnit.a; sourceTree = SOURCE_ROOT; };
 		5E25687110ED26CC00A9501C /* PocoFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoFoundation.a; path = ../../../libs/poco/lib/iphone/PocoFoundation.a; sourceTree = SOURCE_ROOT; };
 		5E25687210ED26CC00A9501C /* PocoNet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoNet.a; path = ../../../libs/poco/lib/iphone/PocoNet.a; sourceTree = SOURCE_ROOT; };
@@ -318,6 +323,8 @@
 				5E5ECA3D127C872E00DC5B9A /* FileOpsViewController.mm */,
 				5E5ECA3E127C872E00DC5B9A /* LoadViewController.h */,
 				5E5ECA3F127C872E00DC5B9A /* LoadViewController.mm */,
+				5E142DA9127E409E0072C153 /* HelpViewController.h */,
+				5E142DAC127E40B80072C153 /* HelpViewController.mm */,
 			);
 			name = additional_screens;
 			sourceTree = "<group>";
@@ -526,6 +533,7 @@
 		BB24DD8B10DA77E000E9C588 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5E142DD0127E42FD0072C153 /* help */,
 				5E142AE7127E09F10072C153 /* saved_data */,
 				5EAD90F7125793320063BF47 /* OpenDin.ttf */,
 				5EAD8ED9125579160063BF47 /* images */,
@@ -850,6 +858,7 @@
 				5EAD90F8125793320063BF47 /* OpenDin.ttf in Resources */,
 				5ECD80C8126E1D7900AF36EC /* Icon@2x.png in Resources */,
 				5E142AE9127E09F10072C153 /* saved_data in Resources */,
+				5E142DD2127E42FD0072C153 /* help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +910,7 @@
 				5E5ECA58127C872E00DC5B9A /* SynthEditController.mm in Sources */,
 				5E5ECA59127C872E00DC5B9A /* SynthListController.mm in Sources */,
 				5E5ECA5A127C872E00DC5B9A /* TopBarController.mm in Sources */,
+				5E142DAD127E40B80072C153 /* HelpViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
