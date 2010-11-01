@@ -70,7 +70,7 @@
 	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
 	
 	[[theWindow layer] addAnimation:animation forKey:@"SwitchToMain"];
-	
+	rootModel->setFrameRate(30);
 	// roll back the selected view
 	// to the previous selected one
 	self.selectedViewController = lastViewController;	

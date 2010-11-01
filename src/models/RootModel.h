@@ -13,6 +13,7 @@
 #include "SynthModel.h"
 #include "synthLink.h"
 #include <vector>
+#include "ofxiPhoneExtras.h"
 
 @interface rootModelObj : NSObject <NSCoding> {
 	NSMutableArray *world;
@@ -48,7 +49,8 @@ public:
 	bool hasLink(int x, int y, int synth);
 	void removeLink(int x, int y, int synth);
 	int neighbors(int x, int y);
-	
+	void setFrameRate(int rate);
+
 	rootModelObj *objcRootModel;
 	int world[NUMCELLSX][NUMCELLSY][2];
 	int notes[NUMCELLSX][NUMCELLSY];

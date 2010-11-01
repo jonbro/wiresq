@@ -3,7 +3,7 @@
 #import "LoadViewController.h"
 #import "SaveViewController.h"
 #import "ofMain.h"
-#include "ofxiPhoneExtras.h"
+#import "ofxiPhoneExtras.h"
 #import "RootModel.h"
 #import "HelpViewController.h"
 

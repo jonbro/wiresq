@@ -117,7 +117,7 @@ void MainController::touchDown(ofTouchEventArgs &touch)
 		touch.y -= synthListOffset.y;
 	}
 	if (toFileOps.hitTest(touch)) {
-
+		ofSetFrameRate(0);
 		UIView *currentView = ofxiPhoneGetGLView();
 
 		// get the the underlying UIWindow, or the view containing the current view view

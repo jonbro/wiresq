@@ -282,5 +282,10 @@ bool RootModel::hasLink(int x, int y, int synth)
 	}
 	return false;
 }
-
+void RootModel::setFrameRate(int rate)
+{
+	NSLog(@"setting rate");
+	[ofxiPhoneGetAppDelegate() startAnimation];
+	ofSetFrameRate(30);
+}
 

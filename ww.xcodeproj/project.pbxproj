@@ -15,6 +15,9 @@
 		5E142AE9127E09F10072C153 /* saved_data in Resources */ = {isa = PBXBuildFile; fileRef = 5E142AE7127E09F10072C153 /* saved_data */; };
 		5E142DAD127E40B80072C153 /* HelpViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E142DAC127E40B80072C153 /* HelpViewController.mm */; };
 		5E142DD2127E42FD0072C153 /* help in Resources */ = {isa = PBXBuildFile; fileRef = 5E142DD0127E42FD0072C153 /* help */; };
+		5E142EEC127E4D320072C153 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E142EEB127E4D320072C153 /* libGoogleAnalytics.a */; };
+		5E142EEE127E4D6F0072C153 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E142EED127E4D6F0072C153 /* libsqlite3.0.dylib */; };
+		5E142EF0127E4D7C0072C153 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E142EEF127E4D7C0072C153 /* CFNetwork.framework */; };
 		5E25689710ED26CC00A9501C /* CppUnit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687010ED26CC00A9501C /* CppUnit.a */; };
 		5E25689810ED26CC00A9501C /* PocoFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687110ED26CC00A9501C /* PocoFoundation.a */; };
 		5E25689910ED26CC00A9501C /* PocoNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E25687210ED26CC00A9501C /* PocoNet.a */; };
@@ -99,6 +102,10 @@
 		5E142DA9127E409E0072C153 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = openFrameworks/apps/my_apps/ww_working/src/controllers/HelpViewController.h; sourceTree = DEVELOPER_DIR; };
 		5E142DAC127E40B80072C153 /* HelpViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HelpViewController.mm; path = src/controllers/HelpViewController.mm; sourceTree = SOURCE_ROOT; };
 		5E142DD0127E42FD0072C153 /* help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = help; path = bin/data/help; sourceTree = SOURCE_ROOT; };
+		5E142EEA127E4D320072C153 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GANTracker.h; path = src/analytics/GANTracker.h; sourceTree = SOURCE_ROOT; };
+		5E142EEB127E4D320072C153 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = src/analytics/libGoogleAnalytics.a; sourceTree = SOURCE_ROOT; };
+		5E142EED127E4D6F0072C153 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		5E142EEF127E4D7C0072C153 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5E25687010ED26CC00A9501C /* CppUnit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = CppUnit.a; path = ../../../libs/poco/lib/iphone/CppUnit.a; sourceTree = SOURCE_ROOT; };
 		5E25687110ED26CC00A9501C /* PocoFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoFoundation.a; path = ../../../libs/poco/lib/iphone/PocoFoundation.a; sourceTree = SOURCE_ROOT; };
 		5E25687210ED26CC00A9501C /* PocoNet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = PocoNet.a; path = ../../../libs/poco/lib/iphone/PocoNet.a; sourceTree = SOURCE_ROOT; };
@@ -263,6 +270,9 @@
 				E496D5B11252C8210098A2B3 /* glu-iphone.a in Frameworks */,
 				E496D5B21252C8210098A2B3 /* glu.a in Frameworks */,
 				5EAD8FA012557DBB0063BF47 /* freetype.a in Frameworks */,
+				5E142EEC127E4D320072C153 /* libGoogleAnalytics.a in Frameworks */,
+				5E142EEE127E4D6F0072C153 /* libsqlite3.0.dylib in Frameworks */,
+				5E142EF0127E4D7C0072C153 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +320,8 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */,
 				5326AEA710A23A0500278DE6 /* CoreLocation.framework */,
+				5E142EED127E4D6F0072C153 /* libsqlite3.0.dylib */,
+				5E142EEF127E4D7C0072C153 /* CFNetwork.framework */,
 			);
 			name = "core frameworks";
 			sourceTree = "<group>";
@@ -328,6 +340,16 @@
 			);
 			name = additional_screens;
 			sourceTree = "<group>";
+		};
+		5E142EE9127E4D320072C153 /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				5E142EEA127E4D320072C153 /* GANTracker.h */,
+				5E142EEB127E4D320072C153 /* libGoogleAnalytics.a */,
+			);
+			name = analytics;
+			path = src/analytics;
+			sourceTree = SOURCE_ROOT;
 		};
 		5E25686A10ED26BE00A9501C /* poco */ = {
 			isa = PBXGroup;
@@ -770,6 +792,7 @@
 		E4D8936A11527B74007E1F53 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5E142EE9127E4D320072C153 /* analytics */,
 				5E5ECA39127C872E00DC5B9A /* controllers */,
 				5EAD8E01125571A80063BF47 /* audioSystem */,
 				5EAD8E14125571A80063BF47 /* interface */,
@@ -934,7 +957,10 @@
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ofxiphone-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/openFrameworks/apps/my_apps/ww_working/src/analytics\"",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${TARGET_NAME}";
 			};
@@ -951,6 +977,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/openFrameworks/libs/freetype/lib/osx\"",
+					"\"$(DEVELOPER_DIR)/openFrameworks/apps/my_apps/ww_working/src/analytics\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -1105,6 +1132,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/openFrameworks/libs/freetype/lib/osx\"",
+					"\"$(DEVELOPER_DIR)/openFrameworks/apps/my_apps/ww_working/src/analytics\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "${TARGET_NAME}";

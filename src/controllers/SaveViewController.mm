@@ -7,7 +7,7 @@
 //
 
 #import "SaveViewController.h"
-
+#import "GANTracker.h"
 
 @implementation SaveViewController
 
@@ -68,6 +68,15 @@
 		[alert show];
 		[alert release];
 	}else {
+		NSError *error;
+		if (![[GANTracker sharedTracker] trackEvent:@"file_save"
+											 action:@"my_action"
+											  label:@"my_label"
+											  value:-1
+										  withError:&error]) {
+			// Handle error here
+			NSLog(@"errord");
+		}		
 		[self.parentViewController save];
 		[textField resignFirstResponder];		
 	}
