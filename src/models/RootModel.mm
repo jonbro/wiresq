@@ -190,10 +190,10 @@ void RootModel::loadDefault()
 	if (dataRepresentingSavedArray != nil)
 	{
 		objcRootModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
+		load();
 	} else {
 		objcRootModel = [[rootModelObj alloc] init];
 	}
-	load();
 }
 void RootModel::update(){
 	if (running) {

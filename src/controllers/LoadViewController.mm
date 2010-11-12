@@ -31,6 +31,7 @@
 			[files addObject:file];
 		}
 	}
+	[self.view reloadData];
 }
 -  (NSInteger)tableView:(UITableView *)tableView  numberOfRowsInSection:(NSInteger)section 
 {
