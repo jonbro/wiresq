@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.heavyephemeralindustries.${PRODUCT_NAME:identifier}</string>
 	<key>UIStatusBarHidden</key>
