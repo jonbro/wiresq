@@ -31,6 +31,6 @@ void MultiButton::addState(int _state)
 void MultiButton::draw()
 {
 	ofFill();
-	ofSetColor(states[state]);
+	ofSetHexColor(states[state]);
 	ofRect(x, y, width, height);
 }

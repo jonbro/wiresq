@@ -68,15 +68,15 @@ void SpeedController::setSliders()
 }
 void SpeedController::draw()
 {
-	ofSetColor(0x4f565a);
+	ofSetHexColor(0x4f565a);
 	ofRect(0, 0, 320, 100);
 	string settings[7] = {"BPM", "CLK"};
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	// draw all of the custom controllers
 	for (int i=0; i<2; i++) {
 		ofSetColor(0, 0, 0);
 		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
-		ofSetColor(0xFFFFFF);
+		ofSetHexColor(0xFFFFFF);
 		if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {
 			slideFull.draw(slideControl[i].x, slideControl[i].y);
 		}else{

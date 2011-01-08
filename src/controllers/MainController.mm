@@ -10,6 +10,8 @@ void MainController::setup()
 	ofAddListener(ofEvents.update, this, &MainController::update);
 	ofAddListener(ofEvents.draw, this, &MainController::draw);
 
+	printf("MainController::setup loaded\n");
+
 	topBar.setPosAndSize(0, 0, 320, 44);
 	topBar.rootModel = rootModel;
 	topBar.mainController = this;
@@ -56,9 +58,9 @@ void MainController::setup()
 }
 void MainController::draw(ofEventArgs &e)
 {
-	ofSetColor(0x404040);
+	ofSetHexColor(0x404040);
 	ofRect(0, 0, 320, 480);
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	ofPushMatrix();
 		ofTranslate(0, synthListOffset.y, 0);
 		ofPushMatrix();

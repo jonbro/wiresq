@@ -48,9 +48,9 @@ bool CircleButton::hitTest(ofTouchEventArgs &touch){
 void CircleButton::draw()
 {
 	if(hasTouch){
-		ofSetColor(touchColor);
+		ofSetHexColor(touchColor);
 	}else{
-		ofSetColor(color);
+		ofSetHexColor(color);
 	}
 	// cache the points for the current resolution
 	

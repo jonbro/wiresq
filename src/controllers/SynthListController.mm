@@ -36,7 +36,7 @@ void SynthListController::update()
 }
 void SynthListController::draw()
 {
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	background.draw(0, 0);
 	int lastY = 6;
 	for (int i=0; i<numSynths; i++) {

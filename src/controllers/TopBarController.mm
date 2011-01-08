@@ -47,6 +47,7 @@ void TopBarController::setup(){
 	toSynthControl.setPosAndSize(0, 445, 42, 44);
 	toSynthControl.removeListeners();
 	atSynthList = false;
+	printf("TopBarController::setup loaded\n");
 	interstate.loadFont("OpenDin.ttf", 14);
 }
 bool TopBarController::hitTest(ofTouchEventArgs &touch)

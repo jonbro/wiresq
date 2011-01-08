@@ -92,9 +92,9 @@ void SynthEditController::setSliders()
 void SynthEditController::draw()
 {
 	string settings[8] = {"VOL","WAV", "ATK", "HLD", "REL", "CUT", "RES"};
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	background.draw(0, 0);
-	ofSetColor(0xFFFFFF);
+	ofSetHexColor(0xFFFFFF);
 	// draw the three segment control
 	interstate.drawString(settings[0], slideControl[0].x-interstate.stringWidth(settings[0])-10, interstate.getLineHeight()+slideControl[0].y+3);
 	threeSegment[(int)(slideControl[1].value*2.99)].draw(slideControl[1].x, slideControl[1].y);
@@ -102,7 +102,7 @@ void SynthEditController::draw()
 	// draw all of the sliders
 	for (int i=0; i<7; i++) {
 		interstate.drawString(settings[i], slideControl[i].x-interstate.stringWidth(settings[i])-10, interstate.getLineHeight()+slideControl[i].y+3);
-		ofSetColor(0xFFFFFF);
+		ofSetHexColor(0xFFFFFF);
 		if (i!=1) { // skip the waveform controller
 			if (slideControl[i].value*slideControl[i].width > slideControl[i].width-3) {
 				slideFull.draw(slideControl[i].x, slideControl[i].y);
@@ -117,12 +117,12 @@ void SynthEditController::draw()
 		}
 	}
 	exitButtonImg.draw(exitButton.x, exitButton.y);
-	ofSetColor(0xFFFFFF);
+	ofSetHexColor(0xFFFFFF);
 	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 445);
 	ofSetColor(synth->color.red*255.0, synth->color.green*255.0, synth->color.blue*255.0);
 	interstateLrg.drawString("syn "+ofToString(rootModel->currentSynth, 0), 65, 446);
 	// draw the synth descriptors
-	ofSetColor(0xFFFFFF);
+	ofSetHexColor(0xFFFFFF);
 	interstate.drawString("AMP ENVELOPE", 65, 131);
 	interstate.drawString("FILTER", 65, 299);
 

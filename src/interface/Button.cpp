@@ -17,9 +17,9 @@ void Button::draw()
 {
 	ofFill();
 	if (state) {
-		ofSetColor(colorTouch);
+		ofSetHexColor(colorTouch);
 	}else {
-		ofSetColor(color);
+		ofSetHexColor(color);
 	}
 	ofRect(x, y, width, height);
 }

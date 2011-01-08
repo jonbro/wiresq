@@ -20,7 +20,7 @@ void ScrollView::setup()
 	triggerDisplay.setAnchorPercent(0.5, 0.5);
 }
 void ScrollView::draw(){
-	ofSetColor(0xFFFFFF);
+	ofSetHexColor(0xFFFFFF);
 	// standard size is 40 40
 	ofPushMatrix();
 	float cellSize = 40.0*offset.z;
